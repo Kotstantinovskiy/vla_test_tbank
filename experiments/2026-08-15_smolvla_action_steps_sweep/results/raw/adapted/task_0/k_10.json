@@ -3,6 +3,8 @@
   "model": "artifacts/checkpoints/naive/task_0/k_10/checkpoints/last/pretrained_model",
   "revision": null,
   "task_id": 0,
+  "logical_task_id": 0,
+  "env_task_id": 0,
   "demo_budget": 10,
   "condition": "true",
   "environment_instruction": "open the middle drawer of the cabinet",

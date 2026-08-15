@@ -396,12 +396,55 @@ def write_report(summary: dict[str, Any], path: Path) -> None:
     best_fixed_step = max(
         ACTION_STEPS, key=lambda step: (adapted_mean_by_step[step], -step)
     )
+    best_shorter_by_task: dict[str, tuple[str, int, dict[str, Any]]] = {}
+    for task_id, task in summary["tasks"].items():
+        candidates = [
+            (budget, step, result["points"][str(step)])
+            for budget, result in task["budgets"].items()
+            if int(budget) in ADAPTED_BUDGETS
+            for step in ACTION_STEPS
+            if step != 50
+        ]
+        best_shorter_by_task[task_id] = max(
+            candidates,
+            key=lambda item: (
+                item[2]["delta_vs_paired_50"],
+                item[2]["success_rate"],
+                -item[1],
+            ),
+        )
+    fixed_step_task_deltas = {
+        task_id: sum(
+            task["budgets"][str(budget)]["points"][str(best_fixed_step)][
+                "success_rate"
+            ]
+            - task["budgets"][str(budget)]["points"]["50"]["success_rate"]
+            for budget in ADAPTED_BUDGETS
+        )
+        / len(ADAPTED_BUDGETS)
+        for task_id, task in summary["tasks"].items()
+    }
+    anchor_candidates = [
+        (
+            task_id,
+            budget,
+            result["rerun_50_success_rate"],
+            result["frozen_baseline_success_rate"],
+        )
+        for task_id, task in summary["tasks"].items()
+        for budget, result in task["budgets"].items()
+        if int(budget) in ADAPTED_BUDGETS
+    ]
+    anchor_task, anchor_budget, anchor_rerun, anchor_frozen = max(
+        anchor_candidates, key=lambda item: abs(item[2] - item[3])
+    )
     lines = [
         "# Action-step sweep report",
         "",
-        "This report is generated from the completed rollout JSON files. The original",
-        "Task 1 baseline is frozen; every new point uses the same checkpoint weights and",
-        "changes only `n_action_steps` at inference.",
+        "This report is generated from the completed rollout JSON files. Logical task IDs",
+        "0/1/2 map to `libero_goal` environment IDs 0/9/3. The corrected Task 1 baseline",
+        "is frozen; every new point uses the same checkpoint weights and changes only",
+        "`n_action_steps` at inference.",
         "",
         "## Mean success",
         "",
@@ -426,33 +469,35 @@ def write_report(summary: dict[str, Any], path: Path) -> None:
                 f"| {task_id} | {budget} | {ties} | {point['success_rate']:.3f} | "
                 f"{point['delta_vs_paired_50']:+.3f} |"
             )
-    task_0 = summary["tasks"]["0"]["budgets"]
+    gain_fragments = []
+    for task_id in summary["tasks"]:
+        budget, step, point = best_shorter_by_task[task_id]
+        gain_fragments.append(
+            f"task {task_id}: k={budget}, n={step}, "
+            f"{point['success_rate']:.2f} ({point['delta_vs_paired_50']:+.2f})"
+        )
     lines.extend(
         [
             "",
             "## Interpretation",
             "",
-            "The prediction of the largest gain on task 1 was not supported. Tasks 1 and 2 "
-            "remained at zero for every budget and horizon; only the already learned drawer "
-            "task 0 responded to the inference change. This suggests that tasks 1 and 2 fail "
-            "before open-loop compounding error becomes the main bottleneck.",
-            "",
-            f"For task 0, k=5 peaks at n=10 ({task_0['5']['points']['10']['success_rate']:.2f}, "
-            f"{task_0['5']['points']['10']['delta_vs_paired_50']:+.2f} versus paired n=50), "
-            f"k=10 peaks at n=25 ({task_0['10']['points']['25']['success_rate']:.2f}, "
-            f"{task_0['10']['points']['25']['delta_vs_paired_50']:+.2f}), while k=25 is best "
-            f"at n=50 ({task_0['25']['points']['50']['success_rate']:.2f}). The effect is "
-            "therefore not uniform across k, and n=1 is never uniquely best.",
+            "The prediction of the largest gain on task 1 was not supported. The best shorter-"
+            "horizon point for each task, with delta versus its paired n=50 anchor, is: "
+            + "; ".join(gain_fragments)
+            + ". The effect is heterogeneous across both tasks and demonstration budgets.",
             "",
             f"Across the three adapted budgets, the best single fixed horizon is n={best_fixed_step} "
             f"with mean success {adapted_mean_by_step[best_fixed_step]:.3f}, versus "
-            f"{adapted_mean_by_step[50]:.3f} for paired n=50. This aggregate gain is driven "
-            "entirely by task 0 and should not be presented as recovery of cross-task "
-            "generalization.",
+            f"{adapted_mean_by_step[50]:.3f} for paired n=50. Its task-average deltas are "
+            + ", ".join(
+                f"task {task_id} {delta:+.3f}"
+                for task_id, delta in fixed_step_task_deltas.items()
+            )
+            + ". A single global horizon therefore hides opposing task-specific effects.",
             "",
-            "The paired n=50 rerun differs from the frozen historical result at task 0, k=5 "
-            f"({task_0['5']['rerun_50_success_rate']:.2f} versus "
-            f"{task_0['5']['frozen_baseline_success_rate']:.2f}). The new sweep resets the "
+            f"The largest paired-anchor mismatch is at task {anchor_task}, k={anchor_budget}: "
+            f"n=50 rerun {anchor_rerun:.2f} versus frozen baseline {anchor_frozen:.2f}. "
+            "The new sweep resets the "
             "policy RNG immediately before every horizon to pair flow-matching samples; the "
             "historical evaluator did not use that exact RNG protocol. Consequently, delta "
             "versus paired n=50 is the primary inference estimate, while delta versus frozen "

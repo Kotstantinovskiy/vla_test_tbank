@@ -3,6 +3,8 @@
   "model": "crislmfroes/smolvla-libero-90",
   "revision": "418f9d0e5b48585bcee1e1a7d47e302629af78da",
   "task_id": 0,
+  "logical_task_id": 0,
+  "env_task_id": 0,
   "demo_budget": 0,
   "condition": "true",
   "environment_instruction": "open the middle drawer of the cabinet",

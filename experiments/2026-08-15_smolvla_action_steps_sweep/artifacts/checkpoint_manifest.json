@@ -2,6 +2,7 @@
   "weights_modified": false,
   "external_checkpoints_root": "/var/tmp/vla_outputs",
   "experiment_checkpoint_link": "artifacts/checkpoints",
+  "logical_to_env_task_id": {"0": 0, "1": 9, "2": 3},
   "checkpoints": [
     {
       "task_id": 0,

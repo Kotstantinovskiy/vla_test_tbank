@@ -31,7 +31,7 @@
   "frozen_baseline_reference": {
     "source_experiment": "2026-08-15_smolvla_libero_task1",
     "source_summary": "experiments/2026-08-15_smolvla_libero_task1/results/summary/summary.json",
-    "source_commit": "640825210a9e64ff0c055478049144003bb856ed",
+    "source_commit": "8928139dcb3800a2ba39f266ceeb813c1db75ff7",
     "original_n_action_steps": 50,
     "task_success_rates": {
       "0": {
@@ -42,22 +42,22 @@
       },
       "1": {
         "0": 0.0,
-        "5": 0.0,
-        "10": 0.0,
-        "25": 0.0
+        "5": 0.75,
+        "10": 0.8,
+        "25": 0.85
       },
       "2": {
         "0": 0.0,
-        "5": 0.0,
-        "10": 0.0,
-        "25": 0.0
+        "5": 0.7,
+        "10": 0.75,
+        "25": 0.7
       }
     },
     "mean_cost_curve": {
       "0": 0.0,
-      "5": 0.2833333333333333,
-      "10": 0.25,
-      "25": 0.2833333333333333
+      "5": 0.7666666666666666,
+      "10": 0.7666666666666666,
+      "25": 0.7999999999999999
     }
   },
   "tasks": {
@@ -396,7 +396,7 @@
               "success_rate": 0.0,
               "ci95_low": 0.0,
               "ci95_high": 0.16112515805281938,
-              "eval_seconds": 320.2816495895386,
+              "eval_seconds": 308.0178065299988,
               "video_paths": [
                 "results/raw/zero_shot/videos/task_1/true/n_action_steps_1/eval_episode_0.mp4"
               ],
@@ -409,7 +409,7 @@
               "success_rate": 0.0,
               "ci95_low": 0.0,
               "ci95_high": 0.16112515805281938,
-              "eval_seconds": 132.1650676727295,
+              "eval_seconds": 120.91039514541626,
               "video_paths": [
                 "results/raw/zero_shot/videos/task_1/true/n_action_steps_5/eval_episode_0.mp4"
               ],
@@ -422,7 +422,7 @@
               "success_rate": 0.0,
               "ci95_low": 0.0,
               "ci95_high": 0.16112515805281938,
-              "eval_seconds": 163.83543229103088,
+              "eval_seconds": 141.17996883392334,
               "video_paths": [
                 "results/raw/zero_shot/videos/task_1/true/n_action_steps_10/eval_episode_0.mp4"
               ],
@@ -435,7 +435,7 @@
               "success_rate": 0.0,
               "ci95_low": 0.0,
               "ci95_high": 0.16112515805281938,
-              "eval_seconds": 123.15881848335266,
+              "eval_seconds": 187.32086896896362,
               "video_paths": [
                 "results/raw/zero_shot/videos/task_1/true/n_action_steps_25/eval_episode_0.mp4"
               ],
@@ -448,7 +448,7 @@
               "success_rate": 0.0,
               "ci95_low": 0.0,
               "ci95_high": 0.16112515805281938,
-              "eval_seconds": 112.77735424041748,
+              "eval_seconds": 133.63531613349915,
               "video_paths": [
                 "results/raw/zero_shot/videos/task_1/true/n_action_steps_50/eval_episode_0.mp4"
               ],
@@ -458,242 +458,232 @@
           }
         },
         "5": {
-          "frozen_baseline_success_rate": 0.0,
-          "rerun_50_success_rate": 0.0,
-          "rerun_50_minus_frozen": 0.0,
+          "frozen_baseline_success_rate": 0.75,
+          "rerun_50_success_rate": 0.9,
+          "rerun_50_minus_frozen": 0.15000000000000002,
           "best_action_steps": [
-            1,
-            5,
-            10,
-            25,
             50
           ],
-          "selected_best_action_steps": 1,
+          "selected_best_action_steps": 50,
           "points": {
             "1": {
-              "successes": 0,
+              "successes": 13,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 332.5453853607178,
+              "success_rate": 0.65,
+              "ci95_low": 0.43285427668523624,
+              "ci95_high": 0.818808175898918,
+              "eval_seconds": 309.1900141239166,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_5/true/n_action_steps_1/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": -0.25,
+              "delta_vs_frozen_baseline": -0.09999999999999998
             },
             "5": {
-              "successes": 0,
+              "successes": 13,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 185.03525686264038,
+              "success_rate": 0.65,
+              "ci95_low": 0.43285427668523624,
+              "ci95_high": 0.818808175898918,
+              "eval_seconds": 139.0475573539734,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_5/true/n_action_steps_5/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": -0.25,
+              "delta_vs_frozen_baseline": -0.09999999999999998
             },
             "10": {
-              "successes": 0,
+              "successes": 16,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 177.80226349830627,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "eval_seconds": 122.53713703155518,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_5/true/n_action_steps_10/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": -0.09999999999999998,
+              "delta_vs_frozen_baseline": 0.050000000000000044
             },
             "25": {
-              "successes": 0,
+              "successes": 13,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 96.55317640304565,
+              "success_rate": 0.65,
+              "ci95_low": 0.43285427668523624,
+              "ci95_high": 0.818808175898918,
+              "eval_seconds": 145.1696605682373,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_5/true/n_action_steps_25/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": -0.25,
+              "delta_vs_frozen_baseline": -0.09999999999999998
             },
             "50": {
-              "successes": 0,
+              "successes": 18,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 65.83050155639648,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "eval_seconds": 98.1194953918457,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_5/true/n_action_steps_50/eval_episode_0.mp4"
               ],
               "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_frozen_baseline": 0.15000000000000002
             }
           }
         },
         "10": {
-          "frozen_baseline_success_rate": 0.0,
-          "rerun_50_success_rate": 0.0,
-          "rerun_50_minus_frozen": 0.0,
+          "frozen_baseline_success_rate": 0.8,
+          "rerun_50_success_rate": 0.85,
+          "rerun_50_minus_frozen": 0.04999999999999993,
           "best_action_steps": [
-            1,
             5,
-            10,
-            25,
             50
           ],
-          "selected_best_action_steps": 1,
+          "selected_best_action_steps": 5,
           "points": {
             "1": {
-              "successes": 0,
+              "successes": 14,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 328.08367133140564,
+              "success_rate": 0.7,
+              "ci95_low": 0.4810271816464765,
+              "ci95_high": 0.8545227551323956,
+              "eval_seconds": 288.9799916744232,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_10/true/n_action_steps_1/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": -0.15000000000000002,
+              "delta_vs_frozen_baseline": -0.10000000000000009
             },
             "5": {
-              "successes": 0,
+              "successes": 17,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 205.4026222229004,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "eval_seconds": 93.65292143821716,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_10/true/n_action_steps_5/eval_episode_0.mp4"
               ],
               "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_frozen_baseline": 0.04999999999999993
             },
             "10": {
-              "successes": 0,
+              "successes": 16,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 144.60245943069458,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "eval_seconds": 119.86729860305786,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_10/true/n_action_steps_10/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
+              "delta_vs_paired_50": -0.04999999999999993,
               "delta_vs_frozen_baseline": 0.0
             },
             "25": {
-              "successes": 0,
+              "successes": 16,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 69.49145817756653,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "eval_seconds": 127.44734120368958,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_10/true/n_action_steps_25/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
+              "delta_vs_paired_50": -0.04999999999999993,
               "delta_vs_frozen_baseline": 0.0
             },
             "50": {
-              "successes": 0,
+              "successes": 17,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 56.34093356132507,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "eval_seconds": 110.3341953754425,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_10/true/n_action_steps_50/eval_episode_0.mp4"
               ],
               "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_frozen_baseline": 0.04999999999999993
             }
           }
         },
         "25": {
-          "frozen_baseline_success_rate": 0.0,
-          "rerun_50_success_rate": 0.0,
-          "rerun_50_minus_frozen": 0.0,
+          "frozen_baseline_success_rate": 0.85,
+          "rerun_50_success_rate": 0.9,
+          "rerun_50_minus_frozen": 0.050000000000000044,
           "best_action_steps": [
             1,
-            5,
-            10,
-            25,
             50
           ],
           "selected_best_action_steps": 1,
           "points": {
             "1": {
-              "successes": 0,
+              "successes": 18,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 384.40166783332825,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "eval_seconds": 237.19395232200623,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_25/true/n_action_steps_1/eval_episode_0.mp4"
               ],
               "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_frozen_baseline": 0.050000000000000044
             },
             "5": {
-              "successes": 0,
+              "successes": 16,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 103.77216529846191,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "eval_seconds": 100.5287811756134,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_25/true/n_action_steps_5/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": -0.09999999999999998,
+              "delta_vs_frozen_baseline": -0.04999999999999993
             },
             "10": {
-              "successes": 0,
+              "successes": 16,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 96.95110559463501,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "eval_seconds": 101.99276661872864,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_25/true/n_action_steps_10/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": -0.09999999999999998,
+              "delta_vs_frozen_baseline": -0.04999999999999993
             },
             "25": {
-              "successes": 0,
+              "successes": 17,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 122.13348817825317,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "eval_seconds": 127.32750368118286,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_25/true/n_action_steps_25/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
+              "delta_vs_paired_50": -0.050000000000000044,
               "delta_vs_frozen_baseline": 0.0
             },
             "50": {
-              "successes": 0,
+              "successes": 18,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 158.54024076461792,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "eval_seconds": 139.66831493377686,
               "video_paths": [
                 "results/raw/adapted/task_1/videos/k_25/true/n_action_steps_50/eval_episode_0.mp4"
               ],
               "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_frozen_baseline": 0.050000000000000044
             }
           }
         }
@@ -721,7 +711,7 @@
               "success_rate": 0.0,
               "ci95_low": 0.0,
               "ci95_high": 0.16112515805281938,
-              "eval_seconds": 313.51496505737305,
+              "eval_seconds": 317.2444062232971,
               "video_paths": [
                 "results/raw/zero_shot/videos/task_2/true/n_action_steps_1/eval_episode_0.mp4"
               ],
@@ -734,7 +724,7 @@
               "success_rate": 0.0,
               "ci95_low": 0.0,
               "ci95_high": 0.16112515805281938,
-              "eval_seconds": 126.35768175125122,
+              "eval_seconds": 123.70206809043884,
               "video_paths": [
                 "results/raw/zero_shot/videos/task_2/true/n_action_steps_5/eval_episode_0.mp4"
               ],
@@ -747,7 +737,7 @@
               "success_rate": 0.0,
               "ci95_low": 0.0,
               "ci95_high": 0.16112515805281938,
-              "eval_seconds": 158.00962281227112,
+              "eval_seconds": 146.0330765247345,
               "video_paths": [
                 "results/raw/zero_shot/videos/task_2/true/n_action_steps_10/eval_episode_0.mp4"
               ],
@@ -760,7 +750,7 @@
               "success_rate": 0.0,
               "ci95_low": 0.0,
               "ci95_high": 0.16112515805281938,
-              "eval_seconds": 114.67970657348633,
+              "eval_seconds": 163.54154348373413,
               "video_paths": [
                 "results/raw/zero_shot/videos/task_2/true/n_action_steps_25/eval_episode_0.mp4"
               ],
@@ -773,7 +763,7 @@
               "success_rate": 0.0,
               "ci95_low": 0.0,
               "ci95_high": 0.16112515805281938,
-              "eval_seconds": 115.47180557250977,
+              "eval_seconds": 132.58112955093384,
               "video_paths": [
                 "results/raw/zero_shot/videos/task_2/true/n_action_steps_50/eval_episode_0.mp4"
               ],
@@ -783,157 +773,150 @@
           }
         },
         "5": {
-          "frozen_baseline_success_rate": 0.0,
-          "rerun_50_success_rate": 0.0,
-          "rerun_50_minus_frozen": 0.0,
+          "frozen_baseline_success_rate": 0.7,
+          "rerun_50_success_rate": 0.85,
+          "rerun_50_minus_frozen": 0.15000000000000002,
           "best_action_steps": [
-            1,
             5,
-            10,
-            25,
-            50
+            25
           ],
-          "selected_best_action_steps": 1,
+          "selected_best_action_steps": 5,
           "points": {
             "1": {
-              "successes": 0,
+              "successes": 14,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 312.1804130077362,
+              "success_rate": 0.7,
+              "ci95_low": 0.4810271816464765,
+              "ci95_high": 0.8545227551323956,
+              "eval_seconds": 285.3227939605713,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_5/true/n_action_steps_1/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
+              "delta_vs_paired_50": -0.15000000000000002,
               "delta_vs_frozen_baseline": 0.0
             },
             "5": {
-              "successes": 0,
+              "successes": 18,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 154.7313678264618,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "eval_seconds": 105.02441906929016,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_5/true/n_action_steps_5/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": 0.050000000000000044,
+              "delta_vs_frozen_baseline": 0.20000000000000007
             },
             "10": {
-              "successes": 0,
+              "successes": 16,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 172.85012459754944,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "eval_seconds": 126.15357851982117,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_5/true/n_action_steps_10/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": -0.04999999999999993,
+              "delta_vs_frozen_baseline": 0.10000000000000009
             },
             "25": {
-              "successes": 0,
+              "successes": 18,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 115.15231728553772,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "eval_seconds": 136.59446692466736,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_5/true/n_action_steps_25/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": 0.050000000000000044,
+              "delta_vs_frozen_baseline": 0.20000000000000007
             },
             "50": {
-              "successes": 0,
+              "successes": 17,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 80.32943797111511,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "eval_seconds": 157.73873805999756,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_5/true/n_action_steps_50/eval_episode_0.mp4"
               ],
               "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_frozen_baseline": 0.15000000000000002
             }
           }
         },
         "10": {
-          "frozen_baseline_success_rate": 0.0,
-          "rerun_50_success_rate": 0.0,
+          "frozen_baseline_success_rate": 0.75,
+          "rerun_50_success_rate": 0.75,
           "rerun_50_minus_frozen": 0.0,
           "best_action_steps": [
-            1,
-            5,
-            10,
-            25,
-            50
+            10
           ],
-          "selected_best_action_steps": 1,
+          "selected_best_action_steps": 10,
           "points": {
             "1": {
-              "successes": 0,
+              "successes": 19,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 314.7849187850952,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "eval_seconds": 248.5871512889862,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_10/true/n_action_steps_1/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": 0.19999999999999996,
+              "delta_vs_frozen_baseline": 0.19999999999999996
             },
             "5": {
-              "successes": 0,
+              "successes": 16,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 158.1036570072174,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "eval_seconds": 108.16266751289368,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_10/true/n_action_steps_5/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": 0.050000000000000044,
+              "delta_vs_frozen_baseline": 0.050000000000000044
             },
             "10": {
-              "successes": 0,
+              "successes": 20,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 172.39362406730652,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "eval_seconds": 107.1437315940857,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_10/true/n_action_steps_10/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": 0.25,
+              "delta_vs_frozen_baseline": 0.25
             },
             "25": {
-              "successes": 0,
+              "successes": 18,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 87.8475193977356,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "eval_seconds": 137.10523533821106,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_10/true/n_action_steps_25/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": 0.15000000000000002,
+              "delta_vs_frozen_baseline": 0.15000000000000002
             },
             "50": {
-              "successes": 0,
+              "successes": 15,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 60.85131096839905,
+              "success_rate": 0.75,
+              "ci95_low": 0.531299122381256,
+              "ci95_high": 0.8881382985923343,
+              "eval_seconds": 140.84159445762634,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_10/true/n_action_steps_50/eval_episode_0.mp4"
               ],
@@ -943,82 +926,79 @@
           }
         },
         "25": {
-          "frozen_baseline_success_rate": 0.0,
-          "rerun_50_success_rate": 0.0,
-          "rerun_50_minus_frozen": 0.0,
+          "frozen_baseline_success_rate": 0.7,
+          "rerun_50_success_rate": 0.8,
+          "rerun_50_minus_frozen": 0.10000000000000009,
           "best_action_steps": [
-            1,
             5,
-            10,
-            25,
-            50
+            25
           ],
-          "selected_best_action_steps": 1,
+          "selected_best_action_steps": 5,
           "points": {
             "1": {
-              "successes": 0,
+              "successes": 14,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 352.93428111076355,
+              "success_rate": 0.7,
+              "ci95_low": 0.4810271816464765,
+              "ci95_high": 0.8545227551323956,
+              "eval_seconds": 297.7824671268463,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_25/true/n_action_steps_1/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
+              "delta_vs_paired_50": -0.10000000000000009,
               "delta_vs_frozen_baseline": 0.0
             },
             "5": {
-              "successes": 0,
+              "successes": 17,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 103.60600996017456,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "eval_seconds": 128.62405228614807,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_25/true/n_action_steps_5/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": 0.04999999999999993,
+              "delta_vs_frozen_baseline": 0.15000000000000002
             },
             "10": {
-              "successes": 0,
+              "successes": 15,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 99.0718412399292,
+              "success_rate": 0.75,
+              "ci95_low": 0.531299122381256,
+              "ci95_high": 0.8881382985923343,
+              "eval_seconds": 161.16632199287415,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_25/true/n_action_steps_10/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": -0.050000000000000044,
+              "delta_vs_frozen_baseline": 0.050000000000000044
             },
             "25": {
-              "successes": 0,
+              "successes": 17,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 130.33557772636414,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "eval_seconds": 139.25337171554565,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_25/true/n_action_steps_25/eval_episode_0.mp4"
               ],
-              "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_paired_50": 0.04999999999999993,
+              "delta_vs_frozen_baseline": 0.15000000000000002
             },
             "50": {
-              "successes": 0,
+              "successes": 16,
               "trials": 20,
-              "success_rate": 0.0,
-              "ci95_low": 0.0,
-              "ci95_high": 0.16112515805281938,
-              "eval_seconds": 166.51064443588257,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "eval_seconds": 46.66667294502258,
               "video_paths": [
                 "results/raw/adapted/task_2/videos/k_25/true/n_action_steps_50/eval_episode_0.mp4"
               ],
               "delta_vs_paired_50": 0.0,
-              "delta_vs_frozen_baseline": 0.0
+              "delta_vs_frozen_baseline": 0.10000000000000009
             }
           }
         }
@@ -1034,25 +1014,25 @@
       "50": 0.0
     },
     "5": {
-      "1": 0.25,
-      "5": 0.2333333333333333,
-      "10": 0.3333333333333333,
-      "25": 0.21666666666666667,
-      "50": 0.19999999999999998
+      "1": 0.7000000000000001,
+      "5": 0.75,
+      "10": 0.8666666666666667,
+      "25": 0.7333333333333334,
+      "50": 0.7833333333333333
     },
     "10": {
-      "1": 0.11666666666666665,
-      "5": 0.19999999999999998,
-      "10": 0.26666666666666666,
-      "25": 0.2833333333333333,
-      "50": 0.25
+      "1": 0.6666666666666666,
+      "5": 0.75,
+      "10": 0.8666666666666667,
+      "25": 0.85,
+      "50": 0.7833333333333333
     },
     "25": {
-      "1": 0.25,
-      "5": 0.25,
-      "10": 0.26666666666666666,
-      "25": 0.25,
-      "50": 0.3
+      "1": 0.7833333333333333,
+      "5": 0.7999999999999999,
+      "10": 0.7833333333333333,
+      "25": 0.8166666666666668,
+      "50": 0.8666666666666667
     }
   },
   "mean_delta_vs_paired_50": {
@@ -1064,24 +1044,24 @@
       "50": 0.0
     },
     "5": {
-      "1": 0.05000000000000002,
-      "5": 0.033333333333333326,
-      "10": 0.13333333333333333,
-      "25": 0.01666666666666669,
+      "1": -0.08333333333333326,
+      "5": -0.033333333333333326,
+      "10": 0.08333333333333337,
+      "25": -0.04999999999999993,
       "50": 0.0
     },
     "10": {
-      "1": -0.13333333333333336,
-      "5": -0.05000000000000002,
-      "10": 0.016666666666666663,
-      "25": 0.033333333333333326,
+      "1": -0.1166666666666667,
+      "5": -0.033333333333333326,
+      "10": 0.08333333333333337,
+      "25": 0.06666666666666665,
       "50": 0.0
     },
     "25": {
-      "1": -0.04999999999999999,
-      "5": -0.04999999999999999,
-      "10": -0.033333333333333326,
-      "25": -0.04999999999999999,
+      "1": -0.08333333333333337,
+      "5": -0.06666666666666676,
+      "10": -0.08333333333333337,
+      "25": -0.04999999999999993,
       "50": 0.0
     }
   },
@@ -1094,25 +1074,25 @@
       "50": 0.0
     },
     "5": {
-      "1": -0.033333333333333326,
-      "5": -0.05000000000000002,
-      "10": 0.04999999999999999,
-      "25": -0.06666666666666665,
-      "50": -0.08333333333333334
+      "1": -0.06666666666666654,
+      "5": -0.016666666666666607,
+      "10": 0.10000000000000009,
+      "25": -0.033333333333333215,
+      "50": 0.01666666666666672
     },
     "10": {
-      "1": -0.13333333333333336,
-      "5": -0.05000000000000002,
-      "10": 0.016666666666666663,
-      "25": 0.033333333333333326,
-      "50": 0.0
+      "1": -0.09999999999999998,
+      "5": -0.016666666666666607,
+      "10": 0.10000000000000009,
+      "25": 0.08333333333333337,
+      "50": 0.01666666666666672
     },
     "25": {
-      "1": -0.033333333333333326,
-      "5": -0.033333333333333326,
-      "10": -0.016666666666666663,
-      "25": -0.033333333333333326,
-      "50": 0.016666666666666663
+      "1": -0.016666666666666607,
+      "5": 0.0,
+      "10": -0.016666666666666607,
+      "25": 0.01666666666666683,
+      "50": 0.06666666666666676
     }
   },
   "zero_shot_any_true_success": false,

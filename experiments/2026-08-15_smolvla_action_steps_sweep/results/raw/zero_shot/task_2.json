@@ -3,6 +3,8 @@
   "model": "crislmfroes/smolvla-libero-90",
   "revision": "418f9d0e5b48585bcee1e1a7d47e302629af78da",
   "task_id": 2,
+  "logical_task_id": 2,
+  "env_task_id": 3,
   "demo_budget": 0,
   "condition": "true",
   "environment_instruction": "open the top drawer and put the bowl inside",
@@ -165,8 +167,8 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 313.51496505737305,
-        "eval_ep_s": 15.675748264789581
+        "eval_s": 317.2444062232971,
+        "eval_ep_s": 15.862220335006715
       },
       "video_paths": [
         "results/raw/zero_shot/videos/task_2/true/n_action_steps_1/eval_episode_0.mp4"
@@ -321,8 +323,8 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 126.35768175125122,
-        "eval_ep_s": 6.31788409948349
+        "eval_s": 123.70206809043884,
+        "eval_ep_s": 6.185103416442871
       },
       "video_paths": [
         "results/raw/zero_shot/videos/task_2/true/n_action_steps_5/eval_episode_0.mp4"
@@ -477,8 +479,8 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 158.00962281227112,
-        "eval_ep_s": 7.9004811406135556
+        "eval_s": 146.0330765247345,
+        "eval_ep_s": 7.3016538381576535
       },
       "video_paths": [
         "results/raw/zero_shot/videos/task_2/true/n_action_steps_10/eval_episode_0.mp4"
@@ -633,8 +635,8 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 114.67970657348633,
-        "eval_ep_s": 5.733985340595245
+        "eval_s": 163.54154348373413,
+        "eval_ep_s": 8.177077186107635
       },
       "video_paths": [
         "results/raw/zero_shot/videos/task_2/true/n_action_steps_25/eval_episode_0.mp4"
@@ -789,8 +791,8 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 115.47180557250977,
-        "eval_ep_s": 5.773590290546418
+        "eval_s": 132.58112955093384,
+        "eval_ep_s": 6.6290564894676205
       },
       "video_paths": [
         "results/raw/zero_shot/videos/task_2/true/n_action_steps_50/eval_episode_0.mp4"

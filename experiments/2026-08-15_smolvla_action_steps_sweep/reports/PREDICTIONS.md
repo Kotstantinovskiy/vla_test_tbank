@@ -22,8 +22,8 @@ non-identifying at the floor.
 
 Protocol interpretation is fixed in advance:
 
-- the original Task 1 baseline curve remains frozen and is copied only as a
-  reference;
+- the corrected Task 1 baseline curve is frozen before interpreting this sweep
+  and copied only as a reference;
 - all new points use the exact existing baseline weights and change only
   `config.n_action_steps` at inference;
 - the rerun at `n_action_steps=50` is an internal reproducibility anchor;

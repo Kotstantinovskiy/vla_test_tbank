@@ -11,16 +11,17 @@
 `n_action_steps`, после чего строит новый chunk по свежему наблюдению. Все
 значения допустимы для сохранённого `chunk_size=50`.
 
-Проверяются четыре бюджета `k ∈ {0, 5, 10, 25}` на task IDs 0–2 из
-`libero_goal`. Точка `k=0` использует закреплённую ревизию LIBERO-90, остальные
-точки — ровно существующие адаптированные чекпойнты step 2000. Для каждой точки:
+Проверяются четыре бюджета `k ∈ {0, 5, 10, 25}` на logical task IDs 0–2;
+их suite-local `libero_goal` environment IDs равны 0/9/3. Точка `k=0`
+использует закреплённую ревизию LIBERO-90, остальные точки — ровно существующие
+адаптированные чекпойнты step 2000. Для каждой точки:
 
 - 20 эпизодов, seed 1000–1019, batch size 4;
 - seed сбрасывается перед каждым горизонтом, поэтому initial states парные;
 - одна MP4-запись на горизонт;
 - `n_action_steps=50` пересчитывается как внутренний anchor;
-- старый baseline не редактируется и присутствует только как копия-reference в
-  `artifacts/frozen_baseline_reference.json`.
+- исправленный baseline зафиксирован отдельным commit и присутствует как
+  копия-reference в `artifacts/frozen_baseline_reference.json`.
 
 Предсказания были записаны до rollout в [`reports/PREDICTIONS.md`](reports/PREDICTIONS.md).
 Если хотя бы один zero-shot эпизод с правильным prompt успешен, launcher по

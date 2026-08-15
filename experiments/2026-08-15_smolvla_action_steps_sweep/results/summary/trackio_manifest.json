@@ -113,9 +113,9 @@
     {
       "task_id": 2,
       "demo_budget": 25,
-      "n_action_steps": 1,
-      "source": "results/raw/adapted/task_2/videos/k_25/true/n_action_steps_1/eval_episode_0.mp4",
-      "gif": "results/media/gifs/task_2_k_25_n_1.gif"
+      "n_action_steps": 5,
+      "source": "results/raw/adapted/task_2/videos/k_25/true/n_action_steps_5/eval_episode_0.mp4",
+      "gif": "results/media/gifs/task_2_k_25_n_5.gif"
     },
     {
       "task_id": 2,

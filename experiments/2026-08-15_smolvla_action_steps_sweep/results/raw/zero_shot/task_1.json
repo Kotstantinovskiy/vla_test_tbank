@@ -3,6 +3,8 @@
   "model": "crislmfroes/smolvla-libero-90",
   "revision": "418f9d0e5b48585bcee1e1a7d47e302629af78da",
   "task_id": 1,
+  "logical_task_id": 1,
+  "env_task_id": 9,
   "demo_budget": 0,
   "condition": "true",
   "environment_instruction": "put the wine bottle on the rack",
@@ -165,8 +167,8 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 320.2816495895386,
-        "eval_ep_s": 16.014082491397858
+        "eval_s": 308.0178065299988,
+        "eval_ep_s": 15.400890338420869
       },
       "video_paths": [
         "results/raw/zero_shot/videos/task_1/true/n_action_steps_1/eval_episode_0.mp4"
@@ -321,8 +323,8 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 132.1650676727295,
-        "eval_ep_s": 6.608253395557403
+        "eval_s": 120.91039514541626,
+        "eval_ep_s": 6.045519769191742
       },
       "video_paths": [
         "results/raw/zero_shot/videos/task_1/true/n_action_steps_5/eval_episode_0.mp4"
@@ -477,8 +479,8 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 163.83543229103088,
-        "eval_ep_s": 8.191771614551545
+        "eval_s": 141.17996883392334,
+        "eval_ep_s": 7.058998453617096
       },
       "video_paths": [
         "results/raw/zero_shot/videos/task_1/true/n_action_steps_10/eval_episode_0.mp4"
@@ -633,8 +635,8 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 123.15881848335266,
-        "eval_ep_s": 6.157940924167633
+        "eval_s": 187.32086896896362,
+        "eval_ep_s": 9.366043448448181
       },
       "video_paths": [
         "results/raw/zero_shot/videos/task_1/true/n_action_steps_25/eval_episode_0.mp4"
@@ -789,8 +791,8 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 112.77735424041748,
-        "eval_ep_s": 5.638867723941803
+        "eval_s": 133.63531613349915,
+        "eval_ep_s": 6.681765818595887
       },
       "video_paths": [
         "results/raw/zero_shot/videos/task_1/true/n_action_steps_50/eval_episode_0.mp4"
