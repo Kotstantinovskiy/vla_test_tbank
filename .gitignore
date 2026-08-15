@@ -4,13 +4,14 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 *.egg-info/
-outputs
-outputs/
-results/videos/
-results/**/videos/
-results/raw/
-logs/
-artifacts/seen_image_schema/
 data/
 wandb/
-.libero/
+
+# Experiment-local heavy/generated artifacts.  Keep the paths inside each
+# experiment even when the bytes themselves live on another volume.
+experiments/*/artifacts/checkpoints
+experiments/*/artifacts/checkpoints/
+experiments/*/artifacts/seen_image_schema/
+experiments/*/artifacts/libero_config/
+experiments/*/results/logs/
+experiments/*/results/**/videos/
