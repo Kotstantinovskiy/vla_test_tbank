@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Shared uv environment for the repository's self-contained VLA experiments"
 requires-python = ">=3.12,<3.13"
 dependencies = [
+  "smolvla-prompt-only",
   "vla-cost-curve",
 ]
 
@@ -19,6 +20,7 @@ environments = [
 ]
 
 [tool.uv.sources]
+smolvla-prompt-only = { workspace = true }
 vla-cost-curve = { workspace = true }
 
 [tool.uv.workspace]
