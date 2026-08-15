@@ -11,7 +11,7 @@
 |---|---|---|---|
 | 2026-08-15 | [`smolvla_libero_task1`](experiments/2026-08-15_smolvla_libero_task1/) | завершён | [cost curve](experiments/2026-08-15_smolvla_libero_task1/results/summary/cost_curve.csv) |
 | 2026-08-15 | [`smolvla_prompt_only`](experiments/2026-08-15_smolvla_prompt_only/) | завершён | [prompt metrics](experiments/2026-08-15_smolvla_prompt_only/results/summary/metrics.csv) |
-| 2026-08-15 | [`smolvla_action_steps_sweep`](experiments/2026-08-15_smolvla_action_steps_sweep/) | выполняется | inference-only sweep `n_action_steps ∈ {1, 5, 10, 25, 50}` |
+| 2026-08-15 | [`smolvla_action_steps_sweep`](experiments/2026-08-15_smolvla_action_steps_sweep/) | завершён | [action-step metrics](experiments/2026-08-15_smolvla_action_steps_sweep/results/summary/metrics.csv) |
 
 ## Единое uv-окружение
 

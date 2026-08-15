@@ -11,7 +11,9 @@ from smolvla_action_steps.constants import (
     ACTION_STEPS,
     CHECKPOINT_REVISION,
     DEMO_BUDGETS,
+    EVAL_BATCH_SIZE,
     MASTER_SEED,
+    N_EVAL_EPISODES,
     TARGET_INSTRUCTIONS,
     TARGET_SUITE,
 )
@@ -20,12 +22,13 @@ from smolvla_action_steps.constants import (
 def _result(task_id: int, budget: int) -> dict:
     sweep = {}
     for step in ACTION_STEPS:
-        successes = 1 if task_id == 1 and budget == 5 and step in {5, 10} else 0
+        successes = 10 if task_id == 1 and budget == 5 and step in {5, 10} else 0
         episodes = [
             {"success": index < successes, "seed": MASTER_SEED + index}
-            for index in range(2)
+            for index in range(N_EVAL_EPISODES)
         ]
         sweep[str(step)] = {
+            "n_action_steps": step,
             "per_episode": episodes,
             "aggregated": {"eval_s": 1.0},
             "video_paths": [],
@@ -38,7 +41,11 @@ def _result(task_id: int, budget: int) -> dict:
         "condition": "true",
         "suite": TARGET_SUITE,
         "seed": MASTER_SEED,
+        "n_episodes": N_EVAL_EPISODES,
+        "batch_size": EVAL_BATCH_SIZE,
         "weights_modified": False,
+        "chunk_size": 50,
+        "checkpoint_n_action_steps": 50,
         "sweep": sweep,
     }
 
@@ -86,3 +93,5 @@ def test_aggregate_keeps_all_ties_and_selects_smallest(tmp_path: Path) -> None:
     assert best["selected_best_action_steps"] == 5
     assert best["points"]["5"]["delta_vs_paired_50"] == 0.5
     assert summary["zero_shot_any_true_success"] is False
+    assert summary["language_controls"]["status"] == "skipped_floor"
+    assert summary["protocol"]["total_primary_episodes"] == 1200

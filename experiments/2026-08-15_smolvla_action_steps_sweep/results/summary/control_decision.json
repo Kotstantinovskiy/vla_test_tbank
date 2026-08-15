@@ -1,0 +1,5 @@
+{
+  "run_language_controls": false,
+  "rule": "run iff any true-prompt zero-shot success is nonzero",
+  "reason": "All true-prompt zero-shot points stayed at the binary-success floor."
+}

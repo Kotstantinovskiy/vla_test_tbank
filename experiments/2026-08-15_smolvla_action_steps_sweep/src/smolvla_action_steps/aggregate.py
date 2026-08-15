@@ -15,7 +15,9 @@ from .constants import (
     CHECKPOINT_REPO,
     CHECKPOINT_REVISION,
     DEMO_BUDGETS,
+    EVAL_BATCH_SIZE,
     MASTER_SEED,
+    N_EVAL_EPISODES,
     TARGET_INSTRUCTIONS,
     TARGET_SUITE,
 )
@@ -69,8 +71,12 @@ def _validate_result(
         "demo_budget": budget,
         "condition": condition,
         "seed": MASTER_SEED,
+        "n_episodes": N_EVAL_EPISODES,
+        "batch_size": EVAL_BATCH_SIZE,
         "suite": TARGET_SUITE,
         "weights_modified": False,
+        "chunk_size": 50,
+        "checkpoint_n_action_steps": 50,
     }
     for key, value in expected.items():
         if result.get(key) != value:
@@ -81,6 +87,14 @@ def _validate_result(
     missing = [str(step) for step in ACTION_STEPS if str(step) not in result["sweep"]]
     if missing:
         raise ValueError(f"Missing action-step points in {path}: {missing}")
+    expected_seeds = list(range(MASTER_SEED, MASTER_SEED + N_EVAL_EPISODES))
+    for step in ACTION_STEPS:
+        point = result["sweep"][str(step)]
+        if point.get("n_action_steps") != step:
+            raise ValueError(f"Action-step label mismatch in {path}: {step}")
+        seeds = [episode.get("seed") for episode in point.get("per_episode", [])]
+        if seeds != expected_seeds:
+            raise ValueError(f"Episode seed mismatch in {path} at n_action_steps={step}")
     if budget == 0 and result.get("revision") != CHECKPOINT_REVISION:
         raise ValueError(f"Zero-shot revision mismatch in {path}")
 
@@ -144,6 +158,16 @@ def aggregate(
         "protocol": {
             "suite": TARGET_SUITE,
             "seed": MASTER_SEED,
+            "episodes_per_point": N_EVAL_EPISODES,
+            "total_primary_points": (
+                len(TARGET_INSTRUCTIONS) * len(DEMO_BUDGETS) * len(ACTION_STEPS)
+            ),
+            "total_primary_episodes": (
+                len(TARGET_INSTRUCTIONS)
+                * len(DEMO_BUDGETS)
+                * len(ACTION_STEPS)
+                * N_EVAL_EPISODES
+            ),
             "action_steps": list(ACTION_STEPS),
             "demo_budgets": list(DEMO_BUDGETS),
             "paired_initial_states": True,
@@ -219,7 +243,13 @@ def aggregate(
     )
     summary["language_controls"] = {
         "required": summary["zero_shot_any_true_success"],
-        "status": "complete" if controls else "pending_or_skipped",
+        "status": (
+            "complete"
+            if controls
+            else "pending"
+            if summary["zero_shot_any_true_success"]
+            else "skipped_floor"
+        ),
         "conditions": {},
     }
     for condition, task_results in controls.items():
@@ -354,6 +384,14 @@ def _plot_action_steps(summary: dict[str, Any], output: Path) -> None:
 
 def write_report(summary: dict[str, Any], path: Path) -> None:
     means = summary["mean_success_by_budget_and_action_steps"]
+    adapted_mean_by_step = {
+        step: sum(means[str(budget)][str(step)] for budget in ADAPTED_BUDGETS)
+        / len(ADAPTED_BUDGETS)
+        for step in ACTION_STEPS
+    }
+    best_fixed_step = max(
+        ACTION_STEPS, key=lambda step: (adapted_mean_by_step[step], -step)
+    )
     lines = [
         "# Action-step sweep report",
         "",
@@ -384,6 +422,39 @@ def write_report(summary: dict[str, Any], path: Path) -> None:
                 f"| {task_id} | {budget} | {ties} | {point['success_rate']:.3f} | "
                 f"{point['delta_vs_paired_50']:+.3f} |"
             )
+    task_0 = summary["tasks"]["0"]["budgets"]
+    lines.extend(
+        [
+            "",
+            "## Interpretation",
+            "",
+            "The prediction of the largest gain on task 1 was not supported. Tasks 1 and 2 "
+            "remained at zero for every budget and horizon; only the already learned drawer "
+            "task 0 responded to the inference change. This suggests that tasks 1 and 2 fail "
+            "before open-loop compounding error becomes the main bottleneck.",
+            "",
+            f"For task 0, k=5 peaks at n=10 ({task_0['5']['points']['10']['success_rate']:.2f}, "
+            f"{task_0['5']['points']['10']['delta_vs_paired_50']:+.2f} versus paired n=50), "
+            f"k=10 peaks at n=25 ({task_0['10']['points']['25']['success_rate']:.2f}, "
+            f"{task_0['10']['points']['25']['delta_vs_paired_50']:+.2f}), while k=25 is best "
+            f"at n=50 ({task_0['25']['points']['50']['success_rate']:.2f}). The effect is "
+            "therefore not uniform across k, and n=1 is never uniquely best.",
+            "",
+            f"Across the three adapted budgets, the best single fixed horizon is n={best_fixed_step} "
+            f"with mean success {adapted_mean_by_step[best_fixed_step]:.3f}, versus "
+            f"{adapted_mean_by_step[50]:.3f} for paired n=50. This aggregate gain is driven "
+            "entirely by task 0 and should not be presented as recovery of cross-task "
+            "generalization.",
+            "",
+            "The paired n=50 rerun differs from the frozen historical result at task 0, k=5 "
+            f"({task_0['5']['rerun_50_success_rate']:.2f} versus "
+            f"{task_0['5']['frozen_baseline_success_rate']:.2f}). The new sweep resets the "
+            "policy RNG immediately before every horizon to pair flow-matching samples; the "
+            "historical evaluator did not use that exact RNG protocol. Consequently, delta "
+            "versus paired n=50 is the primary inference estimate, while delta versus frozen "
+            "baseline is reported separately for protocol transparency.",
+        ]
+    )
     if summary["zero_shot_any_true_success"]:
         control_note = (
             "At least one true-prompt zero-shot rollout succeeded, so wrong and nonsense "

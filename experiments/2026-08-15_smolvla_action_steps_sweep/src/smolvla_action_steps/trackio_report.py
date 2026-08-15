@@ -46,7 +46,8 @@ def representative_media(
 ) -> list[dict[str, Any]]:
     items: list[dict[str, Any]] = []
     for task_id in TARGET_INSTRUCTIONS:
-        for budget in (0, 25):
+        budgets = DEMO_BUDGETS if task_id == 0 else (0, 25)
+        for budget in budgets:
             budget_result = summary["tasks"][str(task_id)]["budgets"][str(budget)]
             selected = budget_result["selected_best_action_steps"]
             for step in sorted({selected, 50}):

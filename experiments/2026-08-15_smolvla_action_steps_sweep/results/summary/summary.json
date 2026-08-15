@@ -1,0 +1,1124 @@
+{
+  "experiment": "smolvla_action_steps_sweep",
+  "intervention": "inference_only_n_action_steps",
+  "weights_modified": false,
+  "zero_shot_checkpoint": {
+    "repo_id": "crislmfroes/smolvla-libero-90",
+    "revision": "418f9d0e5b48585bcee1e1a7d47e302629af78da"
+  },
+  "protocol": {
+    "suite": "libero_goal",
+    "seed": 1000,
+    "episodes_per_point": 20,
+    "total_primary_points": 60,
+    "total_primary_episodes": 1200,
+    "action_steps": [
+      1,
+      5,
+      10,
+      25,
+      50
+    ],
+    "demo_budgets": [
+      0,
+      5,
+      10,
+      25
+    ],
+    "paired_initial_states": true,
+    "tie_break": "report all ties; select smallest n_action_steps"
+  },
+  "frozen_baseline_reference": {
+    "source_experiment": "2026-08-15_smolvla_libero_task1",
+    "source_summary": "experiments/2026-08-15_smolvla_libero_task1/results/summary/summary.json",
+    "source_commit": "640825210a9e64ff0c055478049144003bb856ed",
+    "original_n_action_steps": 50,
+    "task_success_rates": {
+      "0": {
+        "0": 0.0,
+        "5": 0.85,
+        "10": 0.75,
+        "25": 0.85
+      },
+      "1": {
+        "0": 0.0,
+        "5": 0.0,
+        "10": 0.0,
+        "25": 0.0
+      },
+      "2": {
+        "0": 0.0,
+        "5": 0.0,
+        "10": 0.0,
+        "25": 0.0
+      }
+    },
+    "mean_cost_curve": {
+      "0": 0.0,
+      "5": 0.2833333333333333,
+      "10": 0.25,
+      "25": 0.2833333333333333
+    }
+  },
+  "tasks": {
+    "0": {
+      "instruction": "open the middle drawer of the cabinet",
+      "budgets": {
+        "0": {
+          "frozen_baseline_success_rate": 0.0,
+          "rerun_50_success_rate": 0.0,
+          "rerun_50_minus_frozen": 0.0,
+          "best_action_steps": [
+            1,
+            5,
+            10,
+            25,
+            50
+          ],
+          "selected_best_action_steps": 1,
+          "points": {
+            "1": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 324.40421772003174,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_0/true/n_action_steps_1/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "5": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 135.61191940307617,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_0/true/n_action_steps_5/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "10": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 161.9917175769806,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_0/true/n_action_steps_10/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "25": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 111.67317128181458,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_0/true/n_action_steps_25/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "50": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 107.90080118179321,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_0/true/n_action_steps_50/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            }
+          }
+        },
+        "5": {
+          "frozen_baseline_success_rate": 0.85,
+          "rerun_50_success_rate": 0.6,
+          "rerun_50_minus_frozen": -0.25,
+          "best_action_steps": [
+            10
+          ],
+          "selected_best_action_steps": 10,
+          "points": {
+            "1": {
+              "successes": 15,
+              "trials": 20,
+              "success_rate": 0.75,
+              "ci95_low": 0.531299122381256,
+              "ci95_high": 0.8881382985923343,
+              "eval_seconds": 272.24371695518494,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_5/true/n_action_steps_1/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.15000000000000002,
+              "delta_vs_frozen_baseline": -0.09999999999999998
+            },
+            "5": {
+              "successes": 14,
+              "trials": 20,
+              "success_rate": 0.7,
+              "ci95_low": 0.4810271816464765,
+              "ci95_high": 0.8545227551323956,
+              "eval_seconds": 125.10264015197754,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_5/true/n_action_steps_5/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.09999999999999998,
+              "delta_vs_frozen_baseline": -0.15000000000000002
+            },
+            "10": {
+              "successes": 20,
+              "trials": 20,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "eval_seconds": 89.25936722755432,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_5/true/n_action_steps_10/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.4,
+              "delta_vs_frozen_baseline": 0.15000000000000002
+            },
+            "25": {
+              "successes": 13,
+              "trials": 20,
+              "success_rate": 0.65,
+              "ci95_low": 0.43285427668523624,
+              "ci95_high": 0.818808175898918,
+              "eval_seconds": 129.26642060279846,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_5/true/n_action_steps_25/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.050000000000000044,
+              "delta_vs_frozen_baseline": -0.19999999999999996
+            },
+            "50": {
+              "successes": 12,
+              "trials": 20,
+              "success_rate": 0.6,
+              "ci95_low": 0.3865815007622531,
+              "ci95_high": 0.781193467627183,
+              "eval_seconds": 109.98866009712219,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_5/true/n_action_steps_50/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": -0.25
+            }
+          }
+        },
+        "10": {
+          "frozen_baseline_success_rate": 0.75,
+          "rerun_50_success_rate": 0.75,
+          "rerun_50_minus_frozen": 0.0,
+          "best_action_steps": [
+            25
+          ],
+          "selected_best_action_steps": 25,
+          "points": {
+            "1": {
+              "successes": 7,
+              "trials": 20,
+              "success_rate": 0.35,
+              "ci95_low": 0.18119182410108206,
+              "ci95_high": 0.5671457233147638,
+              "eval_seconds": 331.116943359375,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_10/true/n_action_steps_1/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": -0.4,
+              "delta_vs_frozen_baseline": -0.4
+            },
+            "5": {
+              "successes": 12,
+              "trials": 20,
+              "success_rate": 0.6,
+              "ci95_low": 0.3865815007622531,
+              "ci95_high": 0.781193467627183,
+              "eval_seconds": 99.27312588691711,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_10/true/n_action_steps_5/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": -0.15000000000000002,
+              "delta_vs_frozen_baseline": -0.15000000000000002
+            },
+            "10": {
+              "successes": 16,
+              "trials": 20,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "eval_seconds": 114.33990216255188,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_10/true/n_action_steps_10/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.050000000000000044,
+              "delta_vs_frozen_baseline": 0.050000000000000044
+            },
+            "25": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "eval_seconds": 102.30629563331604,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_10/true/n_action_steps_25/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.09999999999999998,
+              "delta_vs_frozen_baseline": 0.09999999999999998
+            },
+            "50": {
+              "successes": 15,
+              "trials": 20,
+              "success_rate": 0.75,
+              "ci95_low": 0.531299122381256,
+              "ci95_high": 0.8881382985923343,
+              "eval_seconds": 130.7027623653412,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_10/true/n_action_steps_50/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            }
+          }
+        },
+        "25": {
+          "frozen_baseline_success_rate": 0.85,
+          "rerun_50_success_rate": 0.9,
+          "rerun_50_minus_frozen": 0.050000000000000044,
+          "best_action_steps": [
+            50
+          ],
+          "selected_best_action_steps": 50,
+          "points": {
+            "1": {
+              "successes": 15,
+              "trials": 20,
+              "success_rate": 0.75,
+              "ci95_low": 0.531299122381256,
+              "ci95_high": 0.8881382985923343,
+              "eval_seconds": 261.193421125412,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_25/true/n_action_steps_1/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": -0.15000000000000002,
+              "delta_vs_frozen_baseline": -0.09999999999999998
+            },
+            "5": {
+              "successes": 15,
+              "trials": 20,
+              "success_rate": 0.75,
+              "ci95_low": 0.531299122381256,
+              "ci95_high": 0.8881382985923343,
+              "eval_seconds": 94.56899285316467,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_25/true/n_action_steps_5/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": -0.15000000000000002,
+              "delta_vs_frozen_baseline": -0.09999999999999998
+            },
+            "10": {
+              "successes": 16,
+              "trials": 20,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "eval_seconds": 79.64216613769531,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_25/true/n_action_steps_10/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": -0.09999999999999998,
+              "delta_vs_frozen_baseline": -0.04999999999999993
+            },
+            "25": {
+              "successes": 15,
+              "trials": 20,
+              "success_rate": 0.75,
+              "ci95_low": 0.531299122381256,
+              "ci95_high": 0.8881382985923343,
+              "eval_seconds": 104.22792553901672,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_25/true/n_action_steps_25/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": -0.15000000000000002,
+              "delta_vs_frozen_baseline": -0.09999999999999998
+            },
+            "50": {
+              "successes": 18,
+              "trials": 20,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "eval_seconds": 82.84999108314514,
+              "video_paths": [
+                "results/raw/adapted/task_0/videos/k_25/true/n_action_steps_50/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.050000000000000044
+            }
+          }
+        }
+      }
+    },
+    "1": {
+      "instruction": "put the wine bottle on the rack",
+      "budgets": {
+        "0": {
+          "frozen_baseline_success_rate": 0.0,
+          "rerun_50_success_rate": 0.0,
+          "rerun_50_minus_frozen": 0.0,
+          "best_action_steps": [
+            1,
+            5,
+            10,
+            25,
+            50
+          ],
+          "selected_best_action_steps": 1,
+          "points": {
+            "1": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 320.2816495895386,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_1/true/n_action_steps_1/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "5": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 132.1650676727295,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_1/true/n_action_steps_5/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "10": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 163.83543229103088,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_1/true/n_action_steps_10/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "25": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 123.15881848335266,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_1/true/n_action_steps_25/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "50": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 112.77735424041748,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_1/true/n_action_steps_50/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            }
+          }
+        },
+        "5": {
+          "frozen_baseline_success_rate": 0.0,
+          "rerun_50_success_rate": 0.0,
+          "rerun_50_minus_frozen": 0.0,
+          "best_action_steps": [
+            1,
+            5,
+            10,
+            25,
+            50
+          ],
+          "selected_best_action_steps": 1,
+          "points": {
+            "1": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 332.5453853607178,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_5/true/n_action_steps_1/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "5": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 185.03525686264038,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_5/true/n_action_steps_5/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "10": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 177.80226349830627,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_5/true/n_action_steps_10/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "25": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 96.55317640304565,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_5/true/n_action_steps_25/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "50": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 65.83050155639648,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_5/true/n_action_steps_50/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            }
+          }
+        },
+        "10": {
+          "frozen_baseline_success_rate": 0.0,
+          "rerun_50_success_rate": 0.0,
+          "rerun_50_minus_frozen": 0.0,
+          "best_action_steps": [
+            1,
+            5,
+            10,
+            25,
+            50
+          ],
+          "selected_best_action_steps": 1,
+          "points": {
+            "1": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 328.08367133140564,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_10/true/n_action_steps_1/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "5": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 205.4026222229004,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_10/true/n_action_steps_5/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "10": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 144.60245943069458,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_10/true/n_action_steps_10/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "25": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 69.49145817756653,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_10/true/n_action_steps_25/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "50": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 56.34093356132507,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_10/true/n_action_steps_50/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            }
+          }
+        },
+        "25": {
+          "frozen_baseline_success_rate": 0.0,
+          "rerun_50_success_rate": 0.0,
+          "rerun_50_minus_frozen": 0.0,
+          "best_action_steps": [
+            1,
+            5,
+            10,
+            25,
+            50
+          ],
+          "selected_best_action_steps": 1,
+          "points": {
+            "1": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 384.40166783332825,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_25/true/n_action_steps_1/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "5": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 103.77216529846191,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_25/true/n_action_steps_5/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "10": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 96.95110559463501,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_25/true/n_action_steps_10/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "25": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 122.13348817825317,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_25/true/n_action_steps_25/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "50": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 158.54024076461792,
+              "video_paths": [
+                "results/raw/adapted/task_1/videos/k_25/true/n_action_steps_50/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "instruction": "open the top drawer and put the bowl inside",
+      "budgets": {
+        "0": {
+          "frozen_baseline_success_rate": 0.0,
+          "rerun_50_success_rate": 0.0,
+          "rerun_50_minus_frozen": 0.0,
+          "best_action_steps": [
+            1,
+            5,
+            10,
+            25,
+            50
+          ],
+          "selected_best_action_steps": 1,
+          "points": {
+            "1": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 313.51496505737305,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_2/true/n_action_steps_1/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "5": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 126.35768175125122,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_2/true/n_action_steps_5/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "10": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 158.00962281227112,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_2/true/n_action_steps_10/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "25": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 114.67970657348633,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_2/true/n_action_steps_25/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "50": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 115.47180557250977,
+              "video_paths": [
+                "results/raw/zero_shot/videos/task_2/true/n_action_steps_50/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            }
+          }
+        },
+        "5": {
+          "frozen_baseline_success_rate": 0.0,
+          "rerun_50_success_rate": 0.0,
+          "rerun_50_minus_frozen": 0.0,
+          "best_action_steps": [
+            1,
+            5,
+            10,
+            25,
+            50
+          ],
+          "selected_best_action_steps": 1,
+          "points": {
+            "1": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 312.1804130077362,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_5/true/n_action_steps_1/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "5": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 154.7313678264618,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_5/true/n_action_steps_5/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "10": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 172.85012459754944,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_5/true/n_action_steps_10/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "25": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 115.15231728553772,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_5/true/n_action_steps_25/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "50": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 80.32943797111511,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_5/true/n_action_steps_50/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            }
+          }
+        },
+        "10": {
+          "frozen_baseline_success_rate": 0.0,
+          "rerun_50_success_rate": 0.0,
+          "rerun_50_minus_frozen": 0.0,
+          "best_action_steps": [
+            1,
+            5,
+            10,
+            25,
+            50
+          ],
+          "selected_best_action_steps": 1,
+          "points": {
+            "1": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 314.7849187850952,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_10/true/n_action_steps_1/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "5": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 158.1036570072174,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_10/true/n_action_steps_5/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "10": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 172.39362406730652,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_10/true/n_action_steps_10/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "25": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 87.8475193977356,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_10/true/n_action_steps_25/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "50": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 60.85131096839905,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_10/true/n_action_steps_50/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            }
+          }
+        },
+        "25": {
+          "frozen_baseline_success_rate": 0.0,
+          "rerun_50_success_rate": 0.0,
+          "rerun_50_minus_frozen": 0.0,
+          "best_action_steps": [
+            1,
+            5,
+            10,
+            25,
+            50
+          ],
+          "selected_best_action_steps": 1,
+          "points": {
+            "1": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 352.93428111076355,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_25/true/n_action_steps_1/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "5": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 103.60600996017456,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_25/true/n_action_steps_5/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "10": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 99.0718412399292,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_25/true/n_action_steps_10/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "25": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 130.33557772636414,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_25/true/n_action_steps_25/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            },
+            "50": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "eval_seconds": 166.51064443588257,
+              "video_paths": [
+                "results/raw/adapted/task_2/videos/k_25/true/n_action_steps_50/eval_episode_0.mp4"
+              ],
+              "delta_vs_paired_50": 0.0,
+              "delta_vs_frozen_baseline": 0.0
+            }
+          }
+        }
+      }
+    }
+  },
+  "mean_success_by_budget_and_action_steps": {
+    "0": {
+      "1": 0.0,
+      "5": 0.0,
+      "10": 0.0,
+      "25": 0.0,
+      "50": 0.0
+    },
+    "5": {
+      "1": 0.25,
+      "5": 0.2333333333333333,
+      "10": 0.3333333333333333,
+      "25": 0.21666666666666667,
+      "50": 0.19999999999999998
+    },
+    "10": {
+      "1": 0.11666666666666665,
+      "5": 0.19999999999999998,
+      "10": 0.26666666666666666,
+      "25": 0.2833333333333333,
+      "50": 0.25
+    },
+    "25": {
+      "1": 0.25,
+      "5": 0.25,
+      "10": 0.26666666666666666,
+      "25": 0.25,
+      "50": 0.3
+    }
+  },
+  "mean_delta_vs_paired_50": {
+    "0": {
+      "1": 0.0,
+      "5": 0.0,
+      "10": 0.0,
+      "25": 0.0,
+      "50": 0.0
+    },
+    "5": {
+      "1": 0.05000000000000002,
+      "5": 0.033333333333333326,
+      "10": 0.13333333333333333,
+      "25": 0.01666666666666669,
+      "50": 0.0
+    },
+    "10": {
+      "1": -0.13333333333333336,
+      "5": -0.05000000000000002,
+      "10": 0.016666666666666663,
+      "25": 0.033333333333333326,
+      "50": 0.0
+    },
+    "25": {
+      "1": -0.04999999999999999,
+      "5": -0.04999999999999999,
+      "10": -0.033333333333333326,
+      "25": -0.04999999999999999,
+      "50": 0.0
+    }
+  },
+  "mean_delta_vs_frozen_baseline": {
+    "0": {
+      "1": 0.0,
+      "5": 0.0,
+      "10": 0.0,
+      "25": 0.0,
+      "50": 0.0
+    },
+    "5": {
+      "1": -0.033333333333333326,
+      "5": -0.05000000000000002,
+      "10": 0.04999999999999999,
+      "25": -0.06666666666666665,
+      "50": -0.08333333333333334
+    },
+    "10": {
+      "1": -0.13333333333333336,
+      "5": -0.05000000000000002,
+      "10": 0.016666666666666663,
+      "25": 0.033333333333333326,
+      "50": 0.0
+    },
+    "25": {
+      "1": -0.033333333333333326,
+      "5": -0.033333333333333326,
+      "10": -0.016666666666666663,
+      "25": -0.033333333333333326,
+      "50": 0.016666666666666663
+    }
+  },
+  "zero_shot_any_true_success": false,
+  "language_controls": {
+    "required": false,
+    "status": "skipped_floor",
+    "conditions": {}
+  }
+}
