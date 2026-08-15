@@ -11,6 +11,33 @@
 |---|---|---|---|
 | 2026-08-15 | [`smolvla_libero_task1`](experiments/2026-08-15_smolvla_libero_task1/) | завершён | [cost curve](experiments/2026-08-15_smolvla_libero_task1/results/summary/cost_curve.csv) |
 
+## Единое uv-окружение
+
+Корневой `pyproject.toml` объединяет экспериментальные пакеты в uv-workspace,
+а `uv.lock` фиксирует одно согласованное окружение Python 3.12 для всего
+репозитория. Корневой проект виртуальный: в нём нет общего изменяемого кода, он
+только собирает зависимости автономных экспериментов.
+Workspace ограничен Linux x86_64, поскольку текущий робототехнический стек
+фиксирует проверенные PyTorch 2.7.1 и CUDA 12.6 для GPU-запусков.
+
+```bash
+# Создать или актуализировать .venv строго по lock-файлу.
+uv sync --frozen
+
+# Запустить все тесты из общего окружения.
+uv run --frozen pytest
+
+# Выполнить команду внутри конкретного эксперимента.
+uv run --frozen \
+  --directory experiments/2026-08-15_smolvla_libero_task1 \
+  vla-aggregate
+```
+
+При добавлении нового каталога `experiments/YYYY-MM-DD_name` его `pyproject.toml`
+автоматически попадает в workspace через `experiments/*`. Чтобы пакет также
+устанавливался обычным `uv sync`, его имя нужно добавить в корневые
+`project.dependencies` и `tool.uv.sources` с `workspace = true`.
+
 ## Контракт структуры
 
 ```text
@@ -49,6 +76,6 @@ experiments/
 
 ```bash
 cd experiments/2026-08-15_smolvla_libero_task1
-source scripts/common_env.sh
+source scripts/common_env.sh  # автоматически выбирает корневую .venv
 pytest -q
 ```

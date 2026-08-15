@@ -45,13 +45,18 @@ Target-data pinned на `9176d427...`: это последняя ревизия 
 (пик в этих запусках — 28.4 GB; 40 GB оставляет удобный запас). Официальная
 интеграция описана в
 [документации LeRobot LIBERO](https://huggingface.co/docs/lerobot/libero).
+Для воспроизводимости uv-конфигурация фиксирует проверенный стек PyTorch 2.7.1
+с CUDA 12.6, на котором были получены чекпойнты.
 
 ```bash
+# Один раз из корня репозитория.
+uv sync --frozen
+
 cd experiments/2026-08-15_smolvla_libero_task1
 
-# В этом окружении зависимости уже установлены в /var/tmp/vla_env.
+# По умолчанию используется корневая .venv;
+# старый /var/tmp/vla_env остаётся fallback.
 source scripts/common_env.sh
-pip install -e '.[test]'
 
 # Данные, manifest и schema-only адаптер seen-чекпойнта.
 scripts/prepare.sh

@@ -14,6 +14,9 @@ dependencies = [
   "pyarrow>=21",
   "PyYAML>=6",
   "safetensors>=0.5",
+  "torch==2.7.1+cu126",
+  "torchcodec==0.5+cu126",
+  "torchvision==0.22.1+cu126",
   "trackio==0.33.0",
 ]
 
@@ -32,3 +35,13 @@ where = ["src"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+torchcodec = { index = "pytorch-cu126" }
+torchvision = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true

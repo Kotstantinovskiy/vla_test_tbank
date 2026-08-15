@@ -2,7 +2,14 @@
 set -euo pipefail
 
 export VLA_EXPERIMENT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-export VLA_ENV_ROOT="${VLA_ENV_ROOT:-/var/tmp/vla_env}"
+export VLA_REPO_ROOT="$(cd "$VLA_EXPERIMENT_ROOT/../.." && pwd)"
+if [[ -z "${VLA_ENV_ROOT:-}" ]]; then
+  if [[ -x "$VLA_REPO_ROOT/.venv/bin/python" ]]; then
+    export VLA_ENV_ROOT="$VLA_REPO_ROOT/.venv"
+  else
+    export VLA_ENV_ROOT="/var/tmp/vla_env"
+  fi
+fi
 export PATH="$VLA_ENV_ROOT/bin:$PATH"
 export PYTHONPATH="$VLA_EXPERIMENT_ROOT/src${PYTHONPATH:+:$PYTHONPATH}"
 export HF_HOME="${HF_HOME:-/var/tmp/vla_hf}"
