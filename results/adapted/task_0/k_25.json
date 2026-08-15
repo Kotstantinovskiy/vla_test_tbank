@@ -1,0 +1,168 @@
+{
+  "model": "outputs/naive/task_0/k_25/checkpoints/002000/pretrained_model",
+  "revision": null,
+  "condition": "true",
+  "suite": "libero_goal",
+  "seed": 1000,
+  "n_episodes": 20,
+  "batch_size": 4,
+  "tasks": {
+    "0": {
+      "environment_instruction": "open the middle drawer of the cabinet",
+      "policy_prompt": "open the middle drawer of the cabinet",
+      "per_episode": [
+        {
+          "episode_ix": 0,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1000
+        },
+        {
+          "episode_ix": 1,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1001
+        },
+        {
+          "episode_ix": 2,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1002
+        },
+        {
+          "episode_ix": 3,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1003
+        },
+        {
+          "episode_ix": 4,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1004
+        },
+        {
+          "episode_ix": 5,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1005
+        },
+        {
+          "episode_ix": 6,
+          "sum_reward": 0.0,
+          "max_reward": 0.0,
+          "success": false,
+          "seed": 1006
+        },
+        {
+          "episode_ix": 7,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1007
+        },
+        {
+          "episode_ix": 8,
+          "sum_reward": 0.0,
+          "max_reward": 0.0,
+          "success": false,
+          "seed": 1008
+        },
+        {
+          "episode_ix": 9,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1009
+        },
+        {
+          "episode_ix": 10,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1010
+        },
+        {
+          "episode_ix": 11,
+          "sum_reward": 0.0,
+          "max_reward": 0.0,
+          "success": false,
+          "seed": 1011
+        },
+        {
+          "episode_ix": 12,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1012
+        },
+        {
+          "episode_ix": 13,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1013
+        },
+        {
+          "episode_ix": 14,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1014
+        },
+        {
+          "episode_ix": 15,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1015
+        },
+        {
+          "episode_ix": 16,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1016
+        },
+        {
+          "episode_ix": 17,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1017
+        },
+        {
+          "episode_ix": 18,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1018
+        },
+        {
+          "episode_ix": 19,
+          "sum_reward": 1.0,
+          "max_reward": 1.0,
+          "success": true,
+          "seed": 1019
+        }
+      ],
+      "aggregated": {
+        "avg_sum_reward": 0.85,
+        "avg_max_reward": 0.85,
+        "pc_success": 85.0,
+        "eval_s": 44.83665180206299,
+        "eval_ep_s": 2.241832602024078
+      },
+      "video_paths": [
+        "results/adapted/task_0/videos/true/task_0/eval_episode_0.mp4"
+      ]
+    }
+  },
+  "mean_success": 0.85
+}

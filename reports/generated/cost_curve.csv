@@ -1,0 +1,4 @@
+task_id,instruction,k0_true,k0_wrong,k0_nonsense,k5,k10,k25
+0,open the middle drawer of the cabinet,0.0,0.0,0.0,0.85,0.75,0.85
+1,put the wine bottle on the rack,0.0,0.0,0.0,0.0,0.0,0.0
+2,open the top drawer and put the bowl inside,0.0,0.0,0.0,0.0,0.0,0.0

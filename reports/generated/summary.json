@@ -1,0 +1,157 @@
+{
+  "tasks": {
+    "0": {
+      "instruction": "open the middle drawer of the cabinet",
+      "k0": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      },
+      "adapted": {
+        "5": {
+          "successes": 17,
+          "trials": 20,
+          "success_rate": 0.85,
+          "ci95_low": 0.6395811352592431,
+          "ci95_high": 0.9476312541037835
+        },
+        "10": {
+          "successes": 15,
+          "trials": 20,
+          "success_rate": 0.75,
+          "ci95_low": 0.531299122381256,
+          "ci95_high": 0.8881382985923343
+        },
+        "25": {
+          "successes": 17,
+          "trials": 20,
+          "success_rate": 0.85,
+          "ci95_low": 0.6395811352592431,
+          "ci95_high": 0.9476312541037835
+        }
+      }
+    },
+    "1": {
+      "instruction": "put the wine bottle on the rack",
+      "k0": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      },
+      "adapted": {
+        "5": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "10": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "25": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    },
+    "2": {
+      "instruction": "open the top drawer and put the bowl inside",
+      "k0": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      },
+      "adapted": {
+        "5": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "10": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "25": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    }
+  },
+  "mean_cost_curve": {
+    "0": 0.0,
+    "5": 0.2833333333333333,
+    "10": 0.25,
+    "25": 0.2833333333333333
+  }
+}

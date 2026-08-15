@@ -37,8 +37,9 @@ Target-data pinned на `9176d427...`: это последняя ревизия 
 
 ## Запуск
 
-Требуются Linux, Python 3.12, CUDA и GPU примерно от 40 GB для полного
-fine-tuning. Официальная интеграция описана в
+Требуются Linux, Python 3.12, CUDA и GPU от 32 GB для полного fine-tuning
+(пик в этих запусках — 28.4 GB; 40 GB оставляет удобный запас). Официальная
+интеграция описана в
 [документации LeRobot LIBERO](https://huggingface.co/docs/lerobot/libero).
 
 ```bash
@@ -70,6 +71,10 @@ python -m vla_cost_curve.aggregate
 в `outputs/`, итоговые `summary.json`, CSV и PNG — в `reports/generated/`.
 Schema-adapter меняет только имена камер `top/wrist_image` на
 `image/image2`; SHA-256 весов и provenance записываются рядом с артефактом.
+
+На H200 один 2000-step full-FT занимает примерно 35–41 минут, evaluation одной
+точки на 20 эпизодах — около минуты. Четыре независимых обучения можно запускать
+параллельно; полная последовательность дольше из-за девяти отдельных моделей.
 
 ## Протокол baseline
 
