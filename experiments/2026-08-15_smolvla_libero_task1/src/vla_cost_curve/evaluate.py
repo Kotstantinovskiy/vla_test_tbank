@@ -150,7 +150,10 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             videos_dir = None
             max_rendered = 0
             if args.videos > 0:
-                videos_dir = args.output.parent / "videos" / args.condition / f"task_{task_id}"
+                videos_dir = args.output.parent / "videos"
+                if args.video_tag:
+                    videos_dir /= args.video_tag
+                videos_dir = videos_dir / args.condition / f"task_{task_id}"
                 max_rendered = args.videos
             try:
                 info = eval_policy(
@@ -196,6 +199,10 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=MASTER_SEED)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--videos", type=int, default=0)
+    parser.add_argument(
+        "--video-tag",
+        help="Optional subdirectory (for example k_5) that prevents rollout videos from being overwritten",
+    )
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.revision is not None and args.revision.lower() in {"", "none", "null"}:

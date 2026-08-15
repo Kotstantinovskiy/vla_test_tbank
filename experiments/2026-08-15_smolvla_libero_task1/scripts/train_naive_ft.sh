@@ -12,6 +12,8 @@ case "$k" in 5|10|25) ;; *) echo "k must be 5, 10, or 25" >&2; exit 2;; esac
 episodes="$("$VLA_PYTHON" -m vla_cost_curve.selection \
   --manifest artifacts/episode_manifest.json --task-id "$task_id" --k "$k" --print-episodes)"
 output="artifacts/checkpoints/naive/task_${task_id}/k_${k}"
+log_file="results/logs/train/task_${task_id}_k_${k}.log"
+mkdir -p "$(dirname "$log_file")"
 
 CUDA_VISIBLE_DEVICES="$gpu" lerobot-train \
   --policy.path=artifacts/seen_image_schema \
@@ -36,4 +38,5 @@ CUDA_VISIBLE_DEVICES="$gpu" lerobot-train \
   --save_freq=0 \
   --log_freq=25 \
   --seed=1000 \
-  --wandb.enable=false
+  --wandb.enable=false \
+  2>&1 | tee "$log_file"

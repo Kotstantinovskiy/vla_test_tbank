@@ -8,6 +8,8 @@ export PYTHONPATH="$VLA_EXPERIMENT_ROOT/src${PYTHONPATH:+:$PYTHONPATH}"
 export HF_HOME="${HF_HOME:-/var/tmp/vla_hf}"
 export HF_LEROBOT_HOME="${HF_LEROBOT_HOME:-/var/tmp/vla_lerobot}"
 export LIBERO_CONFIG_PATH="${LIBERO_CONFIG_PATH:-$VLA_EXPERIMENT_ROOT/artifacts/libero_config}"
+export TRACKIO_DIR="${TRACKIO_DIR:-$VLA_EXPERIMENT_ROOT/artifacts/trackio}"
+export TRACKIO_PROJECT="${TRACKIO_PROJECT:-smolvla-libero-task1}"
 export MUJOCO_GL="${MUJOCO_GL:-egl}"
 export TOKENIZERS_PARALLELISM="${TOKENIZERS_PARALLELISM:-false}"
 # All model and tokenizer files are pinned and cached during preparation.  Keep

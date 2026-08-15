@@ -13,5 +13,6 @@ experiments/*/artifacts/checkpoints
 experiments/*/artifacts/checkpoints/
 experiments/*/artifacts/seen_image_schema/
 experiments/*/artifacts/libero_config/
+experiments/*/artifacts/trackio/
 experiments/*/results/logs/
 experiments/*/results/**/videos/

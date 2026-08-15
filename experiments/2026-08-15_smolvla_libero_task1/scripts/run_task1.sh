@@ -22,3 +22,4 @@ done
 wait
 
 "$VLA_PYTHON" -m vla_cost_curve.aggregate
+scripts/log_trackio.sh

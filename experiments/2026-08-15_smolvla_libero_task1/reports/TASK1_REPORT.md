@@ -125,5 +125,10 @@ predicate не срабатывает. Это только качественн�
 `scripts/`, сырые rollout JSON — в `results/raw/`, логи — в `results/logs/`,
 а агрегированные JSON/CSV/PNG — в `results/summary/`. Веса и остальные
 experiment-owned артефакты находятся в `artifacts/`. Проверка кода: `pytest -q`
-(4 теста), `compileall` и
+(6 тестов), `compileall` и
 `git diff --check`.
+
+Кривые обучения и success, таблицы метрик, PNG и rollout GIF публикуются
+скриптом `scripts/log_trackio.sh` в локальный Trackio-проект
+`smolvla-libero-task1`. Локальное хранилище находится в `artifacts/trackio/`,
+а компактные GIF-копии — в `results/media/gifs/`.

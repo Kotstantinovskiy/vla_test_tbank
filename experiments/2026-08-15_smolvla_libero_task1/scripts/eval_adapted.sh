@@ -22,4 +22,5 @@ CUDA_VISIBLE_DEVICES="$gpu" "$VLA_PYTHON" -m vla_cost_curve.evaluate \
   --batch-size 4 \
   --seed 1000 \
   --videos 1 \
+  --video-tag "k_${k}" \
   --output "results/raw/adapted/task_${task_id}/k_${k}.json"

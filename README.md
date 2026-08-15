@@ -25,6 +25,7 @@ experiments/
     ├── results/
     │   ├── raw/           # сырые rollout/metrics
     │   ├── summary/       # таблицы и графики
+    │   ├── media/         # GIF и другие компактные результаты
     │   └── logs/          # runtime-логи
     ├── artifacts/         # веса, manifest, schema и служебные данные
     └── reports/           # предсказания, отклонения и выводы
