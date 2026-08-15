@@ -10,7 +10,7 @@
 | Дата | Эксперимент | Статус | Результат |
 |---|---|---|---|
 | 2026-08-15 | [`smolvla_libero_task1`](experiments/2026-08-15_smolvla_libero_task1/) | завершён | [cost curve](experiments/2026-08-15_smolvla_libero_task1/results/summary/cost_curve.csv) |
-| 2026-08-15 | [`smolvla_prompt_only`](experiments/2026-08-15_smolvla_prompt_only/) | отдельный zero-shot запуск | [prompt metrics](experiments/2026-08-15_smolvla_prompt_only/results/summary/metrics.csv) |
+| 2026-08-15 | [`smolvla_prompt_only`](experiments/2026-08-15_smolvla_prompt_only/) | завершён | [prompt metrics](experiments/2026-08-15_smolvla_prompt_only/results/summary/metrics.csv) |
 
 ## Единое uv-окружение
 

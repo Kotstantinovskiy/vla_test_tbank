@@ -26,6 +26,11 @@
 эксперимента ожидание здесь честно помечено как prior-informed, а не как слепая
 пререгистрация: [reports/PRIOR_EXPECTATION.md](reports/PRIOR_EXPECTATION.md).
 
+Свежий запуск дал `0/20` на каждой из трёх задач во всех трёх prompt-условиях.
+Итоговая таблица находится в [results/summary/metrics.csv](results/summary/metrics.csv),
+а интерпретация — в [reports/REPORT.md](reports/REPORT.md). Равенство контролей
+на нулевом floor не позволяет заключить, что модель не читает язык.
+
 ## Воспроизведение
 
 Из корня репозитория:

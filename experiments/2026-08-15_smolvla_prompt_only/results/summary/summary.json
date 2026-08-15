@@ -1,0 +1,98 @@
+{
+  "experiment": "smolvla_prompt_only",
+  "checkpoint": {
+    "repo_id": "crislmfroes/smolvla-libero-90",
+    "revision": "418f9d0e5b48585bcee1e1a7d47e302629af78da"
+  },
+  "protocol": {
+    "suite": "libero_goal",
+    "seed": 1000,
+    "target_demonstrations": 0,
+    "optimizer_steps": 0
+  },
+  "tasks": {
+    "0": {
+      "instruction": "open the middle drawer of the cabinet",
+      "conditions": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    },
+    "1": {
+      "instruction": "put the wine bottle on the rack",
+      "conditions": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    },
+    "2": {
+      "instruction": "open the top drawer and put the bowl inside",
+      "conditions": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    }
+  },
+  "condition_means": {
+    "true": 0.0,
+    "wrong": 0.0,
+    "nonsense": 0.0
+  }
+}
