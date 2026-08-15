@@ -117,7 +117,9 @@ def write_outputs(summary: dict[str, Any], output_dir: Path) -> None:
 
     rows = metric_rows(summary)
     with (output_dir / "metrics.csv").open("w", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(
+            stream, fieldnames=list(rows[0]), lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(rows)
 
