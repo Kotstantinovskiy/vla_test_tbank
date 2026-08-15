@@ -1,0 +1,115 @@
+{
+  "weights_modified": false,
+  "external_checkpoints_root": "/var/tmp/vla_outputs",
+  "experiment_checkpoint_link": "artifacts/checkpoints",
+  "checkpoints": [
+    {
+      "task_id": 0,
+      "demo_budget": 5,
+      "path": "artifacts/checkpoints/naive/task_0/k_5/checkpoints/last/pretrained_model",
+      "resolved_path": "/var/tmp/vla_outputs/naive/task_0/k_5/checkpoints/002000/pretrained_model",
+      "training_step": 2000,
+      "chunk_size": 50,
+      "original_n_action_steps": 50,
+      "model_size_bytes": 906712520,
+      "config_sha256": "6ce2daec3f79e133afd2faada084a9599a6a67f713f74b98c744fb81b78f39d9",
+      "model_sha256": "5915b0979888fa347936d6c9c3f0a6c0dbaa0ee6af70a12669fef79b7baf7904"
+    },
+    {
+      "task_id": 0,
+      "demo_budget": 10,
+      "path": "artifacts/checkpoints/naive/task_0/k_10/checkpoints/last/pretrained_model",
+      "resolved_path": "/var/tmp/vla_outputs/naive/task_0/k_10/checkpoints/002000/pretrained_model",
+      "training_step": 2000,
+      "chunk_size": 50,
+      "original_n_action_steps": 50,
+      "model_size_bytes": 906712520,
+      "config_sha256": "6ce2daec3f79e133afd2faada084a9599a6a67f713f74b98c744fb81b78f39d9",
+      "model_sha256": "d81342ca5bc0a158bfb5b90f3df5b45f0ea99e9c36b15b1bb8e6cfdab694af0c"
+    },
+    {
+      "task_id": 0,
+      "demo_budget": 25,
+      "path": "artifacts/checkpoints/naive/task_0/k_25/checkpoints/last/pretrained_model",
+      "resolved_path": "/var/tmp/vla_outputs/naive/task_0/k_25/checkpoints/002000/pretrained_model",
+      "training_step": 2000,
+      "chunk_size": 50,
+      "original_n_action_steps": 50,
+      "model_size_bytes": 906712520,
+      "config_sha256": "6ce2daec3f79e133afd2faada084a9599a6a67f713f74b98c744fb81b78f39d9",
+      "model_sha256": "ad5279274aa18938f712c2d003bca77d8bb079c5a11050a53f590877deba5f0d"
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 5,
+      "path": "artifacts/checkpoints/naive/task_1/k_5/checkpoints/last/pretrained_model",
+      "resolved_path": "/var/tmp/vla_outputs/naive/task_1/k_5/checkpoints/002000/pretrained_model",
+      "training_step": 2000,
+      "chunk_size": 50,
+      "original_n_action_steps": 50,
+      "model_size_bytes": 906712520,
+      "config_sha256": "6ce2daec3f79e133afd2faada084a9599a6a67f713f74b98c744fb81b78f39d9",
+      "model_sha256": "b08c36586e881cd6fad106fb95f1f88de3a6f49176863b2039984edeb43d9d7c"
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 10,
+      "path": "artifacts/checkpoints/naive/task_1/k_10/checkpoints/last/pretrained_model",
+      "resolved_path": "/var/tmp/vla_outputs/naive/task_1/k_10/checkpoints/002000/pretrained_model",
+      "training_step": 2000,
+      "chunk_size": 50,
+      "original_n_action_steps": 50,
+      "model_size_bytes": 906712520,
+      "config_sha256": "6ce2daec3f79e133afd2faada084a9599a6a67f713f74b98c744fb81b78f39d9",
+      "model_sha256": "a7ab72caa2e270471326fb058bf2e79ef9a08ff2933b176431d3e64a4fde9077"
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 25,
+      "path": "artifacts/checkpoints/naive/task_1/k_25/checkpoints/last/pretrained_model",
+      "resolved_path": "/var/tmp/vla_outputs/naive/task_1/k_25/checkpoints/002000/pretrained_model",
+      "training_step": 2000,
+      "chunk_size": 50,
+      "original_n_action_steps": 50,
+      "model_size_bytes": 906712520,
+      "config_sha256": "6ce2daec3f79e133afd2faada084a9599a6a67f713f74b98c744fb81b78f39d9",
+      "model_sha256": "bb587ac417191db9f58a48134873410a59213b9b285ba3bec1880ea17a344aaa"
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 5,
+      "path": "artifacts/checkpoints/naive/task_2/k_5/checkpoints/last/pretrained_model",
+      "resolved_path": "/var/tmp/vla_outputs/naive/task_2/k_5/checkpoints/002000/pretrained_model",
+      "training_step": 2000,
+      "chunk_size": 50,
+      "original_n_action_steps": 50,
+      "model_size_bytes": 906712520,
+      "config_sha256": "6ce2daec3f79e133afd2faada084a9599a6a67f713f74b98c744fb81b78f39d9",
+      "model_sha256": "1d26e2667169ec0bde38569060787b4ded3d032dc26740976686140941e9cad6"
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 10,
+      "path": "artifacts/checkpoints/naive/task_2/k_10/checkpoints/last/pretrained_model",
+      "resolved_path": "/var/tmp/vla_outputs/naive/task_2/k_10/checkpoints/002000/pretrained_model",
+      "training_step": 2000,
+      "chunk_size": 50,
+      "original_n_action_steps": 50,
+      "model_size_bytes": 906712520,
+      "config_sha256": "6ce2daec3f79e133afd2faada084a9599a6a67f713f74b98c744fb81b78f39d9",
+      "model_sha256": "51f226f54cfba342dd5151fec7a38ea0f26c8dae5f21b5e640a594d24914d354"
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 25,
+      "path": "artifacts/checkpoints/naive/task_2/k_25/checkpoints/last/pretrained_model",
+      "resolved_path": "/var/tmp/vla_outputs/naive/task_2/k_25/checkpoints/002000/pretrained_model",
+      "training_step": 2000,
+      "chunk_size": 50,
+      "original_n_action_steps": 50,
+      "model_size_bytes": 906712520,
+      "config_sha256": "6ce2daec3f79e133afd2faada084a9599a6a67f713f74b98c744fb81b78f39d9",
+      "model_sha256": "e6fea99830132996256ea211b0c1665246b221bcd89bf30c447273f77707d189"
+    }
+  ]
+}

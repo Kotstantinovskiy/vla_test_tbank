@@ -10,6 +10,7 @@ supported-markers = [
 
 [manifest]
 members = [
+    "smolvla-action-steps",
     "smolvla-prompt-only",
     "vla-cost-curve",
     "vla-experiments",
@@ -1555,6 +1556,40 @@ wheels = [
 ]
 
 [[package]]
+name = "smolvla-action-steps"
+version = "0.1.0"
+source = { editable = "experiments/2026-08-15_smolvla_action_steps_sweep" }
+dependencies = [
+    { name = "imageio", extra = ["ffmpeg"] },
+    { name = "lerobot", extra = ["libero", "smolvla"] },
+    { name = "matplotlib" },
+    { name = "pyyaml" },
+    { name = "torch" },
+    { name = "torchcodec" },
+    { name = "torchvision" },
+    { name = "trackio" },
+]
+
+[package.optional-dependencies]
+test = [
+    { name = "pytest" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "imageio", extras = ["ffmpeg"], specifier = ">=2.37,<3" },
+    { name = "lerobot", extras = ["libero", "smolvla"], specifier = "==0.6.1" },
+    { name = "matplotlib", specifier = ">=3.10" },
+    { name = "pytest", marker = "extra == 'test'", specifier = ">=8" },
+    { name = "pyyaml", specifier = ">=6" },
+    { name = "torch", specifier = "==2.7.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchcodec", specifier = "==0.5+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchvision", specifier = "==0.22.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "trackio", specifier = "==0.33.0" },
+]
+provides-extras = ["test"]
+
+[[package]]
 name = "smolvla-prompt-only"
 version = "0.1.0"
 source = { editable = "experiments/2026-08-15_smolvla_prompt_only" }
@@ -1961,6 +1996,7 @@ name = "vla-experiments"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "smolvla-action-steps" },
     { name = "smolvla-prompt-only" },
     { name = "vla-cost-curve" },
 ]
@@ -1972,6 +2008,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "smolvla-action-steps", editable = "experiments/2026-08-15_smolvla_action_steps_sweep" },
     { name = "smolvla-prompt-only", editable = "experiments/2026-08-15_smolvla_prompt_only" },
     { name = "vla-cost-curve", editable = "experiments/2026-08-15_smolvla_libero_task1" },
 ]

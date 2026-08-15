@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smolvla-action-steps"
+version = "0.1.0"
+description = "Inference-only n_action_steps sweep on frozen SmolVLA LIBERO checkpoints"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "lerobot[libero,smolvla]==0.6.1",
+  "imageio[ffmpeg]>=2.37,<3",
+  "matplotlib>=3.10",
+  "PyYAML>=6",
+  "torch==2.7.1+cu126",
+  "torchcodec==0.5+cu126",
+  "torchvision==0.22.1+cu126",
+  "trackio==0.33.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+smolvla-action-steps-prepare = "smolvla_action_steps.prepare:main"
+smolvla-action-steps-evaluate = "smolvla_action_steps.evaluate:main"
+smolvla-action-steps-aggregate = "smolvla_action_steps.aggregate:main"
+smolvla-action-steps-trackio = "smolvla_action_steps.trackio_report:main"
+smolvla-action-steps-control-gate = "smolvla_action_steps.control_gate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+torchcodec = { index = "pytorch-cu126" }
+torchvision = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true

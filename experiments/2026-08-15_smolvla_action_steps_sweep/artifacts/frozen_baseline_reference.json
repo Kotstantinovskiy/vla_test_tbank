@@ -1,0 +1,12 @@
+{
+  "source_experiment": "2026-08-15_smolvla_libero_task1",
+  "source_summary": "experiments/2026-08-15_smolvla_libero_task1/results/summary/summary.json",
+  "source_commit": "640825210a9e64ff0c055478049144003bb856ed",
+  "original_n_action_steps": 50,
+  "task_success_rates": {
+    "0": {"0": 0.0, "5": 0.85, "10": 0.75, "25": 0.85},
+    "1": {"0": 0.0, "5": 0.0, "10": 0.0, "25": 0.0},
+    "2": {"0": 0.0, "5": 0.0, "10": 0.0, "25": 0.0}
+  },
+  "mean_cost_curve": {"0": 0.0, "5": 0.2833333333333333, "10": 0.25, "25": 0.2833333333333333}
+}
