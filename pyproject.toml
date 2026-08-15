@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vla-cost-curve"
+version = "0.1.0"
+description = "Reproducible SmolVLA adaptation cost curves on held-out LIBERO tasks"
+requires-python = ">=3.12"
+dependencies = [
+  "lerobot[libero,smolvla]==0.6.1",
+  "matplotlib>=3.10",
+  "pyarrow>=21",
+  "PyYAML>=6",
+  "safetensors>=0.5",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+vla-prepare = "vla_cost_curve.prepare:main"
+vla-evaluate = "vla_cost_curve.evaluate:main"
+vla-aggregate = "vla_cost_curve.aggregate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+

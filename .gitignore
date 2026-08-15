@@ -3,8 +3,13 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .ruff_cache/
+*.egg-info/
 outputs/
 results/videos/
+results/**/videos/
 results/raw/
+logs/
+artifacts/seen_image_schema/
 data/
 wandb/
+.libero/
