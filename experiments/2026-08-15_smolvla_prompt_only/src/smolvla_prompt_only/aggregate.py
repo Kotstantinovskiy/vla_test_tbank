@@ -129,22 +129,32 @@ def write_outputs(summary: dict[str, Any], output_dir: Path) -> None:
     fig, ax = plt.subplots(figsize=(8.0, 4.8))
     colors = {"true": "#3264a8", "wrong": "#d0802d", "nonsense": "#888888"}
     for offset, condition in enumerate(PROMPT_CONDITIONS, start=-1):
-        values = [
-            summary["tasks"][str(task_id)]["conditions"][condition]["success_rate"]
+        metrics = [
+            summary["tasks"][str(task_id)]["conditions"][condition]
             for task_id in task_ids
         ]
-        ax.bar(
+        values = [item["success_rate"] for item in metrics]
+        lower_errors = [
+            value - item["ci95_low"] for value, item in zip(values, metrics)
+        ]
+        upper_errors = [
+            item["ci95_high"] - value for value, item in zip(values, metrics)
+        ]
+        ax.errorbar(
             [position + offset * width for position in x_positions],
             values,
-            width=width,
+            yerr=[lower_errors, upper_errors],
+            fmt="o",
+            markersize=7,
+            capsize=4,
             label=condition,
             color=colors[condition],
         )
     ax.set(
         xlabel="LIBERO goal task ID",
         ylabel="Success rate",
-        ylim=(0.0, 1.03),
-        title="Prompt-only SmolVLA evaluation",
+        ylim=(-0.03, 1.03),
+        title="Prompt-only success with Wilson 95% CI",
     )
     ax.set_xticks(x_positions, [str(task_id) for task_id in task_ids])
     ax.grid(axis="y", alpha=0.25)
