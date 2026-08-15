@@ -25,6 +25,7 @@ from .constants import (
     MASTER_SEED,
     NONSENSE_PROMPT,
     N_EVAL_EPISODES,
+    TARGET_ENV_TASK_IDS,
     TARGET_INSTRUCTIONS,
     TARGET_SUITE,
 )
@@ -52,6 +53,23 @@ def prompt_for(condition: str, task_id: int) -> str:
     if condition == "nonsense":
         return NONSENSE_PROMPT
     raise ValueError(f"Unknown prompt condition: {condition}")
+
+
+def assert_environment_instruction(
+    env: Any, logical_task_id: int, env_task_id: int
+) -> str:
+    """Fail before rollout if the suite task does not match our logical label."""
+    descriptions = tuple(env.call("task_description"))
+    expected = TARGET_INSTRUCTIONS[logical_task_id]
+    if len(descriptions) != env.num_envs or any(
+        description != expected for description in descriptions
+    ):
+        raise RuntimeError(
+            "LIBERO task mapping mismatch: "
+            f"logical_task_id={logical_task_id}, env_task_id={env_task_id}, "
+            f"expected={expected!r}, actual={descriptions!r}"
+        )
+    return descriptions[0]
 
 
 def _camera_mapping(cfg: SmolVLAConfig) -> tuple[dict[str, str], int, int]:
@@ -113,6 +131,8 @@ def _load_existing(args: argparse.Namespace) -> dict[str, Any] | None:
         "model": args.model,
         "revision": args.revision,
         "task_id": args.task_id,
+        "logical_task_id": args.task_id,
+        "env_task_id": TARGET_ENV_TASK_IDS[args.task_id],
         "demo_budget": args.demo_budget,
         "condition": args.condition,
         "seed": args.seed,
@@ -157,6 +177,8 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         "model": args.model,
         "revision": args.revision,
         "task_id": args.task_id,
+        "logical_task_id": args.task_id,
+        "env_task_id": TARGET_ENV_TASK_IDS[args.task_id],
         "demo_budget": args.demo_budget,
         "condition": args.condition,
         "environment_instruction": TARGET_INSTRUCTIONS[args.task_id],
@@ -174,7 +196,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
 
     env_cfg = LiberoConfig(
         task=TARGET_SUITE,
-        task_ids=[args.task_id],
+        task_ids=[TARGET_ENV_TASK_IDS[args.task_id]],
         observation_height=height,
         observation_width=width,
         camera_name_mapping=camera_mapping,
@@ -185,8 +207,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     )
     base_env = env_cfg.create_envs(
         n_envs=args.batch_size, use_async_envs=args.batch_size > 1
-    )[TARGET_SUITE][args.task_id]
-    env = _PromptOverrideVectorEnv(base_env, result["policy_prompt"])
+    )[TARGET_SUITE][TARGET_ENV_TASK_IDS[args.task_id]]
 
     device = torch.device(args.device)
     amp = (
@@ -195,6 +216,10 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         else nullcontext()
     )
     try:
+        result["environment_instruction"] = assert_environment_instruction(
+            base_env, args.task_id, TARGET_ENV_TASK_IDS[args.task_id]
+        )
+        env = _PromptOverrideVectorEnv(base_env, result["policy_prompt"])
         with torch.no_grad(), amp:
             for action_steps in pending:
                 set_seed(args.seed)

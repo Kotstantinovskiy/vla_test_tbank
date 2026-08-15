@@ -1,6 +1,10 @@
 seed: 1000
 target_suite: libero_goal
 target_task_ids: [0, 1, 2]
+target_env_task_ids:
+  0: 0
+  1: 9
+  2: 3
 demo_budgets: [5, 10, 25]
 eval_episodes: 20
 eval_batch_size: 4

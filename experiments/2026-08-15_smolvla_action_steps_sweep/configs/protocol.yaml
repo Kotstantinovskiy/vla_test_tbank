@@ -12,6 +12,10 @@ evaluation:
   batch_size: 4
   target_suite: libero_goal
   target_task_ids: [0, 1, 2]
+  target_env_task_ids:
+    0: 0
+    1: 9
+    2: 3
   demo_budgets: [0, 5, 10, 25]
   prompt: environment_instruction
   video_episodes_per_point: 1

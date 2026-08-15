@@ -8,6 +8,8 @@
   "batch_size": 4,
   "tasks": {
     "0": {
+      "logical_task_id": 0,
+      "env_task_id": 0,
       "environment_instruction": "open the middle drawer of the cabinet",
       "policy_prompt": "perform the dax florp twice",
       "per_episode": [
@@ -156,11 +158,13 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 81.51606392860413,
-        "eval_ep_s": 4.075803208351135
+        "eval_s": 173.0508327484131,
+        "eval_ep_s": 8.652541661262513
       }
     },
     "1": {
+      "logical_task_id": 1,
+      "env_task_id": 9,
       "environment_instruction": "put the wine bottle on the rack",
       "policy_prompt": "perform the dax florp twice",
       "per_episode": [
@@ -309,11 +313,13 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 83.14802598953247,
-        "eval_ep_s": 4.1574013233184814
+        "eval_s": 164.77454447746277,
+        "eval_ep_s": 8.238727235794068
       }
     },
     "2": {
+      "logical_task_id": 2,
+      "env_task_id": 3,
       "environment_instruction": "open the top drawer and put the bowl inside",
       "policy_prompt": "perform the dax florp twice",
       "per_episode": [
@@ -462,8 +468,8 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 76.12310481071472,
-        "eval_ep_s": 3.806155240535736
+        "eval_s": 140.87983584403992,
+        "eval_ep_s": 7.043991804122925
       }
     }
   },

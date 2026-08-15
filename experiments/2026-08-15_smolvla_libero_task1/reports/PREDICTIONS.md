@@ -11,7 +11,9 @@ Git commit: recorded by `scripts/lock_predictions.sh`.
 - Provenance: fine-tuned from `lerobot/smolvla_base` for 30,000 steps on
   4,500 LIBERO-90 episodes; the checkpoint card does not list any
   `libero_goal` data.
-- Held-out tasks: `libero_goal`, environment task IDs 0, 1, and 2.
+- Held-out tasks: experiment logical IDs 0, 1, and 2, mapped to
+  `libero_goal` environment task IDs 0, 9, and 3 respectively. This factual
+  ID correction does not change the preregistered instructions or prediction.
 - Demonstrations: the first 5, 10, or 25 episodes for each task in dataset
   order. No filtering by success, length, or visual inspection is allowed.
 - Zero-shot evaluation: 20 episodes per task and condition, seeds derived

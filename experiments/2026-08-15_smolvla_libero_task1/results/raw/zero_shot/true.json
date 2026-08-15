@@ -8,6 +8,8 @@
   "batch_size": 4,
   "tasks": {
     "0": {
+      "logical_task_id": 0,
+      "env_task_id": 0,
       "environment_instruction": "open the middle drawer of the cabinet",
       "policy_prompt": "open the middle drawer of the cabinet",
       "per_episode": [
@@ -156,14 +158,16 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 64.62917828559875,
-        "eval_ep_s": 3.2314589262008666
+        "eval_s": 174.12210750579834,
+        "eval_ep_s": 8.706105387210846
       },
       "video_paths": [
         "results/raw/zero_shot/videos/true/task_0/eval_episode_0.mp4"
       ]
     },
     "1": {
+      "logical_task_id": 1,
+      "env_task_id": 9,
       "environment_instruction": "put the wine bottle on the rack",
       "policy_prompt": "put the wine bottle on the rack",
       "per_episode": [
@@ -312,14 +316,16 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 79.55736517906189,
-        "eval_ep_s": 3.9778682708740236
+        "eval_s": 171.70721316337585,
+        "eval_ep_s": 8.585360670089722
       },
       "video_paths": [
         "results/raw/zero_shot/videos/true/task_1/eval_episode_0.mp4"
       ]
     },
     "2": {
+      "logical_task_id": 2,
+      "env_task_id": 3,
       "environment_instruction": "open the top drawer and put the bowl inside",
       "policy_prompt": "open the top drawer and put the bowl inside",
       "per_episode": [
@@ -468,8 +474,8 @@
         "avg_sum_reward": 0.0,
         "avg_max_reward": 0.0,
         "pc_success": 0.0,
-        "eval_s": 85.91779065132141,
-        "eval_ep_s": 4.295889544486999
+        "eval_s": 134.43281078338623,
+        "eval_ep_s": 6.721640551090241
       },
       "video_paths": [
         "results/raw/zero_shot/videos/true/task_2/eval_episode_0.mp4"

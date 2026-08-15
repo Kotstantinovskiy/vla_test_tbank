@@ -8,6 +8,8 @@
   "batch_size": 4,
   "tasks": {
     "0": {
+      "logical_task_id": 0,
+      "env_task_id": 0,
       "environment_instruction": "open the middle drawer of the cabinet",
       "policy_prompt": "open the middle drawer of the cabinet",
       "per_episode": [

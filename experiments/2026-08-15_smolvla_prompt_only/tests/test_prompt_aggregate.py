@@ -4,7 +4,11 @@ from pathlib import Path
 import pytest
 
 from smolvla_prompt_only.aggregate import aggregate, metric_rows, wilson_interval
-from smolvla_prompt_only.constants import CHECKPOINT_REVISION, TARGET_INSTRUCTIONS
+from smolvla_prompt_only.constants import (
+    CHECKPOINT_REVISION,
+    TARGET_ENV_TASK_IDS,
+    TARGET_INSTRUCTIONS,
+)
 
 
 def _raw(condition: str, successes: dict[int, int]) -> dict:
@@ -13,6 +17,9 @@ def _raw(condition: str, successes: dict[int, int]) -> dict:
         "condition": condition,
         "tasks": {
             str(task_id): {
+                "logical_task_id": task_id,
+                "env_task_id": TARGET_ENV_TASK_IDS[task_id],
+                "environment_instruction": TARGET_INSTRUCTIONS[task_id],
                 "per_episode": [
                     {"success": index < successes[task_id]} for index in range(2)
                 ]

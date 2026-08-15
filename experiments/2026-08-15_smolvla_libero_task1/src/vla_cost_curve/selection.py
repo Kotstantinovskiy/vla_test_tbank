@@ -12,6 +12,7 @@ from .constants import (
     DEMO_BUDGETS,
     TARGET_DATASET_REPO,
     TARGET_DATASET_REVISION,
+    TARGET_ENV_TASK_IDS,
     TARGET_INSTRUCTIONS,
 )
 
@@ -45,7 +46,8 @@ def build_manifest(
     for task_id, instruction in TARGET_INSTRUCTIONS.items():
         all_selected = select_first_k(episode_tasks, instruction, max(budgets))
         tasks[str(task_id)] = {
-            "env_task_id": task_id,
+            "logical_task_id": task_id,
+            "env_task_id": TARGET_ENV_TASK_IDS[task_id],
             "instruction": instruction,
             "available_episodes": sum(instruction in row for row in episode_tasks),
             "episodes": {str(k): all_selected[:k] for k in budgets},

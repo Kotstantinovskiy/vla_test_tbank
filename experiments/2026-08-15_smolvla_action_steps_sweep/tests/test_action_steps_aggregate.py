@@ -14,6 +14,7 @@ from smolvla_action_steps.constants import (
     EVAL_BATCH_SIZE,
     MASTER_SEED,
     N_EVAL_EPISODES,
+    TARGET_ENV_TASK_IDS,
     TARGET_INSTRUCTIONS,
     TARGET_SUITE,
 )
@@ -37,6 +38,8 @@ def _result(task_id: int, budget: int) -> dict:
         "model": "checkpoint",
         "revision": CHECKPOINT_REVISION if budget == 0 else None,
         "task_id": task_id,
+        "logical_task_id": task_id,
+        "env_task_id": TARGET_ENV_TASK_IDS[task_id],
         "demo_budget": budget,
         "condition": "true",
         "suite": TARGET_SUITE,
@@ -46,6 +49,7 @@ def _result(task_id: int, budget: int) -> dict:
         "weights_modified": False,
         "chunk_size": 50,
         "checkpoint_n_action_steps": 50,
+        "environment_instruction": TARGET_INSTRUCTIONS[task_id],
         "sweep": sweep,
     }
 

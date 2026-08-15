@@ -5,6 +5,11 @@ The standalone rerun completed with the frozen
 No target demonstrations were loaded, no optimizer was constructed, and the
 checkpoint weights were not modified.
 
+Logical task IDs 0/1/2 map to `libero_goal` environment IDs 0/9/3. Every
+rollout now records both IDs and verifies the environment instruction before
+the policy prompt is injected. This in-place rerun supersedes results produced
+with the earlier incorrect 0/1/2 environment mapping.
+
 | Task | True prompt | Wrong-task prompt | Nonsense prompt |
 |---:|---:|---:|---:|
 | 0 | 0/20 (0%) | 0/20 (0%) | 0/20 (0%) |
@@ -19,7 +24,7 @@ policy prompt changes.
 ## Interpretation
 
 The result confirms the prior-informed expectation: prompt-only transfer from
-this LIBERO-90 checkpoint is at the floor on the first three held-out
+this LIBERO-90 checkpoint is at the floor on the three selected held-out
 `libero_goal` tasks. Equal success under the language controls does **not** by
 itself establish that the policy ignores language. Since the true-prompt
 condition never succeeds, binary task success has no power to distinguish

@@ -24,6 +24,7 @@ from .constants import (
     N_EVAL_EPISODES,
     SEEN_REPO,
     SEEN_REVISION,
+    TARGET_ENV_TASK_IDS,
     TARGET_INSTRUCTIONS,
     TARGET_SUITE,
 )
@@ -59,6 +60,23 @@ def prompt_for(condition: str, task_id: int) -> str:
     if condition == "nonsense":
         return NONSENSE_PROMPT
     raise ValueError(f"Unknown condition: {condition}")
+
+
+def assert_environment_instruction(
+    env: Any, logical_task_id: int, env_task_id: int
+) -> str:
+    """Fail before rollout if the suite task does not match our logical label."""
+    descriptions = tuple(env.call("task_description"))
+    expected = TARGET_INSTRUCTIONS[logical_task_id]
+    if len(descriptions) != env.num_envs or any(
+        description != expected for description in descriptions
+    ):
+        raise RuntimeError(
+            "LIBERO task mapping mismatch: "
+            f"logical_task_id={logical_task_id}, env_task_id={env_task_id}, "
+            f"expected={expected!r}, actual={descriptions!r}"
+        )
+    return descriptions[0]
 
 
 def _camera_mapping(cfg: SmolVLAConfig) -> tuple[dict[str, str], int, int]:
@@ -130,10 +148,11 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         else nullcontext()
     )
     with torch.no_grad(), amp:
-        for task_id in args.task_ids:
+        for logical_task_id in args.task_ids:
+            env_task_id = TARGET_ENV_TASK_IDS[logical_task_id]
             env_cfg = LiberoConfig(
                 task=TARGET_SUITE,
-                task_ids=[task_id],
+                task_ids=[env_task_id],
                 observation_height=height,
                 observation_width=width,
                 camera_name_mapping=camera_mapping,
@@ -144,18 +163,23 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             )
             base_env = env_cfg.create_envs(
                 n_envs=args.batch_size, use_async_envs=args.batch_size > 1
-            )[TARGET_SUITE][task_id]
-            policy_prompt = prompt_for(args.condition, task_id)
-            env = _PromptOverrideVectorEnv(base_env, policy_prompt)
-            videos_dir = None
-            max_rendered = 0
-            if args.videos > 0:
-                videos_dir = args.output.parent / "videos"
-                if args.video_tag:
-                    videos_dir /= args.video_tag
-                videos_dir = videos_dir / args.condition / f"task_{task_id}"
-                max_rendered = args.videos
+            )[TARGET_SUITE][env_task_id]
             try:
+                environment_instruction = assert_environment_instruction(
+                    base_env, logical_task_id, env_task_id
+                )
+                policy_prompt = prompt_for(args.condition, logical_task_id)
+                env = _PromptOverrideVectorEnv(base_env, policy_prompt)
+                videos_dir = None
+                max_rendered = 0
+                if args.videos > 0:
+                    videos_dir = args.output.parent / "videos"
+                    if args.video_tag:
+                        videos_dir /= args.video_tag
+                    videos_dir = (
+                        videos_dir / args.condition / f"task_{logical_task_id}"
+                    )
+                    max_rendered = args.videos
                 info = eval_policy(
                     env,
                     policy=policy,
@@ -171,8 +195,10 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
                 )
             finally:
                 base_env.close()
-            results["tasks"][str(task_id)] = {
-                "environment_instruction": TARGET_INSTRUCTIONS[task_id],
+            results["tasks"][str(logical_task_id)] = {
+                "logical_task_id": logical_task_id,
+                "env_task_id": env_task_id,
+                "environment_instruction": environment_instruction,
                 "policy_prompt": policy_prompt,
                 **info,
             }

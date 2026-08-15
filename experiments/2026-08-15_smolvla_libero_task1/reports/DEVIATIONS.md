@@ -49,3 +49,20 @@ against all five selected episodes, so those valid runs were retained. The
 failed task-2 directory is preserved under `artifacts/checkpoints/failed/` and its clean rerun
 uses the repaired metadata. Demonstrations, order, frames, actions, images,
 statistics, and checkpoints are otherwise unchanged.
+
+## 2026-08-15 — correct logical-task to LIBERO environment mapping
+
+The first evaluation implementation treated experiment logical task IDs 0/1/2
+as if they were suite-local `libero_goal` IDs. Only logical task 0 happened to
+match. The intended instructions map to environment IDs 0/9/3: middle drawer,
+wine bottle on rack, and top drawer plus bowl. Consequently, the previous task
+1/2 rollouts used correct policy prompts but measured the success predicates of
+unrelated environments; those success numbers and videos were invalid.
+
+Demonstration selection and training are unaffected because episodes were
+selected by exact instruction text. All zero-shot conditions and adapted task
+1/2 evaluations were rerun in place with the original weights, seeds, episode
+count, and inference settings. Evaluators now record both logical and
+environment IDs and assert the environment's real `task_description` before
+overriding the policy prompt. The superseded files remain recoverable from git
+history and from the local correction backup under `/var/tmp`.

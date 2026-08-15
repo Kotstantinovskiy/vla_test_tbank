@@ -14,6 +14,7 @@ from .constants import (
     CHECKPOINT_REVISION,
     MASTER_SEED,
     PROMPT_CONDITIONS,
+    TARGET_ENV_TASK_IDS,
     TARGET_INSTRUCTIONS,
     TARGET_SUITE,
 )
@@ -60,6 +61,19 @@ def aggregate(results_root: Path) -> dict[str, Any]:
             raise ValueError(f"Condition mismatch in {condition}.json")
         if result["revision"] != CHECKPOINT_REVISION:
             raise ValueError(f"Checkpoint revision mismatch in {condition}.json")
+        for task_id, instruction in TARGET_INSTRUCTIONS.items():
+            task = result["tasks"][str(task_id)]
+            expected = {
+                "logical_task_id": task_id,
+                "env_task_id": TARGET_ENV_TASK_IDS[task_id],
+                "environment_instruction": instruction,
+            }
+            for key, value in expected.items():
+                if task.get(key) != value:
+                    raise ValueError(
+                        f"Task mapping mismatch in {condition}.json: "
+                        f"{key}={task.get(key)!r}, expected {value!r}"
+                    )
 
     summary: dict[str, Any] = {
         "experiment": "smolvla_prompt_only",

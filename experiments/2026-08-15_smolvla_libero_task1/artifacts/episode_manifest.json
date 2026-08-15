@@ -4,6 +4,7 @@
   "selection_rule": "first k matching episodes in global dataset order",
   "tasks": {
     "0": {
+      "logical_task_id": 0,
       "env_task_id": 0,
       "instruction": "open the middle drawer of the cabinet",
       "available_episodes": 43,
@@ -57,7 +58,8 @@
       }
     },
     "1": {
-      "env_task_id": 1,
+      "logical_task_id": 1,
+      "env_task_id": 9,
       "instruction": "put the wine bottle on the rack",
       "available_episodes": 36,
       "episodes": {
@@ -110,7 +112,8 @@
       }
     },
     "2": {
-      "env_task_id": 2,
+      "logical_task_id": 2,
+      "env_task_id": 3,
       "instruction": "open the top drawer and put the bowl inside",
       "available_episodes": 36,
       "episodes": {

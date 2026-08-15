@@ -9,7 +9,7 @@ from typing import Any
 
 import matplotlib.pyplot as plt
 
-from .constants import DEMO_BUDGETS, TARGET_INSTRUCTIONS
+from .constants import DEMO_BUDGETS, TARGET_ENV_TASK_IDS, TARGET_INSTRUCTIONS
 
 
 def wilson_interval(successes: int, trials: int, z: float = 1.959963984540054) -> tuple[float, float]:
@@ -41,13 +41,30 @@ def _summary(task: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def _validate_task(task: dict[str, Any], task_id: int, path: Path) -> None:
+    expected = {
+        "logical_task_id": task_id,
+        "env_task_id": TARGET_ENV_TASK_IDS[task_id],
+        "environment_instruction": TARGET_INSTRUCTIONS[task_id],
+    }
+    for key, value in expected.items():
+        if task.get(key) != value:
+            raise ValueError(
+                f"Task mapping mismatch in {path}: {key}={task.get(key)!r}, "
+                f"expected {value!r}"
+            )
+
+
 def aggregate(results_root: Path) -> dict[str, Any]:
-    zero = {
-        condition: _read(results_root / "zero_shot" / f"{condition}.json")
+    zero_paths = {
+        condition: results_root / "zero_shot" / f"{condition}.json"
         for condition in ("true", "wrong", "nonsense")
     }
+    zero = {condition: _read(path) for condition, path in zero_paths.items()}
     result: dict[str, Any] = {"tasks": {}}
     for task_id, instruction in TARGET_INSTRUCTIONS.items():
+        for condition, data in zero.items():
+            _validate_task(data["tasks"][str(task_id)], task_id, zero_paths[condition])
         task_result: dict[str, Any] = {
             "instruction": instruction,
             "k0": {
@@ -57,7 +74,9 @@ def aggregate(results_root: Path) -> dict[str, Any]:
             "adapted": {},
         }
         for k in DEMO_BUDGETS:
-            data = _read(results_root / "adapted" / f"task_{task_id}" / f"k_{k}.json")
+            path = results_root / "adapted" / f"task_{task_id}" / f"k_{k}.json"
+            data = _read(path)
+            _validate_task(data["tasks"][str(task_id)], task_id, path)
             task_result["adapted"][str(k)] = _summary(data["tasks"][str(task_id)])
         result["tasks"][str(task_id)] = task_result
 
@@ -89,7 +108,9 @@ def write_outputs(summary: dict[str, Any], output_dir: Path) -> None:
             row[f"k{k}"] = metrics["success_rate"]
         rows.append(row)
     with (output_dir / "cost_curve.csv").open("w", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(
+            stream, fieldnames=list(rows[0]), lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(rows)
 

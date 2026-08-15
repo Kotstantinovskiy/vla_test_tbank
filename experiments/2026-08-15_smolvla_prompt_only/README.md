@@ -14,7 +14,8 @@
 
 - checkpoint: `crislmfroes/smolvla-libero-90` на ревизии
   `418f9d0e5b48585bcee1e1a7d47e302629af78da`;
-- held-out suite: `libero_goal`, task IDs 0–2;
+- held-out suite: `libero_goal`; logical task IDs 0/1/2 map to environment IDs
+  0/9/3;
 - 20 эпизодов на задачу, seed 1000, одинаковые reset seeds для всех условий;
 - основной режим `true`: настоящая инструкция среды;
 - контроли `wrong`: инструкция следующей target-задачи и `nonsense`: фиксированный

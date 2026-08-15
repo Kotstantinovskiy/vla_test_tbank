@@ -9,6 +9,11 @@ TARGET_INSTRUCTIONS: dict[int, str] = {
     1: "put the wine bottle on the rack",
     2: "open the top drawer and put the bowl inside",
 }
+TARGET_ENV_TASK_IDS: dict[int, int] = {
+    0: 0,
+    1: 9,
+    2: 3,
+}
 
 PROMPT_CONDITIONS = ("true", "wrong", "nonsense")
 NONSENSE_PROMPT = "perform the dax florp twice"
