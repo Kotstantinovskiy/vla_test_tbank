@@ -81,8 +81,9 @@ results/
 ```
 
 Trackio-проект `smolvla-prompt-only` содержит per-task кривые success для трёх
-prompt-условий, полную таблицу метрик с Wilson 95% CI, PNG-график и rollout GIF.
-По умолчанию база локальна в `artifacts/trackio/`. При необходимости публикации:
+prompt-условий, полную таблицу метрик с Wilson 95% CI, PNG-график, браузерный
+H.264 MP4 и отдельный animated GIF для каждого rollout. По умолчанию база
+локальна в `artifacts/trackio/`. При необходимости публикации:
 
 ```bash
 TRACKIO_SPACE_ID="username/vla-trackio" scripts/log_trackio.sh

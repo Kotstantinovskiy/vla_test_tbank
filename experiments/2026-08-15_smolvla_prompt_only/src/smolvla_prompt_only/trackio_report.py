@@ -135,7 +135,10 @@ def log_to_trackio(
         }
         for item in gifs:
             payload[f"rollouts/task_{item['task_id']}_true"] = trackio.Video(
-                item["gif"], caption=f"Task {item['task_id']}, true prompt"
+                item["source"], caption=f"Task {item['task_id']}, true prompt"
+            )
+            payload[f"rollout_gifs/task_{item['task_id']}_true"] = trackio.Image(
+                item["gif"], caption=f"Task {item['task_id']}, true prompt GIF"
             )
         trackio.log(payload, step=len(summary["tasks"]))
     finally:
