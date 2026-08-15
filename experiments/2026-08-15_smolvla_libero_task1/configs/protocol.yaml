@@ -14,7 +14,7 @@ train_log_frequency: 25
 num_workers: 8
 tracking:
   backend: trackio
-  project: smolvla-libero-task1
+  project: smolvla-baseline
   local_dir: artifacts/trackio
   remote_space_env: TRACKIO_SPACE_ID
 seen_checkpoint:

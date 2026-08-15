@@ -125,5 +125,5 @@ experiment-owned артефакты находятся в `artifacts/`. Пров
 
 Кривые обучения и success, таблицы метрик, PNG и rollout GIF публикуются
 скриптом `scripts/log_trackio.sh` в локальный Trackio-проект
-`smolvla-libero-task1`. Локальное хранилище находится в `artifacts/trackio/`,
+`smolvla-baseline`. Локальное хранилище находится в `artifacts/trackio/`,
 а компактные GIF-копии — в `results/media/gifs/`.

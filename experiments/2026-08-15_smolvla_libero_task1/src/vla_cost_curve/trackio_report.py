@@ -19,7 +19,7 @@ from .constants import (
     TARGET_DATASET_REVISION,
 )
 
-DEFAULT_PROJECT = "smolvla-libero-task1"
+DEFAULT_PROJECT = "smolvla-baseline"
 DEFAULT_RUN_PREFIX = "2026-08-15"
 TRAIN_LOG_FREQUENCY = 25
 
@@ -341,9 +341,14 @@ def log_summary(
                 summary_dir / "cost_curve.png",
                 caption="Success rate by demonstration budget",
             ),
-            "reports/task1": trackio.Markdown(
-                "# SmolVLA LIBERO Task 1\n\n"
-                "Cost curve: **0.000 → 0.283 → 0.250 → 0.283** for "
+            "reports/baseline": trackio.Markdown(
+                "# SmolVLA LIBERO baseline\n\n"
+                "Cost curve: **"
+                + " → ".join(
+                    f"{summary['mean_cost_curve'][str(budget)]:.3f}"
+                    for budget in (0, *DEMO_BUDGETS)
+                )
+                + "** for "
                 "demo budgets 0, 5, 10, 25. Tables contain per-task Wilson 95% CIs "
                 "and zero-shot language controls."
             ),

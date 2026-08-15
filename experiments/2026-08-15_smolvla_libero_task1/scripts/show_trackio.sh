@@ -3,4 +3,4 @@ set -euo pipefail
 source "$(dirname "$0")/common_env.sh"
 cd "$VLA_EXPERIMENT_ROOT"
 
-exec trackio show --project "${TRACKIO_PROJECT:-smolvla-libero-task1}" "$@"
+exec trackio show --project "${TRACKIO_PROJECT:-smolvla-baseline}" "$@"

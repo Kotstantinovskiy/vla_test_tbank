@@ -112,7 +112,7 @@ Schema-adapter меняет только имена камер `top/wrist_image`
 
 ## Trackio
 
-`scripts/log_trackio.sh` создаёт в проекте `smolvla-libero-task1`:
+`scripts/log_trackio.sh` создаёт в проекте `smolvla-baseline`:
 
 - девять run'ов naive fine-tuning с кривыми loss, gradient norm, learning rate,
   throughput, memory и компонентами loss каждые 25 шагов;
