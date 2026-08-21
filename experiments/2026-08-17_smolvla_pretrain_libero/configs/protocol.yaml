@@ -1,0 +1,123 @@
+experiment: smolvla_pretrain_libero
+date: "2026-08-17"
+supersedes: 2026-08-17_smolvla_libero90_mirrorfix_ddp
+purpose: >-
+  Same pretraining protocol as the mirrorfix experiment, but both the seen
+  pretraining data and the target adaptation data are converted in-repo
+  directly from the official LIBERO HDF5 files, removing every known defect of
+  the third-party conversions (mirror orientation, wrong fps label, shuffled
+  and incomplete episode order, upscale+recompression domain gap).
+
+base_model:
+  repo_id: lerobot/smolvla_base
+  revision: c83c3163b8ca9b7e67c509fffd9121e66cb96205
+
+official_source:
+  repo_id: yifengzhu-hf/LIBERO-datasets
+  revision: f13aa24a3da8c43c7225569f28c562979fa0e35a
+  root: /var/tmp/libero_official_f13aa24
+  downloader: scripts/download_official_libero.py (repo root, revision-pinned)
+
+conversion:
+  output_root: /var/tmp/vla_libero_official_rot180
+  suites:
+    seen:
+      suite: libero_90
+      repo_id: official/libero_90_rot180_128
+      expected_tasks: 90
+      expected_episodes: 4500
+    target:
+      suite: libero_goal
+      repo_id: official/libero_goal_rot180_128
+      expected_tasks: 10
+      expected_episodes: 500
+  orientation: rot180(official) == eval convention (no runtime transform needed)
+  image_size: 128  # native official resolution; no fabricated upscale
+  fps: 20  # official control frequency; fixes the wrong fps=10 target label
+  video_codec: libsvtav1 crf=18 (near-lossless at 128x128)
+  actions: official float32, bit-exact
+  state: official ee_pos(3) + ee_ori(3) + gripper_states(2) — the layout
+    LiberoProcessorStep assembles at rollout (eef_pos, eef_axisangle, gripper_qpos)
+  episode_order: files sorted by name, demos by numeric index — "first k
+    episodes" of a task selects official demo_0..demo_{k-1}
+  verification:
+    method: >-
+      Round-trip against official HDF5 on sampled episodes: bit-exact actions
+      and state, rot180-back frames within codec noise, official episode
+      order, fps and task-string checks.
+    artifacts:
+      - artifacts/conversion_verification_libero_goal.json
+      - artifacts/conversion_verification_libero_90.json
+
+training:
+  launcher: torchrun
+  entrypoint: lerobot-train  # dataset already in eval orientation
+  strategy: ddp
+  world_size: 4
+  gpu_ids: [0, 1, 2, 3]
+  per_rank_batch_size: 8
+  effective_batch_size: 32
+  steps: 30000
+  optimizer: adamw
+  learning_rate: 0.0001
+  seed: 1000
+  num_workers_per_rank: 16
+  freeze_vision_encoder: true
+  train_expert_only: true
+  train_state_proj: true
+  use_amp: false  # default; VLA_TRAIN_AMP=1 at launch enables fp16 autocast as a
+                  # declared deviation from the fp32 reference preset (~1.5-2x
+                  # faster steps; carried into the checkpoint so eval matches)
+  save_freq: 5000
+  log_freq: 50
+  schema_adapter:
+    weight_change: none
+    input_cameras: [observation.images.top, observation.images.wrist_image]
+    image_size: 128
+    state_dim: 8
+    action_dim: 7
+
+smoke_test:
+  episodes: 16
+  steps: 4
+  per_rank_batch_size: 8
+  effective_batch_size: 32
+
+positive_control:
+  purpose: >-
+    Prove the frozen-checkpoint evaluation pipeline can produce successes on a
+    seen task before interpreting any zero-shot floor on held-out tasks.
+  suite: libero_90
+  env_task_id: 0
+  instruction_must_be_in_training_tasks: true
+  episodes: 20
+  batch_size: 4
+  seed: 1000
+  observation_size: 128  # derived from checkpoint schema; matches training frames
+  runs_after: training completion
+  entrypoint: scripts/eval_seen_control.sh
+
+audit_issue_status:
+  1_mirror_orientation: fixed at conversion time (frames stored rot180(official))
+  2_positive_control: prepared (scripts/eval_seen_control.sh, runs after training)
+  3_normalizer_swap_on_finetune: >-
+    Still a LeRobot fine-tuning behavior; downstream cost-curve experiments on
+    this checkpoint must state which normalization statistics every point
+    uses. Note both converted suites now share one state/action recipe and
+    identical rendering, so seen and target statistics are directly
+    comparable, which shrinks (but does not remove) the swap's effect.
+  4_fps_labels: fixed — both converted suites declare the true fps=20
+  5_first_k_selection: >-
+    fixed — target episodes preserve official demo order, so "first k" is
+    official demo_0..demo_{k-1} per task
+  6_visual_domain_gap: >-
+    fixed up to codec noise — training frames are native 128x128 rot180
+    renders (crf-18), and evaluation renders 128x128 through the same
+    SmolVLA 512-pad resize path; the old 128->224 h264 upscale chain is gone
+  single_training_seed: one pretraining seed (1000); multi-seed remains a
+    downstream-adaptation obligation
+
+tracking:
+  project: smolvla-pretrain-libero
+  group: seen-pretrain-official
+  live_metrics: [loss, grad_norm, learning_rate, update_seconds, dataload_seconds, samples_per_second, gpu_memory_gb]

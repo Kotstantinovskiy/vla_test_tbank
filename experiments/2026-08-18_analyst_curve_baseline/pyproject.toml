@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "analyst-curve-baseline"
+version = "0.1.0"
+description = "Combined naive-baseline cost curve (k=0..25) and AUC metrics"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "matplotlib>=3.10",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+analyst-curve-build = "analyst_curve_baseline.build:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,65 @@
+{
+  "project": "pretrain-smolvla-prompt-only-2",
+  "run": "2026-08-18-pretrain-prompt-only",
+  "space_id": null,
+  "trackio_dir": "artifacts/trackio",
+  "logged_metrics": [
+    "success/true",
+    "success/wrong",
+    "success/nonsense"
+  ],
+  "table": "tables/prompt_metrics",
+  "plot": "plots/prompt_controls",
+  "gifs": [
+    {
+      "task_id": 0,
+      "source": "results/raw/videos/true/task_0/eval_episode_0.mp4",
+      "gif": "results/media/gifs/task_0_true.gif"
+    },
+    {
+      "task_id": 1,
+      "source": "results/raw/videos/true/task_1/eval_episode_0.mp4",
+      "gif": "results/media/gifs/task_1_true.gif"
+    },
+    {
+      "task_id": 2,
+      "source": "results/raw/videos/true/task_2/eval_episode_0.mp4",
+      "gif": "results/media/gifs/task_2_true.gif"
+    },
+    {
+      "task_id": 3,
+      "source": "results/raw/videos/true/task_3/eval_episode_0.mp4",
+      "gif": "results/media/gifs/task_3_true.gif"
+    },
+    {
+      "task_id": 4,
+      "source": "results/raw/videos/true/task_4/eval_episode_0.mp4",
+      "gif": "results/media/gifs/task_4_true.gif"
+    },
+    {
+      "task_id": 5,
+      "source": "results/raw/videos/true/task_5/eval_episode_0.mp4",
+      "gif": "results/media/gifs/task_5_true.gif"
+    },
+    {
+      "task_id": 6,
+      "source": "results/raw/videos/true/task_6/eval_episode_0.mp4",
+      "gif": "results/media/gifs/task_6_true.gif"
+    },
+    {
+      "task_id": 7,
+      "source": "results/raw/videos/true/task_7/eval_episode_0.mp4",
+      "gif": "results/media/gifs/task_7_true.gif"
+    },
+    {
+      "task_id": 8,
+      "source": "results/raw/videos/true/task_8/eval_episode_0.mp4",
+      "gif": "results/media/gifs/task_8_true.gif"
+    },
+    {
+      "task_id": 9,
+      "source": "results/raw/videos/true/task_9/eval_episode_0.mp4",
+      "gif": "results/media/gifs/task_9_true.gif"
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "experiment": "pretrain_smolvla_prompt_only_2",
+  "checkpoint": {
+    "path": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model",
+    "model_safetensors_sha256": "0a410cc6887e71c0dd2d21dd8a5deb7aba66e291dba9acba8656320dc076a3cc",
+    "provenance": {
+      "pretraining_experiment": "2026-08-17_smolvla_pretrain_libero",
+      "base_model_repo": "lerobot/smolvla_base",
+      "base_model_revision": "c83c3163b8ca9b7e67c509fffd9121e66cb96205",
+      "pretraining_dataset": "official/libero_90_rot180_128 (in-repo conversion)",
+      "official_source_repo": "yifengzhu-hf/LIBERO-datasets",
+      "official_source_revision": "f13aa24a3da8c43c7225569f28c562979fa0e35a",
+      "pretraining_steps": 30000,
+      "seen_positive_control": "libero_90 task 0: 20/20"
+    }
+  },
+  "protocol": {
+    "suite": "libero_goal",
+    "seed": 1000,
+    "target_demonstrations": 0,
+    "optimizer_steps": 0
+  },
+  "tasks": {
+    "0": {
+      "instruction": "open the middle drawer of the cabinet",
+      "conditions": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    },
+    "1": {
+      "instruction": "put the bowl on the stove",
+      "conditions": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    },
+    "2": {
+      "instruction": "put the wine bottle on top of the cabinet",
+      "conditions": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    },
+    "3": {
+      "instruction": "open the top drawer and put the bowl inside",
+      "conditions": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    },
+    "4": {
+      "instruction": "put the bowl on top of the cabinet",
+      "conditions": {
+        "true": {
+          "successes": 1,
+          "trials": 20,
+          "success_rate": 0.05,
+          "ci95_low": 0.008881448800795402,
+          "ci95_high": 0.23613119344674205
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    },
+    "5": {
+      "instruction": "push the plate to the front of the stove",
+      "conditions": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    },
+    "6": {
+      "instruction": "put the cream cheese in the bowl",
+      "conditions": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    },
+    "7": {
+      "instruction": "turn on the stove",
+      "conditions": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    },
+    "8": {
+      "instruction": "put the bowl on the plate",
+      "conditions": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    },
+    "9": {
+      "instruction": "put the wine bottle on the rack",
+      "conditions": {
+        "true": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "wrong": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        },
+        "nonsense": {
+          "successes": 0,
+          "trials": 20,
+          "success_rate": 0.0,
+          "ci95_low": 0.0,
+          "ci95_high": 0.16112515805281938
+        }
+      }
+    }
+  },
+  "condition_means": {
+    "true": 0.005,
+    "wrong": 0.0,
+    "nonsense": 0.0
+  }
+}

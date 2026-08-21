@@ -1,0 +1,189 @@
+{
+  "points": [
+    {
+      "logical_task_id": 0,
+      "env_task_id": 0,
+      "env_name": "KITCHEN_SCENE10_close_the_top_drawer_of_the_cabinet",
+      "env_instruction": "close the top drawer of the cabinet",
+      "pair_id": "goal_0",
+      "label": "seen__goal_0",
+      "block": "seen",
+      "prompt": "close the top drawer of the cabinet",
+      "prompted_goal_states": [
+        [
+          "close",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "prompted_source": "host_env_bddl",
+      "expect_env_equivalent": true
+    },
+    {
+      "logical_task_id": 0,
+      "env_task_id": 0,
+      "env_name": "KITCHEN_SCENE10_close_the_top_drawer_of_the_cabinet",
+      "env_instruction": "close the top drawer of the cabinet",
+      "pair_id": "goal_0",
+      "label": "goal__goal_0",
+      "block": "goal",
+      "prompt": "open the middle drawer of the cabinet",
+      "prompted_goal_states": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ]
+      ],
+      "prompted_source": "goal_task_0_semantic_mapping",
+      "goal_source_env_task_id": 0,
+      "goal_source_env_name": "open_the_middle_drawer_of_the_cabinet",
+      "expect_env_equivalent": false
+    },
+    {
+      "logical_task_id": 0,
+      "env_task_id": 0,
+      "env_name": "KITCHEN_SCENE10_close_the_top_drawer_of_the_cabinet",
+      "env_instruction": "close the top drawer of the cabinet",
+      "pair_id": "goal_0",
+      "label": "nonsense__goal_0",
+      "block": "nonsense",
+      "prompt": "perform the dax florp twice",
+      "prompted_goal_states": null,
+      "prompted_source": "none",
+      "expect_env_equivalent": false
+    },
+    {
+      "logical_task_id": 1,
+      "env_task_id": 43,
+      "env_name": "KITCHEN_SCENE9_put_the_white_bowl_on_top_of_the_cabinet",
+      "env_instruction": "put the white bowl on top of the cabinet",
+      "pair_id": "goal_1",
+      "label": "seen__goal_1",
+      "block": "seen",
+      "prompt": "put the white bowl on top of the cabinet",
+      "prompted_goal_states": [
+        [
+          "on",
+          "white_bowl_1",
+          "wooden_two_layer_shelf_1_top_side"
+        ]
+      ],
+      "prompted_source": "host_env_bddl",
+      "expect_env_equivalent": true
+    },
+    {
+      "logical_task_id": 1,
+      "env_task_id": 43,
+      "env_name": "KITCHEN_SCENE9_put_the_white_bowl_on_top_of_the_cabinet",
+      "env_instruction": "put the white bowl on top of the cabinet",
+      "pair_id": "goal_1",
+      "label": "goal__goal_1",
+      "block": "goal",
+      "prompt": "put the bowl on the stove",
+      "prompted_goal_states": [
+        [
+          "on",
+          "white_bowl_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "prompted_source": "goal_task_1_semantic_mapping",
+      "goal_source_env_task_id": 1,
+      "goal_source_env_name": "put_the_bowl_on_the_stove",
+      "expect_env_equivalent": false
+    },
+    {
+      "logical_task_id": 1,
+      "env_task_id": 43,
+      "env_name": "KITCHEN_SCENE9_put_the_white_bowl_on_top_of_the_cabinet",
+      "env_instruction": "put the white bowl on top of the cabinet",
+      "pair_id": "goal_1",
+      "label": "nonsense__goal_1",
+      "block": "nonsense",
+      "prompt": "perform the dax florp twice",
+      "prompted_goal_states": null,
+      "prompted_source": "none",
+      "expect_env_equivalent": false
+    },
+    {
+      "logical_task_id": 2,
+      "env_task_id": 27,
+      "env_name": "KITCHEN_SCENE4_put_the_wine_bottle_on_the_wine_rack",
+      "env_instruction": "put the wine bottle on the wine rack",
+      "pair_id": "goal_2",
+      "label": "seen__goal_2",
+      "block": "seen",
+      "prompt": "put the wine bottle on the wine rack",
+      "prompted_goal_states": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "prompted_source": "host_env_bddl",
+      "expect_env_equivalent": true
+    },
+    {
+      "logical_task_id": 2,
+      "env_task_id": 27,
+      "env_name": "KITCHEN_SCENE4_put_the_wine_bottle_on_the_wine_rack",
+      "env_instruction": "put the wine bottle on the wine rack",
+      "pair_id": "goal_2",
+      "label": "goal__goal_2",
+      "block": "goal",
+      "prompt": "put the wine bottle on top of the cabinet",
+      "prompted_goal_states": [
+        [
+          "on",
+          "wine_bottle_1",
+          "white_cabinet_1_top_side"
+        ]
+      ],
+      "prompted_source": "goal_task_2_semantic_mapping",
+      "goal_source_env_task_id": 2,
+      "goal_source_env_name": "put_the_wine_bottle_on_top_of_the_cabinet",
+      "expect_env_equivalent": false
+    },
+    {
+      "logical_task_id": 2,
+      "env_task_id": 27,
+      "env_name": "KITCHEN_SCENE4_put_the_wine_bottle_on_the_wine_rack",
+      "env_instruction": "put the wine bottle on the wine rack",
+      "pair_id": "goal_2",
+      "label": "nonsense__goal_2",
+      "block": "nonsense",
+      "prompt": "perform the dax florp twice",
+      "prompted_goal_states": null,
+      "prompted_source": "none",
+      "expect_env_equivalent": false
+    }
+  ],
+  "notes": {
+    "semantic_mappings": [
+      {
+        "goal_id": 0,
+        "goal_prompt": "open the middle drawer of the cabinet",
+        "goal_source_name": "open_the_middle_drawer_of_the_cabinet",
+        "host_name": "KITCHEN_SCENE10_close_the_top_drawer_of_the_cabinet",
+        "mapping": "exact fixture identity"
+      },
+      {
+        "goal_id": 1,
+        "goal_prompt": "put the bowl on the stove",
+        "goal_source_name": "put_the_bowl_on_the_stove",
+        "host_name": "KITCHEN_SCENE9_put_the_white_bowl_on_top_of_the_cabinet",
+        "mapping": "generic goal 'bowl' -> the host's white_bowl_1"
+      },
+      {
+        "goal_id": 2,
+        "goal_prompt": "put the wine bottle on top of the cabinet",
+        "goal_source_name": "put_the_wine_bottle_on_top_of_the_cabinet",
+        "host_name": "KITCHEN_SCENE4_put_the_wine_bottle_on_the_wine_rack",
+        "mapping": "generic goal 'cabinet' -> the host's white_cabinet_1"
+      }
+    ]
+  },
+  "experiment": "2026-08-20_01-55-23_goal_prompts_in_seen_hosts",
+  "suite": "libero_90",
+  "checkpoint_path": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model"
+}

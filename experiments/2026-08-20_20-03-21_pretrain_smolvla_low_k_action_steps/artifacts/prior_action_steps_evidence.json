@@ -1,0 +1,43 @@
+{
+  "checked_at": "2026-08-20T20:03:21+03:00",
+  "canonical_official_data_lineage": {
+    "base_checkpoint_config": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model/config.json",
+    "base_chunk_size": 50,
+    "base_n_action_steps": 50,
+    "low_k_experiment": "2026-08-18_pretrain_smolvla_few_shot_tune_low_k",
+    "adapted_checkpoint_configs_checked": 30,
+    "distinct_chunk_sizes": [50],
+    "distinct_n_action_steps": [50],
+    "conclusion": "The canonical official-data pretrain/low-k lineage was evaluated only at n_action_steps=50."
+  },
+  "deprecated_history_caveat": {
+    "experiment": "2026-08-15_smolvla_action_steps_sweep",
+    "git_commit_inspected": "0986b96",
+    "n_action_steps": [1, 5, 10, 25, 50],
+    "lineage": "crislmfroes mirrored/third-party lineage deleted on 2026-08-18",
+    "usable_as_current_baseline": false,
+    "conclusion": "It is false that the entire repository history tested only 50; it is true only for the canonical official-data lineage."
+  },
+  "prior_n50_low_k_rates": {
+    "harness": "batch=4, one process RNG stream seeded once at 1000",
+    "comparison_warning": "Descriptive reference only: the new experiment uses batch=1 and per-episode policy-noise seeding, so deltas are not a paired causal estimate of n_action_steps.",
+    "mean_all_10": {"1": 0.55, "2": 0.705, "3": 0.78},
+    "mean_tasks_0_2": {
+      "1": 0.5666666666666667,
+      "2": 0.7166666666666667,
+      "3": 0.7166666666666667
+    },
+    "per_task_successes_out_of_20": {
+      "0": {"1": 3, "2": 7, "3": 9},
+      "1": {"1": 16, "2": 18, "3": 19},
+      "2": {"1": 15, "2": 18, "3": 15},
+      "3": {"1": 3, "2": 9, "3": 8},
+      "4": {"1": 15, "2": 16, "3": 16},
+      "5": {"1": 14, "2": 14, "3": 14},
+      "6": {"1": 4, "2": 7, "3": 17},
+      "7": {"1": 17, "2": 20, "3": 20},
+      "8": {"1": 9, "2": 15, "3": 19},
+      "9": {"1": 14, "2": 17, "3": 19}
+    }
+  }
+}

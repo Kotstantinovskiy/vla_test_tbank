@@ -1,0 +1,59 @@
+{
+  "base": "/var/tmp/vla_outputs/smolvla_base_libero_official_schema_c83c3163",
+  "flags": {
+    "freeze_vision_encoder": true,
+    "train_expert_only": true,
+    "train_state_proj": true
+  },
+  "total_parameters": 450046176,
+  "trainable_parameters": 99880992,
+  "frozen_parameters": 350165184,
+  "trainable_tensor_count": 155,
+  "frozen_tensor_count": 345,
+  "trainable_groups": {
+    "action_expert": {
+      "tensor_count": 145,
+      "examples": [
+        "model.vlm_with_expert.lm_expert.layers.0.self_attn.q_proj.weight",
+        "model.vlm_with_expert.lm_expert.layers.0.self_attn.k_proj.weight",
+        "model.vlm_with_expert.lm_expert.layers.0.self_attn.v_proj.weight",
+        "model.vlm_with_expert.lm_expert.layers.0.self_attn.o_proj.weight",
+        "model.vlm_with_expert.lm_expert.layers.0.mlp.gate_proj.weight",
+        "model.vlm_with_expert.lm_expert.layers.0.mlp.up_proj.weight",
+        "model.vlm_with_expert.lm_expert.layers.0.mlp.down_proj.weight",
+        "model.vlm_with_expert.lm_expert.layers.0.input_layernorm.weight"
+      ]
+    },
+    "state_projection": {
+      "tensor_count": 2,
+      "examples": [
+        "model.state_proj.weight",
+        "model.state_proj.bias"
+      ]
+    },
+    "action_input_projection": {
+      "tensor_count": 2,
+      "examples": [
+        "model.action_in_proj.weight",
+        "model.action_in_proj.bias"
+      ]
+    },
+    "action_output_projection": {
+      "tensor_count": 2,
+      "examples": [
+        "model.action_out_proj.weight",
+        "model.action_out_proj.bias"
+      ]
+    },
+    "action_time_mlp": {
+      "tensor_count": 4,
+      "examples": [
+        "model.action_time_mlp_in.weight",
+        "model.action_time_mlp_in.bias",
+        "model.action_time_mlp_out.weight",
+        "model.action_time_mlp_out.bias"
+      ]
+    }
+  },
+  "forbidden_trainable": []
+}

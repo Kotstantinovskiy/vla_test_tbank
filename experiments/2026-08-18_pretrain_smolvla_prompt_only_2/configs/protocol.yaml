@@ -1,0 +1,44 @@
+experiment: pretrain_smolvla_prompt_only_2
+date: 2026-08-18
+adaptation:
+  target_demonstrations: 0
+  optimizer_steps: 0
+  mode: prompt_only
+seed: 1000
+target_suite: libero_goal
+target_task_ids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+target_env_task_ids: identity
+eval_episodes_per_task: 20
+eval_batch_size: 4
+observation_size: 128  # derived from checkpoint schema; matches pretraining frames
+checkpoint:
+  path: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+  pretraining_experiment: 2026-08-17_smolvla_pretrain_libero
+  base_model_repo: lerobot/smolvla_base
+  base_model_revision: c83c3163b8ca9b7e67c509fffd9121e66cb96205
+  pretraining_dataset: official/libero_90_rot180_128 (in-repo conversion)
+  official_source_repo: yifengzhu-hf/LIBERO-datasets
+  official_source_revision: f13aa24a3da8c43c7225569f28c562979fa0e35a
+  pretraining_steps: 30000
+  seen_positive_control: "libero_90 task 0: 20/20"
+  weights_manifest: artifacts/checkpoint_manifest.json
+language:
+  primary: environment_instruction
+  wrong_control: cyclic_next_target
+  nonsense_control: "perform the dax florp twice"
+tracking:
+  backend: trackio
+  project: pretrain-smolvla-prompt-only-2
+  local_dir: artifacts/trackio
+  remote_space_env: TRACKIO_SPACE_ID
+video_recording:
+  disk: all 20 episodes, all three conditions
+  trackio: episode 0 per task only (true condition), as GIF + MP4
+relation_to_sibling:
+  experiment: 2026-08-18_pretrain_smolvla_prompt_only
+  note: >-
+    Identical protocol and checkpoint; this run exists to record full rollout
+    video. It is an independent execution: env seeds and init states repeat
+    (1000..1019, init states 0..19), but the torch RNG stream does not, so
+    outcomes may differ from the sibling. Both results stand on their own;
+    neither overwrites the other.

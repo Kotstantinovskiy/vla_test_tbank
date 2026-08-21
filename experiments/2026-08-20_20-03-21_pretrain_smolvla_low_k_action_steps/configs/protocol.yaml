@@ -1,0 +1,80 @@
+experiment: pretrain_smolvla_low_k_action_steps
+created_at: 2026-08-20T20:03:21+03:00
+status: code prepared; training and rollouts not started
+extends_recipe: 2026-08-18_pretrain_smolvla_few_shot_tune_low_k
+
+base_checkpoint:
+  path: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+  pretraining_experiment: 2026-08-17_smolvla_pretrain_libero
+  model_sha256_manifest: artifacts/base_checkpoint_manifest.json
+  expected_chunk_size: 50
+  expected_n_action_steps: 50
+
+target_demos:
+  dataset: official/libero_goal_rot180_128
+  root: /var/tmp/vla_libero_official_rot180/libero_goal
+  source_repo: yifengzhu-hf/LIBERO-datasets
+  source_revision: f13aa24a3da8c43c7225569f28c562979fa0e35a
+  selection: first k episodes == official demo_0..demo_{k-1} (asserted)
+
+adaptation:
+  tasks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  demo_budgets: [1, 2, 3]
+  independent_training_jobs: 30
+  independence: every task/budget starts from the canonical base checkpoint
+  trainable: action expert, state projection, action in/out projections,
+    action-time MLP
+  frozen: vision encoder and VLM
+  audit: artifacts/trainable_parameters.json
+  steps: 2000
+  batch_size: 32
+  seed: 1000
+  precision: fp32
+  n_action_steps_during_training_config: 50
+  note: n_action_steps does not change the 50-step training target/loss
+  normalizer_disclosure: >-
+    LeRobot replaces checkpoint statistics with statistics of each target
+    task/k dataset. All points here have k>0; no k=0 comparison is claimed.
+
+evaluation:
+  suite: libero_goal
+  chunk_size: 50
+  n_action_steps: [1, 10, 25]
+  same_adapted_weights_across_action_steps: true
+  evaluation_points: 90
+  episodes_per_point: 20
+  episode_horizon: 300
+  main_rollouts: 1800
+  maximum_policy_invocations_if_every_episode_hits_horizon: 205200
+  batch_size: 1
+  master_seed: 1000
+  environment_seed: 1000 + episode_index
+  policy_noise_seed: 1000 + episode_index
+  policy_noise_reseeded_before_each_episode: true
+  metric: binary environment task success
+  movement_proxy_metrics: none; inspect saved videos manually
+  videos: every episode saved on disk
+
+preflight_gates:
+  - prepare validates checkpoint completeness/SHA, source revision, official demo order, task text, and freezes 90 eval points
+  - dataset smoke instantiates all 30 filtered datasets and verifies the actually loaded episode_index values
+  - audit proves vision/VLM frozen and all intended expert/projection groups trainable
+  - env smoke creates, checks, resets, and closes all ten real target environments
+  - production smoke completes task 0 / k=1 / n=10 with all 20 videos
+  - determinism smoke repeats that point after an n=1 prefix layout and requires identical per-episode outcomes
+
+prior_n50:
+  evidence: artifacts/prior_action_steps_evidence.json
+  canonical_lineage_only_used_50: true
+  deprecated_crislmfroes_history_used: [1, 5, 10, 25, 50]
+  comparison_status: descriptive only because the old canonical n=50 harness used batch=4 stream RNG
+
+known_limitations:
+  - single adaptation seed 1000; exploratory screen only
+  - no paired n=50 under the new deterministic harness
+  - no k=5/10/25 until the low-k screen justifies expansion
+
+tracking:
+  project: pretrain-low-k-action-steps
+  local_dir: artifacts/trackio
+  representative_media: first success and first failure for each (k, n_action_steps)

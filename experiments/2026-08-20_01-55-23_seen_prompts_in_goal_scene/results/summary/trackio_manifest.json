@@ -1,0 +1,76 @@
+{
+  "project": "seen-prompts-in-goal-scene",
+  "run": "2026-08-20_01-55-23_seen_prompts_in_goal_scene",
+  "tables": [
+    "tables/points"
+  ],
+  "plot": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_prompts_in_goal_scene/results/summary/success_rates.png",
+  "media": [
+    {
+      "label": "true_goal__host",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_prompts_in_goal_scene/results/raw/videos/true_goal__host/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_prompt__seen_0",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_prompts_in_goal_scene/results/raw/videos/seen_prompt__seen_0/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_prompt__seen_1",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_prompts_in_goal_scene/results/raw/videos/seen_prompt__seen_1/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_prompt__seen_2",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_prompts_in_goal_scene/results/raw/videos/seen_prompt__seen_2/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_prompt__seen_3",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_prompts_in_goal_scene/results/raw/videos/seen_prompt__seen_3/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_prompt__seen_4",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_prompts_in_goal_scene/results/raw/videos/seen_prompt__seen_4/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_prompt__seen_5",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_prompts_in_goal_scene/results/raw/videos/seen_prompt__seen_5/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_prompt__seen_6",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_prompts_in_goal_scene/results/raw/videos/seen_prompt__seen_6/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_prompt__seen_7",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_prompts_in_goal_scene/results/raw/videos/seen_prompt__seen_7/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_prompt__seen_8",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_prompts_in_goal_scene/results/raw/videos/seen_prompt__seen_8/eval_episode_0.mp4"
+    },
+    {
+      "label": "nonsense__host",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_prompts_in_goal_scene/results/raw/videos/nonsense__host/eval_episode_0.mp4"
+    }
+  ]
+}

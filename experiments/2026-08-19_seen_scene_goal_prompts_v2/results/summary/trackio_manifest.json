@@ -1,0 +1,107 @@
+{
+  "project": "seen-scene-goal-prompts-v2",
+  "run": "2026-08-19-seen-scene-goal-prompts-v2",
+  "plot": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/summary/prompt_transfer_v2.png",
+  "tables": [
+    "tables/points",
+    "tables/paired_mcnemar"
+  ],
+  "media": [
+    {
+      "label": "trained__put_the_black_bowl_on_top_of_the_cabinet",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/trained__put_the_black_bowl_on_top_of_the_cabinet/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__put_the_black_bowl_on_top_of_the_cabinet",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/paraphrase__put_the_black_bowl_on_top_of_the_cabinet/eval_episode_0.mp4"
+    },
+    {
+      "label": "trained__put_the_black_bowl_on_the_plate",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/trained__put_the_black_bowl_on_the_plate/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__put_the_black_bowl_on_the_plate",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/paraphrase__put_the_black_bowl_on_the_plate/eval_episode_0.mp4"
+    },
+    {
+      "label": "trained__put_the_wine_bottle_on_the_wine_rack",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/trained__put_the_wine_bottle_on_the_wine_rack/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__put_the_wine_bottle_on_the_wine_rack",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/paraphrase__put_the_wine_bottle_on_the_wine_rack/eval_episode_0.mp4"
+    },
+    {
+      "label": "trained__open_the_top_drawer_of_the_cabinet_and_p",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/trained__open_the_top_drawer_of_the_cabinet_and_p/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__open_the_top_drawer_of_the_cabinet_and_p",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/paraphrase__open_the_top_drawer_of_the_cabinet_and_p/eval_episode_0.mp4"
+    },
+    {
+      "label": "trained__turn_on_the_stove",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/trained__turn_on_the_stove/eval_episode_0.mp4"
+    },
+    {
+      "label": "trained__put_the_frying_pan_on_the_stove",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/trained__put_the_frying_pan_on_the_stove/eval_episode_0.mp4"
+    },
+    {
+      "label": "cross__turn_on_the_stove",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/cross__turn_on_the_stove/eval_episode_0.mp4"
+    },
+    {
+      "label": "cross__put_the_frying_pan_on_the_stove",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/cross__put_the_frying_pan_on_the_stove/eval_episode_0.mp4"
+    },
+    {
+      "label": "trained__close_the_top_drawer_of_the_cabinet",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/trained__close_the_top_drawer_of_the_cabinet/eval_episode_0.mp4"
+    },
+    {
+      "label": "goal__open_the_middle_drawer_of_the_cabinet",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/goal__open_the_middle_drawer_of_the_cabinet/eval_episode_0.mp4"
+    },
+    {
+      "label": "nonsense__turn_on_the_stove",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/nonsense__turn_on_the_stove/eval_episode_0.mp4"
+    },
+    {
+      "label": "nonsense__put_the_black_bowl_on_top_of_the_cabinet",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_seen_scene_goal_prompts_v2/results/raw/videos/nonsense__put_the_black_bowl_on_top_of_the_cabinet/eval_episode_0.mp4"
+    }
+  ]
+}

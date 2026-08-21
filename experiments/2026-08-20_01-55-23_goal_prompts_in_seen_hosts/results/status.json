@@ -1,0 +1,75 @@
+{
+  "experiment": "goal_prompts_in_seen_hosts",
+  "state": "completed",
+  "started_at": "2026-08-20T17:11:47.193068+00:00",
+  "updated_at": "2026-08-20T17:36:27.458721+00:00",
+  "total_points": 9,
+  "completed": 9,
+  "failed": 0,
+  "points": {
+    "seen__goal_0": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 20,
+      "env_task_successes": 20,
+      "trials": 20
+    },
+    "goal__goal_0": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "env_task_successes": 19,
+      "trials": 20
+    },
+    "nonsense__goal_0": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen__goal_1": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 15,
+      "env_task_successes": 15,
+      "trials": 20
+    },
+    "goal__goal_1": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "nonsense__goal_1": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen__goal_2": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 8,
+      "env_task_successes": 8,
+      "trials": 20
+    },
+    "goal__goal_2": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "nonsense__goal_2": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    }
+  },
+  "finished_at": "2026-08-20T17:36:27.459043+00:00"
+}

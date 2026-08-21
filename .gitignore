@@ -12,6 +12,11 @@ wandb/
 # experiment even when the bytes themselves live on another volume.
 experiments/*/artifacts/checkpoints
 experiments/*/artifacts/checkpoints/
+experiments/*/artifacts/base_model
+experiments/*/artifacts/base_model_source
+experiments/*/artifacts/base_checkpoint
+experiments/*/artifacts/base_image_schema
+experiments/*/artifacts/dataset
 experiments/*/artifacts/seen_image_schema/
 experiments/*/artifacts/libero_config/
 experiments/*/artifacts/trackio/

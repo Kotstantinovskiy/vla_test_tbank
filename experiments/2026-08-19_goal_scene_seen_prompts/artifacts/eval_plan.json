@@ -1,0 +1,261 @@
+{
+  "points": [
+    {
+      "label": "true__turn_on_the_stove",
+      "block": "true",
+      "env_task_id": 7,
+      "env_name": "turn_on_the_stove",
+      "env_instruction": "turn on the stove",
+      "prompt": "turn on the stove",
+      "prompted_goal_states": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "prompted_source": "env_bddl",
+      "expect_env_equivalent": true,
+      "behavior_target": "flat_stove_1"
+    },
+    {
+      "label": "true__open_the_top_drawer_and_put_the_bowl_ins",
+      "block": "true",
+      "env_task_id": 3,
+      "env_name": "open_the_top_drawer_and_put_the_bowl_inside",
+      "env_instruction": "open the top drawer and put the bowl inside",
+      "prompt": "open the top drawer and put the bowl inside",
+      "prompted_goal_states": [
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "prompted_source": "env_bddl",
+      "expect_env_equivalent": true,
+      "behavior_target": "akita_black_bowl_1"
+    },
+    {
+      "label": "seen_twin__open_the_top_drawer_and_put_the_bowl_ins",
+      "block": "seen_twin",
+      "env_task_id": 3,
+      "env_name": "open_the_top_drawer_and_put_the_bowl_inside",
+      "env_instruction": "open the top drawer and put the bowl inside",
+      "prompt": "open the top drawer of the cabinet and put the bowl in it",
+      "prompted_goal_states": [
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "prompted_source": "env_bddl_twin",
+      "expect_env_equivalent": true,
+      "behavior_target": "akita_black_bowl_1"
+    },
+    {
+      "label": "true__put_the_bowl_on_top_of_the_cabinet",
+      "block": "true",
+      "env_task_id": 4,
+      "env_name": "put_the_bowl_on_top_of_the_cabinet",
+      "env_instruction": "put the bowl on top of the cabinet",
+      "prompt": "put the bowl on top of the cabinet",
+      "prompted_goal_states": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "prompted_source": "env_bddl",
+      "expect_env_equivalent": true,
+      "behavior_target": "akita_black_bowl_1"
+    },
+    {
+      "label": "seen_twin__put_the_bowl_on_top_of_the_cabinet",
+      "block": "seen_twin",
+      "env_task_id": 4,
+      "env_name": "put_the_bowl_on_top_of_the_cabinet",
+      "env_instruction": "put the bowl on top of the cabinet",
+      "prompt": "put the black bowl on top of the cabinet",
+      "prompted_goal_states": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "prompted_source": "env_bddl_twin",
+      "expect_env_equivalent": true,
+      "behavior_target": "akita_black_bowl_1"
+    },
+    {
+      "label": "true__put_the_bowl_on_the_plate",
+      "block": "true",
+      "env_task_id": 8,
+      "env_name": "put_the_bowl_on_the_plate",
+      "env_instruction": "put the bowl on the plate",
+      "prompt": "put the bowl on the plate",
+      "prompted_goal_states": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "prompted_source": "env_bddl",
+      "expect_env_equivalent": true,
+      "behavior_target": "akita_black_bowl_1"
+    },
+    {
+      "label": "seen_twin__put_the_bowl_on_the_plate",
+      "block": "seen_twin",
+      "env_task_id": 8,
+      "env_name": "put_the_bowl_on_the_plate",
+      "env_instruction": "put the bowl on the plate",
+      "prompt": "put the black bowl on the plate",
+      "prompted_goal_states": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "prompted_source": "env_bddl_twin",
+      "expect_env_equivalent": true,
+      "behavior_target": "akita_black_bowl_1"
+    },
+    {
+      "label": "true__put_the_wine_bottle_on_the_rack",
+      "block": "true",
+      "env_task_id": 9,
+      "env_name": "put_the_wine_bottle_on_the_rack",
+      "env_instruction": "put the wine bottle on the rack",
+      "prompt": "put the wine bottle on the rack",
+      "prompted_goal_states": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "prompted_source": "env_bddl",
+      "expect_env_equivalent": true,
+      "behavior_target": "wine_bottle_1"
+    },
+    {
+      "label": "seen_twin__put_the_wine_bottle_on_the_rack",
+      "block": "seen_twin",
+      "env_task_id": 9,
+      "env_name": "put_the_wine_bottle_on_the_rack",
+      "env_instruction": "put the wine bottle on the rack",
+      "prompt": "put the wine bottle on the wine rack",
+      "prompted_goal_states": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "prompted_source": "env_bddl_twin",
+      "expect_env_equivalent": true,
+      "behavior_target": "wine_bottle_1"
+    },
+    {
+      "label": "seen_cross__put_the_bowl_on_the_plate",
+      "block": "seen_cross",
+      "env_task_id": 8,
+      "env_name": "put_the_bowl_on_the_plate",
+      "env_instruction": "put the bowl on the plate",
+      "prompt": "put the black bowl on top of the cabinet",
+      "prompted_goal_states": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "prompted_source": "goal_env_4",
+      "expect_env_equivalent": false,
+      "behavior_target": "akita_black_bowl_1"
+    },
+    {
+      "label": "seen_cross__put_the_bowl_on_top_of_the_cabinet",
+      "block": "seen_cross",
+      "env_task_id": 4,
+      "env_name": "put_the_bowl_on_top_of_the_cabinet",
+      "env_instruction": "put the bowl on top of the cabinet",
+      "prompt": "put the black bowl on the plate",
+      "prompted_goal_states": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "prompted_source": "goal_env_8",
+      "expect_env_equivalent": false,
+      "behavior_target": "akita_black_bowl_1"
+    },
+    {
+      "label": "nonsense__turn_on_the_stove",
+      "block": "nonsense",
+      "env_task_id": 7,
+      "env_name": "turn_on_the_stove",
+      "env_instruction": "turn on the stove",
+      "prompt": "perform the dax florp twice",
+      "prompted_goal_states": null,
+      "prompted_source": "none",
+      "expect_env_equivalent": false,
+      "behavior_target": "flat_stove_1"
+    },
+    {
+      "label": "nonsense__open_the_top_drawer_and_put_the_bowl_ins",
+      "block": "nonsense",
+      "env_task_id": 3,
+      "env_name": "open_the_top_drawer_and_put_the_bowl_inside",
+      "env_instruction": "open the top drawer and put the bowl inside",
+      "prompt": "perform the dax florp twice",
+      "prompted_goal_states": null,
+      "prompted_source": "none",
+      "expect_env_equivalent": false,
+      "behavior_target": "akita_black_bowl_1"
+    }
+  ],
+  "notes": {
+    "anchor": {
+      "env": "turn_on_the_stove",
+      "note": "true == verbatim trained string -> pure scene effect"
+    },
+    "twin_pairs": [
+      {
+        "goal": "open the top drawer and put the bowl inside",
+        "seen_twin": "open the top drawer of the cabinet and put the bowl in it"
+      },
+      {
+        "goal": "put the bowl on top of the cabinet",
+        "seen_twin": "put the black bowl on top of the cabinet"
+      },
+      {
+        "goal": "put the bowl on the plate",
+        "seen_twin": "put the black bowl on the plate"
+      },
+      {
+        "goal": "put the wine bottle on the rack",
+        "seen_twin": "put the wine bottle on the wine rack"
+      }
+    ],
+    "seen_cross": {
+      "envs": [
+        "put_the_bowl_on_the_plate",
+        "put_the_bowl_on_top_of_the_cabinet"
+      ],
+      "prompts": [
+        "put the black bowl on top of the cabinet",
+        "put the black bowl on the plate"
+      ]
+    }
+  },
+  "suite": "libero_goal",
+  "checkpoint_path": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model"
+}

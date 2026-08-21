@@ -1,0 +1,225 @@
+{
+  "experiment": "base_smolvla_cost_curve",
+  "model": "/var/tmp/vla_outputs/base_smolvla_cost_curve_20260819/task_2/k_3/checkpoints/002000/pretrained_model",
+  "suite": "libero_goal",
+  "logical_task_id": 2,
+  "env_task_id": 2,
+  "instruction": "put the wine bottle on top of the cabinet",
+  "demo_budget": 3,
+  "seed": 1000,
+  "n_episodes": 20,
+  "batch_size": 4,
+  "per_episode": [
+    {
+      "episode_ix": 0,
+      "sum_reward": 0.0,
+      "max_reward": 0.0,
+      "success": false,
+      "seed": 1000,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_0.mp4",
+      "outcome": "failure"
+    },
+    {
+      "episode_ix": 1,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1001,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_1.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 2,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1002,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_2.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 3,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1003,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_3.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 4,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1004,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_4.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 5,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1005,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_5.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 6,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1006,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_6.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 7,
+      "sum_reward": 0.0,
+      "max_reward": 0.0,
+      "success": false,
+      "seed": 1007,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_7.mp4",
+      "outcome": "failure"
+    },
+    {
+      "episode_ix": 8,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1008,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_8.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 9,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1009,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_9.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 10,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1010,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_10.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 11,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1011,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_11.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 12,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1012,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_12.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 13,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1013,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_13.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 14,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1014,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_14.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 15,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1015,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_15.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 16,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1016,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_16.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 17,
+      "sum_reward": 0.0,
+      "max_reward": 0.0,
+      "success": false,
+      "seed": 1017,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_17.mp4",
+      "outcome": "failure"
+    },
+    {
+      "episode_ix": 18,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1018,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_18.mp4",
+      "outcome": "success"
+    },
+    {
+      "episode_ix": 19,
+      "sum_reward": 1.0,
+      "max_reward": 1.0,
+      "success": true,
+      "seed": 1019,
+      "video_path": "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_19.mp4",
+      "outcome": "success"
+    }
+  ],
+  "aggregated": {
+    "avg_sum_reward": 0.85,
+    "avg_max_reward": 0.85,
+    "pc_success": 85.0,
+    "eval_s": 252.61554098129272,
+    "eval_ep_s": 12.630777132511138
+  },
+  "video_paths": [
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_0.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_1.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_2.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_3.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_4.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_5.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_6.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_7.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_8.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_9.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_10.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_11.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_12.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_13.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_14.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_15.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_16.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_17.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_18.mp4",
+    "/home/nbagent174/vla_test/experiments/2026-08-19_base_smolvla_cost_curve/results/raw/videos/task_2/k_3/eval_episode_19.mp4"
+  ],
+  "successes": 17,
+  "success_rate": 0.85
+}

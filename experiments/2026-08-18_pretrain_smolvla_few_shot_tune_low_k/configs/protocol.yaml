@@ -1,0 +1,51 @@
+experiment: pretrain_smolvla_few_shot_tune_low_k
+date: 2026-08-18
+extends: 2026-08-18_pretrain_smolvla_naive_baseline_few_shot_tune
+reason: >-
+  The assignment amendment (v2026-08-15) requires probing the regime where
+  differences are visible when the naive baseline saturates by k=5 (observed:
+  0.95 mean on tasks 0-2). This sibling adds the low-budget points k=1/2/3
+  under the byte-identical recipe; the k=5/10/25 points remain owned by the
+  sibling experiment and are not rerun.
+
+base_checkpoint:
+  path: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+  pretraining_experiment: 2026-08-17_smolvla_pretrain_libero
+  weights_manifest: artifacts/base_checkpoint_manifest.json
+
+target_demos:
+  dataset: official/libero_goal_rot180_128
+  root: /var/tmp/vla_libero_official_rot180/libero_goal
+  selection: first k episodes == official demo_0..demo_{k-1} (asserted)
+
+adaptation:
+  budgets: [1, 2, 3]
+  independence: every task/budget run starts from the base checkpoint
+  trainable: action expert, state projection, action in/out projections,
+    action-time MLP (train_expert_only; vision+VLM frozen; audited)
+  steps: 2000
+  batch_size: 32
+  optimizer: adamw preset, seed 1000, fp32
+  note: >-
+    2000 steps over a single demo (~130 frames) is ~490 epochs; heavy
+    memorization is expected and intentional - the recipe is kept
+    byte-identical to the k=5/10/25 baseline so the curve is comparable.
+  normalizer_disclosure: same as sibling (target-dataset statistics at k>0)
+
+evaluation:
+  suite: libero_goal
+  tasks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  episodes_per_point: 20
+  batch_size: 4
+  seed: 1000
+  observation_size: 128
+  videos: all 20 episodes of every point stored on disk
+  gifs: first success and first failure per budget k
+
+known_limitations:
+  single_adaptation_seed: seed 1000 only in this run; second seed outstanding
+
+tracking:
+  backend: trackio
+  project: pretrain-few-shot-low-k
+  local_dir: artifacts/trackio

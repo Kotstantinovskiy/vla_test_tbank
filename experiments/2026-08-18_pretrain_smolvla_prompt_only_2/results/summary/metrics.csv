@@ -1,0 +1,31 @@
+task_id,instruction,condition,successes,trials,success_rate,ci95_low,ci95_high
+0,open the middle drawer of the cabinet,true,0,20,0.0,0.0,0.16112515805281938
+0,open the middle drawer of the cabinet,wrong,0,20,0.0,0.0,0.16112515805281938
+0,open the middle drawer of the cabinet,nonsense,0,20,0.0,0.0,0.16112515805281938
+1,put the bowl on the stove,true,0,20,0.0,0.0,0.16112515805281938
+1,put the bowl on the stove,wrong,0,20,0.0,0.0,0.16112515805281938
+1,put the bowl on the stove,nonsense,0,20,0.0,0.0,0.16112515805281938
+2,put the wine bottle on top of the cabinet,true,0,20,0.0,0.0,0.16112515805281938
+2,put the wine bottle on top of the cabinet,wrong,0,20,0.0,0.0,0.16112515805281938
+2,put the wine bottle on top of the cabinet,nonsense,0,20,0.0,0.0,0.16112515805281938
+3,open the top drawer and put the bowl inside,true,0,20,0.0,0.0,0.16112515805281938
+3,open the top drawer and put the bowl inside,wrong,0,20,0.0,0.0,0.16112515805281938
+3,open the top drawer and put the bowl inside,nonsense,0,20,0.0,0.0,0.16112515805281938
+4,put the bowl on top of the cabinet,true,1,20,0.05,0.008881448800795402,0.23613119344674205
+4,put the bowl on top of the cabinet,wrong,0,20,0.0,0.0,0.16112515805281938
+4,put the bowl on top of the cabinet,nonsense,0,20,0.0,0.0,0.16112515805281938
+5,push the plate to the front of the stove,true,0,20,0.0,0.0,0.16112515805281938
+5,push the plate to the front of the stove,wrong,0,20,0.0,0.0,0.16112515805281938
+5,push the plate to the front of the stove,nonsense,0,20,0.0,0.0,0.16112515805281938
+6,put the cream cheese in the bowl,true,0,20,0.0,0.0,0.16112515805281938
+6,put the cream cheese in the bowl,wrong,0,20,0.0,0.0,0.16112515805281938
+6,put the cream cheese in the bowl,nonsense,0,20,0.0,0.0,0.16112515805281938
+7,turn on the stove,true,0,20,0.0,0.0,0.16112515805281938
+7,turn on the stove,wrong,0,20,0.0,0.0,0.16112515805281938
+7,turn on the stove,nonsense,0,20,0.0,0.0,0.16112515805281938
+8,put the bowl on the plate,true,0,20,0.0,0.0,0.16112515805281938
+8,put the bowl on the plate,wrong,0,20,0.0,0.0,0.16112515805281938
+8,put the bowl on the plate,nonsense,0,20,0.0,0.0,0.16112515805281938
+9,put the wine bottle on the rack,true,0,20,0.0,0.0,0.16112515805281938
+9,put the wine bottle on the rack,wrong,0,20,0.0,0.0,0.16112515805281938
+9,put the wine bottle on the rack,nonsense,0,20,0.0,0.0,0.16112515805281938

@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seen-prompts-in-goal-scene"
+version = "0.1.0"
+description = "Nine non-trivial trained LIBERO-90 prompts in one fixed LIBERO-goal scene"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "lerobot[libero,smolvla]==0.6.1",
+  "imageio[ffmpeg]>=2.37,<3",
+  "matplotlib>=3.10",
+  "PyYAML>=6",
+  "torch==2.7.1+cu126",
+  "torchcodec==0.5+cu126",
+  "torchvision==0.22.1+cu126",
+  "trackio==0.33.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+seen-prompts-in-goal-scene-prepare = "seen_prompts_in_goal_scene.prepare:main"
+seen-prompts-in-goal-scene-evaluate = "seen_prompts_in_goal_scene.evaluate:main"
+seen-prompts-in-goal-scene-determinism = "seen_prompts_in_goal_scene.determinism:main"
+seen-prompts-in-goal-scene-orchestrate = "seen_prompts_in_goal_scene.orchestrate:main"
+seen-prompts-in-goal-scene-aggregate = "seen_prompts_in_goal_scene.aggregate:main"
+seen-prompts-in-goal-scene-trackio = "seen_prompts_in_goal_scene.trackio_report:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+torchcodec = { index = "pytorch-cu126" }
+torchvision = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true

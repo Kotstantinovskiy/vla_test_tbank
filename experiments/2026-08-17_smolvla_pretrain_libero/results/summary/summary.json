@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-08-17T22:20:15.617794+00:00",
+  "state": "completed",
+  "exit_code": 0,
+  "last_step": 30000,
+  "target_steps": 30000,
+  "logged_points": 600,
+  "initial_loss": 3.165,
+  "final_loss": 0.359,
+  "best_logged_loss": 0.345,
+  "mean_logged_samples_per_second": 219.22333333333333,
+  "columns": [
+    "step",
+    "perf/dataload_seconds",
+    "perf/samples_per_second",
+    "perf/update_seconds",
+    "system/gpu_memory_gb",
+    "train/episodes",
+    "train/epoch",
+    "train/grad_norm",
+    "train/learning_rate",
+    "train/loss",
+    "train/samples"
+  ],
+  "metrics_csv": "/home/nbagent174/vla_test/experiments/2026-08-17_smolvla_pretrain_libero/results/summary/training_metrics.csv",
+  "plot": "/home/nbagent174/vla_test/experiments/2026-08-17_smolvla_pretrain_libero/results/summary/training_curves.png",
+  "final_checkpoint": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/last/pretrained_model"
+}

@@ -1,0 +1,19 @@
+{
+  "suite": "libero_goal",
+  "repo_id": "official/libero_goal_rot180_128",
+  "source_repo": "yifengzhu-hf/LIBERO-datasets",
+  "source_revision": "f13aa24a3da8c43c7225569f28c562979fa0e35a",
+  "source_root": "/var/tmp/libero_official_f13aa24/libero_goal",
+  "converted_at": "2026-08-17T16:40:30.313267+00:00",
+  "orientation": "rot180(official) == eval convention",
+  "image_size": 128,
+  "fps": 20,
+  "video_crf": 18,
+  "state_recipe": "official ee_pos(3) + ee_ori(3) + gripper_states(2), float32",
+  "action_recipe": "official actions, float32, bit-exact",
+  "episode_order": "files sorted by name, demos by numeric index (official order)",
+  "total_tasks": 10,
+  "total_episodes": 500,
+  "total_frames": 63728,
+  "demos_per_task_expected": 50
+}

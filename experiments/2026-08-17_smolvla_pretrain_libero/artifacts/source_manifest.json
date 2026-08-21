@@ -1,0 +1,105 @@
+{
+  "base_model": {
+    "repo_id": "lerobot/smolvla_base",
+    "revision": "c83c3163b8ca9b7e67c509fffd9121e66cb96205"
+  },
+  "schema_adapter": {
+    "source_repo": "lerobot/smolvla_base",
+    "source_revision": "c83c3163b8ca9b7e67c509fffd9121e66cb96205",
+    "model_sha256": "7cd549ac2351fb069c0ddb3c34ad2d09cfc92b56a15dccdfc2e41467aaca01eb",
+    "weight_change": "none; model.safetensors is a hard link to the pinned source",
+    "input_orientation": "rot180_of_official_equals_eval_convention",
+    "input_features": {
+      "observation.images.top": {
+        "type": "VISUAL",
+        "shape": [
+          3,
+          128,
+          128
+        ]
+      },
+      "observation.images.wrist_image": {
+        "type": "VISUAL",
+        "shape": [
+          3,
+          128,
+          128
+        ]
+      },
+      "observation.state": {
+        "type": "STATE",
+        "shape": [
+          8
+        ]
+      }
+    },
+    "output_features": {
+      "action": {
+        "type": "ACTION",
+        "shape": [
+          7
+        ]
+      }
+    },
+    "config_overrides": {
+      "prefix_length": -1,
+      "pad_language_to": "longest",
+      "num_expert_layers": -1
+    }
+  },
+  "official_source": {
+    "repo_id": "yifengzhu-hf/LIBERO-datasets",
+    "revision": "f13aa24a3da8c43c7225569f28c562979fa0e35a",
+    "root": "/var/tmp/libero_official_f13aa24"
+  },
+  "input_orientation": "rot180_of_official_equals_eval_convention",
+  "datasets": {
+    "seen": {
+      "root": "/var/tmp/vla_libero_official_rot180/libero_90",
+      "state": "converted",
+      "repo_id": "official/libero_90_rot180_128",
+      "total_tasks": 90,
+      "total_episodes": 4500,
+      "total_frames": 669043,
+      "fps": 20,
+      "orientation": "rot180(official) == eval convention"
+    },
+    "target": {
+      "root": "/var/tmp/vla_libero_official_rot180/libero_goal",
+      "state": "converted",
+      "repo_id": "official/libero_goal_rot180_128",
+      "total_tasks": 10,
+      "total_episodes": 500,
+      "total_frames": 63728,
+      "fps": 20,
+      "orientation": "rot180(official) == eval convention"
+    }
+  },
+  "training": {
+    "strategy": "ddp",
+    "gpu_ids": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "world_size": 4,
+    "per_rank_batch_size": 8,
+    "effective_batch_size": 32,
+    "steps": 30000,
+    "learning_rate": 0.0001,
+    "seed": 1000,
+    "output_root": "/var/tmp/vla_outputs/seen_libero90_official_20260817"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "torch": "2.7.1+cu126",
+    "cuda_device_count": 4,
+    "cuda_devices": [
+      "NVIDIA H200 NVL",
+      "NVIDIA H200 NVL",
+      "NVIDIA H200 NVL",
+      "NVIDIA H200 NVL"
+    ]
+  }
+}

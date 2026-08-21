@@ -1,0 +1,45 @@
+experiment: pretrain_smolvla_prompt_only_3
+date: 2026-08-19
+role: redo of 2026-08-18_pretrain_smolvla_prompt_only_2 with reproducible
+  per-episode policy sampling noise (user request after the HARNESS_NOTE
+  discovery in 2026-08-19_goal_scene_seen_prompts)
+
+checkpoint:
+  path: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+  frozen: true
+  weights_manifest: artifacts/checkpoint_manifest.json
+
+design:
+  suite: libero_goal (all 10 tasks; env resolution asserted by instruction text)
+  conditions: [true, wrong, nonsense]  # wrong = instruction of task (id+1) % 10
+  seed: 1000
+  episodes_per_point: 20
+  points: 30 (3 conditions x 10 tasks), each its own process via orchestrator
+  videos: all 20 episodes of every point; Trackio gets episode 0 only
+  protocol_change_vs_2:
+    what: policy flow-sampling noise reseeded at the START OF EVERY EPISODE
+      with noise_seed(e) = 1000 + e (torch.manual_seed + cuda.manual_seed_all);
+      batch size 1 (per-episode noise is ill-defined for batched draws, which
+      interleave one stream across sub-envs)
+    why: _2 drew action noise from the process-global torch stream, so
+      outcomes depended on process layout (task 4 true: 1/20 in _2's layout
+      vs 5/20 in a fresh process — same env seeds and init states)
+    consequence: every episode is now a deterministic function of
+      (checkpoint, env seed, init state, noise seed) — reproducible in ANY
+      layout; the determinism smoke below verifies this explicitly
+  determinism_smoke: run true__task_4 twice in different process layouts
+    (alone; and after another point in the same process) into separate out
+    dirs — per-episode outcomes must be identical before the full run
+
+relation_to_frozen_results:
+  - _2 stays frozen and untouched; its numbers remain the k=0 reference of
+    analyst_curve_baseline (measured under stream noise, honest within CI)
+  - _3 becomes the canonical reproducible zero-shot measurement; any k=0
+    revision in reports must cite both and the noise note
+
+predictions_and_decision_rules: reports/PRIOR_EXPECTATION.md
+
+tracking:
+  backend: trackio
+  project: pretrain-smolvla-prompt-only-3
+  local_dir: artifacts/trackio

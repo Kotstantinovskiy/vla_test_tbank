@@ -1,0 +1,89 @@
+{
+  "experiment": "seen_prompts_in_goal_scene",
+  "state": "completed",
+  "started_at": "2026-08-20T17:45:00.558326+00:00",
+  "updated_at": "2026-08-20T18:12:15.352935+00:00",
+  "total_points": 11,
+  "completed": 11,
+  "failed": 0,
+  "points": {
+    "true_goal__host": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_prompt__seen_0": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 7,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_prompt__seen_1": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_prompt__seen_2": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 1,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_prompt__seen_3": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 10,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_prompt__seen_4": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_prompt__seen_5": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_prompt__seen_6": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_prompt__seen_7": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_prompt__seen_8": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "nonsense__host": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    }
+  },
+  "finished_at": "2026-08-20T18:12:15.353267+00:00"
+}

@@ -1,0 +1,52 @@
+experiment: base_smolvla_cost_curve
+date: 2026-08-19
+role: ablation of the in-domain pretrain — the few-shot cost curve run from
+  PLAIN lerobot/smolvla_base; the gap to the frozen pretrained curve is the
+  value of the libero_90 pretrain expressed in demonstrations
+
+base_checkpoint:
+  path: /var/tmp/vla_outputs/smolvla_base_libero_official_schema_c83c3163
+  provenance: lerobot/smolvla_base@c83c3163 (community SO-100 pretraining;
+    never saw LIBERO or a Franka), schema-adapted for the LIBERO feature set
+    by 2026-08-17_smolvla_pretrain_libero (processor configs only; weights
+    untouched) — the exact snapshot our own pretrain started from
+  weights_manifest: artifacts/checkpoint_manifest.json (written by prepare)
+
+design:
+  budgets: [1, 2, 3, 5, 10, 25]
+  no_k0_by_design: LIBERO state/action projections are initialized only at
+    fine-tune time; an untrained evaluation would sample through random
+    projections, so a base "zero-shot" point is not a meaningful number
+  recipe: BYTE-IDENTICAL to the pretrained cost curve — expert-only
+    (freeze_vision_encoder, train_expert_only, train_state_proj), 2000 steps,
+    batch 32, fp32, seed 1000; demos = official demo_0..demo_{k-1} from the
+    in-repo libero_goal conversion; independent adaptation per (task, budget)
+  eval: SAME harness as the pretrained curve (20 episodes, seed 1000, batch 4,
+    all videos to disk) — including its process-layout noise semantics, for
+    apples-to-apples comparison; the per-episode noise reseeding introduced in
+    prompt_only_3 is deliberately NOT adopted here (comparability first; the
+    caveat is inherited and disclosed)
+  jobs: 60 trainings + 60 evaluations over GPUs 0-3
+  scheduling: 3 concurrent jobs per GPU (co-tenancy). Justification: measured
+    updt_s ~0.14 s/step vs data_s 0.6-1.8 s/step on the reference curve —
+    training is dataloader-bound and the GPU idles ~90% of the time. Per-job
+    commands are byte-identical to the reference recipe; co-tenancy is a
+    scheduling property, and bit-level training determinism across runs was
+    never claimed (cudnn autotuning is timing-dependent regardless). User
+    approved 2026-08-19.
+  normalizer_disclosure: LeRobot swaps checkpoint normalization statistics
+    for target-dataset statistics at fine-tune time (same as every curve
+    experiment in this repository)
+  seeds: single training seed (1000), same limitation as the reference curve;
+    the assignment's two-seed requirement remains outstanding for both
+
+reference (frozen, never modified):
+  pretrained_curve_mean_10: {1: 0.55, 2: 0.705, 3: 0.78, 5: 0.83, 10: 0.875, 25: 0.85}
+  pretrained_curve_tasks_0_2: {1: 0.567, 2: 0.717, 3: 0.717, 5: 0.95, 10: 0.95, 25: 0.90}
+
+predictions_and_decision_rules: reports/PRIOR_EXPECTATION.md
+
+tracking:
+  backend: trackio
+  project: base-smolvla-cost-curve
+  local_dir: artifacts/trackio

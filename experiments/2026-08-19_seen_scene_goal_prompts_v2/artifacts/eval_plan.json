@@ -1,0 +1,380 @@
+{
+  "points": [
+    {
+      "label": "trained__put_the_black_bowl_on_top_of_the_cabinet",
+      "block": "trained",
+      "env_task_id": 10,
+      "env_name": "KITCHEN_SCENE1_put_the_black_bowl_on_top_of_the_cabinet",
+      "env_instruction": "put the black bowl on top of the cabinet",
+      "scene": "KITCHEN_SCENE1",
+      "prompt": "put the black bowl on top of the cabinet",
+      "prompted_goal_states": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "prompted_source": "env_bddl",
+      "expect_env_equivalent": true
+    },
+    {
+      "label": "paraphrase__put_the_black_bowl_on_top_of_the_cabinet",
+      "block": "paraphrase",
+      "env_task_id": 10,
+      "env_name": "KITCHEN_SCENE1_put_the_black_bowl_on_top_of_the_cabinet",
+      "env_instruction": "put the black bowl on top of the cabinet",
+      "scene": "KITCHEN_SCENE1",
+      "prompt": "put the bowl on top of the cabinet",
+      "prompted_goal_states": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_side"
+        ]
+      ],
+      "prompted_source": "goal_task_4",
+      "expect_env_equivalent": true
+    },
+    {
+      "label": "trained__put_the_black_bowl_on_the_plate",
+      "block": "trained",
+      "env_task_id": 9,
+      "env_name": "KITCHEN_SCENE1_put_the_black_bowl_on_the_plate",
+      "env_instruction": "put the black bowl on the plate",
+      "scene": "KITCHEN_SCENE1",
+      "prompt": "put the black bowl on the plate",
+      "prompted_goal_states": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "prompted_source": "env_bddl",
+      "expect_env_equivalent": true
+    },
+    {
+      "label": "paraphrase__put_the_black_bowl_on_the_plate",
+      "block": "paraphrase",
+      "env_task_id": 9,
+      "env_name": "KITCHEN_SCENE1_put_the_black_bowl_on_the_plate",
+      "env_instruction": "put the black bowl on the plate",
+      "scene": "KITCHEN_SCENE1",
+      "prompt": "put the bowl on the plate",
+      "prompted_goal_states": [
+        [
+          "on",
+          "akita_black_bowl_1",
+          "plate_1"
+        ]
+      ],
+      "prompted_source": "goal_task_8",
+      "expect_env_equivalent": true
+    },
+    {
+      "label": "trained__put_the_wine_bottle_on_the_wine_rack",
+      "block": "trained",
+      "env_task_id": 27,
+      "env_name": "KITCHEN_SCENE4_put_the_wine_bottle_on_the_wine_rack",
+      "env_instruction": "put the wine bottle on the wine rack",
+      "scene": "KITCHEN_SCENE4",
+      "prompt": "put the wine bottle on the wine rack",
+      "prompted_goal_states": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "prompted_source": "env_bddl",
+      "expect_env_equivalent": true
+    },
+    {
+      "label": "paraphrase__put_the_wine_bottle_on_the_wine_rack",
+      "block": "paraphrase",
+      "env_task_id": 27,
+      "env_name": "KITCHEN_SCENE4_put_the_wine_bottle_on_the_wine_rack",
+      "env_instruction": "put the wine bottle on the wine rack",
+      "scene": "KITCHEN_SCENE4",
+      "prompt": "put the wine bottle on the rack",
+      "prompted_goal_states": [
+        [
+          "on",
+          "wine_bottle_1",
+          "wine_rack_1_top_region"
+        ]
+      ],
+      "prompted_source": "goal_task_9",
+      "expect_env_equivalent": true
+    },
+    {
+      "label": "trained__open_the_top_drawer_of_the_cabinet_and_p",
+      "block": "trained",
+      "env_task_id": 8,
+      "env_name": "KITCHEN_SCENE1_open_the_top_drawer_of_the_cabinet_and_put_the_bowl_in_it",
+      "env_instruction": "open the top drawer of the cabinet and put the bowl in it",
+      "scene": "KITCHEN_SCENE1",
+      "prompt": "open the top drawer of the cabinet and put the bowl in it",
+      "prompted_goal_states": [
+        [
+          "open",
+          "wooden_cabinet_1_top_region"
+        ],
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "prompted_source": "env_bddl",
+      "expect_env_equivalent": true
+    },
+    {
+      "label": "paraphrase__open_the_top_drawer_of_the_cabinet_and_p",
+      "block": "paraphrase",
+      "env_task_id": 8,
+      "env_name": "KITCHEN_SCENE1_open_the_top_drawer_of_the_cabinet_and_put_the_bowl_in_it",
+      "env_instruction": "open the top drawer of the cabinet and put the bowl in it",
+      "scene": "KITCHEN_SCENE1",
+      "prompt": "open the top drawer and put the bowl inside",
+      "prompted_goal_states": [
+        [
+          "in",
+          "akita_black_bowl_1",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "prompted_source": "goal_task_3",
+      "expect_env_equivalent": false
+    },
+    {
+      "label": "trained__turn_on_the_stove",
+      "block": "trained",
+      "env_task_id": 20,
+      "env_name": "KITCHEN_SCENE3_turn_on_the_stove",
+      "env_instruction": "turn on the stove",
+      "scene": "KITCHEN_SCENE3",
+      "prompt": "turn on the stove",
+      "prompted_goal_states": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "prompted_source": "env_bddl",
+      "expect_env_equivalent": true
+    },
+    {
+      "label": "trained__put_the_frying_pan_on_the_stove",
+      "block": "trained",
+      "env_task_id": 18,
+      "env_name": "KITCHEN_SCENE3_put_the_frying_pan_on_the_stove",
+      "env_instruction": "put the frying pan on the stove",
+      "scene": "KITCHEN_SCENE3",
+      "prompt": "put the frying pan on the stove",
+      "prompted_goal_states": [
+        [
+          "on",
+          "chefmate_8_frypan_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "prompted_source": "env_bddl",
+      "expect_env_equivalent": true
+    },
+    {
+      "label": "cross__turn_on_the_stove",
+      "block": "cross",
+      "env_task_id": 20,
+      "env_name": "KITCHEN_SCENE3_turn_on_the_stove",
+      "env_instruction": "turn on the stove",
+      "scene": "KITCHEN_SCENE3",
+      "prompt": "put the frying pan on the stove",
+      "prompted_goal_states": [
+        [
+          "on",
+          "chefmate_8_frypan_1",
+          "flat_stove_1_cook_region"
+        ]
+      ],
+      "prompted_source": "partner_env_18",
+      "expect_env_equivalent": false
+    },
+    {
+      "label": "cross__put_the_frying_pan_on_the_stove",
+      "block": "cross",
+      "env_task_id": 18,
+      "env_name": "KITCHEN_SCENE3_put_the_frying_pan_on_the_stove",
+      "env_instruction": "put the frying pan on the stove",
+      "scene": "KITCHEN_SCENE3",
+      "prompt": "turn on the stove",
+      "prompted_goal_states": [
+        [
+          "turnon",
+          "flat_stove_1"
+        ]
+      ],
+      "prompted_source": "partner_env_20",
+      "expect_env_equivalent": false
+    },
+    {
+      "label": "trained__close_the_top_drawer_of_the_cabinet",
+      "block": "trained",
+      "env_task_id": 0,
+      "env_name": "KITCHEN_SCENE10_close_the_top_drawer_of_the_cabinet",
+      "env_instruction": "close the top drawer of the cabinet",
+      "scene": "KITCHEN_SCENE10",
+      "prompt": "close the top drawer of the cabinet",
+      "prompted_goal_states": [
+        [
+          "close",
+          "wooden_cabinet_1_top_region"
+        ]
+      ],
+      "prompted_source": "env_bddl",
+      "expect_env_equivalent": true
+    },
+    {
+      "label": "goal__open_the_middle_drawer_of_the_cabinet",
+      "block": "goal",
+      "env_task_id": 0,
+      "env_name": "KITCHEN_SCENE10_close_the_top_drawer_of_the_cabinet",
+      "env_instruction": "close the top drawer of the cabinet",
+      "scene": "KITCHEN_SCENE10",
+      "prompt": "open the middle drawer of the cabinet",
+      "prompted_goal_states": [
+        [
+          "open",
+          "wooden_cabinet_1_middle_region"
+        ]
+      ],
+      "prompted_source": "goal_task_0",
+      "expect_env_equivalent": false
+    },
+    {
+      "label": "nonsense__turn_on_the_stove",
+      "block": "nonsense",
+      "env_task_id": 20,
+      "env_name": "KITCHEN_SCENE3_turn_on_the_stove",
+      "env_instruction": "turn on the stove",
+      "scene": "KITCHEN_SCENE3",
+      "prompt": "perform the dax florp twice",
+      "prompted_goal_states": null,
+      "prompted_source": "none",
+      "expect_env_equivalent": false
+    },
+    {
+      "label": "nonsense__put_the_black_bowl_on_top_of_the_cabinet",
+      "block": "nonsense",
+      "env_task_id": 10,
+      "env_name": "KITCHEN_SCENE1_put_the_black_bowl_on_top_of_the_cabinet",
+      "env_instruction": "put the black bowl on top of the cabinet",
+      "scene": "KITCHEN_SCENE1",
+      "prompt": "perform the dax florp twice",
+      "prompted_goal_states": null,
+      "prompted_source": "none",
+      "expect_env_equivalent": false
+    }
+  ],
+  "notes": {
+    "paraphrase_matches": {
+      "put the black bowl on top of the cabinet": [
+        "KITCHEN_SCENE1_put_the_black_bowl_on_top_of_the_cabinet",
+        "KITCHEN_SCENE4_put_the_black_bowl_on_top_of_the_cabinet",
+        "KITCHEN_SCENE5_put_the_black_bowl_on_top_of_the_cabinet"
+      ],
+      "put the black bowl on the plate": [
+        "KITCHEN_SCENE1_put_the_black_bowl_on_the_plate",
+        "KITCHEN_SCENE5_put_the_black_bowl_on_the_plate"
+      ],
+      "put the wine bottle on the wine rack": [
+        "KITCHEN_SCENE4_put_the_wine_bottle_on_the_wine_rack"
+      ],
+      "open the top drawer of the cabinet and put the bowl in it": [
+        "KITCHEN_SCENE1_open_the_top_drawer_of_the_cabinet_and_put_the_bowl_in_it"
+      ]
+    },
+    "cross_scene": {
+      "scene": "KITCHEN_SCENE3",
+      "anchor": "turn on the stove",
+      "partner": "put the frying pan on the stove"
+    },
+    "goal_slice": [
+      {
+        "goal_id": 0,
+        "prompt": "open the middle drawer of the cabinet",
+        "status": "point",
+        "label": "goal__open_the_middle_drawer_of_the_cabinet",
+        "relationship": "novel_string",
+        "n_candidate_envs": 18
+      },
+      {
+        "goal_id": 1,
+        "prompt": "put the bowl on the stove",
+        "status": "skipped",
+        "reason": "predicate not evaluable in any libero_90 scene (absent objects/regions; absent probes dropped in v2)"
+      },
+      {
+        "goal_id": 2,
+        "prompt": "put the wine bottle on top of the cabinet",
+        "status": "skipped",
+        "reason": "predicate not evaluable in any libero_90 scene (absent objects/regions; absent probes dropped in v2)"
+      },
+      {
+        "goal_id": 3,
+        "prompt": "open the top drawer and put the bowl inside",
+        "status": "alias",
+        "alias_of": "paraphrase__open_the_top_drawer_of_the_cabinet_and_p",
+        "relationship": "paraphrase_of_trained",
+        "n_candidate_envs": 18
+      },
+      {
+        "goal_id": 4,
+        "prompt": "put the bowl on top of the cabinet",
+        "status": "alias",
+        "alias_of": "paraphrase__put_the_black_bowl_on_top_of_the_cabinet",
+        "relationship": "paraphrase_of_trained",
+        "n_candidate_envs": 18
+      },
+      {
+        "goal_id": 5,
+        "prompt": "push the plate to the front of the stove",
+        "status": "skipped",
+        "reason": "predicate not evaluable in any libero_90 scene (absent objects/regions; absent probes dropped in v2)"
+      },
+      {
+        "goal_id": 6,
+        "prompt": "put the cream cheese in the bowl",
+        "status": "skipped",
+        "reason": "predicate not evaluable in any libero_90 scene (absent objects/regions; absent probes dropped in v2)"
+      },
+      {
+        "goal_id": 7,
+        "prompt": "turn on the stove",
+        "status": "alias",
+        "alias_of": "trained__turn_on_the_stove",
+        "relationship": "verbatim_trained",
+        "n_candidate_envs": 12
+      },
+      {
+        "goal_id": 8,
+        "prompt": "put the bowl on the plate",
+        "status": "alias",
+        "alias_of": "paraphrase__put_the_black_bowl_on_the_plate",
+        "relationship": "paraphrase_of_trained",
+        "n_candidate_envs": 17
+      },
+      {
+        "goal_id": 9,
+        "prompt": "put the wine bottle on the rack",
+        "status": "alias",
+        "alias_of": "paraphrase__put_the_wine_bottle_on_the_wine_rack",
+        "relationship": "paraphrase_of_trained",
+        "n_candidate_envs": 6
+      }
+    ]
+  },
+  "suite": "libero_90",
+  "checkpoint_path": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model"
+}

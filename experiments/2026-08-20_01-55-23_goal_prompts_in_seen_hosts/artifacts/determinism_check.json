@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "label": "goal__goal_0",
+  "checkpoint_sha256": "0a410cc6887e71c0dd2d21dd8a5deb7aba66e291dba9acba8656320dc076a3cc",
+  "episode_manifest_sha256": "d7198b4fa19e361b77f34b5e45b3ff30f21619cf2f83848ab39b2764b3eeec01",
+  "n_episodes": 20,
+  "left_successes": 0,
+  "right_successes": 0,
+  "mismatched_episode_indices": []
+}

@@ -1,0 +1,123 @@
+{
+  "state": "completed",
+  "started_at": "2026-08-19T14:28:25.728298+00:00",
+  "updated_at": "2026-08-19T14:39:22.291321+00:00",
+  "total_points": 16,
+  "completed": 16,
+  "failed": 0,
+  "points": {
+    "trained__put_the_black_bowl_on_top_of_the_cabinet": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 17,
+      "env_task_successes": 17,
+      "trials": 20
+    },
+    "paraphrase__put_the_black_bowl_on_top_of_the_cabinet": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "trained__put_the_black_bowl_on_the_plate": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 12,
+      "env_task_successes": 12,
+      "trials": 20
+    },
+    "paraphrase__put_the_black_bowl_on_the_plate": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 2,
+      "env_task_successes": 2,
+      "trials": 20
+    },
+    "trained__put_the_wine_bottle_on_the_wine_rack": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 11,
+      "env_task_successes": 11,
+      "trials": 20
+    },
+    "paraphrase__put_the_wine_bottle_on_the_wine_rack": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 2,
+      "env_task_successes": 2,
+      "trials": 20
+    },
+    "trained__open_the_top_drawer_of_the_cabinet_and_p": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 14,
+      "env_task_successes": 14,
+      "trials": 20
+    },
+    "paraphrase__open_the_top_drawer_of_the_cabinet_and_p": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 1,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "trained__turn_on_the_stove": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 20,
+      "env_task_successes": 20,
+      "trials": 20
+    },
+    "trained__put_the_frying_pan_on_the_stove": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 16,
+      "env_task_successes": 16,
+      "trials": 20
+    },
+    "cross__turn_on_the_stove": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 17,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "cross__put_the_frying_pan_on_the_stove": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 20,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "trained__close_the_top_drawer_of_the_cabinet": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 20,
+      "env_task_successes": 20,
+      "trials": 20
+    },
+    "goal__open_the_middle_drawer_of_the_cabinet": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "env_task_successes": 15,
+      "trials": 20
+    },
+    "nonsense__turn_on_the_stove": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "nonsense__put_the_black_bowl_on_top_of_the_cabinet": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    }
+  },
+  "finished_at": "2026-08-19T14:39:22.291812+00:00"
+}

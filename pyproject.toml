@@ -4,9 +4,20 @@ version = "0.1.0"
 description = "Shared uv environment for the repository's self-contained VLA experiments"
 requires-python = ">=3.12,<3.13"
 dependencies = [
-  "smolvla-action-steps",
-  "smolvla-prompt-only",
-  "vla-cost-curve",
+  "base-smolvla-cost-curve",
+  "goal-prompts-in-seen-hosts",
+  "goal-scene-seen-prompts",
+  "seen-scene-goal-prompts-v2",
+  "seen-article-drop",
+  "seen-prompts-in-goal-scene",
+  "seen-semantic-paraphrases",
+  "analyst-curve-baseline",
+  "pretrain-smolvla-few-shot-tune-low-k",
+  "pretrain-smolvla-low-k-action-steps",
+  "pretrain-smolvla-naive-baseline-few-shot-tune",
+  "pretrain-smolvla-prompt-only-2",
+  "pretrain-smolvla-prompt-only-3",
+  "smolvla-pretrain-libero",
 ]
 
 [dependency-groups]
@@ -21,9 +32,20 @@ environments = [
 ]
 
 [tool.uv.sources]
-smolvla-action-steps = { workspace = true }
-smolvla-prompt-only = { workspace = true }
-vla-cost-curve = { workspace = true }
+base-smolvla-cost-curve = { workspace = true }
+goal-prompts-in-seen-hosts = { workspace = true }
+goal-scene-seen-prompts = { workspace = true }
+seen-scene-goal-prompts-v2 = { workspace = true }
+seen-article-drop = { workspace = true }
+seen-prompts-in-goal-scene = { workspace = true }
+seen-semantic-paraphrases = { workspace = true }
+analyst-curve-baseline = { workspace = true }
+pretrain-smolvla-few-shot-tune-low-k = { workspace = true }
+pretrain-smolvla-low-k-action-steps = { workspace = true }
+pretrain-smolvla-naive-baseline-few-shot-tune = { workspace = true }
+pretrain-smolvla-prompt-only-2 = { workspace = true }
+pretrain-smolvla-prompt-only-3 = { workspace = true }
+smolvla-pretrain-libero = { workspace = true }
 
 [tool.uv.workspace]
 members = [

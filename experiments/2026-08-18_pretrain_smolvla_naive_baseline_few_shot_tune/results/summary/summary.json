@@ -1,0 +1,334 @@
+{
+  "experiment": "pretrain_smolvla_naive_baseline_few_shot_tune",
+  "base_checkpoint": {
+    "path": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model",
+    "provenance": {
+      "pretraining_experiment": "2026-08-17_smolvla_pretrain_libero",
+      "base_model_repo": "lerobot/smolvla_base",
+      "base_model_revision": "c83c3163b8ca9b7e67c509fffd9121e66cb96205",
+      "seen_positive_control": "libero_90 task 0: 20/20",
+      "zero_shot_reference": "2026-08-18_pretrain_smolvla_prompt_only: true 1/200"
+    }
+  },
+  "protocol": {
+    "suite": "libero_goal",
+    "seed": 1000,
+    "eval_episodes": 20,
+    "budgets": [
+      5,
+      10,
+      25
+    ]
+  },
+  "zero_shot_reference": {
+    "experiment": "2026-08-18_pretrain_smolvla_prompt_only",
+    "mean_success": 0.005,
+    "per_task_successes": {
+      "4": 1
+    }
+  },
+  "tasks": {
+    "0": {
+      "instruction": "open the middle drawer of the cabinet",
+      "budgets": {
+        "5": {
+          "successes": 18,
+          "trials": 20,
+          "success_rate": 0.9,
+          "ci95_low": 0.6989663547715128,
+          "ci95_high": 0.9721335187862319,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_0/k_5/checkpoints/002000/pretrained_model"
+        },
+        "10": {
+          "successes": 19,
+          "trials": 20,
+          "success_rate": 0.95,
+          "ci95_low": 0.763868806553258,
+          "ci95_high": 0.9911185511992047,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_0/k_10/checkpoints/002000/pretrained_model"
+        },
+        "25": {
+          "successes": 20,
+          "trials": 20,
+          "success_rate": 1.0,
+          "ci95_low": 0.8388748419471806,
+          "ci95_high": 1.0,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_0/k_25/checkpoints/002000/pretrained_model"
+        }
+      }
+    },
+    "1": {
+      "instruction": "put the bowl on the stove",
+      "budgets": {
+        "5": {
+          "successes": 20,
+          "trials": 20,
+          "success_rate": 1.0,
+          "ci95_low": 0.8388748419471806,
+          "ci95_high": 1.0,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_1/k_5/checkpoints/002000/pretrained_model"
+        },
+        "10": {
+          "successes": 20,
+          "trials": 20,
+          "success_rate": 1.0,
+          "ci95_low": 0.8388748419471806,
+          "ci95_high": 1.0,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_1/k_10/checkpoints/002000/pretrained_model"
+        },
+        "25": {
+          "successes": 18,
+          "trials": 20,
+          "success_rate": 0.9,
+          "ci95_low": 0.6989663547715128,
+          "ci95_high": 0.9721335187862319,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_1/k_25/checkpoints/002000/pretrained_model"
+        }
+      }
+    },
+    "2": {
+      "instruction": "put the wine bottle on top of the cabinet",
+      "budgets": {
+        "5": {
+          "successes": 19,
+          "trials": 20,
+          "success_rate": 0.95,
+          "ci95_low": 0.763868806553258,
+          "ci95_high": 0.9911185511992047,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_2/k_5/checkpoints/002000/pretrained_model"
+        },
+        "10": {
+          "successes": 18,
+          "trials": 20,
+          "success_rate": 0.9,
+          "ci95_low": 0.6989663547715128,
+          "ci95_high": 0.9721335187862319,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_2/k_10/checkpoints/002000/pretrained_model"
+        },
+        "25": {
+          "successes": 16,
+          "trials": 20,
+          "success_rate": 0.8,
+          "ci95_low": 0.5839825677481064,
+          "ci95_high": 0.919342337420202,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_2/k_25/checkpoints/002000/pretrained_model"
+        }
+      }
+    },
+    "3": {
+      "instruction": "open the top drawer and put the bowl inside",
+      "budgets": {
+        "5": {
+          "successes": 11,
+          "trials": 20,
+          "success_rate": 0.55,
+          "ci95_low": 0.34208534245034233,
+          "ci95_high": 0.7418021417443759,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_3/k_5/checkpoints/002000/pretrained_model"
+        },
+        "10": {
+          "successes": 12,
+          "trials": 20,
+          "success_rate": 0.6,
+          "ci95_low": 0.3865815007622531,
+          "ci95_high": 0.781193467627183,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_3/k_10/checkpoints/002000/pretrained_model"
+        },
+        "25": {
+          "successes": 15,
+          "trials": 20,
+          "success_rate": 0.75,
+          "ci95_low": 0.531299122381256,
+          "ci95_high": 0.8881382985923343,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_3/k_25/checkpoints/002000/pretrained_model"
+        }
+      }
+    },
+    "4": {
+      "instruction": "put the bowl on top of the cabinet",
+      "budgets": {
+        "5": {
+          "successes": 18,
+          "trials": 20,
+          "success_rate": 0.9,
+          "ci95_low": 0.6989663547715128,
+          "ci95_high": 0.9721335187862319,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_4/k_5/checkpoints/002000/pretrained_model"
+        },
+        "10": {
+          "successes": 18,
+          "trials": 20,
+          "success_rate": 0.9,
+          "ci95_low": 0.6989663547715128,
+          "ci95_high": 0.9721335187862319,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_4/k_10/checkpoints/002000/pretrained_model"
+        },
+        "25": {
+          "successes": 14,
+          "trials": 20,
+          "success_rate": 0.7,
+          "ci95_low": 0.4810271816464765,
+          "ci95_high": 0.8545227551323956,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_4/k_25/checkpoints/002000/pretrained_model"
+        }
+      }
+    },
+    "5": {
+      "instruction": "push the plate to the front of the stove",
+      "budgets": {
+        "5": {
+          "successes": 12,
+          "trials": 20,
+          "success_rate": 0.6,
+          "ci95_low": 0.3865815007622531,
+          "ci95_high": 0.781193467627183,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_5/k_5/checkpoints/002000/pretrained_model"
+        },
+        "10": {
+          "successes": 17,
+          "trials": 20,
+          "success_rate": 0.85,
+          "ci95_low": 0.6395811352592431,
+          "ci95_high": 0.9476312541037835,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_5/k_10/checkpoints/002000/pretrained_model"
+        },
+        "25": {
+          "successes": 18,
+          "trials": 20,
+          "success_rate": 0.9,
+          "ci95_low": 0.6989663547715128,
+          "ci95_high": 0.9721335187862319,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_5/k_25/checkpoints/002000/pretrained_model"
+        }
+      }
+    },
+    "6": {
+      "instruction": "put the cream cheese in the bowl",
+      "budgets": {
+        "5": {
+          "successes": 10,
+          "trials": 20,
+          "success_rate": 0.5,
+          "ci95_low": 0.2992980081982123,
+          "ci95_high": 0.7007019918017877,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_6/k_5/checkpoints/002000/pretrained_model"
+        },
+        "10": {
+          "successes": 11,
+          "trials": 20,
+          "success_rate": 0.55,
+          "ci95_low": 0.34208534245034233,
+          "ci95_high": 0.7418021417443759,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_6/k_10/checkpoints/002000/pretrained_model"
+        },
+        "25": {
+          "successes": 16,
+          "trials": 20,
+          "success_rate": 0.8,
+          "ci95_low": 0.5839825677481064,
+          "ci95_high": 0.919342337420202,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_6/k_25/checkpoints/002000/pretrained_model"
+        }
+      }
+    },
+    "7": {
+      "instruction": "turn on the stove",
+      "budgets": {
+        "5": {
+          "successes": 20,
+          "trials": 20,
+          "success_rate": 1.0,
+          "ci95_low": 0.8388748419471806,
+          "ci95_high": 1.0,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_7/k_5/checkpoints/002000/pretrained_model"
+        },
+        "10": {
+          "successes": 20,
+          "trials": 20,
+          "success_rate": 1.0,
+          "ci95_low": 0.8388748419471806,
+          "ci95_high": 1.0,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_7/k_10/checkpoints/002000/pretrained_model"
+        },
+        "25": {
+          "successes": 20,
+          "trials": 20,
+          "success_rate": 1.0,
+          "ci95_low": 0.8388748419471806,
+          "ci95_high": 1.0,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_7/k_25/checkpoints/002000/pretrained_model"
+        }
+      }
+    },
+    "8": {
+      "instruction": "put the bowl on the plate",
+      "budgets": {
+        "5": {
+          "successes": 19,
+          "trials": 20,
+          "success_rate": 0.95,
+          "ci95_low": 0.763868806553258,
+          "ci95_high": 0.9911185511992047,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_8/k_5/checkpoints/002000/pretrained_model"
+        },
+        "10": {
+          "successes": 20,
+          "trials": 20,
+          "success_rate": 1.0,
+          "ci95_low": 0.8388748419471806,
+          "ci95_high": 1.0,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_8/k_10/checkpoints/002000/pretrained_model"
+        },
+        "25": {
+          "successes": 18,
+          "trials": 20,
+          "success_rate": 0.9,
+          "ci95_low": 0.6989663547715128,
+          "ci95_high": 0.9721335187862319,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_8/k_25/checkpoints/002000/pretrained_model"
+        }
+      }
+    },
+    "9": {
+      "instruction": "put the wine bottle on the rack",
+      "budgets": {
+        "5": {
+          "successes": 19,
+          "trials": 20,
+          "success_rate": 0.95,
+          "ci95_low": 0.763868806553258,
+          "ci95_high": 0.9911185511992047,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_9/k_5/checkpoints/002000/pretrained_model"
+        },
+        "10": {
+          "successes": 20,
+          "trials": 20,
+          "success_rate": 1.0,
+          "ci95_low": 0.8388748419471806,
+          "ci95_high": 1.0,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_9/k_10/checkpoints/002000/pretrained_model"
+        },
+        "25": {
+          "successes": 15,
+          "trials": 20,
+          "success_rate": 0.75,
+          "ci95_low": 0.531299122381256,
+          "ci95_high": 0.8881382985923343,
+          "model": "/var/tmp/vla_outputs/pretrain_few_shot_tune_20260818/task_9/k_25/checkpoints/002000/pretrained_model"
+        }
+      }
+    }
+  },
+  "cost_curve": {
+    "mean_all_10": {
+      "5": 0.8300000000000001,
+      "10": 0.875,
+      "25": 0.85
+    },
+    "mean_tasks_0_2": {
+      "5": 0.9500000000000001,
+      "10": 0.9500000000000001,
+      "25": 0.9
+    }
+  }
+}

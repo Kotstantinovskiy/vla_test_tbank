@@ -1,0 +1,57 @@
+experiment: goal_scene_seen_prompts
+date: 2026-08-19
+role: diagnostic probe 3 — the mirror of the seen-scene probes; the SCENE is
+  novel (libero_goal), the prompt strings are the ones the selector knows
+
+checkpoint:
+  path: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+  frozen: true
+  weights_manifest: artifacts/checkpoint_manifest.json
+
+design:
+  suite: libero_goal (environment used for EVALUATION ONLY, per assignment)
+  env_resolution: benchmark tasks matched by instruction TEXT, never by row
+  seed: 1000
+  episodes_per_point: 20
+  batch_size: 4
+  videos: all 20 episodes of every point
+  success: PRIMARY = the prompted task's parsed BDDL goal_state evaluated per
+    step (v2 machinery; episodes also terminate on prompted success); env
+    task's own predicate kept as the secondary metric; consistency asserted
+    where the two coincide.
+  behavior_metrics: per episode — min end-effector distance to the env task's
+    manipulated object (fixed PER ENV, comparable across prompt conditions),
+    plus final/max displacement of that object.  Needed because at the
+    goal-scene floor binary success may not discriminate conditions.
+  blocks:
+    true: each probe env under its own goal instruction (k=0 baseline; the
+      anchor "turn on the stove" is itself a verbatim trained string ->
+      pure scene effect)
+    seen_twin: the same env under the verbatim libero_90-trained string of
+      the SAME skill (4 twin pairs) — the decisive cells: does the exact
+      trained string unlock the skill in the novel scene?
+    seen_cross: the two bowl twins swapped between their goal envs, scored by
+      the PROMPTED skill's predicate (instruction following in a novel scene)
+    nonsense: "perform the dax florp twice" (env metric only), 2 envs
+  points: 13 (true 5, seen_twin 4, seen_cross 2, nonsense 2) x 20 episodes
+
+plan: artifacts/eval_plan.json (frozen by prepare)
+predictions_and_decision_rules: reports/PRIOR_EXPECTATION.md
+prior_evidence:
+  - pretrain_smolvla_prompt_only(_2): k=0 true prompts on all 10 goal tasks =
+    1/200 (single success task 4 episode 4, exactly replicated) — the true
+    block should REPLICATE those per-episode outcomes if machinery matches
+  - seen_scene_goal_prompts_v2: in SEEN scenes trained strings execute at
+    native rate (cross prompted 17-20/20); paraphrases collapse; novel
+    related strings trigger the scene's trained skill (graded fallback)
+
+limitations:
+  - single eval seed bank; frozen checkpoint (no training seeds involved)
+  - behavior target is the env task's object; prompts about other objects
+    (seen_cross) are additionally interpretable through their own predicate
+  - eef distance uses the controller's ee_pos (fingertip offset not modeled)
+
+tracking:
+  backend: trackio
+  project: goal-scene-seen-prompts
+  local_dir: artifacts/trackio

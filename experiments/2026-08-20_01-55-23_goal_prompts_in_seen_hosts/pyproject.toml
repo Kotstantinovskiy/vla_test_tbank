@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "goal-prompts-in-seen-hosts"
+version = "0.1.0"
+description = "First three LIBERO goal prompts in semantically compatible seen hosts"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "lerobot[libero,smolvla]==0.6.1",
+  "imageio[ffmpeg]>=2.37,<3",
+  "matplotlib>=3.10",
+  "PyYAML>=6",
+  "torch==2.7.1+cu126",
+  "torchcodec==0.5+cu126",
+  "torchvision==0.22.1+cu126",
+  "trackio==0.33.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+goal-seen-prepare = "goal_prompts_in_seen_hosts.prepare:main"
+goal-seen-evaluate = "goal_prompts_in_seen_hosts.evaluate:main"
+goal-seen-determinism = "goal_prompts_in_seen_hosts.determinism:main"
+goal-seen-orchestrate = "goal_prompts_in_seen_hosts.orchestrate:main"
+goal-seen-aggregate = "goal_prompts_in_seen_hosts.aggregate:main"
+goal-seen-trackio = "goal_prompts_in_seen_hosts.trackio_report:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+torchcodec = { index = "pytorch-cu126" }
+torchvision = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true

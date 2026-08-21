@@ -1,0 +1,102 @@
+{
+  "state": "completed",
+  "started_at": "2026-08-19T15:51:53.767262+00:00",
+  "updated_at": "2026-08-19T16:00:48.688232+00:00",
+  "total_points": 13,
+  "completed": 13,
+  "failed": 0,
+  "points": {
+    "true__turn_on_the_stove": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "true__open_the_top_drawer_and_put_the_bowl_ins": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_twin__open_the_top_drawer_and_put_the_bowl_ins": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "true__put_the_bowl_on_top_of_the_cabinet": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 5,
+      "env_task_successes": 5,
+      "trials": 20
+    },
+    "seen_twin__put_the_bowl_on_top_of_the_cabinet": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "true__put_the_bowl_on_the_plate": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_twin__put_the_bowl_on_the_plate": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "true__put_the_wine_bottle_on_the_rack": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_twin__put_the_wine_bottle_on_the_rack": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_cross__put_the_bowl_on_the_plate": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "seen_cross__put_the_bowl_on_top_of_the_cabinet": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "nonsense__turn_on_the_stove": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    },
+    "nonsense__open_the_top_drawer_and_put_the_bowl_ins": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "env_task_successes": 0,
+      "trials": 20
+    }
+  },
+  "finished_at": "2026-08-19T16:00:48.688665+00:00"
+}

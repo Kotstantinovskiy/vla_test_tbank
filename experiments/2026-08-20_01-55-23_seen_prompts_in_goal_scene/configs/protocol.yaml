@@ -1,0 +1,34 @@
+experiment: seen_prompts_in_goal_scene
+date: 2026-08-20
+status: code prepared; not run
+checkpoint:
+  path: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+  frozen: true
+design:
+  suite: libero_goal
+  fixed_host: goal task 0, open the middle drawer of the cabinet
+  scene_and_init: identical across all ten native libero_goal BDDL tasks
+  candidate_seen_prompts: 12
+  selected_nontrivial_seen_prompts: 9
+  controls: [true_goal, nonsense]
+  points: 11
+  episodes_per_point: 20
+  master_seed: 1000
+  environment_seed: 1000 + episode_index
+  policy_noise_seed: 1000 + episode_index
+  eval_batch_size: 1
+  primary_metric: prompted BDDL predicate success
+  secondary_metric: native fixed-host success
+  behavior_metrics: none; inspect all saved rollout videos manually
+  videos: all 220 episodes
+  exclusions:
+    close_top_drawer: true at reset
+    turn_off_stove: true at reset
+    front_black_bowl: referent is not preserved in the single-bowl goal scene
+gates:
+  - every selected prompt string and predicate is verified against its named libero_90 source task
+  - every selected seen predicate argument must exist in the goal host BDDL
+  - determinism_smoke must pass before fan-out
+tracking:
+  project: seen-prompts-in-goal-scene
+  media: episode 0 per point in Trackio

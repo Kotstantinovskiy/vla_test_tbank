@@ -1,0 +1,12 @@
+{
+  "created_at": "2026-08-19",
+  "source_experiment": "experiments/2026-08-18_analyst_curve_baseline",
+  "source_modified": false,
+  "files": {
+    "combined_curve.csv": "ccccbdcb0aba2d8d48f7ebbb29f7d87d65d656dcc4b18ece68623642f7ffd110",
+    "derived_metrics.json": "610d9a5105d25a98f12c70f8edf3ef6627cae8bfe7bc6a7a957fb704554ecb53",
+    "source_combined_curve.png": "9f4c55808c6ddb88f19a416f5ebb3d135152547e304396df5c07fe74abe786a6",
+    "source_report.md": "3eb84bc7b3ca42338aea6b3f1dc40bb3df54e6f6e347e4d12d01cd43a255477f",
+    "summary.json": "3e83c741ee9e40b9f2c3b9e79d2a7e2997640094ba3de3cc7509de8fed55b803"
+  }
+}

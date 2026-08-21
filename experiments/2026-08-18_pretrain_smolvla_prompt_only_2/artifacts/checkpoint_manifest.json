@@ -1,0 +1,24 @@
+{
+  "checkpoint_path": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model",
+  "files": [
+    "config.json",
+    "model.safetensors",
+    "policy_postprocessor.json",
+    "policy_postprocessor_step_0_unnormalizer_processor.safetensors",
+    "policy_preprocessor.json",
+    "policy_preprocessor_step_5_normalizer_processor.safetensors",
+    "train_config.json"
+  ],
+  "model_safetensors_sha256": "0a410cc6887e71c0dd2d21dd8a5deb7aba66e291dba9acba8656320dc076a3cc",
+  "model_safetensors_bytes": 906712520,
+  "provenance": {
+    "pretraining_experiment": "2026-08-17_smolvla_pretrain_libero",
+    "base_model_repo": "lerobot/smolvla_base",
+    "base_model_revision": "c83c3163b8ca9b7e67c509fffd9121e66cb96205",
+    "pretraining_dataset": "official/libero_90_rot180_128 (in-repo conversion)",
+    "official_source_repo": "yifengzhu-hf/LIBERO-datasets",
+    "official_source_revision": "f13aa24a3da8c43c7225569f28c562979fa0e35a",
+    "pretraining_steps": 30000,
+    "seen_positive_control": "libero_90 task 0: 20/20"
+  }
+}

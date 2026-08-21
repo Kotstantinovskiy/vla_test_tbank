@@ -1,0 +1,89 @@
+{
+  "project": "goal-scene-seen-prompts",
+  "run": "2026-08-19-goal-scene-seen-prompts",
+  "plot": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/summary/goal_scene_probe.png",
+  "tables": [
+    "tables/points",
+    "tables/paired_mcnemar"
+  ],
+  "media": [
+    {
+      "label": "true__turn_on_the_stove",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/raw/videos/true__turn_on_the_stove/eval_episode_0.mp4"
+    },
+    {
+      "label": "true__open_the_top_drawer_and_put_the_bowl_ins",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/raw/videos/true__open_the_top_drawer_and_put_the_bowl_ins/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_twin__open_the_top_drawer_and_put_the_bowl_ins",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/raw/videos/seen_twin__open_the_top_drawer_and_put_the_bowl_ins/eval_episode_0.mp4"
+    },
+    {
+      "label": "true__put_the_bowl_on_top_of_the_cabinet",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/raw/videos/true__put_the_bowl_on_top_of_the_cabinet/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_twin__put_the_bowl_on_top_of_the_cabinet",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/raw/videos/seen_twin__put_the_bowl_on_top_of_the_cabinet/eval_episode_0.mp4"
+    },
+    {
+      "label": "true__put_the_bowl_on_the_plate",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/raw/videos/true__put_the_bowl_on_the_plate/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_twin__put_the_bowl_on_the_plate",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/raw/videos/seen_twin__put_the_bowl_on_the_plate/eval_episode_0.mp4"
+    },
+    {
+      "label": "true__put_the_wine_bottle_on_the_rack",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/raw/videos/true__put_the_wine_bottle_on_the_rack/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_twin__put_the_wine_bottle_on_the_rack",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/raw/videos/seen_twin__put_the_wine_bottle_on_the_rack/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_cross__put_the_bowl_on_the_plate",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/raw/videos/seen_cross__put_the_bowl_on_the_plate/eval_episode_0.mp4"
+    },
+    {
+      "label": "seen_cross__put_the_bowl_on_top_of_the_cabinet",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/raw/videos/seen_cross__put_the_bowl_on_top_of_the_cabinet/eval_episode_0.mp4"
+    },
+    {
+      "label": "nonsense__turn_on_the_stove",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/raw/videos/nonsense__turn_on_the_stove/eval_episode_0.mp4"
+    },
+    {
+      "label": "nonsense__open_the_top_drawer_and_put_the_bowl_ins",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-19_goal_scene_seen_prompts/results/raw/videos/nonsense__open_the_top_drawer_and_put_the_bowl_ins/eval_episode_0.mp4"
+    }
+  ]
+}

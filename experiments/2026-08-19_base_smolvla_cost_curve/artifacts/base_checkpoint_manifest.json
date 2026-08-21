@@ -1,0 +1,12 @@
+{
+  "checkpoint_path": "/var/tmp/vla_outputs/smolvla_base_libero_official_schema_c83c3163",
+  "model_safetensors_sha256": "7cd549ac2351fb069c0ddb3c34ad2d09cfc92b56a15dccdfc2e41467aaca01eb",
+  "provenance": {
+    "ablation": "NO libero_90 pretrain \u2014 plain smolvla_base",
+    "base_model_repo": "lerobot/smolvla_base",
+    "base_model_revision": "c83c3163b8ca9b7e67c509fffd9121e66cb96205",
+    "schema_adapter": "2026-08-17_smolvla_pretrain_libero SCHEMA_ADAPTER.json",
+    "embodiment_gap": "base trained on real SO-100; LIBERO is simulated Franka",
+    "no_zero_shot_point": "k=0 undefined: state/action projections are re-initialized for the 8-dim LIBERO schema only at fine-tune time, so an untrained evaluation would sample through random projections"
+  }
+}

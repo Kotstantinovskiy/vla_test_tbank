@@ -1,0 +1,152 @@
+{
+  "experiment": "seen_article_drop",
+  "state": "completed",
+  "started_at": "2026-08-20T15:30:46.418712+00:00",
+  "updated_at": "2026-08-20T16:14:20.144252+00:00",
+  "total_points": 20,
+  "completed": 20,
+  "failed": 0,
+  "points": {
+    "exact__task_0": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 20,
+      "env_task_successes": 20,
+      "trials": 20
+    },
+    "article_drop__task_0": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 20,
+      "env_task_successes": 20,
+      "trials": 20
+    },
+    "exact__task_1": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 17,
+      "env_task_successes": 17,
+      "trials": 20
+    },
+    "article_drop__task_1": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 15,
+      "env_task_successes": 15,
+      "trials": 20
+    },
+    "exact__task_2": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 20,
+      "env_task_successes": 20,
+      "trials": 20
+    },
+    "article_drop__task_2": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 20,
+      "env_task_successes": 20,
+      "trials": 20
+    },
+    "exact__task_3": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 19,
+      "env_task_successes": 19,
+      "trials": 20
+    },
+    "article_drop__task_3": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 8,
+      "env_task_successes": 8,
+      "trials": 20
+    },
+    "exact__task_4": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 15,
+      "env_task_successes": 15,
+      "trials": 20
+    },
+    "article_drop__task_4": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 13,
+      "env_task_successes": 13,
+      "trials": 20
+    },
+    "exact__task_5": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 8,
+      "env_task_successes": 8,
+      "trials": 20
+    },
+    "article_drop__task_5": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 8,
+      "env_task_successes": 8,
+      "trials": 20
+    },
+    "exact__task_6": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 13,
+      "env_task_successes": 13,
+      "trials": 20
+    },
+    "article_drop__task_6": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 11,
+      "env_task_successes": 11,
+      "trials": 20
+    },
+    "exact__task_7": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 19,
+      "env_task_successes": 19,
+      "trials": 20
+    },
+    "article_drop__task_7": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 8,
+      "env_task_successes": 8,
+      "trials": 20
+    },
+    "exact__task_8": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 2,
+      "env_task_successes": 2,
+      "trials": 20
+    },
+    "article_drop__task_8": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 5,
+      "env_task_successes": 5,
+      "trials": 20
+    },
+    "exact__task_9": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 12,
+      "env_task_successes": 12,
+      "trials": 20
+    },
+    "article_drop__task_9": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 7,
+      "env_task_successes": 7,
+      "trials": 20
+    }
+  },
+  "finished_at": "2026-08-20T16:14:20.144657+00:00"
+}

@@ -1,0 +1,191 @@
+{
+  "state": "completed",
+  "started_at": "2026-08-19T16:33:41.096411+00:00",
+  "updated_at": "2026-08-19T17:55:49.141107+00:00",
+  "total_points": 30,
+  "completed": 30,
+  "failed": 0,
+  "points": {
+    "true__task_0": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "trials": 20
+    },
+    "true__task_1": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "trials": 20
+    },
+    "true__task_2": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "trials": 20
+    },
+    "true__task_3": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "trials": 20
+    },
+    "true__task_4": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 1,
+      "trials": 20
+    },
+    "true__task_5": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "trials": 20
+    },
+    "true__task_6": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "trials": 20
+    },
+    "true__task_7": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "trials": 20
+    },
+    "true__task_8": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "trials": 20
+    },
+    "true__task_9": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "trials": 20
+    },
+    "wrong__task_0": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "trials": 20
+    },
+    "wrong__task_1": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "trials": 20
+    },
+    "wrong__task_2": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "trials": 20
+    },
+    "wrong__task_3": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "trials": 20
+    },
+    "wrong__task_4": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "trials": 20
+    },
+    "wrong__task_5": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "trials": 20
+    },
+    "wrong__task_6": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "trials": 20
+    },
+    "wrong__task_7": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "trials": 20
+    },
+    "wrong__task_8": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "trials": 20
+    },
+    "wrong__task_9": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "trials": 20
+    },
+    "nonsense__task_0": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "trials": 20
+    },
+    "nonsense__task_1": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "trials": 20
+    },
+    "nonsense__task_2": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "trials": 20
+    },
+    "nonsense__task_3": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "trials": 20
+    },
+    "nonsense__task_4": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "trials": 20
+    },
+    "nonsense__task_5": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "trials": 20
+    },
+    "nonsense__task_6": {
+      "state": "completed",
+      "gpu": 0,
+      "successes": 0,
+      "trials": 20
+    },
+    "nonsense__task_7": {
+      "state": "completed",
+      "gpu": 2,
+      "successes": 0,
+      "trials": 20
+    },
+    "nonsense__task_8": {
+      "state": "completed",
+      "gpu": 1,
+      "successes": 0,
+      "trials": 20
+    },
+    "nonsense__task_9": {
+      "state": "completed",
+      "gpu": 3,
+      "successes": 0,
+      "trials": 20
+    }
+  },
+  "finished_at": "2026-08-19T17:55:49.141601+00:00"
+}

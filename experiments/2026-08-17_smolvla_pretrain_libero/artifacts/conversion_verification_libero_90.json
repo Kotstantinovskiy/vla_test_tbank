@@ -1,0 +1,6713 @@
+{
+  "suite": "libero_90",
+  "sampled_episodes": [
+    0,
+    25,
+    50,
+    75,
+    100,
+    125,
+    150,
+    175,
+    200,
+    225,
+    250,
+    275,
+    300,
+    325,
+    350,
+    375,
+    400,
+    425,
+    450,
+    475,
+    500,
+    525,
+    550,
+    575,
+    600,
+    625,
+    650,
+    675,
+    700,
+    725,
+    750,
+    775,
+    800,
+    825,
+    850,
+    875,
+    900,
+    925,
+    950,
+    975,
+    1000,
+    1025,
+    1050,
+    1075,
+    1100,
+    1125,
+    1150,
+    1175,
+    1200,
+    1225,
+    1250,
+    1275,
+    1300,
+    1325,
+    1350,
+    1375,
+    1400,
+    1425,
+    1450,
+    1475,
+    1500,
+    1525,
+    1550,
+    1575,
+    1600,
+    1625,
+    1650,
+    1675,
+    1700,
+    1725,
+    1750,
+    1775,
+    1800,
+    1825,
+    1850,
+    1875,
+    1900,
+    1925,
+    1950,
+    1975,
+    2000,
+    2025,
+    2050,
+    2075,
+    2100,
+    2125,
+    2150,
+    2175,
+    2200,
+    2225,
+    2250,
+    2275,
+    2300,
+    2325,
+    2350,
+    2375,
+    2400,
+    2425,
+    2450,
+    2475,
+    2500,
+    2525,
+    2550,
+    2575,
+    2600,
+    2625,
+    2650,
+    2675,
+    2700,
+    2725,
+    2750,
+    2775,
+    2800,
+    2825,
+    2850,
+    2875,
+    2900,
+    2925,
+    2950,
+    2975,
+    3000,
+    3025,
+    3050,
+    3075,
+    3100,
+    3125,
+    3150,
+    3175,
+    3200,
+    3225,
+    3250,
+    3275,
+    3300,
+    3325,
+    3350,
+    3375,
+    3400,
+    3425,
+    3450,
+    3475,
+    3500,
+    3525,
+    3550,
+    3575,
+    3600,
+    3625,
+    3650,
+    3675,
+    3700,
+    3725,
+    3750,
+    3775,
+    3800,
+    3825,
+    3850,
+    3875,
+    3900,
+    3925,
+    3950,
+    3975,
+    4000,
+    4025,
+    4050,
+    4075,
+    4100,
+    4125,
+    4150,
+    4175,
+    4200,
+    4225,
+    4250,
+    4275,
+    4300,
+    4325,
+    4350,
+    4375,
+    4400,
+    4425,
+    4450,
+    4475,
+    4499
+  ],
+  "frame_pairs": 1086,
+  "mean_frame_mae": 1.9173266069518777,
+  "max_frame_mae": 3.6074625651041665,
+  "checks": [
+    "metadata: fps=20, episodes=4500, frames=669043",
+    "episode order: official (files sorted, demo_0..demo_N contiguous) over 90 files",
+    "bit-exact actions+state and frames within MAE 4.0 on 181 episodes / 1086 frame pairs",
+    "task strings match official file names"
+  ],
+  "frames": [
+    {
+      "episode_index": 0,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.705322265625
+    },
+    {
+      "episode_index": 0,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.855224609375
+    },
+    {
+      "episode_index": 0,
+      "camera": "observation.images.top",
+      "frame_index": 98,
+      "rot180back_vs_official_mae": 1.7878621419270833
+    },
+    {
+      "episode_index": 0,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 98,
+      "rot180back_vs_official_mae": 1.8777669270833333
+    },
+    {
+      "episode_index": 0,
+      "camera": "observation.images.top",
+      "frame_index": 196,
+      "rot180back_vs_official_mae": 1.7292683919270833
+    },
+    {
+      "episode_index": 0,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 196,
+      "rot180back_vs_official_mae": 1.83782958984375
+    },
+    {
+      "episode_index": 25,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7069905598958333
+    },
+    {
+      "episode_index": 25,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8374226888020833
+    },
+    {
+      "episode_index": 25,
+      "camera": "observation.images.top",
+      "frame_index": 114,
+      "rot180back_vs_official_mae": 1.75897216796875
+    },
+    {
+      "episode_index": 25,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 114,
+      "rot180back_vs_official_mae": 1.6836751302083333
+    },
+    {
+      "episode_index": 25,
+      "camera": "observation.images.top",
+      "frame_index": 227,
+      "rot180back_vs_official_mae": 1.8824462890625
+    },
+    {
+      "episode_index": 25,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 227,
+      "rot180back_vs_official_mae": 2.4286702473958335
+    },
+    {
+      "episode_index": 50,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7200113932291667
+    },
+    {
+      "episode_index": 50,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7962239583333333
+    },
+    {
+      "episode_index": 50,
+      "camera": "observation.images.top",
+      "frame_index": 35,
+      "rot180back_vs_official_mae": 2.14471435546875
+    },
+    {
+      "episode_index": 50,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 35,
+      "rot180back_vs_official_mae": 2.3780517578125
+    },
+    {
+      "episode_index": 50,
+      "camera": "observation.images.top",
+      "frame_index": 70,
+      "rot180back_vs_official_mae": 1.8019612630208333
+    },
+    {
+      "episode_index": 50,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 70,
+      "rot180back_vs_official_mae": 1.61212158203125
+    },
+    {
+      "episode_index": 75,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7643229166666667
+    },
+    {
+      "episode_index": 75,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9143880208333333
+    },
+    {
+      "episode_index": 75,
+      "camera": "observation.images.top",
+      "frame_index": 36,
+      "rot180back_vs_official_mae": 1.8221435546875
+    },
+    {
+      "episode_index": 75,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 36,
+      "rot180back_vs_official_mae": 2.1303507486979165
+    },
+    {
+      "episode_index": 75,
+      "camera": "observation.images.top",
+      "frame_index": 72,
+      "rot180back_vs_official_mae": 1.8335164388020833
+    },
+    {
+      "episode_index": 75,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 72,
+      "rot180back_vs_official_mae": 1.6588541666666667
+    },
+    {
+      "episode_index": 100,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7083740234375
+    },
+    {
+      "episode_index": 100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8313802083333333
+    },
+    {
+      "episode_index": 100,
+      "camera": "observation.images.top",
+      "frame_index": 58,
+      "rot180back_vs_official_mae": 1.76953125
+    },
+    {
+      "episode_index": 100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 58,
+      "rot180back_vs_official_mae": 1.9634602864583333
+    },
+    {
+      "episode_index": 100,
+      "camera": "observation.images.top",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 1.98699951171875
+    },
+    {
+      "episode_index": 100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 2.3450724283854165
+    },
+    {
+      "episode_index": 125,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.72918701171875
+    },
+    {
+      "episode_index": 125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8631795247395833
+    },
+    {
+      "episode_index": 125,
+      "camera": "observation.images.top",
+      "frame_index": 58,
+      "rot180back_vs_official_mae": 1.7786458333333333
+    },
+    {
+      "episode_index": 125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 58,
+      "rot180back_vs_official_mae": 2.01861572265625
+    },
+    {
+      "episode_index": 125,
+      "camera": "observation.images.top",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 1.9486897786458333
+    },
+    {
+      "episode_index": 125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 1.9009806315104167
+    },
+    {
+      "episode_index": 150,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7044881184895833
+    },
+    {
+      "episode_index": 150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8561604817708333
+    },
+    {
+      "episode_index": 150,
+      "camera": "observation.images.top",
+      "frame_index": 91,
+      "rot180back_vs_official_mae": 1.9679972330729167
+    },
+    {
+      "episode_index": 150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 91,
+      "rot180back_vs_official_mae": 2.5793863932291665
+    },
+    {
+      "episode_index": 150,
+      "camera": "observation.images.top",
+      "frame_index": 182,
+      "rot180back_vs_official_mae": 1.75030517578125
+    },
+    {
+      "episode_index": 150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 182,
+      "rot180back_vs_official_mae": 1.4396158854166667
+    },
+    {
+      "episode_index": 175,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6772054036458333
+    },
+    {
+      "episode_index": 175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8087158203125
+    },
+    {
+      "episode_index": 175,
+      "camera": "observation.images.top",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 1.7223103841145833
+    },
+    {
+      "episode_index": 175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 2.0987345377604165
+    },
+    {
+      "episode_index": 175,
+      "camera": "observation.images.top",
+      "frame_index": 184,
+      "rot180back_vs_official_mae": 1.7598470052083333
+    },
+    {
+      "episode_index": 175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 184,
+      "rot180back_vs_official_mae": 1.5797526041666667
+    },
+    {
+      "episode_index": 200,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6893310546875
+    },
+    {
+      "episode_index": 200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8894856770833333
+    },
+    {
+      "episode_index": 200,
+      "camera": "observation.images.top",
+      "frame_index": 86,
+      "rot180back_vs_official_mae": 1.76934814453125
+    },
+    {
+      "episode_index": 200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 86,
+      "rot180back_vs_official_mae": 1.8857218424479167
+    },
+    {
+      "episode_index": 200,
+      "camera": "observation.images.top",
+      "frame_index": 172,
+      "rot180back_vs_official_mae": 1.71160888671875
+    },
+    {
+      "episode_index": 200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 172,
+      "rot180back_vs_official_mae": 1.51898193359375
+    },
+    {
+      "episode_index": 225,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6585896809895833
+    },
+    {
+      "episode_index": 225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8008829752604167
+    },
+    {
+      "episode_index": 225,
+      "camera": "observation.images.top",
+      "frame_index": 111,
+      "rot180back_vs_official_mae": 2.0829671223958335
+    },
+    {
+      "episode_index": 225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 111,
+      "rot180back_vs_official_mae": 2.76202392578125
+    },
+    {
+      "episode_index": 225,
+      "camera": "observation.images.top",
+      "frame_index": 221,
+      "rot180back_vs_official_mae": 2.0244344075520835
+    },
+    {
+      "episode_index": 225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 221,
+      "rot180back_vs_official_mae": 1.75799560546875
+    },
+    {
+      "episode_index": 250,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.729736328125
+    },
+    {
+      "episode_index": 250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8862508138020833
+    },
+    {
+      "episode_index": 250,
+      "camera": "observation.images.top",
+      "frame_index": 84,
+      "rot180back_vs_official_mae": 1.7286580403645833
+    },
+    {
+      "episode_index": 250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 84,
+      "rot180back_vs_official_mae": 1.9183553059895833
+    },
+    {
+      "episode_index": 250,
+      "camera": "observation.images.top",
+      "frame_index": 167,
+      "rot180back_vs_official_mae": 2.0604451497395835
+    },
+    {
+      "episode_index": 250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 167,
+      "rot180back_vs_official_mae": 1.71917724609375
+    },
+    {
+      "episode_index": 275,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7072347005208333
+    },
+    {
+      "episode_index": 275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8136800130208333
+    },
+    {
+      "episode_index": 275,
+      "camera": "observation.images.top",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 1.7248128255208333
+    },
+    {
+      "episode_index": 275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 2.20318603515625
+    },
+    {
+      "episode_index": 275,
+      "camera": "observation.images.top",
+      "frame_index": 184,
+      "rot180back_vs_official_mae": 1.7551066080729167
+    },
+    {
+      "episode_index": 275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 184,
+      "rot180back_vs_official_mae": 1.4305419921875
+    },
+    {
+      "episode_index": 300,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6601359049479167
+    },
+    {
+      "episode_index": 300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6689453125
+    },
+    {
+      "episode_index": 300,
+      "camera": "observation.images.top",
+      "frame_index": 62,
+      "rot180back_vs_official_mae": 1.7320556640625
+    },
+    {
+      "episode_index": 300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 62,
+      "rot180back_vs_official_mae": 1.5120849609375
+    },
+    {
+      "episode_index": 300,
+      "camera": "observation.images.top",
+      "frame_index": 123,
+      "rot180back_vs_official_mae": 2.19671630859375
+    },
+    {
+      "episode_index": 300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 123,
+      "rot180back_vs_official_mae": 2.734619140625
+    },
+    {
+      "episode_index": 325,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6534627278645833
+    },
+    {
+      "episode_index": 325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.65509033203125
+    },
+    {
+      "episode_index": 325,
+      "camera": "observation.images.top",
+      "frame_index": 77,
+      "rot180back_vs_official_mae": 1.9867960611979167
+    },
+    {
+      "episode_index": 325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 77,
+      "rot180back_vs_official_mae": 1.8142293294270833
+    },
+    {
+      "episode_index": 325,
+      "camera": "observation.images.top",
+      "frame_index": 153,
+      "rot180back_vs_official_mae": 2.3671671549479165
+    },
+    {
+      "episode_index": 325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 153,
+      "rot180back_vs_official_mae": 2.8946329752604165
+    },
+    {
+      "episode_index": 350,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6476847330729167
+    },
+    {
+      "episode_index": 350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6307373046875
+    },
+    {
+      "episode_index": 350,
+      "camera": "observation.images.top",
+      "frame_index": 94,
+      "rot180back_vs_official_mae": 1.74700927734375
+    },
+    {
+      "episode_index": 350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 94,
+      "rot180back_vs_official_mae": 1.7422688802083333
+    },
+    {
+      "episode_index": 350,
+      "camera": "observation.images.top",
+      "frame_index": 188,
+      "rot180back_vs_official_mae": 1.7049357096354167
+    },
+    {
+      "episode_index": 350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 188,
+      "rot180back_vs_official_mae": 1.846435546875
+    },
+    {
+      "episode_index": 375,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6127115885416667
+    },
+    {
+      "episode_index": 375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.65576171875
+    },
+    {
+      "episode_index": 375,
+      "camera": "observation.images.top",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 1.7389729817708333
+    },
+    {
+      "episode_index": 375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 1.7362060546875
+    },
+    {
+      "episode_index": 375,
+      "camera": "observation.images.top",
+      "frame_index": 184,
+      "rot180back_vs_official_mae": 1.6892903645833333
+    },
+    {
+      "episode_index": 375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 184,
+      "rot180back_vs_official_mae": 1.8434244791666667
+    },
+    {
+      "episode_index": 400,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.62371826171875
+    },
+    {
+      "episode_index": 400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7209269205729167
+    },
+    {
+      "episode_index": 400,
+      "camera": "observation.images.top",
+      "frame_index": 88,
+      "rot180back_vs_official_mae": 1.6549886067708333
+    },
+    {
+      "episode_index": 400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 88,
+      "rot180back_vs_official_mae": 1.62652587890625
+    },
+    {
+      "episode_index": 400,
+      "camera": "observation.images.top",
+      "frame_index": 176,
+      "rot180back_vs_official_mae": 1.7264811197916667
+    },
+    {
+      "episode_index": 400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 176,
+      "rot180back_vs_official_mae": 1.6901448567708333
+    },
+    {
+      "episode_index": 425,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6063639322916667
+    },
+    {
+      "episode_index": 425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7138468424479167
+    },
+    {
+      "episode_index": 425,
+      "camera": "observation.images.top",
+      "frame_index": 39,
+      "rot180back_vs_official_mae": 2.0056966145833335
+    },
+    {
+      "episode_index": 425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 39,
+      "rot180back_vs_official_mae": 1.7882893880208333
+    },
+    {
+      "episode_index": 425,
+      "camera": "observation.images.top",
+      "frame_index": 78,
+      "rot180back_vs_official_mae": 1.7217000325520833
+    },
+    {
+      "episode_index": 425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 78,
+      "rot180back_vs_official_mae": 1.59893798828125
+    },
+    {
+      "episode_index": 450,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6328125
+    },
+    {
+      "episode_index": 450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.5902303059895833
+    },
+    {
+      "episode_index": 450,
+      "camera": "observation.images.top",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 1.6703084309895833
+    },
+    {
+      "episode_index": 450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 1.8362223307291667
+    },
+    {
+      "episode_index": 450,
+      "camera": "observation.images.top",
+      "frame_index": 136,
+      "rot180back_vs_official_mae": 1.6842244466145833
+    },
+    {
+      "episode_index": 450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 136,
+      "rot180back_vs_official_mae": 2.0505574544270835
+    },
+    {
+      "episode_index": 475,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6497802734375
+    },
+    {
+      "episode_index": 475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8146565755208333
+    },
+    {
+      "episode_index": 475,
+      "camera": "observation.images.top",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 2.0309244791666665
+    },
+    {
+      "episode_index": 475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 2.0478515625
+    },
+    {
+      "episode_index": 475,
+      "camera": "observation.images.top",
+      "frame_index": 125,
+      "rot180back_vs_official_mae": 1.8825480143229167
+    },
+    {
+      "episode_index": 475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 125,
+      "rot180back_vs_official_mae": 2.857177734375
+    },
+    {
+      "episode_index": 500,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.62774658203125
+    },
+    {
+      "episode_index": 500,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.55841064453125
+    },
+    {
+      "episode_index": 500,
+      "camera": "observation.images.top",
+      "frame_index": 80,
+      "rot180back_vs_official_mae": 1.7479451497395833
+    },
+    {
+      "episode_index": 500,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 80,
+      "rot180back_vs_official_mae": 1.7984212239583333
+    },
+    {
+      "episode_index": 500,
+      "camera": "observation.images.top",
+      "frame_index": 160,
+      "rot180back_vs_official_mae": 1.7072550455729167
+    },
+    {
+      "episode_index": 500,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 160,
+      "rot180back_vs_official_mae": 1.74169921875
+    },
+    {
+      "episode_index": 525,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.64398193359375
+    },
+    {
+      "episode_index": 525,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.61602783203125
+    },
+    {
+      "episode_index": 525,
+      "camera": "observation.images.top",
+      "frame_index": 65,
+      "rot180back_vs_official_mae": 2.0837198893229165
+    },
+    {
+      "episode_index": 525,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 65,
+      "rot180back_vs_official_mae": 2.1553955078125
+    },
+    {
+      "episode_index": 525,
+      "camera": "observation.images.top",
+      "frame_index": 129,
+      "rot180back_vs_official_mae": 1.8852945963541667
+    },
+    {
+      "episode_index": 525,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 129,
+      "rot180back_vs_official_mae": 2.5596110026041665
+    },
+    {
+      "episode_index": 550,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7024332682291667
+    },
+    {
+      "episode_index": 550,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7995198567708333
+    },
+    {
+      "episode_index": 550,
+      "camera": "observation.images.top",
+      "frame_index": 32,
+      "rot180back_vs_official_mae": 1.7643025716145833
+    },
+    {
+      "episode_index": 550,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 32,
+      "rot180back_vs_official_mae": 1.5935872395833333
+    },
+    {
+      "episode_index": 550,
+      "camera": "observation.images.top",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 2.0362345377604165
+    },
+    {
+      "episode_index": 550,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 2.4114583333333335
+    },
+    {
+      "episode_index": 575,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6851603190104167
+    },
+    {
+      "episode_index": 575,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7708536783854167
+    },
+    {
+      "episode_index": 575,
+      "camera": "observation.images.top",
+      "frame_index": 37,
+      "rot180back_vs_official_mae": 2.0860595703125
+    },
+    {
+      "episode_index": 575,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 37,
+      "rot180back_vs_official_mae": 2.0224405924479165
+    },
+    {
+      "episode_index": 575,
+      "camera": "observation.images.top",
+      "frame_index": 74,
+      "rot180back_vs_official_mae": 1.80938720703125
+    },
+    {
+      "episode_index": 575,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 74,
+      "rot180back_vs_official_mae": 1.7966715494791667
+    },
+    {
+      "episode_index": 600,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7203776041666667
+    },
+    {
+      "episode_index": 600,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.79052734375
+    },
+    {
+      "episode_index": 600,
+      "camera": "observation.images.top",
+      "frame_index": 54,
+      "rot180back_vs_official_mae": 1.7430623372395833
+    },
+    {
+      "episode_index": 600,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 54,
+      "rot180back_vs_official_mae": 1.9145711263020833
+    },
+    {
+      "episode_index": 600,
+      "camera": "observation.images.top",
+      "frame_index": 107,
+      "rot180back_vs_official_mae": 2.2950236002604165
+    },
+    {
+      "episode_index": 600,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 107,
+      "rot180back_vs_official_mae": 2.4152425130208335
+    },
+    {
+      "episode_index": 625,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7525838216145833
+    },
+    {
+      "episode_index": 625,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7912190755208333
+    },
+    {
+      "episode_index": 625,
+      "camera": "observation.images.top",
+      "frame_index": 52,
+      "rot180back_vs_official_mae": 1.7549641927083333
+    },
+    {
+      "episode_index": 625,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 52,
+      "rot180back_vs_official_mae": 1.9953816731770833
+    },
+    {
+      "episode_index": 625,
+      "camera": "observation.images.top",
+      "frame_index": 103,
+      "rot180back_vs_official_mae": 2.1797688802083335
+    },
+    {
+      "episode_index": 625,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 103,
+      "rot180back_vs_official_mae": 2.6322428385416665
+    },
+    {
+      "episode_index": 650,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6847941080729167
+    },
+    {
+      "episode_index": 650,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.78216552734375
+    },
+    {
+      "episode_index": 650,
+      "camera": "observation.images.top",
+      "frame_index": 67,
+      "rot180back_vs_official_mae": 2.1513264973958335
+    },
+    {
+      "episode_index": 650,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 67,
+      "rot180back_vs_official_mae": 2.19915771484375
+    },
+    {
+      "episode_index": 650,
+      "camera": "observation.images.top",
+      "frame_index": 133,
+      "rot180back_vs_official_mae": 1.97088623046875
+    },
+    {
+      "episode_index": 650,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 133,
+      "rot180back_vs_official_mae": 2.3946533203125
+    },
+    {
+      "episode_index": 675,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.71197509765625
+    },
+    {
+      "episode_index": 675,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7689412434895833
+    },
+    {
+      "episode_index": 675,
+      "camera": "observation.images.top",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 1.7631429036458333
+    },
+    {
+      "episode_index": 675,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 1.7830403645833333
+    },
+    {
+      "episode_index": 675,
+      "camera": "observation.images.top",
+      "frame_index": 135,
+      "rot180back_vs_official_mae": 2.1280314127604165
+    },
+    {
+      "episode_index": 675,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 135,
+      "rot180back_vs_official_mae": 2.45245361328125
+    },
+    {
+      "episode_index": 700,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7212727864583333
+    },
+    {
+      "episode_index": 700,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.781494140625
+    },
+    {
+      "episode_index": 700,
+      "camera": "observation.images.top",
+      "frame_index": 54,
+      "rot180back_vs_official_mae": 1.7461344401041667
+    },
+    {
+      "episode_index": 700,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 54,
+      "rot180back_vs_official_mae": 1.9052327473958333
+    },
+    {
+      "episode_index": 700,
+      "camera": "observation.images.top",
+      "frame_index": 107,
+      "rot180back_vs_official_mae": 2.0771484375
+    },
+    {
+      "episode_index": 700,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 107,
+      "rot180back_vs_official_mae": 2.6454671223958335
+    },
+    {
+      "episode_index": 725,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6883138020833333
+    },
+    {
+      "episode_index": 725,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8962605794270833
+    },
+    {
+      "episode_index": 725,
+      "camera": "observation.images.top",
+      "frame_index": 52,
+      "rot180back_vs_official_mae": 1.7432047526041667
+    },
+    {
+      "episode_index": 725,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 52,
+      "rot180back_vs_official_mae": 1.9477945963541667
+    },
+    {
+      "episode_index": 725,
+      "camera": "observation.images.top",
+      "frame_index": 104,
+      "rot180back_vs_official_mae": 1.76104736328125
+    },
+    {
+      "episode_index": 725,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 104,
+      "rot180back_vs_official_mae": 2.2012939453125
+    },
+    {
+      "episode_index": 750,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7087605794270833
+    },
+    {
+      "episode_index": 750,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8626912434895833
+    },
+    {
+      "episode_index": 750,
+      "camera": "observation.images.top",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 1.7486979166666667
+    },
+    {
+      "episode_index": 750,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 1.9221394856770833
+    },
+    {
+      "episode_index": 750,
+      "camera": "observation.images.top",
+      "frame_index": 136,
+      "rot180back_vs_official_mae": 1.7567342122395833
+    },
+    {
+      "episode_index": 750,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 136,
+      "rot180back_vs_official_mae": 1.84674072265625
+    },
+    {
+      "episode_index": 775,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6944783528645833
+    },
+    {
+      "episode_index": 775,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7993570963541667
+    },
+    {
+      "episode_index": 775,
+      "camera": "observation.images.top",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 2.0997314453125
+    },
+    {
+      "episode_index": 775,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 2.3665568033854165
+    },
+    {
+      "episode_index": 775,
+      "camera": "observation.images.top",
+      "frame_index": 126,
+      "rot180back_vs_official_mae": 1.7604573567708333
+    },
+    {
+      "episode_index": 775,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 126,
+      "rot180back_vs_official_mae": 1.8780517578125
+    },
+    {
+      "episode_index": 800,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7132771809895833
+    },
+    {
+      "episode_index": 800,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8441365559895833
+    },
+    {
+      "episode_index": 800,
+      "camera": "observation.images.top",
+      "frame_index": 59,
+      "rot180back_vs_official_mae": 2.11395263671875
+    },
+    {
+      "episode_index": 800,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 59,
+      "rot180back_vs_official_mae": 2.0531209309895835
+    },
+    {
+      "episode_index": 800,
+      "camera": "observation.images.top",
+      "frame_index": 118,
+      "rot180back_vs_official_mae": 1.7645060221354167
+    },
+    {
+      "episode_index": 800,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 118,
+      "rot180back_vs_official_mae": 1.8198038736979167
+    },
+    {
+      "episode_index": 825,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.66375732421875
+    },
+    {
+      "episode_index": 825,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8107096354166667
+    },
+    {
+      "episode_index": 825,
+      "camera": "observation.images.top",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 1.71044921875
+    },
+    {
+      "episode_index": 825,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 1.7215983072916667
+    },
+    {
+      "episode_index": 825,
+      "camera": "observation.images.top",
+      "frame_index": 136,
+      "rot180back_vs_official_mae": 1.79376220703125
+    },
+    {
+      "episode_index": 825,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 136,
+      "rot180back_vs_official_mae": 1.8260701497395833
+    },
+    {
+      "episode_index": 850,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7289225260416667
+    },
+    {
+      "episode_index": 850,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.83837890625
+    },
+    {
+      "episode_index": 850,
+      "camera": "observation.images.top",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 1.7577921549479167
+    },
+    {
+      "episode_index": 850,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 2.00396728515625
+    },
+    {
+      "episode_index": 850,
+      "camera": "observation.images.top",
+      "frame_index": 136,
+      "rot180back_vs_official_mae": 1.7819010416666667
+    },
+    {
+      "episode_index": 850,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 136,
+      "rot180back_vs_official_mae": 2.1351521809895835
+    },
+    {
+      "episode_index": 875,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.67413330078125
+    },
+    {
+      "episode_index": 875,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8302408854166667
+    },
+    {
+      "episode_index": 875,
+      "camera": "observation.images.top",
+      "frame_index": 60,
+      "rot180back_vs_official_mae": 1.7446085611979167
+    },
+    {
+      "episode_index": 875,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 60,
+      "rot180back_vs_official_mae": 2.0662638346354165
+    },
+    {
+      "episode_index": 875,
+      "camera": "observation.images.top",
+      "frame_index": 119,
+      "rot180back_vs_official_mae": 1.9739176432291667
+    },
+    {
+      "episode_index": 875,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 119,
+      "rot180back_vs_official_mae": 2.58074951171875
+    },
+    {
+      "episode_index": 900,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7303059895833333
+    },
+    {
+      "episode_index": 900,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.68597412109375
+    },
+    {
+      "episode_index": 900,
+      "camera": "observation.images.top",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 1.8031209309895833
+    },
+    {
+      "episode_index": 900,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 1.67706298828125
+    },
+    {
+      "episode_index": 900,
+      "camera": "observation.images.top",
+      "frame_index": 183,
+      "rot180back_vs_official_mae": 2.0422159830729165
+    },
+    {
+      "episode_index": 900,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 183,
+      "rot180back_vs_official_mae": 1.9400227864583333
+    },
+    {
+      "episode_index": 925,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6705525716145833
+    },
+    {
+      "episode_index": 925,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8313191731770833
+    },
+    {
+      "episode_index": 925,
+      "camera": "observation.images.top",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 1.722412109375
+    },
+    {
+      "episode_index": 925,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 1.5326131184895833
+    },
+    {
+      "episode_index": 925,
+      "camera": "observation.images.top",
+      "frame_index": 183,
+      "rot180back_vs_official_mae": 1.9199015299479167
+    },
+    {
+      "episode_index": 925,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 183,
+      "rot180back_vs_official_mae": 1.8780314127604167
+    },
+    {
+      "episode_index": 950,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.72003173828125
+    },
+    {
+      "episode_index": 950,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8271077473958333
+    },
+    {
+      "episode_index": 950,
+      "camera": "observation.images.top",
+      "frame_index": 67,
+      "rot180back_vs_official_mae": 2.2910970052083335
+    },
+    {
+      "episode_index": 950,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 67,
+      "rot180back_vs_official_mae": 1.9197184244791667
+    },
+    {
+      "episode_index": 950,
+      "camera": "observation.images.top",
+      "frame_index": 134,
+      "rot180back_vs_official_mae": 1.7483317057291667
+    },
+    {
+      "episode_index": 950,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 134,
+      "rot180back_vs_official_mae": 1.5232137044270833
+    },
+    {
+      "episode_index": 975,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.71356201171875
+    },
+    {
+      "episode_index": 975,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7544962565104167
+    },
+    {
+      "episode_index": 975,
+      "camera": "observation.images.top",
+      "frame_index": 77,
+      "rot180back_vs_official_mae": 2.1180419921875
+    },
+    {
+      "episode_index": 975,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 77,
+      "rot180back_vs_official_mae": 2.0041097005208335
+    },
+    {
+      "episode_index": 975,
+      "camera": "observation.images.top",
+      "frame_index": 153,
+      "rot180back_vs_official_mae": 2.07220458984375
+    },
+    {
+      "episode_index": 975,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 153,
+      "rot180back_vs_official_mae": 2.0953776041666665
+    },
+    {
+      "episode_index": 1000,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6926066080729167
+    },
+    {
+      "episode_index": 1000,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6951904296875
+    },
+    {
+      "episode_index": 1000,
+      "camera": "observation.images.top",
+      "frame_index": 143,
+      "rot180back_vs_official_mae": 2.1749471028645835
+    },
+    {
+      "episode_index": 1000,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 143,
+      "rot180back_vs_official_mae": 1.90838623046875
+    },
+    {
+      "episode_index": 1000,
+      "camera": "observation.images.top",
+      "frame_index": 286,
+      "rot180back_vs_official_mae": 1.7093505859375
+    },
+    {
+      "episode_index": 1000,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 286,
+      "rot180back_vs_official_mae": 1.6795654296875
+    },
+    {
+      "episode_index": 1025,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6492919921875
+    },
+    {
+      "episode_index": 1025,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7166951497395833
+    },
+    {
+      "episode_index": 1025,
+      "camera": "observation.images.top",
+      "frame_index": 125,
+      "rot180back_vs_official_mae": 2.1357218424479165
+    },
+    {
+      "episode_index": 1025,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 125,
+      "rot180back_vs_official_mae": 2.9421590169270835
+    },
+    {
+      "episode_index": 1025,
+      "camera": "observation.images.top",
+      "frame_index": 250,
+      "rot180back_vs_official_mae": 1.6869303385416667
+    },
+    {
+      "episode_index": 1025,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 250,
+      "rot180back_vs_official_mae": 1.70623779296875
+    },
+    {
+      "episode_index": 1050,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7266642252604167
+    },
+    {
+      "episode_index": 1050,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.72308349609375
+    },
+    {
+      "episode_index": 1050,
+      "camera": "observation.images.top",
+      "frame_index": 45,
+      "rot180back_vs_official_mae": 1.8848063151041667
+    },
+    {
+      "episode_index": 1050,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 45,
+      "rot180back_vs_official_mae": 1.7001139322916667
+    },
+    {
+      "episode_index": 1050,
+      "camera": "observation.images.top",
+      "frame_index": 89,
+      "rot180back_vs_official_mae": 2.1967366536458335
+    },
+    {
+      "episode_index": 1050,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 89,
+      "rot180back_vs_official_mae": 1.9813232421875
+    },
+    {
+      "episode_index": 1075,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7158203125
+    },
+    {
+      "episode_index": 1075,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7564493815104167
+    },
+    {
+      "episode_index": 1075,
+      "camera": "observation.images.top",
+      "frame_index": 46,
+      "rot180back_vs_official_mae": 1.7789713541666667
+    },
+    {
+      "episode_index": 1075,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 46,
+      "rot180back_vs_official_mae": 1.3366292317708333
+    },
+    {
+      "episode_index": 1075,
+      "camera": "observation.images.top",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 2.0830078125
+    },
+    {
+      "episode_index": 1075,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 1.4865519205729167
+    },
+    {
+      "episode_index": 1100,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7795206705729167
+    },
+    {
+      "episode_index": 1100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.5810953776041667
+    },
+    {
+      "episode_index": 1100,
+      "camera": "observation.images.top",
+      "frame_index": 108,
+      "rot180back_vs_official_mae": 1.8659261067708333
+    },
+    {
+      "episode_index": 1100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 108,
+      "rot180back_vs_official_mae": 1.496826171875
+    },
+    {
+      "episode_index": 1100,
+      "camera": "observation.images.top",
+      "frame_index": 216,
+      "rot180back_vs_official_mae": 1.8185017903645833
+    },
+    {
+      "episode_index": 1100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 216,
+      "rot180back_vs_official_mae": 1.6180013020833333
+    },
+    {
+      "episode_index": 1125,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7769978841145833
+    },
+    {
+      "episode_index": 1125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7411905924479167
+    },
+    {
+      "episode_index": 1125,
+      "camera": "observation.images.top",
+      "frame_index": 134,
+      "rot180back_vs_official_mae": 1.8190714518229167
+    },
+    {
+      "episode_index": 1125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 134,
+      "rot180back_vs_official_mae": 1.5580240885416667
+    },
+    {
+      "episode_index": 1125,
+      "camera": "observation.images.top",
+      "frame_index": 267,
+      "rot180back_vs_official_mae": 1.99957275390625
+    },
+    {
+      "episode_index": 1125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 267,
+      "rot180back_vs_official_mae": 1.9596354166666667
+    },
+    {
+      "episode_index": 1150,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8223063151041667
+    },
+    {
+      "episode_index": 1150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6306966145833333
+    },
+    {
+      "episode_index": 1150,
+      "camera": "observation.images.top",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 1.8151652018229167
+    },
+    {
+      "episode_index": 1150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 1.4742838541666667
+    },
+    {
+      "episode_index": 1150,
+      "camera": "observation.images.top",
+      "frame_index": 136,
+      "rot180back_vs_official_mae": 1.8674112955729167
+    },
+    {
+      "episode_index": 1150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 136,
+      "rot180back_vs_official_mae": 1.1336466471354167
+    },
+    {
+      "episode_index": 1175,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7882893880208333
+    },
+    {
+      "episode_index": 1175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.787109375
+    },
+    {
+      "episode_index": 1175,
+      "camera": "observation.images.top",
+      "frame_index": 59,
+      "rot180back_vs_official_mae": 2.1404825846354165
+    },
+    {
+      "episode_index": 1175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 59,
+      "rot180back_vs_official_mae": 2.5594889322916665
+    },
+    {
+      "episode_index": 1175,
+      "camera": "observation.images.top",
+      "frame_index": 117,
+      "rot180back_vs_official_mae": 2.1906534830729165
+    },
+    {
+      "episode_index": 1175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 117,
+      "rot180back_vs_official_mae": 1.1443684895833333
+    },
+    {
+      "episode_index": 1200,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.78515625
+    },
+    {
+      "episode_index": 1200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8166910807291667
+    },
+    {
+      "episode_index": 1200,
+      "camera": "observation.images.top",
+      "frame_index": 83,
+      "rot180back_vs_official_mae": 2.1888427734375
+    },
+    {
+      "episode_index": 1200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 83,
+      "rot180back_vs_official_mae": 2.0361531575520835
+    },
+    {
+      "episode_index": 1200,
+      "camera": "observation.images.top",
+      "frame_index": 165,
+      "rot180back_vs_official_mae": 2.21246337890625
+    },
+    {
+      "episode_index": 1200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 165,
+      "rot180back_vs_official_mae": 2.2362874348958335
+    },
+    {
+      "episode_index": 1225,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7509765625
+    },
+    {
+      "episode_index": 1225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7611287434895833
+    },
+    {
+      "episode_index": 1225,
+      "camera": "observation.images.top",
+      "frame_index": 78,
+      "rot180back_vs_official_mae": 1.8138224283854167
+    },
+    {
+      "episode_index": 1225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 78,
+      "rot180back_vs_official_mae": 1.67236328125
+    },
+    {
+      "episode_index": 1225,
+      "camera": "observation.images.top",
+      "frame_index": 155,
+      "rot180back_vs_official_mae": 2.11785888671875
+    },
+    {
+      "episode_index": 1225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 155,
+      "rot180back_vs_official_mae": 2.4687296549479165
+    },
+    {
+      "episode_index": 1250,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7964070638020833
+    },
+    {
+      "episode_index": 1250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7958780924479167
+    },
+    {
+      "episode_index": 1250,
+      "camera": "observation.images.top",
+      "frame_index": 73,
+      "rot180back_vs_official_mae": 2.1642862955729165
+    },
+    {
+      "episode_index": 1250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 73,
+      "rot180back_vs_official_mae": 2.0842488606770835
+    },
+    {
+      "episode_index": 1250,
+      "camera": "observation.images.top",
+      "frame_index": 146,
+      "rot180back_vs_official_mae": 1.8461100260416667
+    },
+    {
+      "episode_index": 1250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 146,
+      "rot180back_vs_official_mae": 1.8327840169270833
+    },
+    {
+      "episode_index": 1275,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7671305338541667
+    },
+    {
+      "episode_index": 1275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.75238037109375
+    },
+    {
+      "episode_index": 1275,
+      "camera": "observation.images.top",
+      "frame_index": 89,
+      "rot180back_vs_official_mae": 2.1304931640625
+    },
+    {
+      "episode_index": 1275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 89,
+      "rot180back_vs_official_mae": 1.8866984049479167
+    },
+    {
+      "episode_index": 1275,
+      "camera": "observation.images.top",
+      "frame_index": 177,
+      "rot180back_vs_official_mae": 1.9318033854166667
+    },
+    {
+      "episode_index": 1275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 177,
+      "rot180back_vs_official_mae": 2.7033487955729165
+    },
+    {
+      "episode_index": 1300,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7934977213541667
+    },
+    {
+      "episode_index": 1300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.70379638671875
+    },
+    {
+      "episode_index": 1300,
+      "camera": "observation.images.top",
+      "frame_index": 84,
+      "rot180back_vs_official_mae": 1.7672932942708333
+    },
+    {
+      "episode_index": 1300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 84,
+      "rot180back_vs_official_mae": 1.6187947591145833
+    },
+    {
+      "episode_index": 1300,
+      "camera": "observation.images.top",
+      "frame_index": 168,
+      "rot180back_vs_official_mae": 1.84820556640625
+    },
+    {
+      "episode_index": 1300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 168,
+      "rot180back_vs_official_mae": 1.7735595703125
+    },
+    {
+      "episode_index": 1325,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7831013997395833
+    },
+    {
+      "episode_index": 1325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.736328125
+    },
+    {
+      "episode_index": 1325,
+      "camera": "observation.images.top",
+      "frame_index": 58,
+      "rot180back_vs_official_mae": 1.8515625
+    },
+    {
+      "episode_index": 1325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 58,
+      "rot180back_vs_official_mae": 1.6223958333333333
+    },
+    {
+      "episode_index": 1325,
+      "camera": "observation.images.top",
+      "frame_index": 116,
+      "rot180back_vs_official_mae": 1.9093424479166667
+    },
+    {
+      "episode_index": 1325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 116,
+      "rot180back_vs_official_mae": 1.50555419921875
+    },
+    {
+      "episode_index": 1350,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.75042724609375
+    },
+    {
+      "episode_index": 1350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6258138020833333
+    },
+    {
+      "episode_index": 1350,
+      "camera": "observation.images.top",
+      "frame_index": 154,
+      "rot180back_vs_official_mae": 1.8389485677083333
+    },
+    {
+      "episode_index": 1350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 154,
+      "rot180back_vs_official_mae": 1.6809488932291667
+    },
+    {
+      "episode_index": 1350,
+      "camera": "observation.images.top",
+      "frame_index": 308,
+      "rot180back_vs_official_mae": 1.8963419596354167
+    },
+    {
+      "episode_index": 1350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 308,
+      "rot180back_vs_official_mae": 1.9578857421875
+    },
+    {
+      "episode_index": 1375,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7818806966145833
+    },
+    {
+      "episode_index": 1375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6933797200520833
+    },
+    {
+      "episode_index": 1375,
+      "camera": "observation.images.top",
+      "frame_index": 110,
+      "rot180back_vs_official_mae": 1.83056640625
+    },
+    {
+      "episode_index": 1375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 110,
+      "rot180back_vs_official_mae": 1.7578125
+    },
+    {
+      "episode_index": 1375,
+      "camera": "observation.images.top",
+      "frame_index": 219,
+      "rot180back_vs_official_mae": 1.8559977213541667
+    },
+    {
+      "episode_index": 1375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 219,
+      "rot180back_vs_official_mae": 2.2599283854166665
+    },
+    {
+      "episode_index": 1400,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6556599934895833
+    },
+    {
+      "episode_index": 1400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.65020751953125
+    },
+    {
+      "episode_index": 1400,
+      "camera": "observation.images.top",
+      "frame_index": 32,
+      "rot180back_vs_official_mae": 1.6621500651041667
+    },
+    {
+      "episode_index": 1400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 32,
+      "rot180back_vs_official_mae": 1.55145263671875
+    },
+    {
+      "episode_index": 1400,
+      "camera": "observation.images.top",
+      "frame_index": 64,
+      "rot180back_vs_official_mae": 1.7602335611979167
+    },
+    {
+      "episode_index": 1400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 64,
+      "rot180back_vs_official_mae": 1.5411173502604167
+    },
+    {
+      "episode_index": 1425,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6255289713541667
+    },
+    {
+      "episode_index": 1425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7205810546875
+    },
+    {
+      "episode_index": 1425,
+      "camera": "observation.images.top",
+      "frame_index": 45,
+      "rot180back_vs_official_mae": 2.13470458984375
+    },
+    {
+      "episode_index": 1425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 45,
+      "rot180back_vs_official_mae": 2.0621744791666665
+    },
+    {
+      "episode_index": 1425,
+      "camera": "observation.images.top",
+      "frame_index": 89,
+      "rot180back_vs_official_mae": 1.9646809895833333
+    },
+    {
+      "episode_index": 1425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 89,
+      "rot180back_vs_official_mae": 1.8199055989583333
+    },
+    {
+      "episode_index": 1450,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6284993489583333
+    },
+    {
+      "episode_index": 1450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6615804036458333
+    },
+    {
+      "episode_index": 1450,
+      "camera": "observation.images.top",
+      "frame_index": 61,
+      "rot180back_vs_official_mae": 1.9624226888020833
+    },
+    {
+      "episode_index": 1450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 61,
+      "rot180back_vs_official_mae": 1.6885172526041667
+    },
+    {
+      "episode_index": 1450,
+      "camera": "observation.images.top",
+      "frame_index": 121,
+      "rot180back_vs_official_mae": 1.8415730794270833
+    },
+    {
+      "episode_index": 1450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 121,
+      "rot180back_vs_official_mae": 2.5175374348958335
+    },
+    {
+      "episode_index": 1475,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.70452880859375
+    },
+    {
+      "episode_index": 1475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7262776692708333
+    },
+    {
+      "episode_index": 1475,
+      "camera": "observation.images.top",
+      "frame_index": 60,
+      "rot180back_vs_official_mae": 1.7202962239583333
+    },
+    {
+      "episode_index": 1475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 60,
+      "rot180back_vs_official_mae": 1.5980224609375
+    },
+    {
+      "episode_index": 1475,
+      "camera": "observation.images.top",
+      "frame_index": 119,
+      "rot180back_vs_official_mae": 2.1407267252604165
+    },
+    {
+      "episode_index": 1475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 119,
+      "rot180back_vs_official_mae": 2.686767578125
+    },
+    {
+      "episode_index": 1500,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6839396158854167
+    },
+    {
+      "episode_index": 1500,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6395670572916667
+    },
+    {
+      "episode_index": 1500,
+      "camera": "observation.images.top",
+      "frame_index": 65,
+      "rot180back_vs_official_mae": 2.2116292317708335
+    },
+    {
+      "episode_index": 1500,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 65,
+      "rot180back_vs_official_mae": 1.8212687174479167
+    },
+    {
+      "episode_index": 1500,
+      "camera": "observation.images.top",
+      "frame_index": 130,
+      "rot180back_vs_official_mae": 1.7491251627604167
+    },
+    {
+      "episode_index": 1500,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 130,
+      "rot180back_vs_official_mae": 1.8407185872395833
+    },
+    {
+      "episode_index": 1525,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6475626627604167
+    },
+    {
+      "episode_index": 1525,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6601155598958333
+    },
+    {
+      "episode_index": 1525,
+      "camera": "observation.images.top",
+      "frame_index": 69,
+      "rot180back_vs_official_mae": 2.32110595703125
+    },
+    {
+      "episode_index": 1525,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 69,
+      "rot180back_vs_official_mae": 2.2391357421875
+    },
+    {
+      "episode_index": 1525,
+      "camera": "observation.images.top",
+      "frame_index": 138,
+      "rot180back_vs_official_mae": 1.7267252604166667
+    },
+    {
+      "episode_index": 1525,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 138,
+      "rot180back_vs_official_mae": 1.8388264973958333
+    },
+    {
+      "episode_index": 1550,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6396687825520833
+    },
+    {
+      "episode_index": 1550,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.73284912109375
+    },
+    {
+      "episode_index": 1550,
+      "camera": "observation.images.top",
+      "frame_index": 73,
+      "rot180back_vs_official_mae": 2.0489298502604165
+    },
+    {
+      "episode_index": 1550,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 73,
+      "rot180back_vs_official_mae": 1.7816569010416667
+    },
+    {
+      "episode_index": 1550,
+      "camera": "observation.images.top",
+      "frame_index": 146,
+      "rot180back_vs_official_mae": 1.6837361653645833
+    },
+    {
+      "episode_index": 1550,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 146,
+      "rot180back_vs_official_mae": 1.5916748046875
+    },
+    {
+      "episode_index": 1575,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6768391927083333
+    },
+    {
+      "episode_index": 1575,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7322591145833333
+    },
+    {
+      "episode_index": 1575,
+      "camera": "observation.images.top",
+      "frame_index": 73,
+      "rot180back_vs_official_mae": 2.0872395833333335
+    },
+    {
+      "episode_index": 1575,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 73,
+      "rot180back_vs_official_mae": 1.93914794921875
+    },
+    {
+      "episode_index": 1575,
+      "camera": "observation.images.top",
+      "frame_index": 146,
+      "rot180back_vs_official_mae": 1.7200724283854167
+    },
+    {
+      "episode_index": 1575,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 146,
+      "rot180back_vs_official_mae": 1.6460774739583333
+    },
+    {
+      "episode_index": 1600,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6199747721354167
+    },
+    {
+      "episode_index": 1600,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6537679036458333
+    },
+    {
+      "episode_index": 1600,
+      "camera": "observation.images.top",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 1.9315388997395833
+    },
+    {
+      "episode_index": 1600,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 2.3774007161458335
+    },
+    {
+      "episode_index": 1600,
+      "camera": "observation.images.top",
+      "frame_index": 229,
+      "rot180back_vs_official_mae": 1.8154500325520833
+    },
+    {
+      "episode_index": 1600,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 229,
+      "rot180back_vs_official_mae": 2.2101033528645835
+    },
+    {
+      "episode_index": 1625,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7024739583333333
+    },
+    {
+      "episode_index": 1625,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.65936279296875
+    },
+    {
+      "episode_index": 1625,
+      "camera": "observation.images.top",
+      "frame_index": 97,
+      "rot180back_vs_official_mae": 1.93780517578125
+    },
+    {
+      "episode_index": 1625,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 97,
+      "rot180back_vs_official_mae": 2.20098876953125
+    },
+    {
+      "episode_index": 1625,
+      "camera": "observation.images.top",
+      "frame_index": 194,
+      "rot180back_vs_official_mae": 1.77044677734375
+    },
+    {
+      "episode_index": 1625,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 194,
+      "rot180back_vs_official_mae": 1.874267578125
+    },
+    {
+      "episode_index": 1650,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.626953125
+    },
+    {
+      "episode_index": 1650,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8043212890625
+    },
+    {
+      "episode_index": 1650,
+      "camera": "observation.images.top",
+      "frame_index": 118,
+      "rot180back_vs_official_mae": 1.6405843098958333
+    },
+    {
+      "episode_index": 1650,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 118,
+      "rot180back_vs_official_mae": 1.90875244140625
+    },
+    {
+      "episode_index": 1650,
+      "camera": "observation.images.top",
+      "frame_index": 235,
+      "rot180back_vs_official_mae": 2.0702718098958335
+    },
+    {
+      "episode_index": 1650,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 235,
+      "rot180back_vs_official_mae": 1.5517171223958333
+    },
+    {
+      "episode_index": 1675,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6465861002604167
+    },
+    {
+      "episode_index": 1675,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7056070963541667
+    },
+    {
+      "episode_index": 1675,
+      "camera": "observation.images.top",
+      "frame_index": 94,
+      "rot180back_vs_official_mae": 1.7014567057291667
+    },
+    {
+      "episode_index": 1675,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 94,
+      "rot180back_vs_official_mae": 1.8424072265625
+    },
+    {
+      "episode_index": 1675,
+      "camera": "observation.images.top",
+      "frame_index": 187,
+      "rot180back_vs_official_mae": 1.9821980794270833
+    },
+    {
+      "episode_index": 1675,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 187,
+      "rot180back_vs_official_mae": 1.6903483072916667
+    },
+    {
+      "episode_index": 1700,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.68817138671875
+    },
+    {
+      "episode_index": 1700,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.75921630859375
+    },
+    {
+      "episode_index": 1700,
+      "camera": "observation.images.top",
+      "frame_index": 72,
+      "rot180back_vs_official_mae": 1.6717122395833333
+    },
+    {
+      "episode_index": 1700,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 72,
+      "rot180back_vs_official_mae": 1.6757609049479167
+    },
+    {
+      "episode_index": 1700,
+      "camera": "observation.images.top",
+      "frame_index": 143,
+      "rot180back_vs_official_mae": 2.0795694986979165
+    },
+    {
+      "episode_index": 1700,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 143,
+      "rot180back_vs_official_mae": 1.7857666015625
+    },
+    {
+      "episode_index": 1725,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.5979410807291667
+    },
+    {
+      "episode_index": 1725,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7858072916666667
+    },
+    {
+      "episode_index": 1725,
+      "camera": "observation.images.top",
+      "frame_index": 55,
+      "rot180back_vs_official_mae": 2.1407877604166665
+    },
+    {
+      "episode_index": 1725,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 55,
+      "rot180back_vs_official_mae": 2.075439453125
+    },
+    {
+      "episode_index": 1725,
+      "camera": "observation.images.top",
+      "frame_index": 109,
+      "rot180back_vs_official_mae": 2.0274658203125
+    },
+    {
+      "episode_index": 1725,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 109,
+      "rot180back_vs_official_mae": 1.6472574869791667
+    },
+    {
+      "episode_index": 1750,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.5900472005208333
+    },
+    {
+      "episode_index": 1750,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.69781494140625
+    },
+    {
+      "episode_index": 1750,
+      "camera": "observation.images.top",
+      "frame_index": 65,
+      "rot180back_vs_official_mae": 1.97125244140625
+    },
+    {
+      "episode_index": 1750,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 65,
+      "rot180back_vs_official_mae": 1.919921875
+    },
+    {
+      "episode_index": 1750,
+      "camera": "observation.images.top",
+      "frame_index": 130,
+      "rot180back_vs_official_mae": 1.6584879557291667
+    },
+    {
+      "episode_index": 1750,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 130,
+      "rot180back_vs_official_mae": 1.48687744140625
+    },
+    {
+      "episode_index": 1775,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6239420572916667
+    },
+    {
+      "episode_index": 1775,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.59429931640625
+    },
+    {
+      "episode_index": 1775,
+      "camera": "observation.images.top",
+      "frame_index": 75,
+      "rot180back_vs_official_mae": 2.1034749348958335
+    },
+    {
+      "episode_index": 1775,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 75,
+      "rot180back_vs_official_mae": 2.3646036783854165
+    },
+    {
+      "episode_index": 1775,
+      "camera": "observation.images.top",
+      "frame_index": 150,
+      "rot180back_vs_official_mae": 1.7341715494791667
+    },
+    {
+      "episode_index": 1775,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 150,
+      "rot180back_vs_official_mae": 1.4851277669270833
+    },
+    {
+      "episode_index": 1800,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.5504557291666667
+    },
+    {
+      "episode_index": 1800,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.5656534830729167
+    },
+    {
+      "episode_index": 1800,
+      "camera": "observation.images.top",
+      "frame_index": 111,
+      "rot180back_vs_official_mae": 1.8946736653645833
+    },
+    {
+      "episode_index": 1800,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 111,
+      "rot180back_vs_official_mae": 1.3644205729166667
+    },
+    {
+      "episode_index": 1800,
+      "camera": "observation.images.top",
+      "frame_index": 222,
+      "rot180back_vs_official_mae": 1.6451009114583333
+    },
+    {
+      "episode_index": 1800,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 222,
+      "rot180back_vs_official_mae": 1.99224853515625
+    },
+    {
+      "episode_index": 1825,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.5726318359375
+    },
+    {
+      "episode_index": 1825,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.73388671875
+    },
+    {
+      "episode_index": 1825,
+      "camera": "observation.images.top",
+      "frame_index": 105,
+      "rot180back_vs_official_mae": 1.8549601236979167
+    },
+    {
+      "episode_index": 1825,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 105,
+      "rot180back_vs_official_mae": 1.4453125
+    },
+    {
+      "episode_index": 1825,
+      "camera": "observation.images.top",
+      "frame_index": 210,
+      "rot180back_vs_official_mae": 1.6382242838541667
+    },
+    {
+      "episode_index": 1825,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 210,
+      "rot180back_vs_official_mae": 2.2641805013020835
+    },
+    {
+      "episode_index": 1850,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.579345703125
+    },
+    {
+      "episode_index": 1850,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.5955810546875
+    },
+    {
+      "episode_index": 1850,
+      "camera": "observation.images.top",
+      "frame_index": 60,
+      "rot180back_vs_official_mae": 1.6062215169270833
+    },
+    {
+      "episode_index": 1850,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 60,
+      "rot180back_vs_official_mae": 1.2202351888020833
+    },
+    {
+      "episode_index": 1850,
+      "camera": "observation.images.top",
+      "frame_index": 119,
+      "rot180back_vs_official_mae": 2.2300618489583335
+    },
+    {
+      "episode_index": 1850,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 119,
+      "rot180back_vs_official_mae": 2.0222371419270835
+    },
+    {
+      "episode_index": 1875,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.5992228190104167
+    },
+    {
+      "episode_index": 1875,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.5652669270833333
+    },
+    {
+      "episode_index": 1875,
+      "camera": "observation.images.top",
+      "frame_index": 73,
+      "rot180back_vs_official_mae": 1.88043212890625
+    },
+    {
+      "episode_index": 1875,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 73,
+      "rot180back_vs_official_mae": 1.7276407877604167
+    },
+    {
+      "episode_index": 1875,
+      "camera": "observation.images.top",
+      "frame_index": 145,
+      "rot180back_vs_official_mae": 1.9750773111979167
+    },
+    {
+      "episode_index": 1875,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 145,
+      "rot180back_vs_official_mae": 1.8864542643229167
+    },
+    {
+      "episode_index": 1900,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9134928385416667
+    },
+    {
+      "episode_index": 1900,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.5967000325520835
+    },
+    {
+      "episode_index": 1900,
+      "camera": "observation.images.top",
+      "frame_index": 96,
+      "rot180back_vs_official_mae": 1.99456787109375
+    },
+    {
+      "episode_index": 1900,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 96,
+      "rot180back_vs_official_mae": 1.6394449869791667
+    },
+    {
+      "episode_index": 1900,
+      "camera": "observation.images.top",
+      "frame_index": 191,
+      "rot180back_vs_official_mae": 2.1771443684895835
+    },
+    {
+      "episode_index": 1900,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 191,
+      "rot180back_vs_official_mae": 2.74969482421875
+    },
+    {
+      "episode_index": 1925,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9212239583333333
+    },
+    {
+      "episode_index": 1925,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.484130859375
+    },
+    {
+      "episode_index": 1925,
+      "camera": "observation.images.top",
+      "frame_index": 97,
+      "rot180back_vs_official_mae": 2.56658935546875
+    },
+    {
+      "episode_index": 1925,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 97,
+      "rot180back_vs_official_mae": 1.926025390625
+    },
+    {
+      "episode_index": 1925,
+      "camera": "observation.images.top",
+      "frame_index": 193,
+      "rot180back_vs_official_mae": 2.01904296875
+    },
+    {
+      "episode_index": 1925,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 193,
+      "rot180back_vs_official_mae": 3.3523966471354165
+    },
+    {
+      "episode_index": 1950,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9278157552083333
+    },
+    {
+      "episode_index": 1950,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.50750732421875
+    },
+    {
+      "episode_index": 1950,
+      "camera": "observation.images.top",
+      "frame_index": 76,
+      "rot180back_vs_official_mae": 1.9657796223958333
+    },
+    {
+      "episode_index": 1950,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 76,
+      "rot180back_vs_official_mae": 1.5127156575520833
+    },
+    {
+      "episode_index": 1950,
+      "camera": "observation.images.top",
+      "frame_index": 151,
+      "rot180back_vs_official_mae": 2.0079345703125
+    },
+    {
+      "episode_index": 1950,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 151,
+      "rot180back_vs_official_mae": 1.9367879231770833
+    },
+    {
+      "episode_index": 1975,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9204915364583333
+    },
+    {
+      "episode_index": 1975,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.597900390625
+    },
+    {
+      "episode_index": 1975,
+      "camera": "observation.images.top",
+      "frame_index": 74,
+      "rot180back_vs_official_mae": 2.0112508138020835
+    },
+    {
+      "episode_index": 1975,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 74,
+      "rot180back_vs_official_mae": 1.8906453450520833
+    },
+    {
+      "episode_index": 1975,
+      "camera": "observation.images.top",
+      "frame_index": 147,
+      "rot180back_vs_official_mae": 1.8930867513020833
+    },
+    {
+      "episode_index": 1975,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 147,
+      "rot180back_vs_official_mae": 1.8618977864583333
+    },
+    {
+      "episode_index": 2000,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7148234049479167
+    },
+    {
+      "episode_index": 2000,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6888427734375
+    },
+    {
+      "episode_index": 2000,
+      "camera": "observation.images.top",
+      "frame_index": 88,
+      "rot180back_vs_official_mae": 1.7589314778645833
+    },
+    {
+      "episode_index": 2000,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 88,
+      "rot180back_vs_official_mae": 1.59027099609375
+    },
+    {
+      "episode_index": 2000,
+      "camera": "observation.images.top",
+      "frame_index": 176,
+      "rot180back_vs_official_mae": 1.7384847005208333
+    },
+    {
+      "episode_index": 2000,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 176,
+      "rot180back_vs_official_mae": 1.4411417643229167
+    },
+    {
+      "episode_index": 2025,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7018636067708333
+    },
+    {
+      "episode_index": 2025,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.777587890625
+    },
+    {
+      "episode_index": 2025,
+      "camera": "observation.images.top",
+      "frame_index": 106,
+      "rot180back_vs_official_mae": 1.793212890625
+    },
+    {
+      "episode_index": 2025,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 106,
+      "rot180back_vs_official_mae": 1.6619059244791667
+    },
+    {
+      "episode_index": 2025,
+      "camera": "observation.images.top",
+      "frame_index": 211,
+      "rot180back_vs_official_mae": 2.0112711588541665
+    },
+    {
+      "episode_index": 2025,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 211,
+      "rot180back_vs_official_mae": 1.8997802734375
+    },
+    {
+      "episode_index": 2050,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.70263671875
+    },
+    {
+      "episode_index": 2050,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6805419921875
+    },
+    {
+      "episode_index": 2050,
+      "camera": "observation.images.top",
+      "frame_index": 113,
+      "rot180back_vs_official_mae": 2.1890665690104165
+    },
+    {
+      "episode_index": 2050,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 113,
+      "rot180back_vs_official_mae": 2.2231241861979165
+    },
+    {
+      "episode_index": 2050,
+      "camera": "observation.images.top",
+      "frame_index": 226,
+      "rot180back_vs_official_mae": 1.7270100911458333
+    },
+    {
+      "episode_index": 2050,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 226,
+      "rot180back_vs_official_mae": 1.5236002604166667
+    },
+    {
+      "episode_index": 2075,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7565104166666667
+    },
+    {
+      "episode_index": 2075,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7919921875
+    },
+    {
+      "episode_index": 2075,
+      "camera": "observation.images.top",
+      "frame_index": 83,
+      "rot180back_vs_official_mae": 2.1355387369791665
+    },
+    {
+      "episode_index": 2075,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 83,
+      "rot180back_vs_official_mae": 2.149658203125
+    },
+    {
+      "episode_index": 2075,
+      "camera": "observation.images.top",
+      "frame_index": 166,
+      "rot180back_vs_official_mae": 1.7579345703125
+    },
+    {
+      "episode_index": 2075,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 166,
+      "rot180back_vs_official_mae": 1.5729166666666667
+    },
+    {
+      "episode_index": 2100,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7228190104166667
+    },
+    {
+      "episode_index": 2100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6613972981770833
+    },
+    {
+      "episode_index": 2100,
+      "camera": "observation.images.top",
+      "frame_index": 86,
+      "rot180back_vs_official_mae": 1.77374267578125
+    },
+    {
+      "episode_index": 2100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 86,
+      "rot180back_vs_official_mae": 1.6368815104166667
+    },
+    {
+      "episode_index": 2100,
+      "camera": "observation.images.top",
+      "frame_index": 171,
+      "rot180back_vs_official_mae": 2.011474609375
+    },
+    {
+      "episode_index": 2100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 171,
+      "rot180back_vs_official_mae": 1.9422403971354167
+    },
+    {
+      "episode_index": 2125,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.72607421875
+    },
+    {
+      "episode_index": 2125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6934000651041667
+    },
+    {
+      "episode_index": 2125,
+      "camera": "observation.images.top",
+      "frame_index": 72,
+      "rot180back_vs_official_mae": 1.7867431640625
+    },
+    {
+      "episode_index": 2125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 72,
+      "rot180back_vs_official_mae": 1.7306315104166667
+    },
+    {
+      "episode_index": 2125,
+      "camera": "observation.images.top",
+      "frame_index": 143,
+      "rot180back_vs_official_mae": 2.0637003580729165
+    },
+    {
+      "episode_index": 2125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 143,
+      "rot180back_vs_official_mae": 2.0771280924479165
+    },
+    {
+      "episode_index": 2150,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7518107096354167
+    },
+    {
+      "episode_index": 2150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6728719075520833
+    },
+    {
+      "episode_index": 2150,
+      "camera": "observation.images.top",
+      "frame_index": 72,
+      "rot180back_vs_official_mae": 1.8279215494791667
+    },
+    {
+      "episode_index": 2150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 72,
+      "rot180back_vs_official_mae": 1.66729736328125
+    },
+    {
+      "episode_index": 2150,
+      "camera": "observation.images.top",
+      "frame_index": 143,
+      "rot180back_vs_official_mae": 1.9741414388020833
+    },
+    {
+      "episode_index": 2150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 143,
+      "rot180back_vs_official_mae": 2.3297322591145835
+    },
+    {
+      "episode_index": 2175,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6962483723958333
+    },
+    {
+      "episode_index": 2175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7098795572916667
+    },
+    {
+      "episode_index": 2175,
+      "camera": "observation.images.top",
+      "frame_index": 74,
+      "rot180back_vs_official_mae": 1.7784830729166667
+    },
+    {
+      "episode_index": 2175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 74,
+      "rot180back_vs_official_mae": 1.6117757161458333
+    },
+    {
+      "episode_index": 2175,
+      "camera": "observation.images.top",
+      "frame_index": 148,
+      "rot180back_vs_official_mae": 1.8017985026041667
+    },
+    {
+      "episode_index": 2175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 148,
+      "rot180back_vs_official_mae": 1.6903889973958333
+    },
+    {
+      "episode_index": 2200,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7428995768229167
+    },
+    {
+      "episode_index": 2200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7096150716145833
+    },
+    {
+      "episode_index": 2200,
+      "camera": "observation.images.top",
+      "frame_index": 127,
+      "rot180back_vs_official_mae": 2.1848347981770835
+    },
+    {
+      "episode_index": 2200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 127,
+      "rot180back_vs_official_mae": 3.6074625651041665
+    },
+    {
+      "episode_index": 2200,
+      "camera": "observation.images.top",
+      "frame_index": 254,
+      "rot180back_vs_official_mae": 1.7350870768229167
+    },
+    {
+      "episode_index": 2200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 254,
+      "rot180back_vs_official_mae": 1.65789794921875
+    },
+    {
+      "episode_index": 2225,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7607014973958333
+    },
+    {
+      "episode_index": 2225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.644287109375
+    },
+    {
+      "episode_index": 2225,
+      "camera": "observation.images.top",
+      "frame_index": 118,
+      "rot180back_vs_official_mae": 1.9500935872395833
+    },
+    {
+      "episode_index": 2225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 118,
+      "rot180back_vs_official_mae": 2.66497802734375
+    },
+    {
+      "episode_index": 2225,
+      "camera": "observation.images.top",
+      "frame_index": 236,
+      "rot180back_vs_official_mae": 1.7387288411458333
+    },
+    {
+      "episode_index": 2225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 236,
+      "rot180back_vs_official_mae": 1.65283203125
+    },
+    {
+      "episode_index": 2250,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.761962890625
+    },
+    {
+      "episode_index": 2250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7055867513020833
+    },
+    {
+      "episode_index": 2250,
+      "camera": "observation.images.top",
+      "frame_index": 57,
+      "rot180back_vs_official_mae": 2.15777587890625
+    },
+    {
+      "episode_index": 2250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 57,
+      "rot180back_vs_official_mae": 1.8964029947916667
+    },
+    {
+      "episode_index": 2250,
+      "camera": "observation.images.top",
+      "frame_index": 114,
+      "rot180back_vs_official_mae": 2.1043701171875
+    },
+    {
+      "episode_index": 2250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 114,
+      "rot180back_vs_official_mae": 1.4211222330729167
+    },
+    {
+      "episode_index": 2275,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.74658203125
+    },
+    {
+      "episode_index": 2275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6237996419270833
+    },
+    {
+      "episode_index": 2275,
+      "camera": "observation.images.top",
+      "frame_index": 60,
+      "rot180back_vs_official_mae": 1.7884521484375
+    },
+    {
+      "episode_index": 2275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 60,
+      "rot180back_vs_official_mae": 1.4905802408854167
+    },
+    {
+      "episode_index": 2275,
+      "camera": "observation.images.top",
+      "frame_index": 119,
+      "rot180back_vs_official_mae": 2.2216389973958335
+    },
+    {
+      "episode_index": 2275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 119,
+      "rot180back_vs_official_mae": 2.25726318359375
+    },
+    {
+      "episode_index": 2300,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8175252278645833
+    },
+    {
+      "episode_index": 2300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7716064453125
+    },
+    {
+      "episode_index": 2300,
+      "camera": "observation.images.top",
+      "frame_index": 77,
+      "rot180back_vs_official_mae": 2.3302205403645835
+    },
+    {
+      "episode_index": 2300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 77,
+      "rot180back_vs_official_mae": 1.8638509114583333
+    },
+    {
+      "episode_index": 2300,
+      "camera": "observation.images.top",
+      "frame_index": 153,
+      "rot180back_vs_official_mae": 1.7965291341145833
+    },
+    {
+      "episode_index": 2300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 153,
+      "rot180back_vs_official_mae": 2.1460164388020835
+    },
+    {
+      "episode_index": 2325,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8011881510416667
+    },
+    {
+      "episode_index": 2325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8675333658854167
+    },
+    {
+      "episode_index": 2325,
+      "camera": "observation.images.top",
+      "frame_index": 61,
+      "rot180back_vs_official_mae": 2.32049560546875
+    },
+    {
+      "episode_index": 2325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 61,
+      "rot180back_vs_official_mae": 2.1552937825520835
+    },
+    {
+      "episode_index": 2325,
+      "camera": "observation.images.top",
+      "frame_index": 121,
+      "rot180back_vs_official_mae": 1.9831136067708333
+    },
+    {
+      "episode_index": 2325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 121,
+      "rot180back_vs_official_mae": 2.5020548502604165
+    },
+    {
+      "episode_index": 2350,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.816650390625
+    },
+    {
+      "episode_index": 2350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.863037109375
+    },
+    {
+      "episode_index": 2350,
+      "camera": "observation.images.top",
+      "frame_index": 80,
+      "rot180back_vs_official_mae": 1.7754109700520833
+    },
+    {
+      "episode_index": 2350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 80,
+      "rot180back_vs_official_mae": 1.7852376302083333
+    },
+    {
+      "episode_index": 2350,
+      "camera": "observation.images.top",
+      "frame_index": 160,
+      "rot180back_vs_official_mae": 1.8782552083333333
+    },
+    {
+      "episode_index": 2350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 160,
+      "rot180back_vs_official_mae": 1.7848307291666667
+    },
+    {
+      "episode_index": 2375,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7829182942708333
+    },
+    {
+      "episode_index": 2375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.86444091796875
+    },
+    {
+      "episode_index": 2375,
+      "camera": "observation.images.top",
+      "frame_index": 76,
+      "rot180back_vs_official_mae": 1.8668212890625
+    },
+    {
+      "episode_index": 2375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 76,
+      "rot180back_vs_official_mae": 1.9905192057291667
+    },
+    {
+      "episode_index": 2375,
+      "camera": "observation.images.top",
+      "frame_index": 151,
+      "rot180back_vs_official_mae": 1.8621012369791667
+    },
+    {
+      "episode_index": 2375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 151,
+      "rot180back_vs_official_mae": 2.7018636067708335
+    },
+    {
+      "episode_index": 2400,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8130900065104167
+    },
+    {
+      "episode_index": 2400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.69659423828125
+    },
+    {
+      "episode_index": 2400,
+      "camera": "observation.images.top",
+      "frame_index": 86,
+      "rot180back_vs_official_mae": 1.7369791666666667
+    },
+    {
+      "episode_index": 2400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 86,
+      "rot180back_vs_official_mae": 1.7543741861979167
+    },
+    {
+      "episode_index": 2400,
+      "camera": "observation.images.top",
+      "frame_index": 172,
+      "rot180back_vs_official_mae": 1.85498046875
+    },
+    {
+      "episode_index": 2400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 172,
+      "rot180back_vs_official_mae": 1.8879597981770833
+    },
+    {
+      "episode_index": 2425,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7890218098958333
+    },
+    {
+      "episode_index": 2425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7220458984375
+    },
+    {
+      "episode_index": 2425,
+      "camera": "observation.images.top",
+      "frame_index": 77,
+      "rot180back_vs_official_mae": 2.09765625
+    },
+    {
+      "episode_index": 2425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 77,
+      "rot180back_vs_official_mae": 2.1195475260416665
+    },
+    {
+      "episode_index": 2425,
+      "camera": "observation.images.top",
+      "frame_index": 154,
+      "rot180back_vs_official_mae": 1.8715616861979167
+    },
+    {
+      "episode_index": 2425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 154,
+      "rot180back_vs_official_mae": 1.9129638671875
+    },
+    {
+      "episode_index": 2450,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8528849283854167
+    },
+    {
+      "episode_index": 2450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8518473307291667
+    },
+    {
+      "episode_index": 2450,
+      "camera": "observation.images.top",
+      "frame_index": 81,
+      "rot180back_vs_official_mae": 2.2420247395833335
+    },
+    {
+      "episode_index": 2450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 81,
+      "rot180back_vs_official_mae": 1.9616902669270833
+    },
+    {
+      "episode_index": 2450,
+      "camera": "observation.images.top",
+      "frame_index": 161,
+      "rot180back_vs_official_mae": 1.8744303385416667
+    },
+    {
+      "episode_index": 2450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 161,
+      "rot180back_vs_official_mae": 2.53607177734375
+    },
+    {
+      "episode_index": 2475,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.76763916015625
+    },
+    {
+      "episode_index": 2475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8151448567708333
+    },
+    {
+      "episode_index": 2475,
+      "camera": "observation.images.top",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 1.8558553059895833
+    },
+    {
+      "episode_index": 2475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 1.6957194010416667
+    },
+    {
+      "episode_index": 2475,
+      "camera": "observation.images.top",
+      "frame_index": 183,
+      "rot180back_vs_official_mae": 1.7279256184895833
+    },
+    {
+      "episode_index": 2475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 183,
+      "rot180back_vs_official_mae": 2.1374104817708335
+    },
+    {
+      "episode_index": 2500,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0178019205729165
+    },
+    {
+      "episode_index": 2500,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0561930338541665
+    },
+    {
+      "episode_index": 2500,
+      "camera": "observation.images.top",
+      "frame_index": 82,
+      "rot180back_vs_official_mae": 1.9773356119791667
+    },
+    {
+      "episode_index": 2500,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 82,
+      "rot180back_vs_official_mae": 1.8772989908854167
+    },
+    {
+      "episode_index": 2500,
+      "camera": "observation.images.top",
+      "frame_index": 163,
+      "rot180back_vs_official_mae": 2.10498046875
+    },
+    {
+      "episode_index": 2500,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 163,
+      "rot180back_vs_official_mae": 2.3044230143229165
+    },
+    {
+      "episode_index": 2525,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0102742513020835
+    },
+    {
+      "episode_index": 2525,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.1736043294270835
+    },
+    {
+      "episode_index": 2525,
+      "camera": "observation.images.top",
+      "frame_index": 67,
+      "rot180back_vs_official_mae": 2.3639729817708335
+    },
+    {
+      "episode_index": 2525,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 67,
+      "rot180back_vs_official_mae": 2.9313557942708335
+    },
+    {
+      "episode_index": 2525,
+      "camera": "observation.images.top",
+      "frame_index": 133,
+      "rot180back_vs_official_mae": 2.0515950520833335
+    },
+    {
+      "episode_index": 2525,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 133,
+      "rot180back_vs_official_mae": 2.71722412109375
+    },
+    {
+      "episode_index": 2550,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0228678385416665
+    },
+    {
+      "episode_index": 2550,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9866536458333333
+    },
+    {
+      "episode_index": 2550,
+      "camera": "observation.images.top",
+      "frame_index": 73,
+      "rot180back_vs_official_mae": 2.2651774088541665
+    },
+    {
+      "episode_index": 2550,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 73,
+      "rot180back_vs_official_mae": 2.0291544596354165
+    },
+    {
+      "episode_index": 2550,
+      "camera": "observation.images.top",
+      "frame_index": 145,
+      "rot180back_vs_official_mae": 2.0500284830729165
+    },
+    {
+      "episode_index": 2550,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 145,
+      "rot180back_vs_official_mae": 2.22369384765625
+    },
+    {
+      "episode_index": 2575,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0306193033854165
+    },
+    {
+      "episode_index": 2575,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9881184895833333
+    },
+    {
+      "episode_index": 2575,
+      "camera": "observation.images.top",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 2.0227457682291665
+    },
+    {
+      "episode_index": 2575,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 68,
+      "rot180back_vs_official_mae": 2.18359375
+    },
+    {
+      "episode_index": 2575,
+      "camera": "observation.images.top",
+      "frame_index": 136,
+      "rot180back_vs_official_mae": 2.07684326171875
+    },
+    {
+      "episode_index": 2575,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 136,
+      "rot180back_vs_official_mae": 1.9973551432291667
+    },
+    {
+      "episode_index": 2600,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0287882486979165
+    },
+    {
+      "episode_index": 2600,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.1990559895833335
+    },
+    {
+      "episode_index": 2600,
+      "camera": "observation.images.top",
+      "frame_index": 52,
+      "rot180back_vs_official_mae": 1.971923828125
+    },
+    {
+      "episode_index": 2600,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 52,
+      "rot180back_vs_official_mae": 2.1334228515625
+    },
+    {
+      "episode_index": 2600,
+      "camera": "observation.images.top",
+      "frame_index": 103,
+      "rot180back_vs_official_mae": 2.2496337890625
+    },
+    {
+      "episode_index": 2600,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 103,
+      "rot180back_vs_official_mae": 3.3595784505208335
+    },
+    {
+      "episode_index": 2625,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9863484700520833
+    },
+    {
+      "episode_index": 2625,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.2529296875
+    },
+    {
+      "episode_index": 2625,
+      "camera": "observation.images.top",
+      "frame_index": 58,
+      "rot180back_vs_official_mae": 1.94171142578125
+    },
+    {
+      "episode_index": 2625,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 58,
+      "rot180back_vs_official_mae": 2.1779988606770835
+    },
+    {
+      "episode_index": 2625,
+      "camera": "observation.images.top",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 2.169677734375
+    },
+    {
+      "episode_index": 2625,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 3.018310546875
+    },
+    {
+      "episode_index": 2650,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0343221028645835
+    },
+    {
+      "episode_index": 2650,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.13287353515625
+    },
+    {
+      "episode_index": 2650,
+      "camera": "observation.images.top",
+      "frame_index": 74,
+      "rot180back_vs_official_mae": 2.078125
+    },
+    {
+      "episode_index": 2650,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 74,
+      "rot180back_vs_official_mae": 2.16278076171875
+    },
+    {
+      "episode_index": 2650,
+      "camera": "observation.images.top",
+      "frame_index": 147,
+      "rot180back_vs_official_mae": 2.267822265625
+    },
+    {
+      "episode_index": 2650,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 147,
+      "rot180back_vs_official_mae": 3.0316569010416665
+    },
+    {
+      "episode_index": 2675,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0242919921875
+    },
+    {
+      "episode_index": 2675,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.1311442057291665
+    },
+    {
+      "episode_index": 2675,
+      "camera": "observation.images.top",
+      "frame_index": 104,
+      "rot180back_vs_official_mae": 1.9992879231770833
+    },
+    {
+      "episode_index": 2675,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 104,
+      "rot180back_vs_official_mae": 2.1738688151041665
+    },
+    {
+      "episode_index": 2675,
+      "camera": "observation.images.top",
+      "frame_index": 207,
+      "rot180back_vs_official_mae": 2.2256673177083335
+    },
+    {
+      "episode_index": 2675,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 207,
+      "rot180back_vs_official_mae": 3.1004231770833335
+    },
+    {
+      "episode_index": 2700,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.02032470703125
+    },
+    {
+      "episode_index": 2700,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.167236328125
+    },
+    {
+      "episode_index": 2700,
+      "camera": "observation.images.top",
+      "frame_index": 52,
+      "rot180back_vs_official_mae": 2.0446980794270835
+    },
+    {
+      "episode_index": 2700,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 52,
+      "rot180back_vs_official_mae": 1.9237467447916667
+    },
+    {
+      "episode_index": 2700,
+      "camera": "observation.images.top",
+      "frame_index": 103,
+      "rot180back_vs_official_mae": 2.1245524088541665
+    },
+    {
+      "episode_index": 2700,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 103,
+      "rot180back_vs_official_mae": 2.9592692057291665
+    },
+    {
+      "episode_index": 2725,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0007120768229165
+    },
+    {
+      "episode_index": 2725,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.1658528645833335
+    },
+    {
+      "episode_index": 2725,
+      "camera": "observation.images.top",
+      "frame_index": 51,
+      "rot180back_vs_official_mae": 2.4204508463541665
+    },
+    {
+      "episode_index": 2725,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 51,
+      "rot180back_vs_official_mae": 2.6177164713541665
+    },
+    {
+      "episode_index": 2725,
+      "camera": "observation.images.top",
+      "frame_index": 102,
+      "rot180back_vs_official_mae": 2.0166829427083335
+    },
+    {
+      "episode_index": 2725,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 102,
+      "rot180back_vs_official_mae": 1.8041788736979167
+    },
+    {
+      "episode_index": 2750,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8455607096354167
+    },
+    {
+      "episode_index": 2750,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0886637369791665
+    },
+    {
+      "episode_index": 2750,
+      "camera": "observation.images.top",
+      "frame_index": 55,
+      "rot180back_vs_official_mae": 2.3725992838541665
+    },
+    {
+      "episode_index": 2750,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 55,
+      "rot180back_vs_official_mae": 2.2353312174479165
+    },
+    {
+      "episode_index": 2750,
+      "camera": "observation.images.top",
+      "frame_index": 110,
+      "rot180back_vs_official_mae": 1.9914347330729167
+    },
+    {
+      "episode_index": 2750,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 110,
+      "rot180back_vs_official_mae": 2.1114908854166665
+    },
+    {
+      "episode_index": 2775,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8519694010416667
+    },
+    {
+      "episode_index": 2775,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0312093098958335
+    },
+    {
+      "episode_index": 2775,
+      "camera": "observation.images.top",
+      "frame_index": 56,
+      "rot180back_vs_official_mae": 1.8697713216145833
+    },
+    {
+      "episode_index": 2775,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 56,
+      "rot180back_vs_official_mae": 1.80419921875
+    },
+    {
+      "episode_index": 2775,
+      "camera": "observation.images.top",
+      "frame_index": 111,
+      "rot180back_vs_official_mae": 2.12744140625
+    },
+    {
+      "episode_index": 2775,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 111,
+      "rot180back_vs_official_mae": 3.1618245442708335
+    },
+    {
+      "episode_index": 2800,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8755086263020833
+    },
+    {
+      "episode_index": 2800,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.1145222981770835
+    },
+    {
+      "episode_index": 2800,
+      "camera": "observation.images.top",
+      "frame_index": 51,
+      "rot180back_vs_official_mae": 2.33258056640625
+    },
+    {
+      "episode_index": 2800,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 51,
+      "rot180back_vs_official_mae": 2.4189249674479165
+    },
+    {
+      "episode_index": 2800,
+      "camera": "observation.images.top",
+      "frame_index": 102,
+      "rot180back_vs_official_mae": 1.9773356119791667
+    },
+    {
+      "episode_index": 2800,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 102,
+      "rot180back_vs_official_mae": 2.40191650390625
+    },
+    {
+      "episode_index": 2825,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8790079752604167
+    },
+    {
+      "episode_index": 2825,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0125935872395835
+    },
+    {
+      "episode_index": 2825,
+      "camera": "observation.images.top",
+      "frame_index": 47,
+      "rot180back_vs_official_mae": 2.3841552734375
+    },
+    {
+      "episode_index": 2825,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 47,
+      "rot180back_vs_official_mae": 2.2917073567708335
+    },
+    {
+      "episode_index": 2825,
+      "camera": "observation.images.top",
+      "frame_index": 93,
+      "rot180back_vs_official_mae": 1.9995930989583333
+    },
+    {
+      "episode_index": 2825,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 93,
+      "rot180back_vs_official_mae": 2.3581746419270835
+    },
+    {
+      "episode_index": 2850,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8428548177083333
+    },
+    {
+      "episode_index": 2850,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.1357014973958335
+    },
+    {
+      "episode_index": 2850,
+      "camera": "observation.images.top",
+      "frame_index": 79,
+      "rot180back_vs_official_mae": 2.3351643880208335
+    },
+    {
+      "episode_index": 2850,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 79,
+      "rot180back_vs_official_mae": 2.2434895833333335
+    },
+    {
+      "episode_index": 2850,
+      "camera": "observation.images.top",
+      "frame_index": 157,
+      "rot180back_vs_official_mae": 1.8696492513020833
+    },
+    {
+      "episode_index": 2850,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 157,
+      "rot180back_vs_official_mae": 2.1514892578125
+    },
+    {
+      "episode_index": 2875,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8661295572916667
+    },
+    {
+      "episode_index": 2875,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9566446940104167
+    },
+    {
+      "episode_index": 2875,
+      "camera": "observation.images.top",
+      "frame_index": 80,
+      "rot180back_vs_official_mae": 1.87493896484375
+    },
+    {
+      "episode_index": 2875,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 80,
+      "rot180back_vs_official_mae": 1.5987955729166667
+    },
+    {
+      "episode_index": 2875,
+      "camera": "observation.images.top",
+      "frame_index": 159,
+      "rot180back_vs_official_mae": 2.0923055013020835
+    },
+    {
+      "episode_index": 2875,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 159,
+      "rot180back_vs_official_mae": 2.8252766927083335
+    },
+    {
+      "episode_index": 2900,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.88525390625
+    },
+    {
+      "episode_index": 2900,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.90289306640625
+    },
+    {
+      "episode_index": 2900,
+      "camera": "observation.images.top",
+      "frame_index": 71,
+      "rot180back_vs_official_mae": 2.0663248697916665
+    },
+    {
+      "episode_index": 2900,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 71,
+      "rot180back_vs_official_mae": 2.0093994140625
+    },
+    {
+      "episode_index": 2900,
+      "camera": "observation.images.top",
+      "frame_index": 142,
+      "rot180back_vs_official_mae": 1.94415283203125
+    },
+    {
+      "episode_index": 2900,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 142,
+      "rot180back_vs_official_mae": 2.23980712890625
+    },
+    {
+      "episode_index": 2925,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.86322021484375
+    },
+    {
+      "episode_index": 2925,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0580240885416665
+    },
+    {
+      "episode_index": 2925,
+      "camera": "observation.images.top",
+      "frame_index": 94,
+      "rot180back_vs_official_mae": 1.8514404296875
+    },
+    {
+      "episode_index": 2925,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 94,
+      "rot180back_vs_official_mae": 1.7067057291666667
+    },
+    {
+      "episode_index": 2925,
+      "camera": "observation.images.top",
+      "frame_index": 188,
+      "rot180back_vs_official_mae": 1.96875
+    },
+    {
+      "episode_index": 2925,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 188,
+      "rot180back_vs_official_mae": 2.2352294921875
+    },
+    {
+      "episode_index": 2950,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8669637044270833
+    },
+    {
+      "episode_index": 2950,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.08209228515625
+    },
+    {
+      "episode_index": 2950,
+      "camera": "observation.images.top",
+      "frame_index": 64,
+      "rot180back_vs_official_mae": 1.8643595377604167
+    },
+    {
+      "episode_index": 2950,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 64,
+      "rot180back_vs_official_mae": 1.9185994466145833
+    },
+    {
+      "episode_index": 2950,
+      "camera": "observation.images.top",
+      "frame_index": 127,
+      "rot180back_vs_official_mae": 2.0657958984375
+    },
+    {
+      "episode_index": 2950,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 127,
+      "rot180back_vs_official_mae": 3.2072957356770835
+    },
+    {
+      "episode_index": 2975,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8962198893229167
+    },
+    {
+      "episode_index": 2975,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0791829427083335
+    },
+    {
+      "episode_index": 2975,
+      "camera": "observation.images.top",
+      "frame_index": 62,
+      "rot180back_vs_official_mae": 1.8828125
+    },
+    {
+      "episode_index": 2975,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 62,
+      "rot180back_vs_official_mae": 2.0124308268229165
+    },
+    {
+      "episode_index": 2975,
+      "camera": "observation.images.top",
+      "frame_index": 124,
+      "rot180back_vs_official_mae": 1.9307657877604167
+    },
+    {
+      "episode_index": 2975,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 124,
+      "rot180back_vs_official_mae": 2.146728515625
+    },
+    {
+      "episode_index": 3000,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7803955078125
+    },
+    {
+      "episode_index": 3000,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9037272135416667
+    },
+    {
+      "episode_index": 3000,
+      "camera": "observation.images.top",
+      "frame_index": 55,
+      "rot180back_vs_official_mae": 2.128173828125
+    },
+    {
+      "episode_index": 3000,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 55,
+      "rot180back_vs_official_mae": 2.2698160807291665
+    },
+    {
+      "episode_index": 3000,
+      "camera": "observation.images.top",
+      "frame_index": 109,
+      "rot180back_vs_official_mae": 2.1443684895833335
+    },
+    {
+      "episode_index": 3000,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 109,
+      "rot180back_vs_official_mae": 3.39801025390625
+    },
+    {
+      "episode_index": 3025,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8073933919270833
+    },
+    {
+      "episode_index": 3025,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.03515625
+    },
+    {
+      "episode_index": 3025,
+      "camera": "observation.images.top",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 2.2560221354166665
+    },
+    {
+      "episode_index": 3025,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 2.3020833333333335
+    },
+    {
+      "episode_index": 3025,
+      "camera": "observation.images.top",
+      "frame_index": 126,
+      "rot180back_vs_official_mae": 1.8296101888020833
+    },
+    {
+      "episode_index": 3025,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 126,
+      "rot180back_vs_official_mae": 2.08575439453125
+    },
+    {
+      "episode_index": 3050,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7693684895833333
+    },
+    {
+      "episode_index": 3050,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9836832682291667
+    },
+    {
+      "episode_index": 3050,
+      "camera": "observation.images.top",
+      "frame_index": 75,
+      "rot180back_vs_official_mae": 2.2763468424479165
+    },
+    {
+      "episode_index": 3050,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 75,
+      "rot180back_vs_official_mae": 2.64031982421875
+    },
+    {
+      "episode_index": 3050,
+      "camera": "observation.images.top",
+      "frame_index": 150,
+      "rot180back_vs_official_mae": 1.88525390625
+    },
+    {
+      "episode_index": 3050,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 150,
+      "rot180back_vs_official_mae": 2.1728719075520835
+    },
+    {
+      "episode_index": 3075,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.78759765625
+    },
+    {
+      "episode_index": 3075,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0575358072916665
+    },
+    {
+      "episode_index": 3075,
+      "camera": "observation.images.top",
+      "frame_index": 82,
+      "rot180back_vs_official_mae": 1.8026529947916667
+    },
+    {
+      "episode_index": 3075,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 82,
+      "rot180back_vs_official_mae": 2.1700439453125
+    },
+    {
+      "episode_index": 3075,
+      "camera": "observation.images.top",
+      "frame_index": 163,
+      "rot180back_vs_official_mae": 1.97344970703125
+    },
+    {
+      "episode_index": 3075,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 163,
+      "rot180back_vs_official_mae": 2.8612467447916665
+    },
+    {
+      "episode_index": 3100,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8004353841145833
+    },
+    {
+      "episode_index": 3100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.03887939453125
+    },
+    {
+      "episode_index": 3100,
+      "camera": "observation.images.top",
+      "frame_index": 57,
+      "rot180back_vs_official_mae": 2.0744832356770835
+    },
+    {
+      "episode_index": 3100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 57,
+      "rot180back_vs_official_mae": 2.42388916015625
+    },
+    {
+      "episode_index": 3100,
+      "camera": "observation.images.top",
+      "frame_index": 113,
+      "rot180back_vs_official_mae": 2.10467529296875
+    },
+    {
+      "episode_index": 3100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 113,
+      "rot180back_vs_official_mae": 3.1044514973958335
+    },
+    {
+      "episode_index": 3125,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7787679036458333
+    },
+    {
+      "episode_index": 3125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9242960611979167
+    },
+    {
+      "episode_index": 3125,
+      "camera": "observation.images.top",
+      "frame_index": 61,
+      "rot180back_vs_official_mae": 2.0759684244791665
+    },
+    {
+      "episode_index": 3125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 61,
+      "rot180back_vs_official_mae": 2.593994140625
+    },
+    {
+      "episode_index": 3125,
+      "camera": "observation.images.top",
+      "frame_index": 121,
+      "rot180back_vs_official_mae": 2.0796915690104165
+    },
+    {
+      "episode_index": 3125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 121,
+      "rot180back_vs_official_mae": 3.2804768880208335
+    },
+    {
+      "episode_index": 3150,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7968546549479167
+    },
+    {
+      "episode_index": 3150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.02008056640625
+    },
+    {
+      "episode_index": 3150,
+      "camera": "observation.images.top",
+      "frame_index": 103,
+      "rot180back_vs_official_mae": 2.1614176432291665
+    },
+    {
+      "episode_index": 3150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 103,
+      "rot180back_vs_official_mae": 2.2865804036458335
+    },
+    {
+      "episode_index": 3150,
+      "camera": "observation.images.top",
+      "frame_index": 205,
+      "rot180back_vs_official_mae": 2.0143025716145835
+    },
+    {
+      "episode_index": 3150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 205,
+      "rot180back_vs_official_mae": 3.3031819661458335
+    },
+    {
+      "episode_index": 3175,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7512410481770833
+    },
+    {
+      "episode_index": 3175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.94061279296875
+    },
+    {
+      "episode_index": 3175,
+      "camera": "observation.images.top",
+      "frame_index": 111,
+      "rot180back_vs_official_mae": 2.171142578125
+    },
+    {
+      "episode_index": 3175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 111,
+      "rot180back_vs_official_mae": 2.1786092122395835
+    },
+    {
+      "episode_index": 3175,
+      "camera": "observation.images.top",
+      "frame_index": 222,
+      "rot180back_vs_official_mae": 1.8111572265625
+    },
+    {
+      "episode_index": 3175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 222,
+      "rot180back_vs_official_mae": 2.1967569986979165
+    },
+    {
+      "episode_index": 3200,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7956339518229167
+    },
+    {
+      "episode_index": 3200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0475870768229165
+    },
+    {
+      "episode_index": 3200,
+      "camera": "observation.images.top",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 2.1748250325520835
+    },
+    {
+      "episode_index": 3200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 2.6222330729166665
+    },
+    {
+      "episode_index": 3200,
+      "camera": "observation.images.top",
+      "frame_index": 230,
+      "rot180back_vs_official_mae": 1.8147989908854167
+    },
+    {
+      "episode_index": 3200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 230,
+      "rot180back_vs_official_mae": 2.3111979166666665
+    },
+    {
+      "episode_index": 3225,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7765706380208333
+    },
+    {
+      "episode_index": 3225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9629109700520833
+    },
+    {
+      "episode_index": 3225,
+      "camera": "observation.images.top",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 2.1974690755208335
+    },
+    {
+      "episode_index": 3225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 2.4829915364583335
+    },
+    {
+      "episode_index": 3225,
+      "camera": "observation.images.top",
+      "frame_index": 229,
+      "rot180back_vs_official_mae": 2.0990397135416665
+    },
+    {
+      "episode_index": 3225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 229,
+      "rot180back_vs_official_mae": 2.7679646809895835
+    },
+    {
+      "episode_index": 3250,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7601521809895833
+    },
+    {
+      "episode_index": 3250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7550862630208333
+    },
+    {
+      "episode_index": 3250,
+      "camera": "observation.images.top",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 2.1396484375
+    },
+    {
+      "episode_index": 3250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 2.2036539713541665
+    },
+    {
+      "episode_index": 3250,
+      "camera": "observation.images.top",
+      "frame_index": 126,
+      "rot180back_vs_official_mae": 1.8722941080729167
+    },
+    {
+      "episode_index": 3250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 126,
+      "rot180back_vs_official_mae": 1.803955078125
+    },
+    {
+      "episode_index": 3275,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7634480794270833
+    },
+    {
+      "episode_index": 3275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7961222330729167
+    },
+    {
+      "episode_index": 3275,
+      "camera": "observation.images.top",
+      "frame_index": 67,
+      "rot180back_vs_official_mae": 2.0654296875
+    },
+    {
+      "episode_index": 3275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 67,
+      "rot180back_vs_official_mae": 2.1985880533854165
+    },
+    {
+      "episode_index": 3275,
+      "camera": "observation.images.top",
+      "frame_index": 133,
+      "rot180back_vs_official_mae": 2.0258585611979165
+    },
+    {
+      "episode_index": 3275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 133,
+      "rot180back_vs_official_mae": 2.3050333658854165
+    },
+    {
+      "episode_index": 3300,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7352701822916667
+    },
+    {
+      "episode_index": 3300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8735148111979167
+    },
+    {
+      "episode_index": 3300,
+      "camera": "observation.images.top",
+      "frame_index": 90,
+      "rot180back_vs_official_mae": 1.81451416015625
+    },
+    {
+      "episode_index": 3300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 90,
+      "rot180back_vs_official_mae": 1.83868408203125
+    },
+    {
+      "episode_index": 3300,
+      "camera": "observation.images.top",
+      "frame_index": 179,
+      "rot180back_vs_official_mae": 1.8566080729166667
+    },
+    {
+      "episode_index": 3300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 179,
+      "rot180back_vs_official_mae": 2.3205159505208335
+    },
+    {
+      "episode_index": 3325,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7878621419270833
+    },
+    {
+      "episode_index": 3325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8161824544270833
+    },
+    {
+      "episode_index": 3325,
+      "camera": "observation.images.top",
+      "frame_index": 72,
+      "rot180back_vs_official_mae": 1.7430013020833333
+    },
+    {
+      "episode_index": 3325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 72,
+      "rot180back_vs_official_mae": 1.61578369140625
+    },
+    {
+      "episode_index": 3325,
+      "camera": "observation.images.top",
+      "frame_index": 144,
+      "rot180back_vs_official_mae": 1.83135986328125
+    },
+    {
+      "episode_index": 3325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 144,
+      "rot180back_vs_official_mae": 1.8521931966145833
+    },
+    {
+      "episode_index": 3350,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8167724609375
+    },
+    {
+      "episode_index": 3350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.89703369140625
+    },
+    {
+      "episode_index": 3350,
+      "camera": "observation.images.top",
+      "frame_index": 44,
+      "rot180back_vs_official_mae": 1.810302734375
+    },
+    {
+      "episode_index": 3350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 44,
+      "rot180back_vs_official_mae": 1.86505126953125
+    },
+    {
+      "episode_index": 3350,
+      "camera": "observation.images.top",
+      "frame_index": 87,
+      "rot180back_vs_official_mae": 2.0347900390625
+    },
+    {
+      "episode_index": 3350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 87,
+      "rot180back_vs_official_mae": 2.4744669596354165
+    },
+    {
+      "episode_index": 3375,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8135782877604167
+    },
+    {
+      "episode_index": 3375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8932698567708333
+    },
+    {
+      "episode_index": 3375,
+      "camera": "observation.images.top",
+      "frame_index": 57,
+      "rot180back_vs_official_mae": 2.2207845052083335
+    },
+    {
+      "episode_index": 3375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 57,
+      "rot180back_vs_official_mae": 2.2198282877604165
+    },
+    {
+      "episode_index": 3375,
+      "camera": "observation.images.top",
+      "frame_index": 113,
+      "rot180back_vs_official_mae": 2.09869384765625
+    },
+    {
+      "episode_index": 3375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 113,
+      "rot180back_vs_official_mae": 2.4200642903645835
+    },
+    {
+      "episode_index": 3400,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7619222005208333
+    },
+    {
+      "episode_index": 3400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8646036783854167
+    },
+    {
+      "episode_index": 3400,
+      "camera": "observation.images.top",
+      "frame_index": 60,
+      "rot180back_vs_official_mae": 1.8431193033854167
+    },
+    {
+      "episode_index": 3400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 60,
+      "rot180back_vs_official_mae": 1.992431640625
+    },
+    {
+      "episode_index": 3400,
+      "camera": "observation.images.top",
+      "frame_index": 120,
+      "rot180back_vs_official_mae": 1.8220011393229167
+    },
+    {
+      "episode_index": 3400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 120,
+      "rot180back_vs_official_mae": 2.00726318359375
+    },
+    {
+      "episode_index": 3425,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.75579833984375
+    },
+    {
+      "episode_index": 3425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.86907958984375
+    },
+    {
+      "episode_index": 3425,
+      "camera": "observation.images.top",
+      "frame_index": 75,
+      "rot180back_vs_official_mae": 2.2182820638020835
+    },
+    {
+      "episode_index": 3425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 75,
+      "rot180back_vs_official_mae": 2.70733642578125
+    },
+    {
+      "episode_index": 3425,
+      "camera": "observation.images.top",
+      "frame_index": 149,
+      "rot180back_vs_official_mae": 1.8655598958333333
+    },
+    {
+      "episode_index": 3425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 149,
+      "rot180back_vs_official_mae": 2.3093668619791665
+    },
+    {
+      "episode_index": 3450,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7506917317708333
+    },
+    {
+      "episode_index": 3450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8426920572916667
+    },
+    {
+      "episode_index": 3450,
+      "camera": "observation.images.top",
+      "frame_index": 55,
+      "rot180back_vs_official_mae": 1.8612060546875
+    },
+    {
+      "episode_index": 3450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 55,
+      "rot180back_vs_official_mae": 2.1448160807291665
+    },
+    {
+      "episode_index": 3450,
+      "camera": "observation.images.top",
+      "frame_index": 109,
+      "rot180back_vs_official_mae": 2.1540323893229165
+    },
+    {
+      "episode_index": 3450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 109,
+      "rot180back_vs_official_mae": 2.3758951822916665
+    },
+    {
+      "episode_index": 3475,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7032267252604167
+    },
+    {
+      "episode_index": 3475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7790934244791667
+    },
+    {
+      "episode_index": 3475,
+      "camera": "observation.images.top",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 1.68536376953125
+    },
+    {
+      "episode_index": 3475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 92,
+      "rot180back_vs_official_mae": 1.9789225260416667
+    },
+    {
+      "episode_index": 3475,
+      "camera": "observation.images.top",
+      "frame_index": 183,
+      "rot180back_vs_official_mae": 1.86370849609375
+    },
+    {
+      "episode_index": 3475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 183,
+      "rot180back_vs_official_mae": 1.8805135091145833
+    },
+    {
+      "episode_index": 3500,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7050374348958333
+    },
+    {
+      "episode_index": 3500,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7527262369791667
+    },
+    {
+      "episode_index": 3500,
+      "camera": "observation.images.top",
+      "frame_index": 38,
+      "rot180back_vs_official_mae": 1.77374267578125
+    },
+    {
+      "episode_index": 3500,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 38,
+      "rot180back_vs_official_mae": 1.6597086588541667
+    },
+    {
+      "episode_index": 3500,
+      "camera": "observation.images.top",
+      "frame_index": 76,
+      "rot180back_vs_official_mae": 1.8623860677083333
+    },
+    {
+      "episode_index": 3500,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 76,
+      "rot180back_vs_official_mae": 1.8677571614583333
+    },
+    {
+      "episode_index": 3525,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7092488606770833
+    },
+    {
+      "episode_index": 3525,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8142293294270833
+    },
+    {
+      "episode_index": 3525,
+      "camera": "observation.images.top",
+      "frame_index": 39,
+      "rot180back_vs_official_mae": 2.17523193359375
+    },
+    {
+      "episode_index": 3525,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 39,
+      "rot180back_vs_official_mae": 2.26055908203125
+    },
+    {
+      "episode_index": 3525,
+      "camera": "observation.images.top",
+      "frame_index": 78,
+      "rot180back_vs_official_mae": 1.8756306966145833
+    },
+    {
+      "episode_index": 3525,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 78,
+      "rot180back_vs_official_mae": 2.1880086263020835
+    },
+    {
+      "episode_index": 3550,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.70306396484375
+    },
+    {
+      "episode_index": 3550,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8252766927083333
+    },
+    {
+      "episode_index": 3550,
+      "camera": "observation.images.top",
+      "frame_index": 58,
+      "rot180back_vs_official_mae": 1.7245279947916667
+    },
+    {
+      "episode_index": 3550,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 58,
+      "rot180back_vs_official_mae": 1.85052490234375
+    },
+    {
+      "episode_index": 3550,
+      "camera": "observation.images.top",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 2.3403116861979165
+    },
+    {
+      "episode_index": 3550,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 115,
+      "rot180back_vs_official_mae": 2.5127156575520835
+    },
+    {
+      "episode_index": 3575,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7034098307291667
+    },
+    {
+      "episode_index": 3575,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.75238037109375
+    },
+    {
+      "episode_index": 3575,
+      "camera": "observation.images.top",
+      "frame_index": 61,
+      "rot180back_vs_official_mae": 1.99859619140625
+    },
+    {
+      "episode_index": 3575,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 61,
+      "rot180back_vs_official_mae": 2.1444091796875
+    },
+    {
+      "episode_index": 3575,
+      "camera": "observation.images.top",
+      "frame_index": 122,
+      "rot180back_vs_official_mae": 1.8114827473958333
+    },
+    {
+      "episode_index": 3575,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 122,
+      "rot180back_vs_official_mae": 2.0796305338541665
+    },
+    {
+      "episode_index": 3600,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6911417643229167
+    },
+    {
+      "episode_index": 3600,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8646240234375
+    },
+    {
+      "episode_index": 3600,
+      "camera": "observation.images.top",
+      "frame_index": 73,
+      "rot180back_vs_official_mae": 2.0857747395833335
+    },
+    {
+      "episode_index": 3600,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 73,
+      "rot180back_vs_official_mae": 1.9724324544270833
+    },
+    {
+      "episode_index": 3600,
+      "camera": "observation.images.top",
+      "frame_index": 146,
+      "rot180back_vs_official_mae": 1.77972412109375
+    },
+    {
+      "episode_index": 3600,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 146,
+      "rot180back_vs_official_mae": 1.85064697265625
+    },
+    {
+      "episode_index": 3625,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7343953450520833
+    },
+    {
+      "episode_index": 3625,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.88494873046875
+    },
+    {
+      "episode_index": 3625,
+      "camera": "observation.images.top",
+      "frame_index": 89,
+      "rot180back_vs_official_mae": 1.9986368815104167
+    },
+    {
+      "episode_index": 3625,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 89,
+      "rot180back_vs_official_mae": 2.2003987630208335
+    },
+    {
+      "episode_index": 3625,
+      "camera": "observation.images.top",
+      "frame_index": 177,
+      "rot180back_vs_official_mae": 2.43865966796875
+    },
+    {
+      "episode_index": 3625,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 177,
+      "rot180back_vs_official_mae": 2.3758748372395835
+    },
+    {
+      "episode_index": 3650,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8706868489583333
+    },
+    {
+      "episode_index": 3650,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6967569986979167
+    },
+    {
+      "episode_index": 3650,
+      "camera": "observation.images.top",
+      "frame_index": 82,
+      "rot180back_vs_official_mae": 1.8513387044270833
+    },
+    {
+      "episode_index": 3650,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 82,
+      "rot180back_vs_official_mae": 1.90216064453125
+    },
+    {
+      "episode_index": 3650,
+      "camera": "observation.images.top",
+      "frame_index": 164,
+      "rot180back_vs_official_mae": 1.91754150390625
+    },
+    {
+      "episode_index": 3650,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 164,
+      "rot180back_vs_official_mae": 1.0477498372395833
+    },
+    {
+      "episode_index": 3675,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.88226318359375
+    },
+    {
+      "episode_index": 3675,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7836507161458333
+    },
+    {
+      "episode_index": 3675,
+      "camera": "observation.images.top",
+      "frame_index": 83,
+      "rot180back_vs_official_mae": 2.2155354817708335
+    },
+    {
+      "episode_index": 3675,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 83,
+      "rot180back_vs_official_mae": 2.2396647135416665
+    },
+    {
+      "episode_index": 3675,
+      "camera": "observation.images.top",
+      "frame_index": 165,
+      "rot180back_vs_official_mae": 2.0818684895833335
+    },
+    {
+      "episode_index": 3675,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 165,
+      "rot180back_vs_official_mae": 1.02685546875
+    },
+    {
+      "episode_index": 3700,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8074137369791667
+    },
+    {
+      "episode_index": 3700,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6223958333333333
+    },
+    {
+      "episode_index": 3700,
+      "camera": "observation.images.top",
+      "frame_index": 74,
+      "rot180back_vs_official_mae": 1.81695556640625
+    },
+    {
+      "episode_index": 3700,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 74,
+      "rot180back_vs_official_mae": 1.7514241536458333
+    },
+    {
+      "episode_index": 3700,
+      "camera": "observation.images.top",
+      "frame_index": 147,
+      "rot180back_vs_official_mae": 2.0394490559895835
+    },
+    {
+      "episode_index": 3700,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 147,
+      "rot180back_vs_official_mae": 1.7795817057291667
+    },
+    {
+      "episode_index": 3725,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.93133544921875
+    },
+    {
+      "episode_index": 3725,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.88555908203125
+    },
+    {
+      "episode_index": 3725,
+      "camera": "observation.images.top",
+      "frame_index": 75,
+      "rot180back_vs_official_mae": 2.1817220052083335
+    },
+    {
+      "episode_index": 3725,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 75,
+      "rot180back_vs_official_mae": 2.28570556640625
+    },
+    {
+      "episode_index": 3725,
+      "camera": "observation.images.top",
+      "frame_index": 150,
+      "rot180back_vs_official_mae": 1.91461181640625
+    },
+    {
+      "episode_index": 3725,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 150,
+      "rot180back_vs_official_mae": 1.61968994140625
+    },
+    {
+      "episode_index": 3750,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8495890299479167
+    },
+    {
+      "episode_index": 3750,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.83160400390625
+    },
+    {
+      "episode_index": 3750,
+      "camera": "observation.images.top",
+      "frame_index": 71,
+      "rot180back_vs_official_mae": 2.1947224934895835
+    },
+    {
+      "episode_index": 3750,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 71,
+      "rot180back_vs_official_mae": 2.2649739583333335
+    },
+    {
+      "episode_index": 3750,
+      "camera": "observation.images.top",
+      "frame_index": 141,
+      "rot180back_vs_official_mae": 2.0684407552083335
+    },
+    {
+      "episode_index": 3750,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 141,
+      "rot180back_vs_official_mae": 1.5
+    },
+    {
+      "episode_index": 3775,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.81414794921875
+    },
+    {
+      "episode_index": 3775,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8165690104166667
+    },
+    {
+      "episode_index": 3775,
+      "camera": "observation.images.top",
+      "frame_index": 81,
+      "rot180back_vs_official_mae": 2.1781412760416665
+    },
+    {
+      "episode_index": 3775,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 81,
+      "rot180back_vs_official_mae": 2.1863606770833335
+    },
+    {
+      "episode_index": 3775,
+      "camera": "observation.images.top",
+      "frame_index": 161,
+      "rot180back_vs_official_mae": 2.12371826171875
+    },
+    {
+      "episode_index": 3775,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 161,
+      "rot180back_vs_official_mae": 1.9841105143229167
+    },
+    {
+      "episode_index": 3800,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8656819661458333
+    },
+    {
+      "episode_index": 3800,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6115315755208333
+    },
+    {
+      "episode_index": 3800,
+      "camera": "observation.images.top",
+      "frame_index": 64,
+      "rot180back_vs_official_mae": 1.88427734375
+    },
+    {
+      "episode_index": 3800,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 64,
+      "rot180back_vs_official_mae": 1.5894571940104167
+    },
+    {
+      "episode_index": 3800,
+      "camera": "observation.images.top",
+      "frame_index": 128,
+      "rot180back_vs_official_mae": 1.8837076822916667
+    },
+    {
+      "episode_index": 3800,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 128,
+      "rot180back_vs_official_mae": 1.67694091796875
+    },
+    {
+      "episode_index": 3825,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8248494466145833
+    },
+    {
+      "episode_index": 3825,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.861083984375
+    },
+    {
+      "episode_index": 3825,
+      "camera": "observation.images.top",
+      "frame_index": 66,
+      "rot180back_vs_official_mae": 1.8808186848958333
+    },
+    {
+      "episode_index": 3825,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 66,
+      "rot180back_vs_official_mae": 1.66876220703125
+    },
+    {
+      "episode_index": 3825,
+      "camera": "observation.images.top",
+      "frame_index": 132,
+      "rot180back_vs_official_mae": 1.8643391927083333
+    },
+    {
+      "episode_index": 3825,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 132,
+      "rot180back_vs_official_mae": 1.65618896484375
+    },
+    {
+      "episode_index": 3850,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8802693684895833
+    },
+    {
+      "episode_index": 3850,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7711181640625
+    },
+    {
+      "episode_index": 3850,
+      "camera": "observation.images.top",
+      "frame_index": 98,
+      "rot180back_vs_official_mae": 1.8089599609375
+    },
+    {
+      "episode_index": 3850,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 98,
+      "rot180back_vs_official_mae": 1.6025797526041667
+    },
+    {
+      "episode_index": 3850,
+      "camera": "observation.images.top",
+      "frame_index": 196,
+      "rot180back_vs_official_mae": 1.9404093424479167
+    },
+    {
+      "episode_index": 3850,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 196,
+      "rot180back_vs_official_mae": 1.5757853190104167
+    },
+    {
+      "episode_index": 3875,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8700968424479167
+    },
+    {
+      "episode_index": 3875,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6591593424479167
+    },
+    {
+      "episode_index": 3875,
+      "camera": "observation.images.top",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 2.12286376953125
+    },
+    {
+      "episode_index": 3875,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 2.1527913411458335
+    },
+    {
+      "episode_index": 3875,
+      "camera": "observation.images.top",
+      "frame_index": 125,
+      "rot180back_vs_official_mae": 1.9395955403645833
+    },
+    {
+      "episode_index": 3875,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 125,
+      "rot180back_vs_official_mae": 2.0057169596354165
+    },
+    {
+      "episode_index": 3900,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8730061848958333
+    },
+    {
+      "episode_index": 3900,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.6684977213541667
+    },
+    {
+      "episode_index": 3900,
+      "camera": "observation.images.top",
+      "frame_index": 66,
+      "rot180back_vs_official_mae": 1.8806355794270833
+    },
+    {
+      "episode_index": 3900,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 66,
+      "rot180back_vs_official_mae": 1.5705159505208333
+    },
+    {
+      "episode_index": 3900,
+      "camera": "observation.images.top",
+      "frame_index": 132,
+      "rot180back_vs_official_mae": 1.9215291341145833
+    },
+    {
+      "episode_index": 3900,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 132,
+      "rot180back_vs_official_mae": 0.9813435872395834
+    },
+    {
+      "episode_index": 3925,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8361002604166667
+    },
+    {
+      "episode_index": 3925,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7977091471354167
+    },
+    {
+      "episode_index": 3925,
+      "camera": "observation.images.top",
+      "frame_index": 82,
+      "rot180back_vs_official_mae": 1.8417765299479167
+    },
+    {
+      "episode_index": 3925,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 82,
+      "rot180back_vs_official_mae": 1.7968953450520833
+    },
+    {
+      "episode_index": 3925,
+      "camera": "observation.images.top",
+      "frame_index": 164,
+      "rot180back_vs_official_mae": 1.91058349609375
+    },
+    {
+      "episode_index": 3925,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 164,
+      "rot180back_vs_official_mae": 1.2007853190104167
+    },
+    {
+      "episode_index": 3950,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8489176432291667
+    },
+    {
+      "episode_index": 3950,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7361246744791667
+    },
+    {
+      "episode_index": 3950,
+      "camera": "observation.images.top",
+      "frame_index": 54,
+      "rot180back_vs_official_mae": 1.8851725260416667
+    },
+    {
+      "episode_index": 3950,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 54,
+      "rot180back_vs_official_mae": 1.5674845377604167
+    },
+    {
+      "episode_index": 3950,
+      "camera": "observation.images.top",
+      "frame_index": 107,
+      "rot180back_vs_official_mae": 2.0406901041666665
+    },
+    {
+      "episode_index": 3950,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 107,
+      "rot180back_vs_official_mae": 1.8284708658854167
+    },
+    {
+      "episode_index": 3975,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.81134033203125
+    },
+    {
+      "episode_index": 3975,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.70697021484375
+    },
+    {
+      "episode_index": 3975,
+      "camera": "observation.images.top",
+      "frame_index": 57,
+      "rot180back_vs_official_mae": 2.3508707682291665
+    },
+    {
+      "episode_index": 3975,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 57,
+      "rot180back_vs_official_mae": 2.0088907877604165
+    },
+    {
+      "episode_index": 3975,
+      "camera": "observation.images.top",
+      "frame_index": 114,
+      "rot180back_vs_official_mae": 1.8994344075520833
+    },
+    {
+      "episode_index": 3975,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 114,
+      "rot180back_vs_official_mae": 1.29541015625
+    },
+    {
+      "episode_index": 4000,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.842041015625
+    },
+    {
+      "episode_index": 4000,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7475789388020833
+    },
+    {
+      "episode_index": 4000,
+      "camera": "observation.images.top",
+      "frame_index": 80,
+      "rot180back_vs_official_mae": 1.8642171223958333
+    },
+    {
+      "episode_index": 4000,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 80,
+      "rot180back_vs_official_mae": 1.9120076497395833
+    },
+    {
+      "episode_index": 4000,
+      "camera": "observation.images.top",
+      "frame_index": 160,
+      "rot180back_vs_official_mae": 1.8981730143229167
+    },
+    {
+      "episode_index": 4000,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 160,
+      "rot180back_vs_official_mae": 1.2156168619791667
+    },
+    {
+      "episode_index": 4025,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.84844970703125
+    },
+    {
+      "episode_index": 4025,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7030436197916667
+    },
+    {
+      "episode_index": 4025,
+      "camera": "observation.images.top",
+      "frame_index": 108,
+      "rot180back_vs_official_mae": 1.8086954752604167
+    },
+    {
+      "episode_index": 4025,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 108,
+      "rot180back_vs_official_mae": 1.7165120442708333
+    },
+    {
+      "episode_index": 4025,
+      "camera": "observation.images.top",
+      "frame_index": 216,
+      "rot180back_vs_official_mae": 1.8892008463541667
+    },
+    {
+      "episode_index": 4025,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 216,
+      "rot180back_vs_official_mae": 1.3802286783854167
+    },
+    {
+      "episode_index": 4050,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9573974609375
+    },
+    {
+      "episode_index": 4050,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8075358072916667
+    },
+    {
+      "episode_index": 4050,
+      "camera": "observation.images.top",
+      "frame_index": 69,
+      "rot180back_vs_official_mae": 2.3538004557291665
+    },
+    {
+      "episode_index": 4050,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 69,
+      "rot180back_vs_official_mae": 1.7528483072916667
+    },
+    {
+      "episode_index": 4050,
+      "camera": "observation.images.top",
+      "frame_index": 138,
+      "rot180back_vs_official_mae": 1.99859619140625
+    },
+    {
+      "episode_index": 4050,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 138,
+      "rot180back_vs_official_mae": 0.912353515625
+    },
+    {
+      "episode_index": 4075,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.91619873046875
+    },
+    {
+      "episode_index": 4075,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9327189127604167
+    },
+    {
+      "episode_index": 4075,
+      "camera": "observation.images.top",
+      "frame_index": 64,
+      "rot180back_vs_official_mae": 1.9476318359375
+    },
+    {
+      "episode_index": 4075,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 64,
+      "rot180back_vs_official_mae": 1.7049357096354167
+    },
+    {
+      "episode_index": 4075,
+      "camera": "observation.images.top",
+      "frame_index": 128,
+      "rot180back_vs_official_mae": 2.0003255208333335
+    },
+    {
+      "episode_index": 4075,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 128,
+      "rot180back_vs_official_mae": 1.06884765625
+    },
+    {
+      "episode_index": 4100,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9158935546875
+    },
+    {
+      "episode_index": 4100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8651326497395833
+    },
+    {
+      "episode_index": 4100,
+      "camera": "observation.images.top",
+      "frame_index": 79,
+      "rot180back_vs_official_mae": 2.2596842447916665
+    },
+    {
+      "episode_index": 4100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 79,
+      "rot180back_vs_official_mae": 2.15032958984375
+    },
+    {
+      "episode_index": 4100,
+      "camera": "observation.images.top",
+      "frame_index": 158,
+      "rot180back_vs_official_mae": 2.0123697916666665
+    },
+    {
+      "episode_index": 4100,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 158,
+      "rot180back_vs_official_mae": 1.4520670572916667
+    },
+    {
+      "episode_index": 4125,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9246622721354167
+    },
+    {
+      "episode_index": 4125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8636271158854167
+    },
+    {
+      "episode_index": 4125,
+      "camera": "observation.images.top",
+      "frame_index": 62,
+      "rot180back_vs_official_mae": 1.9429117838541667
+    },
+    {
+      "episode_index": 4125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 62,
+      "rot180back_vs_official_mae": 1.5475667317708333
+    },
+    {
+      "episode_index": 4125,
+      "camera": "observation.images.top",
+      "frame_index": 124,
+      "rot180back_vs_official_mae": 2.0137736002604165
+    },
+    {
+      "episode_index": 4125,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 124,
+      "rot180back_vs_official_mae": 1.4011027018229167
+    },
+    {
+      "episode_index": 4150,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9297078450520833
+    },
+    {
+      "episode_index": 4150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.76495361328125
+    },
+    {
+      "episode_index": 4150,
+      "camera": "observation.images.top",
+      "frame_index": 60,
+      "rot180back_vs_official_mae": 1.9772745768229167
+    },
+    {
+      "episode_index": 4150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 60,
+      "rot180back_vs_official_mae": 1.57470703125
+    },
+    {
+      "episode_index": 4150,
+      "camera": "observation.images.top",
+      "frame_index": 120,
+      "rot180back_vs_official_mae": 1.993896484375
+    },
+    {
+      "episode_index": 4150,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 120,
+      "rot180back_vs_official_mae": 1.1701253255208333
+    },
+    {
+      "episode_index": 4175,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9180501302083333
+    },
+    {
+      "episode_index": 4175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7980143229166667
+    },
+    {
+      "episode_index": 4175,
+      "camera": "observation.images.top",
+      "frame_index": 65,
+      "rot180back_vs_official_mae": 2.1787312825520835
+    },
+    {
+      "episode_index": 4175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 65,
+      "rot180back_vs_official_mae": 2.3283487955729165
+    },
+    {
+      "episode_index": 4175,
+      "camera": "observation.images.top",
+      "frame_index": 129,
+      "rot180back_vs_official_mae": 2.12371826171875
+    },
+    {
+      "episode_index": 4175,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 129,
+      "rot180back_vs_official_mae": 1.74969482421875
+    },
+    {
+      "episode_index": 4200,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9245808919270833
+    },
+    {
+      "episode_index": 4200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7608642578125
+    },
+    {
+      "episode_index": 4200,
+      "camera": "observation.images.top",
+      "frame_index": 59,
+      "rot180back_vs_official_mae": 2.4853922526041665
+    },
+    {
+      "episode_index": 4200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 59,
+      "rot180back_vs_official_mae": 1.9023640950520833
+    },
+    {
+      "episode_index": 4200,
+      "camera": "observation.images.top",
+      "frame_index": 118,
+      "rot180back_vs_official_mae": 1.9563802083333333
+    },
+    {
+      "episode_index": 4200,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 118,
+      "rot180back_vs_official_mae": 1.5100911458333333
+    },
+    {
+      "episode_index": 4225,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9506632486979167
+    },
+    {
+      "episode_index": 4225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.84173583984375
+    },
+    {
+      "episode_index": 4225,
+      "camera": "observation.images.top",
+      "frame_index": 80,
+      "rot180back_vs_official_mae": 1.9618733723958333
+    },
+    {
+      "episode_index": 4225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 80,
+      "rot180back_vs_official_mae": 1.8852945963541667
+    },
+    {
+      "episode_index": 4225,
+      "camera": "observation.images.top",
+      "frame_index": 160,
+      "rot180back_vs_official_mae": 1.9110514322916667
+    },
+    {
+      "episode_index": 4225,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 160,
+      "rot180back_vs_official_mae": 1.5586751302083333
+    },
+    {
+      "episode_index": 4250,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9002685546875
+    },
+    {
+      "episode_index": 4250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.84600830078125
+    },
+    {
+      "episode_index": 4250,
+      "camera": "observation.images.top",
+      "frame_index": 56,
+      "rot180back_vs_official_mae": 1.9428507486979167
+    },
+    {
+      "episode_index": 4250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 56,
+      "rot180back_vs_official_mae": 1.6089680989583333
+    },
+    {
+      "episode_index": 4250,
+      "camera": "observation.images.top",
+      "frame_index": 111,
+      "rot180back_vs_official_mae": 2.07867431640625
+    },
+    {
+      "episode_index": 4250,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 111,
+      "rot180back_vs_official_mae": 1.9406534830729167
+    },
+    {
+      "episode_index": 4275,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9391276041666667
+    },
+    {
+      "episode_index": 4275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.7889200846354167
+    },
+    {
+      "episode_index": 4275,
+      "camera": "observation.images.top",
+      "frame_index": 48,
+      "rot180back_vs_official_mae": 1.9638264973958333
+    },
+    {
+      "episode_index": 4275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 48,
+      "rot180back_vs_official_mae": 1.4577840169270833
+    },
+    {
+      "episode_index": 4275,
+      "camera": "observation.images.top",
+      "frame_index": 96,
+      "rot180back_vs_official_mae": 1.99188232421875
+    },
+    {
+      "episode_index": 4275,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 96,
+      "rot180back_vs_official_mae": 1.56976318359375
+    },
+    {
+      "episode_index": 4300,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8930460611979167
+    },
+    {
+      "episode_index": 4300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 2.0748087565104165
+    },
+    {
+      "episode_index": 4300,
+      "camera": "observation.images.top",
+      "frame_index": 83,
+      "rot180back_vs_official_mae": 2.3907877604166665
+    },
+    {
+      "episode_index": 4300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 83,
+      "rot180back_vs_official_mae": 2.1949666341145835
+    },
+    {
+      "episode_index": 4300,
+      "camera": "observation.images.top",
+      "frame_index": 166,
+      "rot180back_vs_official_mae": 1.9562784830729167
+    },
+    {
+      "episode_index": 4300,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 166,
+      "rot180back_vs_official_mae": 1.13836669921875
+    },
+    {
+      "episode_index": 4325,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8927001953125
+    },
+    {
+      "episode_index": 4325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9509684244791667
+    },
+    {
+      "episode_index": 4325,
+      "camera": "observation.images.top",
+      "frame_index": 91,
+      "rot180back_vs_official_mae": 2.2244059244791665
+    },
+    {
+      "episode_index": 4325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 91,
+      "rot180back_vs_official_mae": 1.9162801106770833
+    },
+    {
+      "episode_index": 4325,
+      "camera": "observation.images.top",
+      "frame_index": 182,
+      "rot180back_vs_official_mae": 1.892333984375
+    },
+    {
+      "episode_index": 4325,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 182,
+      "rot180back_vs_official_mae": 1.30621337890625
+    },
+    {
+      "episode_index": 4350,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.86865234375
+    },
+    {
+      "episode_index": 4350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9914957682291667
+    },
+    {
+      "episode_index": 4350,
+      "camera": "observation.images.top",
+      "frame_index": 87,
+      "rot180back_vs_official_mae": 2.0340779622395835
+    },
+    {
+      "episode_index": 4350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 87,
+      "rot180back_vs_official_mae": 2.4059855143229165
+    },
+    {
+      "episode_index": 4350,
+      "camera": "observation.images.top",
+      "frame_index": 173,
+      "rot180back_vs_official_mae": 2.1203816731770835
+    },
+    {
+      "episode_index": 4350,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 173,
+      "rot180back_vs_official_mae": 1.7466227213541667
+    },
+    {
+      "episode_index": 4375,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8560791015625
+    },
+    {
+      "episode_index": 4375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.828369140625
+    },
+    {
+      "episode_index": 4375,
+      "camera": "observation.images.top",
+      "frame_index": 78,
+      "rot180back_vs_official_mae": 1.9283447265625
+    },
+    {
+      "episode_index": 4375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 78,
+      "rot180back_vs_official_mae": 1.6739908854166667
+    },
+    {
+      "episode_index": 4375,
+      "camera": "observation.images.top",
+      "frame_index": 156,
+      "rot180back_vs_official_mae": 1.8704833984375
+    },
+    {
+      "episode_index": 4375,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 156,
+      "rot180back_vs_official_mae": 1.6743977864583333
+    },
+    {
+      "episode_index": 4400,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8966064453125
+    },
+    {
+      "episode_index": 4400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.89312744140625
+    },
+    {
+      "episode_index": 4400,
+      "camera": "observation.images.top",
+      "frame_index": 46,
+      "rot180back_vs_official_mae": 1.9692789713541667
+    },
+    {
+      "episode_index": 4400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 46,
+      "rot180back_vs_official_mae": 1.6796061197916667
+    },
+    {
+      "episode_index": 4400,
+      "camera": "observation.images.top",
+      "frame_index": 91,
+      "rot180back_vs_official_mae": 2.27435302734375
+    },
+    {
+      "episode_index": 4400,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 91,
+      "rot180back_vs_official_mae": 1.93646240234375
+    },
+    {
+      "episode_index": 4425,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8970743815104167
+    },
+    {
+      "episode_index": 4425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9643758138020833
+    },
+    {
+      "episode_index": 4425,
+      "camera": "observation.images.top",
+      "frame_index": 50,
+      "rot180back_vs_official_mae": 1.9674479166666667
+    },
+    {
+      "episode_index": 4425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 50,
+      "rot180back_vs_official_mae": 1.6231486002604167
+    },
+    {
+      "episode_index": 4425,
+      "camera": "observation.images.top",
+      "frame_index": 100,
+      "rot180back_vs_official_mae": 1.99163818359375
+    },
+    {
+      "episode_index": 4425,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 100,
+      "rot180back_vs_official_mae": 1.1722615559895833
+    },
+    {
+      "episode_index": 4450,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.88665771484375
+    },
+    {
+      "episode_index": 4450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.998779296875
+    },
+    {
+      "episode_index": 4450,
+      "camera": "observation.images.top",
+      "frame_index": 61,
+      "rot180back_vs_official_mae": 2.3277384440104165
+    },
+    {
+      "episode_index": 4450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 61,
+      "rot180back_vs_official_mae": 2.01239013671875
+    },
+    {
+      "episode_index": 4450,
+      "camera": "observation.images.top",
+      "frame_index": 122,
+      "rot180back_vs_official_mae": 2.00494384765625
+    },
+    {
+      "episode_index": 4450,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 122,
+      "rot180back_vs_official_mae": 1.5672403971354167
+    },
+    {
+      "episode_index": 4475,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.9361775716145833
+    },
+    {
+      "episode_index": 4475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.94781494140625
+    },
+    {
+      "episode_index": 4475,
+      "camera": "observation.images.top",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 2.3670654296875
+    },
+    {
+      "episode_index": 4475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 63,
+      "rot180back_vs_official_mae": 1.8113606770833333
+    },
+    {
+      "episode_index": 4475,
+      "camera": "observation.images.top",
+      "frame_index": 126,
+      "rot180back_vs_official_mae": 2.0571492513020835
+    },
+    {
+      "episode_index": 4475,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 126,
+      "rot180back_vs_official_mae": 1.529052734375
+    },
+    {
+      "episode_index": 4499,
+      "camera": "observation.images.top",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8803914388020833
+    },
+    {
+      "episode_index": 4499,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 0,
+      "rot180back_vs_official_mae": 1.8692830403645833
+    },
+    {
+      "episode_index": 4499,
+      "camera": "observation.images.top",
+      "frame_index": 59,
+      "rot180back_vs_official_mae": 2.305419921875
+    },
+    {
+      "episode_index": 4499,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 59,
+      "rot180back_vs_official_mae": 1.93768310546875
+    },
+    {
+      "episode_index": 4499,
+      "camera": "observation.images.top",
+      "frame_index": 118,
+      "rot180back_vs_official_mae": 2.0095621744791665
+    },
+    {
+      "episode_index": 4499,
+      "camera": "observation.images.wrist_image",
+      "frame_index": 118,
+      "rot180back_vs_official_mae": 1.57818603515625
+    }
+  ]
+}

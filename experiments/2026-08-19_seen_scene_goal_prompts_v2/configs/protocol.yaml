@@ -1,0 +1,67 @@
+experiment: seen_scene_goal_prompts_v2
+date: 2026-08-19
+role: v2 of diagnostic probe 1 — success redefined to the PROMPTED task's
+  predicate; full goal-prompt slice added; absent block dropped (user request)
+
+checkpoint:
+  path: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+  frozen: true
+  weights_manifest: artifacts/checkpoint_manifest.json
+
+design:
+  suite: libero_90 (SEEN scenes)
+  env_resolution: benchmark tasks matched by instruction TEXT, never by row
+  seed: 1000
+  episodes_per_point: 20
+  batch_size: 4
+  videos: all 20 episodes of every point
+  success_v2: PRIMARY success = the prompted task's parsed BDDL goal_state,
+    evaluated per step via the running problem's _eval_predicate on
+    object_states_dict; episodes ALSO terminate on prompted success. The env
+    task's own predicate is recorded as the v1-comparable secondary metric
+    (env_task_success). Static feasibility check at plan time (predicate args
+    subset of the scene BDDL objects+fixtures+regions) plus a dynamic check at
+    every reset. For points whose prompted predicate is literally the env's
+    own goal_state, per-step agreement with env.check_success() is asserted
+    (consistency_violations must be 0).
+  replication_guarantee: for trained/paraphrase points the prompted predicate
+    coincides (or nearly coincides) with the env predicate, so termination is
+    unchanged and trajectories must replicate v1 bit-exactly (same seeds,
+    init-state striding, forkserver AsyncVectorEnv, NEXT_STEP autoreset).
+  blocks:
+    trained: env's own instruction, prompted predicate = env goal_state
+    paraphrase: verbatim libero_goal phrasing of the seen task (4 pairs),
+      prompted predicate = the goal task's goal_state
+    cross: 2x2 in KITCHEN_SCENE3 around "turn on the stove"; prompted
+      predicate = the PARTNER task's goal_state -> instruction-following
+      accuracy, upgrading v1's qualitative video read to a number
+    goal: NEW — every libero_goal instruction whose predicate is evaluable in
+      some libero_90 scene gets one seen-scene point (host env preference:
+      verbatim-trained env, else paraphrase-twin env, else lowest evaluable
+      env_task_id); non-evaluable prompts are recorded as skipped (they would
+      be absent probes — absent block dropped in v2 by user decision)
+    nonsense: "perform the dax florp twice"; no prompted predicate, env
+      metric only
+
+plan: artifacts/eval_plan.json (frozen by prepare)
+predictions_and_decision_rules: reports/PRIOR_EXPECTATION.md
+v1_reference: 2026-08-18_seen_scene_goal_prompts — deleted from the worktree
+  on 2026-08-19 (user request) AFTER v2's per-episode replication checks
+  passed; moved to /var/tmp/vla_recovery_20260819/2026-08-18_seen_scene_goal_prompts
+  (never committed to git). Its headline numbers live in the root README
+  tombstone and in v2's env_task_success columns.
+
+limitations:
+  - single eval seed bank (20 init states per env); frozen checkpoint, no
+    training seeds involved
+  - env-task success after a prompted-success termination is unobservable
+    (episodes end on prompted success); irrelevant for trained/paraphrase
+    (same predicate) and immaterial for cross (v1 env metric was 0/20)
+  - goal prompts 1/2/5/6 have no evaluable seen scene (bowl+stove never
+    co-occur in libero_90; wine+cabinet likewise; stove_front table region and
+    cream cheese+bowl absent) — documented as skipped, not silently dropped
+
+tracking:
+  backend: trackio
+  project: seen-scene-goal-prompts-v2
+  local_dir: artifacts/trackio

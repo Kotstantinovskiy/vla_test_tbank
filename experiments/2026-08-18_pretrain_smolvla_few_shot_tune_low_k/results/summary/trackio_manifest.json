@@ -1,0 +1,56 @@
+{
+  "project": "pretrain-few-shot-low-k",
+  "run": "2026-08-18-pretrain-few-shot-low-k",
+  "gifs": [
+    {
+      "budget": 1,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 0,
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k/results/raw/videos/task_0/k_1/eval_episode_0.mp4",
+      "gif": "/home/nbagent174/vla_test/experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k/results/media/gifs/k_1_first_failure.gif"
+    },
+    {
+      "budget": 1,
+      "outcome": "success",
+      "task_id": 0,
+      "episode_index": 5,
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k/results/raw/videos/task_0/k_1/eval_episode_5.mp4",
+      "gif": "/home/nbagent174/vla_test/experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k/results/media/gifs/k_1_first_success.gif"
+    },
+    {
+      "budget": 2,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 1,
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k/results/raw/videos/task_0/k_2/eval_episode_1.mp4",
+      "gif": "/home/nbagent174/vla_test/experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k/results/media/gifs/k_2_first_failure.gif"
+    },
+    {
+      "budget": 2,
+      "outcome": "success",
+      "task_id": 0,
+      "episode_index": 0,
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k/results/raw/videos/task_0/k_2/eval_episode_0.mp4",
+      "gif": "/home/nbagent174/vla_test/experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k/results/media/gifs/k_2_first_success.gif"
+    },
+    {
+      "budget": 3,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 0,
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k/results/raw/videos/task_0/k_3/eval_episode_0.mp4",
+      "gif": "/home/nbagent174/vla_test/experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k/results/media/gifs/k_3_first_failure.gif"
+    },
+    {
+      "budget": 3,
+      "outcome": "success",
+      "task_id": 0,
+      "episode_index": 1,
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k/results/raw/videos/task_0/k_3/eval_episode_1.mp4",
+      "gif": "/home/nbagent174/vla_test/experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k/results/media/gifs/k_3_first_success.gif"
+    }
+  ],
+  "plot": "/home/nbagent174/vla_test/experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k/results/summary/cost_curve.png",
+  "table": "tables/cost_curve"
+}

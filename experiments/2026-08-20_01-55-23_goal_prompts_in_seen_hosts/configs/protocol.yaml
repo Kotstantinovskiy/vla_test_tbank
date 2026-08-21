@@ -1,0 +1,37 @@
+experiment: goal_prompts_in_seen_hosts
+date: 2026-08-20
+status: code prepared; not run
+
+checkpoint:
+  path: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+  frozen: true
+  manifest: artifacts/checkpoint_manifest.json
+
+design:
+  suite: libero_90
+  goal_prompts: [0, 1, 2]
+  conditions: [seen, goal, nonsense]
+  points: 9
+  episodes_per_point: 20
+  master_seed: 1000
+  environment_seed: 1000 + episode_index
+  policy_noise_seed: 1000 + episode_index
+  eval_batch_size: 1
+  primary_metric: prompted BDDL predicate success
+  secondary_metric: native host-environment success
+  behavior_metrics: none; inspect all saved rollout videos manually
+  videos: all episodes
+  semantic_grounding_deviations:
+    goal_1: generic bowl maps to white_bowl_1 in KITCHEN_SCENE9
+    goal_2: generic cabinet maps to white_cabinet_1 in KITCHEN_SCENE4
+
+gates:
+  - first three prompt strings are checked against libero_goal task IDs 0, 1, 2
+  - prepare resolves environment IDs from benchmark names and verifies language text
+  - every prompted predicate argument must exist in the chosen host BDDL
+  - determinism_smoke must pass before run_all fan-out
+  - one production-sized point is therefore completed twice before fan-out
+
+tracking:
+  project: goal-prompts-in-seen-hosts
+  media: episode 0 per point in Trackio; all episodes remain on disk

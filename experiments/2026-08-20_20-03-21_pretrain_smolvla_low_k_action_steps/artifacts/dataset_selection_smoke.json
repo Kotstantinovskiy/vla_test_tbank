@@ -1,0 +1,396 @@
+{
+  "passed": true,
+  "lerobot_dataset_version_contract": "0.6.1",
+  "checks": [
+    {
+      "task_id": 0,
+      "demo_budget": 1,
+      "requested_episode_indices": [
+        0
+      ],
+      "loaded_episode_indices": [
+        0
+      ],
+      "loaded_frames": 138
+    },
+    {
+      "task_id": 0,
+      "demo_budget": 2,
+      "requested_episode_indices": [
+        0,
+        1
+      ],
+      "loaded_episode_indices": [
+        0,
+        1
+      ],
+      "loaded_frames": 276
+    },
+    {
+      "task_id": 0,
+      "demo_budget": 3,
+      "requested_episode_indices": [
+        0,
+        1,
+        2
+      ],
+      "loaded_episode_indices": [
+        0,
+        1,
+        2
+      ],
+      "loaded_frames": 427
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 1,
+      "requested_episode_indices": [
+        200
+      ],
+      "loaded_episode_indices": [
+        200
+      ],
+      "loaded_frames": 94
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 2,
+      "requested_episode_indices": [
+        200,
+        201
+      ],
+      "loaded_episode_indices": [
+        200,
+        201
+      ],
+      "loaded_frames": 193
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 3,
+      "requested_episode_indices": [
+        200,
+        201,
+        202
+      ],
+      "loaded_episode_indices": [
+        200,
+        201,
+        202
+      ],
+      "loaded_frames": 303
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 1,
+      "requested_episode_indices": [
+        400
+      ],
+      "loaded_episode_indices": [
+        400
+      ],
+      "loaded_frames": 93
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 2,
+      "requested_episode_indices": [
+        400,
+        401
+      ],
+      "loaded_episode_indices": [
+        400,
+        401
+      ],
+      "loaded_frames": 223
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 3,
+      "requested_episode_indices": [
+        400,
+        401,
+        402
+      ],
+      "loaded_episode_indices": [
+        400,
+        401,
+        402
+      ],
+      "loaded_frames": 310
+    },
+    {
+      "task_id": 3,
+      "demo_budget": 1,
+      "requested_episode_indices": [
+        50
+      ],
+      "loaded_episode_indices": [
+        50
+      ],
+      "loaded_frames": 170
+    },
+    {
+      "task_id": 3,
+      "demo_budget": 2,
+      "requested_episode_indices": [
+        50,
+        51
+      ],
+      "loaded_episode_indices": [
+        50,
+        51
+      ],
+      "loaded_frames": 357
+    },
+    {
+      "task_id": 3,
+      "demo_budget": 3,
+      "requested_episode_indices": [
+        50,
+        51,
+        52
+      ],
+      "loaded_episode_indices": [
+        50,
+        51,
+        52
+      ],
+      "loaded_frames": 641
+    },
+    {
+      "task_id": 4,
+      "demo_budget": 1,
+      "requested_episode_indices": [
+        250
+      ],
+      "loaded_episode_indices": [
+        250
+      ],
+      "loaded_frames": 91
+    },
+    {
+      "task_id": 4,
+      "demo_budget": 2,
+      "requested_episode_indices": [
+        250,
+        251
+      ],
+      "loaded_episode_indices": [
+        250,
+        251
+      ],
+      "loaded_frames": 201
+    },
+    {
+      "task_id": 4,
+      "demo_budget": 3,
+      "requested_episode_indices": [
+        250,
+        251,
+        252
+      ],
+      "loaded_episode_indices": [
+        250,
+        251,
+        252
+      ],
+      "loaded_frames": 300
+    },
+    {
+      "task_id": 5,
+      "demo_budget": 1,
+      "requested_episode_indices": [
+        100
+      ],
+      "loaded_episode_indices": [
+        100
+      ],
+      "loaded_frames": 155
+    },
+    {
+      "task_id": 5,
+      "demo_budget": 2,
+      "requested_episode_indices": [
+        100,
+        101
+      ],
+      "loaded_episode_indices": [
+        100,
+        101
+      ],
+      "loaded_frames": 283
+    },
+    {
+      "task_id": 5,
+      "demo_budget": 3,
+      "requested_episode_indices": [
+        100,
+        101,
+        102
+      ],
+      "loaded_episode_indices": [
+        100,
+        101,
+        102
+      ],
+      "loaded_frames": 408
+    },
+    {
+      "task_id": 6,
+      "demo_budget": 1,
+      "requested_episode_indices": [
+        300
+      ],
+      "loaded_episode_indices": [
+        300
+      ],
+      "loaded_frames": 92
+    },
+    {
+      "task_id": 6,
+      "demo_budget": 2,
+      "requested_episode_indices": [
+        300,
+        301
+      ],
+      "loaded_episode_indices": [
+        300,
+        301
+      ],
+      "loaded_frames": 205
+    },
+    {
+      "task_id": 6,
+      "demo_budget": 3,
+      "requested_episode_indices": [
+        300,
+        301,
+        302
+      ],
+      "loaded_episode_indices": [
+        300,
+        301,
+        302
+      ],
+      "loaded_frames": 308
+    },
+    {
+      "task_id": 7,
+      "demo_budget": 1,
+      "requested_episode_indices": [
+        450
+      ],
+      "loaded_episode_indices": [
+        450
+      ],
+      "loaded_frames": 80
+    },
+    {
+      "task_id": 7,
+      "demo_budget": 2,
+      "requested_episode_indices": [
+        450,
+        451
+      ],
+      "loaded_episode_indices": [
+        450,
+        451
+      ],
+      "loaded_frames": 176
+    },
+    {
+      "task_id": 7,
+      "demo_budget": 3,
+      "requested_episode_indices": [
+        450,
+        451,
+        452
+      ],
+      "loaded_episode_indices": [
+        450,
+        451,
+        452
+      ],
+      "loaded_frames": 265
+    },
+    {
+      "task_id": 8,
+      "demo_budget": 1,
+      "requested_episode_indices": [
+        150
+      ],
+      "loaded_episode_indices": [
+        150
+      ],
+      "loaded_frames": 90
+    },
+    {
+      "task_id": 8,
+      "demo_budget": 2,
+      "requested_episode_indices": [
+        150,
+        151
+      ],
+      "loaded_episode_indices": [
+        150,
+        151
+      ],
+      "loaded_frames": 178
+    },
+    {
+      "task_id": 8,
+      "demo_budget": 3,
+      "requested_episode_indices": [
+        150,
+        151,
+        152
+      ],
+      "loaded_episode_indices": [
+        150,
+        151,
+        152
+      ],
+      "loaded_frames": 270
+    },
+    {
+      "task_id": 9,
+      "demo_budget": 1,
+      "requested_episode_indices": [
+        350
+      ],
+      "loaded_episode_indices": [
+        350
+      ],
+      "loaded_frames": 347
+    },
+    {
+      "task_id": 9,
+      "demo_budget": 2,
+      "requested_episode_indices": [
+        350,
+        351
+      ],
+      "loaded_episode_indices": [
+        350,
+        351
+      ],
+      "loaded_frames": 521
+    },
+    {
+      "task_id": 9,
+      "demo_budget": 3,
+      "requested_episode_indices": [
+        350,
+        351,
+        352
+      ],
+      "loaded_episode_indices": [
+        350,
+        351,
+        352
+      ],
+      "loaded_frames": 705
+    }
+  ]
+}

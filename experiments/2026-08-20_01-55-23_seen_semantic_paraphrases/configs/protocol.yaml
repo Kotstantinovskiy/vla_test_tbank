@@ -1,0 +1,26 @@
+experiment: seen_semantic_paraphrases
+date: 2026-08-20
+status: code prepared; not run
+checkpoint:
+  path: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+  frozen: true
+design:
+  suite: libero_90
+  tasks: 10 preregistered anchors
+  conditions: [exact, paraphrase]
+  points: 20
+  episodes_per_point: 20
+  master_seed: 1000
+  environment_seed: 1000 + episode_index
+  policy_noise_seed: 1000 + episode_index
+  eval_batch_size: 1
+  primary_metric: native BDDL predicate success under both equivalent strings
+  behavior_metrics: none; inspect all saved rollout videos manually
+  videos: all 400 episodes
+  pairing: exact and paraphrase share env, init state, env seed, and noise seed
+gates:
+  - resolve task IDs from benchmark task names and assert instruction text
+  - determinism_smoke must pass before fan-out
+tracking:
+  project: seen-semantic-paraphrases
+  media: episode 0 per point in Trackio

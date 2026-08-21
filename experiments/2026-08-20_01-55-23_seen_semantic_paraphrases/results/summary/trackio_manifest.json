@@ -1,0 +1,130 @@
+{
+  "project": "seen-semantic-paraphrases",
+  "run": "2026-08-20_01-55-23_seen_semantic_paraphrases",
+  "tables": [
+    "tables/points"
+  ],
+  "plot": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/summary/success_rates.png",
+  "media": [
+    {
+      "label": "exact__task_0",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/exact__task_0/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__task_0",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/paraphrase__task_0/eval_episode_0.mp4"
+    },
+    {
+      "label": "exact__task_1",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/exact__task_1/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__task_1",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/paraphrase__task_1/eval_episode_0.mp4"
+    },
+    {
+      "label": "exact__task_2",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/exact__task_2/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__task_2",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/paraphrase__task_2/eval_episode_0.mp4"
+    },
+    {
+      "label": "exact__task_3",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/exact__task_3/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__task_3",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/paraphrase__task_3/eval_episode_0.mp4"
+    },
+    {
+      "label": "exact__task_4",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/exact__task_4/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__task_4",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/paraphrase__task_4/eval_episode_0.mp4"
+    },
+    {
+      "label": "exact__task_5",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/exact__task_5/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__task_5",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/paraphrase__task_5/eval_episode_0.mp4"
+    },
+    {
+      "label": "exact__task_6",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/exact__task_6/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__task_6",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/paraphrase__task_6/eval_episode_0.mp4"
+    },
+    {
+      "label": "exact__task_7",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/exact__task_7/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__task_7",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/paraphrase__task_7/eval_episode_0.mp4"
+    },
+    {
+      "label": "exact__task_8",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/exact__task_8/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__task_8",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/paraphrase__task_8/eval_episode_0.mp4"
+    },
+    {
+      "label": "exact__task_9",
+      "episode_index": 0,
+      "outcome": "success",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/exact__task_9/eval_episode_0.mp4"
+    },
+    {
+      "label": "paraphrase__task_9",
+      "episode_index": 0,
+      "outcome": "failure",
+      "video": "/home/nbagent174/vla_test/experiments/2026-08-20_01-55-23_seen_semantic_paraphrases/results/raw/videos/paraphrase__task_9/eval_episode_0.mp4"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "headline": {
+    "mean_all_10": {
+      "k5": 0.83,
+      "k10": 0.875,
+      "k25": 0.85,
+      "auc_normalized": 0.8183,
+      "auc_log2_normalized": 0.6892
+    },
+    "mean_tasks_0_2": {
+      "k5": 0.95,
+      "k10": 0.95,
+      "k25": 0.9,
+      "auc_normalized": 0.8773,
+      "auc_log2_normalized": 0.7281
+    }
+  },
+  "gain_per_added_demo": {
+    "mean_all_10": {
+      "0_to_1": 0.545,
+      "1_to_2": 0.155,
+      "2_to_3": 0.075,
+      "3_to_5": 0.025,
+      "5_to_10": 0.009,
+      "10_to_25": -0.001667
+    },
+    "mean_tasks_0_2": {
+      "0_to_1": 0.566667,
+      "1_to_2": 0.15,
+      "2_to_3": 0.0,
+      "3_to_5": 0.116667,
+      "5_to_10": 0.0,
+      "10_to_25": -0.003333
+    }
+  },
+  "first_measured_k_at_success_0_8": {
+    "task_0": 5,
+    "task_1": 1,
+    "task_2": 2,
+    "task_3": null,
+    "task_4": 2,
+    "task_5": 10,
+    "task_6": 3,
+    "task_7": 1,
+    "task_8": 3,
+    "task_9": 2
+  },
+  "first_measured_k_at_success_0_9": {
+    "task_0": 5,
+    "task_1": 2,
+    "task_2": 2,
+    "task_3": null,
+    "task_4": 5,
+    "task_5": 25,
+    "task_6": null,
+    "task_7": 2,
+    "task_8": 3,
+    "task_9": 3
+  },
+  "local_monotonicity_violation_count": 10,
+  "interpretation": "Descriptive single-seed analysis; k=0 and k>0 use different normalization statistics."
+}
