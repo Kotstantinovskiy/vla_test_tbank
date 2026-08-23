@@ -1,47 +1,19 @@
-# Harness note: policy sampling noise is NOT pinned by episode seeds
+# Заметка о тестовом стенде: шум сэмплирования стратегии НЕ фиксируется начальными значениями (seeds) эпизодов
 
-Written 2026-08-19 after the smoke point and BEFORE launching the remaining
-points. Pre-registered prediction 1 (per-episode replication of prompt_only's
-task-4 outcomes) FAILED, and rule R4p3 required diagnosing before
-interpretation. Diagnosis:
+Написано 19.08.2026 после предварительного тестирования (smoke point) и ДО запуска остальных точек. Предварительно зарегистрированный прогноз 1 (репликация результатов задачи 4 для каждого эпизода из prompt_only) НЕ ОПРАВДАЛСЯ, и правило R4p3 потребовало диагностики перед интерпретацией. Диагноз:
 
-## Evidence
+## Факты
 
-- Smoke `true__put_the_bowl_on_top_of_the_cabinet` (goal task 4, fresh
-  process): 5/20, successes at episodes 0/3/11/14/18.
-- prompt_only_2 task 4 (same checkpoint, same episode seeds 1000-1019, same
-  init states, same batch size): 1/20, success at episode 4 only — itself an
-  EXACT replication of prompt_only across two runs.
-- lerobot's eval seeds torch once per process (`set_seed`); episode seeds are
-  passed only to `env.reset`. SmolVLA's flow-matching action sampling draws
-  from the GLOBAL torch RNG stream.
-- prompt_only(_2) evaluated tasks 0..9 sequentially in ONE process, so its
-  RNG stream position at task 4 reflected ~80 prior episodes; the smoke ran
-  task 4 first. Same env randomness, different action noise -> different
-  trajectories.
+- Предварительный запуск `true__put_the_bowl_on_top_of_the_cabinet` (целевая задача 4, новый процесс): 5/20, успешные попытки в эпизодах 0/3/11/14/18.
+- Задача 4 в prompt_only_2 (та же контрольная точка, те же начальные значения эпизодов 1000-1019, те же начальные состояния, тот же размер пакета): 1/20, успех только в эпизоде 4 — что само по себе является ТОЧНОЙ репликацией prompt_only в двух запусках.
+- Начальные значения (seeds) оценки LeRobot инициализируют torch один раз за процесс (`set_seed`); начальные значения эпизодов передаются только в `env.reset`. Сэмплирование действий SmolVLA методом Flow Matching берется из ГЛОБАЛЬНОГО потока генератора случайных чисел (RNG) torch.
+- В prompt_only(_2) задачи 0..9 оценивались последовательно в ОДНОМ процессе, поэтому состояние потока RNG на задаче 4 отражало около 80 предшествующих эпизодов; предварительный запуск выполнял задачу 4 первой. Одинаковая случайность среды, но разный шум действий -> разные траектории.
 
-## Implications
+## Последствия
 
-1. Rollouts are deterministic only for an identical process layout (that is
-   what prompt_only vs prompt_only_2 and v1-vs-v2 replications established —
-   all replicated point runs had identical per-process evaluation order).
-2. Point estimates such as the cost curve's k=0 = 0.005 carry unpinned
-   policy-sampling variance: goal task 4 alone is 1/20 under one noise stream
-   and 5/20 under another (Wilson CIs overlap; both consistent with a true
-   rate around 0.1). Success-rate CIs remain the honest uncertainty
-   statement; per-episode "exact determinism" claims must be qualified by
-   process layout.
-3. Within THIS experiment every point runs as its own fresh process
-   (orchestrator spawns one process per label), so all points share the RNG
-   stream position at episode 0 and the paired analysis rests, as
-   pre-registered, on shared env seeds/init states; action-noise alignment
-   across conditions degrades after episode 0 and is NOT claimed.
-4. Prediction 1 of PRIOR_EXPECTATION is therefore VOID as a harness check
-   (its premise — that episode seeds pin the whole rollout — was wrong);
-   the predicate/consistency machinery remains validated by v2 (0 violations,
-   exact replication under identical layout). Predictions 2-4 and rules
-   R1p3-R3p3 stand unchanged.
+1. Развертывание эпизодов (rollouts) является детерминированным только при идентичной структуре процессов (именно это подтвердили репликации prompt_only против prompt_only_2 и v1 против v2 — все реплицированные запуски точек имели одинаковый порядок оценки внутри процесса).
+2. Точечные оценки, такие как k=0 = 0.005 на кривой затрат, несут в себе нефиксированную дисперсию сэмплирования стратегии: одна только целевая задача 4 дает результат 1/20 при одном потоке шума и 5/20 при другом (доверительные интервалы Уилсона перекрываются; оба результата согласуются с истинным показателем около 0.1). Доверительные интервалы (CI) показателей успеха остаются честным выражением неопределенности; заявления о «точном детерминизме» для каждого эпизода должны сопровождаться оговоркой о структуре процессов.
+3. В рамках ДАННОГО эксперимента каждая точка запускается как отдельный новый процесс (оркестратор порождает один процесс на каждую метку), поэтому все точки имеют одинаковое состояние потока RNG на эпизоде 0, а парный анализ опирается, как и было предварительно зарегистрировано, на общие начальные значения/состояния среды; выравнивание шума действий в различных условиях ухудшается после эпизода 0 и НЕ утверждается.
+4. Прогноз 1 из PRIOR_EXPECTATION, таким образом, АННУЛИРУЕТСЯ как проверка тестового стенда (его предпосылка — что начальные значения эпизодов фиксируют весь запуск — была неверной); механизм предикатов/согласованности остается подтвержденным версией v2 (0 нарушений, точная репликация при идентичной структуре). Прогнозы 2-4 и правила R1p3-R3p3 остаются без изменений.
 
-Follow-up recorded for the backlog: quantify eval-noise variance explicitly
-(rerun one condition under several RNG streams) and fold it into the cost
-curve's error bars alongside the required second training seed.
+Зафиксировано последующее действие для бэклога: количественно оценить дисперсию шума оценки в явном виде (повторно запустить одно условие с несколькими потоками RNG) и добавить ее в погрешности кривой затрат наряду с необходимым вторым начальным значением обучения (training seed).

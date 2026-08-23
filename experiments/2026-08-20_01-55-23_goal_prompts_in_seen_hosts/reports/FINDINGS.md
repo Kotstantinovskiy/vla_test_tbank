@@ -1,19 +1,11 @@
-# Findings (written 2026-08-20 after 9/9 points, determinism smoke PASSED)
+# Результаты (написано 20.08.2026 после выполнения 9/9 точек, предварительный тест на детерминизм ПРОЙДЕН)
 
-| host (seen control) | goal prompt | prompted | host-skill fallback |
+| ведущая среда (наблюдаемый контроль) | целевая инструкция (goal prompt) | по инструкции (prompted) | резервный переход на навык ведущей среды (host-skill fallback) |
 |---|---|---:|---:|
 | close top drawer (20/20) | open the middle drawer... | 0/20 | **19/20** |
 | white bowl on cabinet (15/20) | put the bowl on the stove | 0/20 | 0/20 |
 | wine bottle on rack (8/20) | put the wine bottle on top of the cabinet | 0/20 | 0/20 |
 
-- **R1gh fires** (on the 2 healthy hosts; the wine host fails R4gh's 0.5
-  control bar and is excluded from rule counting): verbatim goal strings
-  retrieve nothing even in scenes with compatible objects — including
-  goals 1/2, unhostable in v2 and semantically remapped here.
-- **R3gh does NOT fire**: host-skill fallback under a novel prompt happened
-  only on the drawer host (19/20; v2 saw 15/20 under stream noise) and not
-  on the bowl/wine hosts (0/20). v2's "graded fallback" is therefore NOT
-  general — it appears specific to prompts sharing the "...the X drawer of
-  the cabinet" frame with the host instruction.
-- Together with the k=0 probes: goal instructions cannot be unlocked at
-  zero-shot from the language side in ANY scene we tried.
+- **R1gh срабатывает** (на 2 исправных ведущих средах; ведущая среда с вином не преодолела контрольную планку 0.5 правила R4gh и исключена из подсчета правил): дословные целевые строки ничего не извлекают даже в сценах с совместимыми объектами — включая цели 1/2, которые не могли быть размещены в v2 и были семантически переназначены здесь.
+- **R3gh НЕ срабатывает**: резервный переход на навык ведущей среды при новой инструкции произошел только в ведущей среде с ящиком (19/20; в v2 наблюдалось 15/20 из-за шума потока RNG) и отсутствовал в ведущих средах с миской/вином (0/20). Таким образом, «градуированный резервный переход» из v2 НЕ является общим случаем — по всей видимости, он специфичен для инструкций, разделяющих структуру «...the X drawer of the cabinet» с инструкцией ведущей среды.
+- В сочетании с тестами при k=0: целевые инструкции не могут быть разблокированы в режиме zero-shot со стороны языка ни в одной из протестированных нами сцен.

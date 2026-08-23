@@ -1,56 +1,53 @@
-# Image-augmentation full-FT low-k cost curve
+# Кривая стоимости low-k при полном файнтюнинге с аугментацией изображений
 
-Does standard training-time image augmentation help low-demo adaptation?
-The two augmentation families used across VLA / visuomotor imitation are
-photometric distortion (color jitter — RT-1, robomimic, lerobot recipes) and
-small geometric shifts (random crop/shift/affine — DrQ(-v2), robomimic,
-Diffusion Policy). lerobot 0.6.1's default dataset `image_transforms` bundle
-contains exactly these two families:
-ColorJitter brightness/contrast (0.8–1.2), saturation (0.5–1.5), hue
-(±0.05), SharpnessJitter (0.5–1.5), and RandomAffine (±5°, translate ≤5%),
-with up to 3 transforms sampled per frame. This experiment enables that
-bundle verbatim (`--dataset.image_transforms.enable=true`, both cameras) — a
-protocol test asserts the installed defaults match the documented values.
+Помогает ли стандартная аугментация изображений во время обучения адаптации при малом числе демонстраций?
+Два семейства аугментаций, используемых в VLA / зрительно-моторном подражании (visuomotor imitation), — это
+фотометрическое искажение (color jitter — рецепты RT-1, robomimic, lerobot) и
+небольшие геометрические сдвиги (random crop/shift/affine — рецепты DrQ(-v2), robomimic,
+Diffusion Policy). Стандартный пакет `image_transforms` для датасета в lerobot 0.6.1
+содержит как раз эти два семейства:
+ColorJitter яркость/контраст (0.8–1.2), насыщенность (0.5–1.5), оттенок (hue)
+(±0.05), SharpnessJitter (0.5–1.5) и RandomAffine (±5°, перенос ≤5%),
+при этом для каждого кадра выбирается до 3 случайных преобразований. В этом эксперименте данный
+пакет включен буквально (`--dataset.image_transforms.enable=true` для обеих камер) — тест
+протокола подтверждает, что установленные параметры по умолчанию соответствуют задокументированным значениям.
 
-Everything else follows the full-FT experiment
-(`2026-08-22_18-10-40_pretrain_smolvla_full_ft_low_k`, the paired
-no-augmentation reference): 9 adaptations (tasks 0–2 × k=1/2/3) from the
-pinned pretrain, full fine-tune, seed 1000, batch 32, fp32. One additional
-protocol change: training steps are budget-dependent — **1000 / 1500 / 2000
-at k=1/2/3** (the reference trained 2000 everywhere), so for k=1/2 the
-comparison confounds augmentation with optimization length; only k=3
-isolates augmentation (disclosed in `configs/protocol.yaml`);
-evaluation without augmentation at `n_action_steps=50` and `25` (18 points),
-20 episodes, env/noise seeds `1000 + episode_index`, init state = episode
-index, all videos retained; determinism gate on task 0 / k=1 at both
-variants before fan-out.
+Все остальное следует схеме эксперимента с полным файнтюнингом
+(`2026-08-22_18-10-40_pretrain_smolvla_full_ft_low_k`, парный ориентир без
+аугментации): 9 адаптаций (задачи 0–2 × k=1/2/3) на основе зафиксированного предобучения,
+полный файнтюнинг, сид 1000, размер батча 32, fp32. Одно дополнительное изменение в протоколе:
+шаги обучения зависят от бюджета — **1000 / 1500 / 2000 при k=1/2/3** (в ориентире использовалось
+2000 шагов везде), поэтому для k=1/2 сравнение смешивает эффект аугментации с продолжительностью оптимизации;
+только k=3 изолирует влияние аугментации (отражено в `configs/protocol.yaml`);
+оценка без аугментации при `n_action_steps=50` and `25` (18 точек), 20 эпизодов, сиды окружения/шума `1000 + episode_index`,
+начальное состояние = индекс эпизода, все видео сохранены; гейт детерминизма на задаче 0 / k=1 для обоих вариантов перед веерным запуском.
 
-Predictions frozen in `reports/PRIOR_EXPECTATION.md` before any run. Large
-checkpoints go to `/var/tmp/vla_outputs/image_aug_low_k_20260823_001849`.
+Прогнозы заморожены в `reports/PRIOR_EXPECTATION.md` перед любым запуском. Крупные чекпоинты отправляются в
+`/var/tmp/vla_outputs/image_aug_low_k_20260823_001849`.
 
-Single-training-seed experiment (seed 1000).
+Эксперимент с одним сидом обучения (seed 1000).
 
-## Status
+## Статус
 
-Launched 2026-08-23 ~14:44, **completed 2026-08-23** — 9/9 trainings
-(1000/1500/2000 steps at k=1/2/3), 18/18 evaluations, 0 failures.
-Determinism gate passed exactly at both variants (n=50 3/20==3/20,
-n=25 0/20==0/20). Mean cost curve over tasks 0-2 (full-FT no-aug reference
-in parentheses): n=50 0.583 (0.583) / 0.900 (0.950) / 0.783 (0.767); n=25
-0.567 (0.533) / 0.783 (0.750) / 0.817 (0.800) at k=1/2/3. See
-`reports/REPORT.md` and `results/summary/`.
+Запущен 2026-08-23 ~14:44, **завершен 2026-08-23** — 9/9 процессов обучения
+(1000/1500/2000 шагов при k=1/2/3), 18/18 процессов оценки, 0 сбоев.
+Гейт детерминизма успешно пройден для обоих вариантов (при n=50: 3/20==3/20, при
+n=25: 0/20==0/20). Средняя кривая стоимости по задачам 0-2 (в скобках указан ориентир full-FT без аугментации):
+при n=50: 0.583 (0.583) / 0.900 (0.950) / 0.783 (0.767); при n=25:
+0.567 (0.533) / 0.783 (0.750) / 0.817 (0.800) при k=1/2/3. См.
+`reports/REPORT.md` и `results/summary/`.
 
-## Launch sequence
+## Последовательность запуска
 
 ```bash
 cd experiments/2026-08-23_00-18-49_pretrain_smolvla_image_aug_low_k
 
-source scripts/common_env.sh && pytest -q   # 0. tests (incl. transform-defaults invariant)
-scripts/prepare.sh                          # 1. preflight artifacts
-scripts/audit.sh                            # 2. full-FT parameter audit
-scripts/smoke_dataset.sh                    # 3. dataset selection smoke
-scripts/smoke_env.sh                        # 4. real-env smoke
-scripts/production_smoke.sh <gpu>           # 5. gate: train task0/k1 + fwd/rev eval at n=50,25
-scripts/run_all.sh                          # 6. fan-out + aggregation + Trackio
-scripts/status.sh                           # progress
+source scripts/common_env.sh && pytest -q   # 0. тесты (включая инвариант параметров трансформаций по умолчанию)
+scripts/prepare.sh                          # 1. подготовка артефактов preflight
+scripts/audit.sh                            # 2. аудит параметров полного файнтюнинга (full-FT)
+scripts/smoke_dataset.sh                    # 3. смок-тест выбора датасета
+scripts/smoke_env.sh                        # 4. смок-тест реального окружения
+scripts/production_smoke.sh <gpu>           # 5. гейт: обучение task0/k1 + fwd/rev оценка при n=50,25
+scripts/run_all.sh                          # 6. веерный запуск + агрегация результатов + Trackio
+scripts/status.sh                           # текущий прогресс
 ```

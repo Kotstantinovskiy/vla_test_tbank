@@ -1,35 +1,35 @@
-# Execution notes
+# Примечания к выполнению
 
-## 2026-08-22: first launch aborted
+## 2026-08-22: первый запуск прерван
 
-The first launch was stopped on user request at ~training step 30 of the
-production gate; no checkpoint was written and no rollout was evaluated. The
-aborted launcher log is `results/logs/launcher_aborted_20260822_1821.log`.
+Первый запуск был остановлен по запросу пользователя примерно на 30-м шаге обучения
+проверочного барьера; контрольная точка не записывалась, и запуски не оценивались.
+Лог прерванного запуска находится в `results/logs/launcher_aborted_20260822_1821.log`.
 
-## 2026-08-22: evaluation extended to n_action_steps ∈ {50, 25}
+## 2026-08-22: оценка расширена до n_action_steps ∈ {50, 25}
 
-Before any rollout of this experiment was evaluated, the protocol was
-extended to evaluate every adapted checkpoint at inference n_action_steps=50
-and 25 (18 evaluation points). Predictions for the new variant were recorded
-in the addendum of `reports/PRIOR_EXPECTATION.md` before relaunch.
+Перед тем как был оценен хотя бы один запуск в этом эксперименте, протокол был расширен
+для оценки каждой адаптированной контрольной точки при инференсе с n_action_steps=50 и 25
+(18 точек оценки). Прогнозы для нового варианта были записаны в приложении к файлу
+`reports/PRIOR_EXPECTATION.md` перед повторным запуском.
 
-## 2026-08-22: determinism gate
+## 2026-08-22: барьер детерминизма
 
-Passed at both variants: task 0 / k=1 forward vs reverse episode order,
-n=50 2/20 == 2/20 and n=25 0/20 == 0/20, zero per-episode mismatches.
+Успешно пройден для обоих вариантов: задача task 0 / k=1 в прямом и обратном порядке эпизодов,
+n=50 2/20 == 2/20 and n=25 0/20 == 0/20, нулевое количество расхождений между эпизодами.
 
-## 2026-08-22: TRAIN_WORKERS raised 8 -> 32 mid-run
+## 2026-08-22: значение TRAIN_WORKERS увеличено с 8 до 32 в процессе выполнения
 
-Training was dataloader-bound (log_freq metrics: data_s ~1.2 s vs
-updt_s ~0.23 s per step; 256 CPUs mostly idle), making each 2000-step job
-~45 min instead of ~15-20 min. `TRAIN_WORKERS` was raised from 8 to 32 after
-the gate job and the first fan-out wave (task_1_k_1, task_2_k_1, task_0_k_2)
-had already started; those four jobs trained with num_workers=8, later jobs
-with 32.
+Обучение было ограничено скоростью загрузки данных (метрики log_freq: data_s ~1,2 с против
+updt_s ~0,23 с на шаг; 256 процессоров в основном простаивали), из-за чего выполнение каждого
+задания на 2000 шагов занимало около 45 минут вместо ~15-20 минут. Значение `TRAIN_WORKERS`
+было увеличено с 8 до 32 после того, как проверочное задание и первая волна веерного запуска
+(task_1_k_1, task_2_k_1, task_0_k_2) уже стартовали; эти четыре задания обучались с num_workers=8,
+последующие — с 32.
 
-This is an infrastructure throughput knob, not a protocol change: PyTorch
-DataLoader batch order is defined by the seeded sampler and is independent of
-worker count, so trained weights are unaffected in expectation and the
-training seed, steps, batch size, precision, and evaluation protocol are
-unchanged. Each job's exact value is recorded in its own
-`train_config.json` inside the checkpoint tree.
+Это параметр пропускной способности инфраструктуры, а не изменение протокола: порядок батчей в
+PyTorch DataLoader определяется семплером с фиксированным начальным значением (seed) и не зависит
+от количества рабочих процессов (workers), поэтому обученные веса математически не меняются, а
+начальное значение обучения, шаги, размер батча, точность и протокол оценки остаются неизменными.
+Точное значение для каждого задания записано в соответствующем файле `train_config.json` внутри
+дерева контрольных точек.

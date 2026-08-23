@@ -1,35 +1,23 @@
-# Bonus B: own progress critic vs Robometer ranking
+# Бонус B: сравнение ранжирования собственного критика прогресса и Robometer
 
-This experiment ranks already evaluated SmolVLA policies without using rollout
-reward as model input. It compares the progress signal learned in
-`2026-08-23_20-49-13_bonus_qwen35_progress_critic` with the pinned published
-`aliangdw/Robometer-4B-LIBERO` checkpoint.
+Этот эксперимент ранжирует уже оцененные политики SmolVLA без использования вознаграждения за развертывание (rollout reward) в качестве входных данных модели. Он сравнивает сигнал прогресса, полученный в `2026-08-23_20-49-13_bonus_qwen35_progress_critic`, с зафиксированным опубликованным чекпоинтом `aliangdw/Robometer-4B-LIBERO`.
 
-## Fixed protocol
+## Фиксированный протокол
 
-- Target tasks: LIBERO-Goal logical IDs 0, 1, and 2.
-- Candidates per task: the canonical seen pretrain checkpoint and final bundle
-  checkpoints at `k={1,2,3,5,10,25}`.
-- Evaluation data: all 20 saved rollout videos per candidate, 420 videos total.
-- Action schedule: **only `n_action_steps=50`**. No result from 25 or 35 enters
-  this experiment.
-- Input to both critics: the exact task instruction plus four RGB frames at
-  rounded `linspace(0, final_frame, 4)` indices.
-- Candidate score: mean endpoint progress over its 20 rollouts.
-- Ground truth ranking: environment success rate over those same 20 rollouts.
-- Primary metrics: per-task and macro Spearman rho and Kendall tau. Secondary
-  metrics: top-set hit and regret, pooled correlations, and episode bootstrap
-  confidence intervals.
+- Целевые задачи: логические идентификаторы LIBERO-Goal 0, 1 и 2.
+- Кандидаты на задачу: канонический чекпоинт предобучения на видимых данных (seen pretrain checkpoint) и финальные объединенные чекпоинты при `k={1,2,3,5,10,25}`.
+- Данные оценки: все 20 сохраненных видеороликов развертывания на каждого кандидата, всего 420 видеороликов.
+- Схема действий: **только `n_action_steps=50`**. Никакие результаты для 25 или 35 шагов не входят в этот эксперимент.
+- Входные данные для обоих критиков: точная инструкция задачи плюс четыре RGB-кадра на округленных индексах `linspace(0, final_frame, 4)`.
+- Оценка кандидата: средний прогресс конечной точки по его 20 развертываниям.
+- Фактическое ранжирование (ground truth): показатель успешности в среде (success rate) по тем же 20 развертываниям.
+- Первичные метрики: коэффициенты ранговой корреляции Спирмена (Spearman's rho) и Кендалла (Kendall's tau) для каждой задачи и макро-показатели. Вторичные метрики: попадание в топ (top-set hit) и сожаление (regret), объединенные корреляции и доверительные интервалы бутстрепа на уровне эпизодов.
 
-The blind manifest contains no reward, outcome, or success fields. The
-aggregator is gated by a SHA-256 seal written only after both critics produced
-exactly 420 predictions. The experiment does not train or optimize a policy.
+Слепой манифест (blind manifest) не содержит полей вознаграждения, исхода или успеха. Агрегатор заблокирован проверкой SHA-256 хэша (seal), который записывается только после того, как оба критика выдали ровно 420 предсказаний. Эксперимент не включает обучение или оптимизацию политики.
 
-The own critic checkpoint is fixed before ranking as step 2000: it is the best
-among checkpoints actually saved every 200 steps. (An unsaved step-1300
-validation point was slightly better and cannot be selected reproducibly.)
+Чекпоинт собственного критика зафиксирован перед ранжированием на шаге 2000: он является лучшим среди чекпоинтов, фактически сохранявшихся каждые 200 шагов. (Несохраненная точка валидации на шаге 1300 была немного лучше, но не может быть выбрана воспроизводимым образом.)
 
-## Run
+## Запуск
 
 ```bash
 source scripts/common_env.sh
@@ -37,5 +25,4 @@ scripts/prepare.sh
 scripts/launch.sh
 ```
 
-Status is written atomically to `results/status.json`; the detached log is
-`results/logs/run.log`.
+Статус записывается атомарно в `results/status.json`; фоновый лог находится в `results/logs/run.log`.

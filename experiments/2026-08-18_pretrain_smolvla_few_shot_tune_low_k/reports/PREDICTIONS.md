@@ -1,26 +1,10 @@
-# Predictions (recorded 2026-08-18, before any training or evaluation run)
+# Предсказания (записано 2026-08-18, перед любым запуском обучения или тестирования)
 
-Prior-informed: the sibling baseline
-(`2026-08-18_pretrain_smolvla_naive_baseline_few_shot_tune`, byte-identical
-recipe) measured, at the time of writing, k=5 mean 0.830 and k=10 mean 0.875
-over all ten tasks (0.95 on tasks 0-2 at both budgets), with laggards on
-tasks 3, 5, 6. This experiment adds k=1/2/3 because the baseline saturates by
-k=5 on the assignment tasks (amendment's "ceiling" clause).
+Априорные сведения (prior-informed): родственный базовый метод (`2026-08-18_pretrain_smolvla_naive_baseline_few_shot_tune`, байт-идентичный рецепт) показал на момент написания среднее значение при k=5 равное 0.830 и при k=10 равное 0.875 по всем десяти задачам (0.95 по задачам 0-2 для обоих бюджетов), с отстающими результатами по задачам 3, 5, 6. Данный эксперимент добавляет точки k=1/2/3, так как базовый метод насыщается уже при k=5 на задачах из задания (положение поправки о «потолке»).
 
-1. **Monotone rise with visible spread** — unlike k=5..25, the low-k region
-   should finally separate regimes: predicted means over all ten tasks
-   k=1: 0.25-0.55, k=2: 0.45-0.70, k=3: 0.60-0.78 (vs 0.83 at k=5).
-2. **Tasks 0-2 (assignment)**: higher than the 10-task mean at every k
-   (their sibling values were near-ceiling already at k=5); prediction
-   k=1 >= 0.4, k=3 >= 0.75 on their mean.
-3. **Single-demo brittleness**: k=1 trains ~490 epochs on one trajectory;
-   success will depend on how far eval init states sit from the single
-   demonstrated start. Expect high per-task variance: some tasks >= 0.7
-   (short reach, e.g. 7 "turn on the stove"), some <= 0.2 (multi-stage 3,
-   push-verb 5, cream-cheese 6).
-4. **Ordering violations are plausible per task** (k=1 > k=2 on some task at
-   20-episode resolution), but not on the 10-task mean.
+1. **Монотонный рост с видимым разбросом** — в отличие от k=5..25, область малых k должна наконец разделить режимы: прогнозируемые средние значения по всем десяти задачам k=1: 0.25-0.55, k=2: 0.45-0.70, k=3: 0.60-0.78 (по сравнению с 0.83 при k=5).
+2. **Задачи 0-2 (задание)**: выше среднего значения по 10 задачам для каждого k (их значения в родственном эксперименте были близки к потолку уже при k=5); прогноз по их среднему значению k=1 >= 0.4, k=3 >= 0.75.
+3. **Хрупкость единственной демонстрации**: при k=1 обучение длится ~490 эпох на одной траектории; успех будет зависеть от того, насколько далеко начальные состояния при тестировании (eval init states) находятся от единственного показанного старта. Ожидается высокая дисперсия по задачам: некоторые задачи >= 0.7 (короткий диапазон, например, 7 «включить плиту»/turn on the stove), некоторые <= 0.2 (двухэтапная 3, глагол толкания 5, сливочный сыр 6).
+4. **Нарушения порядка монотонности вполне возможны по отдельным задачам** (k=1 > k=2 для какой-то задачи при разрешении в 20 эпизодов), но не для среднего значения по всем 10 задачам.
 
-Purpose: locate the knee of the cost curve. If even k=1 lands >= 0.5 on
-tasks 0-2, the interesting method question shifts from "more demos" to
-"cheaper training at equal quality", per the amendment.
+Цель: определить точку изгиба (knee) кост-кривой. Если даже k=1 дает показатель >= 0.5 на задачах 0-2, то интересный исследовательский вопрос смещается со «сложности демо» на «более дешевое обучение при равном качестве» согласно поправке к заданию.

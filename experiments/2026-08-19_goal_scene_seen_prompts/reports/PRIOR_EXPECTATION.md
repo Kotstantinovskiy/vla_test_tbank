@@ -1,50 +1,20 @@
-# Prior-informed expectations and pre-registered decision rules (probe 3)
+# Априорные ожидания и предварительно зарегистрированные правила принятия решений (проба 3)
 
-Recorded 2026-08-19 before running any rollout of this experiment.
+Записано 2026-08-19 перед запуском любых роллаутов в этом эксперименте.
 
-Known priors: k=0 true prompts in the goal scene = 1/200 (prompt_only, exact
-replication across two runs; the single success is task 4 episode 4). In SEEN
-scenes (v2): trained strings execute at native rate even under cross prompts;
-truthful paraphrases collapse to 0-2/20; a related-but-novel string triggers
-the scene's trained skill (15/20).
+Известные априорные оценки: true-промпты для k=0 в целевой сцене (goal scene) = 1/200 (prompt_only, точное воспроизведение в двух запусках; единственный успех — задача 4, эпизод 4). В знакомых (SEEN) сценах (версия v2): обученные строки выполняются с нативной частотой даже при промптах cross; точные парафразы обваливаются до 0-2/20; родственная, но новая строка запускает обученный навык сцены (15/20).
 
-## Predictions
+## Предсказания
 
-1. **true block replicates prompt_only per episode** (same checkpoint, seed
-   bank, batch size): envs 3/8/9/7 -> 0/20; env 4 -> 1/20 with the success at
-   episode 4. Any deviation = harness difference to investigate before
-   interpretation (rule R4p3).
-2. **seen_twin — the decisive cells**: predicted ≈ true (each within +-2 of
-   its true twin; no McNemar-significant gain). Rationale: the anchor already
-   shows a verbatim trained string failing in the goal scene (0/20), so the
-   scene side is binding and prompt wording should not rescue k=0.
-   Lower-confidence alternative (would be a big result): seen_twin > true by
-   >= 0.15 on >= 2 envs -> the string side matters even at k=0.
-3. **Behavior separates engagement from idling**: under true and seen_twin
-   the model approaches the correct object (median min eef->target distance
-   well below nonsense); under nonsense it stays far/idle. Quantitative
-   guess: median min dist <= 0.15 m for true/seen_twin vs >= 0.25 m for
-   nonsense on the same envs.
-4. **seen_cross**: prompted-skill success ~0 (novel scene blocks execution
-   regardless of string); behavioral pull toward the PROMPTED object rather
-   than the env's object would still indicate selector engagement.
+1. **Блок true воспроизводит prompt_only по каждому эпизоду** (тот же чекпойнт, банк сидов, размер батча): среды 3/8/9/7 -> 0/20; среда 4 -> 1/20 с успешным исходом на эпизоде 4. Любое отклонение указывает на разницу в харнессе, которую необходимо расследовать до интерпретации результатов (правило R4p3).
+2. **seen_twin — решающие ячейки**: прогнозируется результат ≈ true (каждый в пределах +-2 от своего истинного близнеца (twin); отсутствие McNemar-значимого выигрыша). Обоснование: якорь уже показывает, что дословно обученная строка терпит неудачу в целевой сцене (0/20), следовательно, контекст сцены является связывающим ограничением, и формулировка промпта не должна спасти модель при k=0.
+   Альтернатива с более низкой степенью уверенности (была бы крупным результатом): seen_twin > true на >= 0.15 как минимум в 2 средах -> текстовая строка имеет значение даже при k=0.
+3. **Поведение разделяет вовлечение и простой**: при промптах true и seen_twin модель приближается к правильному объекту (медиана минимального расстояния eef -> цель значительно меньше, чем в случае с nonsense); при nonsense модель остается далеко/простаивает. Количественная оценка: медиана минимального расстояния <= 0.15 м для true/seen_twin против >= 0.25 м для nonsense на тех же средах.
+4. **seen_cross**: успех подсказанного навыка ~0 (новая сцена блокирует выполнение независимо от строки); поведенческое притяжение к ПОДСКАЗАННОМУ объекту, а не к объекту среды, все равно будет указывать на вовлечение селектора.
 
-## Decision rules (fixed before results)
+## Правила принятия решений (зафиксированы до получения результатов)
 
-- R1p3 (**string side contributes at k=0**): seen_twin - true >= +0.15 with
-  McNemar p < 0.05 on >= 2 envs -> prompt relabeling helps even zero-shot;
-  add inference-time prompt relabeling as a free baseline improvement and
-  predict k=0 gains for the relabeling method.
-- R2p3 (**scene-side execution failure, selector engaged**): success ~0
-  everywhere but true/seen_twin approach distances are significantly smaller
-  than nonsense (paired within env) -> the selector engages the right object
-  and execution breaks mid-skill; retrieval co-training (visual variety) is
-  the complementary lever to relabeling, and low-k gains should come from
-  vision-side adaptation more than language-side.
-- R3p3 (**selector scene-gated**): seen_twin behavior ≈ nonsense (no
-  differential approach) -> in a novel scene the language selector does not
-  even engage; relabeling alone cannot help k=0 (only k>=1); scene-side
-  co-training becomes the primary Task-2 ingredient.
-- R4p3 (**harness check**): true block failing to replicate prompt_only
-  per-episode outcomes, or any consistency violation -> fix measurement
-  before interpreting.
+- R1p3 (**текстовая строка вносит вклад при k=0**): seen_twin - true >= +0.15 при значении критерия Макнемара (McNemar) p < 0.05 на >= 2 средах -> переименование промптов (prompt relabeling) помогает даже при zero-shot; добавить релейблинг промптов на этапе инференса в качестве бесплатного улучшения бейзлайна и прогнозировать выигрыш для метода релейблинга при k=0.
+- R2p3 (**сбой выполнения на стороне сцены при вовлеченном селекторе**): успех ~0 везде, но расстояния приближения для true/seen_twin значительно меньше, чем для nonsense (попарно внутри среды) -> селектор вовлекает правильный объект, но выполнение прерывается на середине навыка; совместное обучение с ретривалом (визуальное разнообразие) является дополняющим рычагом для релейблинга, а выигрыш при малых k должен быть результатом визуальной адаптации в большей степени, чем языковой.
+- R3p3 (**селектор заблокирован сценой**): поведение seen_twin ≈ nonsense (отсутствует дифференцированное приближение) -> в новой сцене языковой селектор даже не вовлекается в работу; релейблинг сам по себе не может помочь при k=0 (только при k>=1); совместное обучение на стороне сцены становится основным компонентом для Task-2.
+- R4p3 (**проверка харнесса**): неспособность блока true воспроизвести результаты prompt_only по эпизодам или любое нарушение согласованности -> исправить измерения перед интерпретацией.

@@ -1,16 +1,16 @@
-# Few-shot cost curve on the official-data pretrain
+# Кривая стоимости адаптации по нескольким примерам (few-shot cost curve) на основе предобучения на официальных данных
 
-Every task/budget adaptation starts from the frozen pretrain checkpoint
-independently (expert-only: vision encoder and VLM frozen; action expert,
-state/action projections trainable). Demos are the official
-demo_0..demo_{k-1} of each task from the in-repo libero_goal conversion.
+Каждая адаптация задачи/бюджета начинается независимо с замороженного чекпойнта предобучения
+(режим expert-only: кодировщик изображений и VLM заморожены; эксперт действий (action expert) и
+проекции состояния/действия обучаемы). Демонстрации представляют собой официальные
+demo_0..demo_{k-1} для каждой задачи из внутренней конверсии libero_goal.
 
-Normalization disclosure: k>0 points run under target-dataset statistics
-(LeRobot swaps normalizer stats at fine-tune time), while the k=0
-reference ran under pretraining statistics; both come from the same
-conversion pipeline.
+Раскрытие информации о нормализации: точки k>0 работают со статистикой целевого датасета
+(LeRobot подменяет статистику нормализатора на этапе тонкой настройки), в то время как
+базовый вариант k=0 работал со статистикой предобучения; оба варианта получены из одного
+и того же конвейера конверсии.
 
-| task | instruction | k=5 | k=10 | k=25 |
+| задача | инструкция | k=5 | k=10 | k=25 |
 |---:|---|---:|---:|---:|
 | 0 | `open the middle drawer of the cabinet` | 18/20 (0.90) | 19/20 (0.95) | 20/20 (1.00) |
 | 1 | `put the bowl on the stove` | 20/20 (1.00) | 20/20 (1.00) | 18/20 (0.90) |
@@ -23,11 +23,11 @@ conversion pipeline.
 | 8 | `put the bowl on the plate` | 19/20 (0.95) | 20/20 (1.00) | 18/20 (0.90) |
 | 9 | `put the wine bottle on the rack` | 19/20 (0.95) | 20/20 (1.00) | 15/20 (0.75) |
 
-## Cost curve
+## Кривая стоимости
 
-k=0 (prompt-only reference): 0.005 over 10 tasks.
+k=0 (справочный вариант только с текстовыми подсказками): 0.005 по 10 задачам.
 
-| mean | k=5 | k=10 | k=25 |
+| среднее | k=5 | k=10 | k=25 |
 |---|---:|---:|---:|
-| all 10 tasks | 0.830 | 0.875 | 0.850 |
-| tasks 0-2 (assignment) | 0.950 | 0.950 | 0.900 |
+| все 10 задач | 0.830 | 0.875 | 0.850 |
+| задачи 0-2 (задание) | 0.950 | 0.950 | 0.900 |

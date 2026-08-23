@@ -1,27 +1,27 @@
-# Prior expectation — recorded before preparation and rollout
+# Априорные ожидания — записано перед подготовкой и роллаутом
 
-Scope correction, recorded 2026-08-21 after the task-0 production gate but
-before inspecting new task-1/task-2 rollouts: the full run is restricted to
-the assignment's task IDs 0–2. The original ten-task expectation below is
-preserved rather than rewritten. The archived task-0–2 reference was
-0.95/0.95/0.95 at k=1/2/3; the deterministic reproduction is expected to
-remain within roughly ±0.10 at each budget.
+Корректировка рамок (scope correction), записано 2026-08-21 после прохождения гейта готовности (production gate) для задачи 0, но
+до проверки новых роллаутов для задач 1/2: полный запуск ограничен
+задачами задания с ID 0–2. Исходные ожидания для десяти задач, приведенные ниже,
+сохранены, а не перезаписаны. Архивный ориентир для задач 0–2 составлял
+0.95/0.95/0.95 при k=1/2/3; ожидается, что детерминированное воспроизведение останется
+в пределах примерно ±0.10 для каждого бюджета.
 
-Recorded 2026-08-21 after choosing training seed 1000 and before inspecting any
-new target rollout.
+Записано 2026-08-21 после выбора сида обучения 1000 и до проверки любого
+нового целевого роллаута.
 
-The archived experiment reported mean success across ten tasks of 0.55, 0.705,
-and 0.78 at k=1, 2, and 3. With the same checkpoint, demonstrations, recipe,
-and training seed, this reproduction should remain near those values; a
-practical predeclared tolerance is ±0.10 at each budget, with an increasing
-low-k trend expected but not guaranteed pointwise.
+В архивном эксперименте сообщалось о средней успешности по десяти задачам 0.55, 0.705
+и 0.78 при k=1, 2 и 3. С тем же чекпоинтом, демонстрациями, рецептом
+и сидом обучения это воспроизведение должно оставаться близким к этим значениям;
+практически предопределенный допуск составляет ±0.10 для каждого бюджета, при этом ожидается, но
+не гарантируется точечно тенденция к росту при малых k.
 
-The new rollout estimator is deliberately different: batch size one and
-per-episode SmolVLA noise seeds replace the archived process-history-dependent
-noise stream. Individual tasks can therefore move by several successes out of
-20, and exact equality with the archived curve is not predicted.
+Новый оценщик роллаутов (rollout estimator) намеренно отличается: размер батча, равный единице, и
+сиды шума SmolVLA для каждого эпизода заменяют архивный поток шума, зависящий от истории процесса.
+Таким образом, результаты по отдельным задачам могут измениться на несколько успешных попыток из
+20, и точное совпадение с архивной кривой не прогнозируется.
 
-The forward/reverse episode-order determinism check must match exactly. If it
-fails, fan-out must stop. If a budget mean differs from the archived mean by
-more than 0.15, inspect the checkpoint, selected demonstrations, training log,
-and evaluation harness before assigning a scientific interpretation.
+Проверка детерминизма прямого/обратного порядка эпизодов должна дать точное совпадение. В случае
+неудачи веерный запуск должен быть остановлен. Если среднее значение по бюджету отличается от архивного среднего
+более чем на 0.15, проверьте чекпоинт, выбранные демонстрации, лог обучения
+и тестовый стенд (evaluation harness) перед тем, как давать научную интерпретацию.

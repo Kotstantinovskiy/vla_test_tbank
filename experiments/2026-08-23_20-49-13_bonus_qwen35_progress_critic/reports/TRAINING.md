@@ -1,23 +1,18 @@
-# Full training report
+# Полный отчет об обучении
 
-The Qwen3.5-4B progress critic completed 2,000 optimizer steps on physical GPU 0 with batch
-size 4, seed 1000, frozen vision parameters, and gradient checkpointing disabled.
+Критик прогресса (progress critic) Qwen3.5-4B выполнил 2000 шагов оптимизатора на физическом GPU 0 с размером батча 4, начальным значением (seed) 1000, замороженными параметрами зрения и отключенным чекпоинтингом градиентов (gradient checkpointing).
 
-| Measurement | Result |
+| Показатель | Результат |
 |---|---:|
-| Total wall time | 2,894.9 s (48.25 min) |
-| Peak reserved VRAM | 34.61 GiB |
-| Validation points | 21 |
-| Initial validation CE / MAE | 5.0872 / 0.3193 |
-| Best validation CE | 2.1963 at step 1,300 |
-| Final validation CE / MAE | 2.2159 / 0.0687 |
-| Final exact-bin accuracy | 0.1992 |
-| Last train loss | 1.7936 |
+| Общее астрономическое время (wall time) | 2894,9 с (48,25 мин) |
+| Пиковое зарезервированное количество VRAM | 34,61 ГиБ |
+| Точки валидации | 21 |
+| Начальные CE / MAE на валидации | 5,0872 / 0,3193 |
+| Лучшая CE на валидации | 2,1963 на шаге 1300 |
+| Конечные CE / MAE на валидации | 2,2159 / 0,0687 |
+| Конечная точность по точному бину (exact-bin accuracy) | 0,1992 |
+| Последнее значение функции потерь на обучении (train loss) | 1,7936 |
 
-Checkpoints were saved at every 200 steps through `002000`. The final checkpoint contains
-the LoRA adapter (`adapter_model.safetensors`, 259,794,448 bytes), adapter config, and progress
-head (`progress_head.safetensors`, 164,136 bytes). Validation loss plateaus after roughly step
-1,300, so downstream model selection should compare the pinned step-1,300 and final step-2,000
-critics on a separate ranking evaluation rather than selecting from this validation set alone.
+Контрольные точки сохранялись каждые 200 шагов вплоть до `002000`. Финальная контрольная точка содержит LoRA-адаптер (`adapter_model.safetensors`, 259 794 448 байт), конфигурацию адаптера и голову прогресса (`progress_head.safetensors`, 164 136 байт). Потери на валидации выходят на плато примерно после 1300-го шага, поэтому для последующего выбора модели следует сравнить зафиксированного критика на шаге 1300 и финального на шаге 2000 на отдельной выборке для ранжирования, а не выбирать модель исключительно на основе данного валидационного набора.
 
-Checkpoint ranking and Robometer comparison remain outside this experiment's executed scope.
+Ранжирование контрольных точек и сравнение с Robometer остаются за рамками выполненного объема данного эксперимента.

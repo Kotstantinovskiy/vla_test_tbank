@@ -1,17 +1,10 @@
-# Cost curve from PLAIN smolvla_base (no libero_90 pretrain)
+# Кривая стоимости для чистой базовой модели smolvla_base (без предобучения на libero_90)
 
-Ablation of the in-domain pretrain: every task/budget adaptation starts
-from schema-adapted lerobot/smolvla_base (community SO-100 pretraining,
-never saw LIBERO/Franka) with the byte-identical recipe of the
-pretrained cost curve (expert-only, 2000 steps, batch 32, official
-demo_0..demo_{k-1}, same eval). The gap to the frozen pretrained-curve
-reference is the value of the libero_90 pretrain in demonstrations.
+Абляция предобучения в целевом домене (in-domain pretraining): адаптация для каждой задачи/бюджета начинается с адаптированной по схеме базовой модели `lerobot/smolvla_base` (комьюнити-предобучение на SO-100, никогда не видевшее LIBERO/Franka) с побайтово идентичным рецептом для кривой стоимости с предобучением (только экспертные слои [expert-only], 2000 шагов, размер батча 32, официальные демонстрации от `demo_0` до `demo_{k-1}`, те же настройки оценки). Разрыв по сравнению с замороженным эталонным значением кривой предобучения отражает ценность предобучения на `libero_90`, выраженную в количестве демонстраций.
 
-No k=0 point by design: LIBERO state/action projections are initialized
-only at fine-tune time (an untrained eval would act through random
-projections).
+Точка `k=0` отсутствует по дизайну: проекции состояния/действия LIBERO инициализируются только во время тонкой настройки (оценка необученной модели выполняла бы действия через случайные проекции).
 
-| task | instruction | k=1 | k=2 | k=3 | k=5 | k=10 | k=25 |
+| задача (task) | инструкция (instruction) | k=1 | k=2 | k=3 | k=5 | k=10 | k=25 |
 |---:|---|---:|---:|---:|---:|---:|---:|
 | 0 | `open the middle drawer of the cabinet` | 0/20 (0.00) | 9/20 (0.45) | 15/20 (0.75) | 17/20 (0.85) | 18/20 (0.90) | 17/20 (0.85) |
 | 1 | `put the bowl on the stove` | 17/20 (0.85) | 17/20 (0.85) | 19/20 (0.95) | 19/20 (0.95) | 19/20 (0.95) | 19/20 (0.95) |
@@ -24,11 +17,11 @@ projections).
 | 8 | `put the bowl on the plate` | 6/20 (0.30) | 17/20 (0.85) | 16/20 (0.80) | 16/20 (0.80) | 19/20 (0.95) | 17/20 (0.85) |
 | 9 | `put the wine bottle on the rack` | 5/20 (0.25) | 10/20 (0.50) | 5/20 (0.25) | 12/20 (0.60) | 19/20 (0.95) | 14/20 (0.70) |
 
-## Cost curve
+## Кривая стоимости
 
-Frozen pretrained-curve reference (same recipe from the libero_90 pretrain): mean-10 k=1: 0.550, k=2: 0.705, k=3: 0.780, k=5: 0.830, k=10: 0.875, k=25: 0.850.
+Замороженный эталон кривой предобучения (тот же рецепт предобучения на `libero_90`): среднее по 10 задачам (mean-10) для k=1: 0.550, k=2: 0.705, k=3: 0.780, k=5: 0.830, k=10: 0.875, k=25: 0.850.
 
-| mean | k=1 | k=2 | k=3 | k=5 | k=10 | k=25 |
+| среднее (mean) | k=1 | k=2 | k=3 | k=5 | k=10 | k=25 |
 |---|---:|---:|---:|---:|---:|---:|
-| all 10 tasks | 0.485 | 0.660 | 0.690 | 0.745 | 0.865 | 0.790 |
-| tasks 0-2 (assignment) | 0.550 | 0.717 | 0.850 | 0.883 | 0.933 | 0.883 |
+| все 10 задач | 0.485 | 0.660 | 0.690 | 0.745 | 0.865 | 0.790 |
+| задачи 0-2 (задание) | 0.550 | 0.717 | 0.850 | 0.883 | 0.933 | 0.883 |

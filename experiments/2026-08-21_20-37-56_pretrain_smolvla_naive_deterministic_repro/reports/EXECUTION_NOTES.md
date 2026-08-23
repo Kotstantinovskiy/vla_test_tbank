@@ -1,23 +1,24 @@
-# Execution notes
+# Примечания к выполнению
 
-The first production determinism gate exposed an evaluation-harness error
-before fan-out. Although Gym and policy-noise seeds were tied to the logical
-episode, LeRobot's LIBERO wrapper selected the initial-state bank entry from a
-mutable `init_state_id` counter. Reversing episode order therefore changed the
-initial state assigned to each logical episode. The invalid comparison produced
-18/20 versus 19/20 successes with mismatches at episodes 2, 3, and 6.
+Первый проверочный барьер детерминизма (determinism gate) выявил ошибку в тестовом
+окружении (evaluation harness) перед веерным запуском (fan-out). Хотя начальные значения
+(seeds) для Gym и шума политики были привязаны к логическому эпизоду, обертка LIBERO в
+LeRobot выбирала запись из базы начальных состояний по изменяемому счетчику `init_state_id`.
+Таким образом, изменение порядка эпизодов на обратный меняло начальное состояние, назначенное
+каждому логическому эпизоду. Некорректное сравнение привело к результатам 18/20 против 19/20
+успешных попыток с расхождениями в эпизодах 2, 3 и 6.
 
-The failed JSON, videos, and log are preserved under
-`results/recovery/init_state_order_failure/`. No training was repeated. The
-harness was repaired to set and record `init_state_id = episode_index` before
-every single-episode rollout. Re-evaluating the unchanged checkpoint produced
-18/20 in both orders with zero per-episode mismatches; the passing record is
-`artifacts/production_smoke.json`.
+Неудачные файлы JSON, видео и лог сохранены в директории
+`results/recovery/init_state_order_failure/`. Обучение не перезапускалось. Тестовое
+окружение было исправлено: теперь перед каждым одиночным запуском эпизода устанавливается
+и записывается значение `init_state_id = episode_index`. Повторная оценка неизмененной
+контрольной точки (checkpoint) показала результат 18/20 в обоих порядках с нулевым
+количеством расхождений между эпизодами; успешная запись сохранена в `artifacts/production_smoke.json`.
 
-The first fan-out was mistakenly prepared for all ten `libero_goal` tasks.
-After the user corrected the scope to the three assignment tasks, the
-orchestrator was stopped. Desired task-1/task-2 k=5 training was left running
-to completion; out-of-scope task-3 training was interrupted before any checkpoint was
-saved. The old 30-point status, task-3 log, and launcher records are preserved
-under `results/recovery/all_10_task_launch_20260821/`. The corrected plan has
-9 independent adaptations and 180 main rollout videos.
+Первый веерный запуск был ошибочно подготовлен для всех десяти задач `libero_goal`.
+После того как пользователь скорректировал рамки эксперимента до трех задач из задания,
+оркестратор был остановлен. Требуемое обучение для задач task-1/task-2 при k=5 было оставлено
+выполняться до завершения; обучение для выходящей за рамки задачи task-3 было прервано до
+сохранения какой-либо контрольной точки. Старый статус на 30 точек, лог для task-3 и записи
+запуска сохранены в `results/recovery/all_10_task_launch_20260821/`. Скорректированный план
+включает 9 независимых адаптаций и 180 основных видеороликов запусков (rollouts).

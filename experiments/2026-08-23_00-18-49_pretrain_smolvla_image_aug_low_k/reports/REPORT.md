@@ -1,46 +1,37 @@
-# Image-augmented full-fine-tune cost curve on the official-data pretrain
+# Кривая стоимости полного файнтюнинга с аугментацией изображений на предобученной модели с официальными данными
 
-Identical to the full-FT experiment except that lerobot's default
-dataset image transforms are enabled during training (photometric
-jitter: brightness/contrast/saturation/hue/sharpness, plus RandomAffine
-±5°/5% translate; up to 3 sampled per frame). Evaluation applies no
-augmentation. Demos are the official demo_0..demo_{k-1} of each task
-from the in-repo libero_goal conversion.
-Each adapted checkpoint is evaluated at inference n_action_steps=50
-(trained default) and 25 on identical per-episode seeds/init states.
+Эксперимент идентичен эксперименту с полным файнтюнингом (full-FT), за исключением того, что во время обучения включены стандартные трансформации изображений датасета LeRobot (фотометрическое дрожание: яркость/контрастность/насыщенность/оттенок/резкость, а также RandomAffine ±5°/5% сдвиг; до 3 случайных выборок на кадр). При оценке аугментация не применяется. Демонстрации представляют собой официальные demo_0..demo_{k-1} для каждой задачи из конвертированного датасета `libero_goal` внутри репозитория.
+Каждая адаптированная контрольная точка оценивается при инференсе с параметрами n_action_steps=50 (значение по умолчанию при обучении) и 25 на идентичных начальных состояниях и сидах (seeds) для каждого эпизода.
 
-Normalization disclosure: k>0 points run under target-dataset statistics
-(LeRobot swaps normalizer stats at fine-tune time), while the k=0
-reference ran under pretraining statistics; both come from the same
-conversion pipeline.
+Раскрытие информации о нормализации: точки с k>0 работают со статистиками целевого датасета (LeRobot заменяет статистики нормализатора во время тонкой настройки), в то время как референсный запуск k=0 выполнялся со статистиками предобучения; оба варианта получены из одного и того же конвейера конвертации.
 
-## Inference n_action_steps = 50
+## Инференс n_action_steps = 50
 
-| task | instruction | k=1 | k=2 | k=3 |
+| задача | инструкция | k=1 | k=2 | k=3 |
 |---:|---|---:|---:|---:|
 | 0 | `open the middle drawer of the cabinet` | 3/20 (0.15) | 17/20 (0.85) | 12/20 (0.60) |
 | 1 | `put the bowl on the stove` | 19/20 (0.95) | 20/20 (1.00) | 20/20 (1.00) |
 | 2 | `put the wine bottle on top of the cabinet` | 13/20 (0.65) | 17/20 (0.85) | 15/20 (0.75) |
 
-## Inference n_action_steps = 25
+## Инференс n_action_steps = 25
 
-| task | instruction | k=1 | k=2 | k=3 |
+| задача | инструкция | k=1 | k=2 | k=3 |
 |---:|---|---:|---:|---:|
 | 0 | `open the middle drawer of the cabinet` | 0/20 (0.00) | 14/20 (0.70) | 14/20 (0.70) |
 | 1 | `put the bowl on the stove` | 20/20 (1.00) | 18/20 (0.90) | 20/20 (1.00) |
 | 2 | `put the wine bottle on top of the cabinet` | 14/20 (0.70) | 15/20 (0.75) | 15/20 (0.75) |
 
-## Cost curve
+## Кривая стоимости
 
-k=0 (prompt-only reference): 0.000 over tasks 0-2.
+k=0 (референс только с промптом): 0.000 на задачах 0-2.
 
-| mean tasks 0-2 | k=1 | k=2 | k=3 |
+| среднее по задачам 0-2 | k=1 | k=2 | k=3 |
 |---|---:|---:|---:|
 | n=50 | 0.583 | 0.900 | 0.783 |
 | n=25 | 0.567 | 0.783 | 0.817 |
-## No-augmentation reference (full-FT experiment, same seeds)
+## Референс без аугментации (эксперимент с полным файнтюнингом (full-FT), те же сиды)
 
-| mean tasks 0-2 | k=1 | k=2 | k=3 |
+| среднее по задачам 0-2 | k=1 | k=2 | k=3 |
 |---|---:|---:|---:|
-| n=50 (no aug) | 0.583 | 0.950 | 0.767 |
-| n=25 (no aug) | 0.533 | 0.750 | 0.800 |
+| n=50 (без аугм.) | 0.583 | 0.950 | 0.767 |
+| n=25 (без аугм.) | 0.533 | 0.750 | 0.800 |

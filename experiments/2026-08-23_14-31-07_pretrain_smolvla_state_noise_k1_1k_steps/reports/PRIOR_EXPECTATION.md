@@ -1,34 +1,14 @@
-# Prior expectation — recorded before preparation and any rollout
+# Априорные ожидания — зафиксированы перед подготовкой и любым запуском оценки
 
-Recorded 2026-08-23, before preparation, training, or any rollout of this
-experiment. Adaptive-continuation disclosure: the alpha grid {0.08, 0.10,
-0.20} was chosen after observing the 2000-step sweep
-(`2026-08-22_22-43-55_pretrain_smolvla_state_noise_k1`: means
-0.617/0.583/0.667/0.683 at alpha 0.00/0.01/0.03/0.05, task 2 carrying the
-gain 15→19/20, drawer flat at 2–4/20), and additionally the training budget
-is halved to 1000 steps. No arm of THIS experiment has run.
+Записано 23.08.2026, перед подготовкой, обучением или любой оценкой данного эксперимента. Раскрытие информации об адаптивном продолжении: сетка альфа {0.08, 0.10, 0.20} была выбрана после анализа результатов сканирования на 2000 шагах (`2026-08-22_22-43-55_pretrain_smolvla_state_noise_k1`: средние значения 0.617/0.583/0.667/0.683 при альфа 0.00/0.01/0.03/0.05, где задача 2 обеспечила основной прирост с 15 до 19/20, а задача с ящиком оставалась на стабильном уровне 2–4/20), кроме того, бюджет обучения был сокращен вдвое до 1000 шагов. Ни одна из ветвей ДАННОГО эксперимента еще не запускалась.
 
-Predictions:
+Прогнозы:
 
-1. Steps effect at alpha=0.00: 1000 steps lose little against 2000 — the
-   1k control mean lands within [0.52, 0.65] (2k control: 0.617), with task 1
-   ≥ 16/20. Basis: training loss plateaued near 0.03 well before step 1000
-   in every k=1 run observed so far.
-2. Noise still helps at 1000 steps: the best noisy arm beats the 1k
-   alpha=0.00 control by at least +0.05 on the mean.
-3. The dose-response bends: alpha=0.20 is NOT the best arm; the best arm is
-   0.08 or 0.10. At 20% of per-dimension std the state token is unreliable
-   enough that the policy must partly ignore proprioception, and at k=1 that
-   costs more than it protects. Concretely mean(0.20) ≤ mean(best of
-   0.08/0.10).
-4. Task pattern repeats: task 2 (wine→cabinet) carries the gain (≥ 17/20 at
-   the best alpha); task 0 (drawer) stays ≤ 6/20 at every arm — its k=1
-   failure is not proprioception-bound.
-5. The determinism gate (task 0 / alpha 0.00, forward vs reverse, n=50)
-   passes exactly.
-6. Training loss at step 1000 increases monotonically with alpha.
+1. Влияние шагов при альфа=0.00: 1000 шагов практически не уступают 2000 шагам — среднее значение контрольной группы на 1 тыс. шагов попадает в диапазон [0.52, 0.65] (контрольная группа на 2 тыс. шагов: 0.617), при этом по задаче 1 показатель составляет ≥ 16/20. Обоснование: во всех наблюдаемых до сих пор запусках при k=1 функция потерь обучения (training loss) выходила на плато в районе 0.03 задолго до 1000-го шага.
+2. Шум по-прежнему помогает при 1000 шагах: лучшая конфигурация с шумом превосходит среднее значение контрольной группы при α=0.00 на 1 тыс. шагов как минимум на +0.05.
+3. Кривая зависимости «доза-эффект» изгибается: α=0.20 НЕ является лучшей конфигурацией; лучшая конфигурация — это 0.08 или 0.10. При уровне шума в 20% от стандартного отклонения по измерениям токен состояния становится настолько ненадежным, что политика вынуждена частично игнорировать проприоцепцию, а при k=1 это снижает эффективность сильнее, чем защищает от переобучения. Конкретно: среднее(0.20) ≤ среднего(лучшего из 0.08/0.10).
+4. Паттерн задач повторяется: задача 2 (wine→cabinet) обеспечивает прирост (≥ 17/20 при оптимальном альфа); задача 0 (drawer) остается ≤ 6/20 на всех конфигурациях — ее неудачи при k=1 не связаны с ограничениями проприоцепции.
+5. Проверка детерминизма (задача 0 / альфа 0.00, forward против reverse, n=50) проходит успешно.
+6. Потери обучения на 1000-м шаге монотонно возрастают с увеличением альфа.
 
-Falsification handling: if the 1k alpha=0.00 control collapses (mean below
-0.45), the steps budget dominates everything and noise conclusions from this
-experiment are secondary; report the steps effect as the headline instead.
-Single-training-seed caveat applies; ±2 successes per point are within noise.
+Действия при опровержении гипотезы: если контрольная группа на 1 тыс. шагов при α=0.00 терпит неудачу (среднее значение ниже 0.45), бюджет шагов доминирует над всеми факторами, а выводы о влиянии шума из этого эксперимента становятся второстепенными; в этом случае зафиксируйте влияние количества шагов в качестве главного результата. Применяется оговорка об одном сиде обучения; отклонения в пределах ±2 успешных попыток на точку обусловлены шумом измерений.

@@ -1,10 +1,8 @@
-# goal_prompts_in_seen_hosts: prompted-predicate success
+# goal_prompts_in_seen_hosts: успешность по промптированному предикату (prompted-predicate)
 
-Only binary success is aggregated. Every rollout video remains on disk
-for manual behavior inspection. Environment and policy-noise seeds are
-recorded per episode.
+Агрегируется только бинарный показатель успешности. Каждое видео роллаута сохраняется на диске для ручной инспекции поведения модели. Сиды окружения и шума политики (policy-noise) регистрируются для каждого эпизода.
 
-| label | env instruction | block | policy prompt | success | 95% CI | env success |
+| метка (label) | инструкция окружения (env instruction) | блок (block) | промпт политики (policy prompt) | успешность (success) | 95% ДИ (95% CI) | успешность окружения (env success) |
 |---|---|---|---|---:|---|---:|
 | `seen__goal_0` | `close the top drawer of the cabinet` | seen | `close the top drawer of the cabinet` | 20/20 | [0.84, 1.00] | 20/20 |
 | `goal__goal_0` | `close the top drawer of the cabinet` | goal | `open the middle drawer of the cabinet` | 0/20 | [0.00, 0.16] | 19/20 |

@@ -1,90 +1,79 @@
-# Full fine-tune low-k cost curve
+# Кривая стоимости low-k при полном файнтюнинге (Full Fine-Tune)
 
-Full-fine-tune counterpart of
-`2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro`: the same
-nine adaptations (assignment task IDs 0–2 × k=1/2/3) from the same pinned
-official-data pretrain, with a single protocol change — the whole policy is
-trainable (`train_expert_only=false`, `freeze_vision_encoder=false`,
-`train_state_proj=true`) instead of the action expert only. LeRobot's SmolVLA
-keeps four unused-by-design guard tensor groups frozen even in a full
-fine-tune (vlm `lm_head`, final `text_model.norm`, the last retained VLM text
-layer, the expert `lm_head`); the parameter audit asserts that exactly this
-set and nothing else stays frozen.
+Аналог эксперимента `2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro` с полным файнтюнингом: те же
+девять адаптаций (ID задач задания 0–2 × k=1/2/3) на основе того же зафиксированного
+предобучения на официальных данных, с единственным изменением в протоколе — вся политика является
+обучаемой (`train_expert_only=false`, `freeze_vision_encoder=false`,
+`train_state_proj=true`) вместо обучения только action-эксперта. В реализации SmolVLA от LeRobot
+четыре группы тензоров-предохранителей (guard tensors), не используемые по дизайну, остаются замороженными даже при полном
+файнтюнинге (vlm `lm_head`, финальный `text_model.norm`, последний сохраненный текстовый слой VLM,
+экспертный `lm_head`); аудит параметров подтверждает, что именно этот набор и ничто другое остается замороженным.
 
-Everything else is held fixed to keep the comparison paired with the
-expert-only repro: training seed 1000, 2000 steps, batch 32, fp32, SmolVLA
-preset optimizer (AdamW lr 1e-4); evaluation with batch size one, env seed and
-flow-noise seed `1000 + episode_index`, LIBERO `init_state_id =
-episode_index`, horizon 300, 20 episodes per point, all videos retained.
+Все остальное зафиксировано без изменений для корректного попарного сравнения с версией expert-only:
+сид обучения 1000, 2000 шагов, размер батча 32, fp32, предустановленный оптимизатор SmolVLA (AdamW lr 1e-4);
+оценка с размером батча равным единице, сид окружения и сид шума потока SmolVLA установлены в `1000 + episode_index`,
+`init_state_id = episode_index` в LIBERO, горизонт 300, 20 эпизодов на точку, все видео сохранены.
 
-Each of the 9 adapted checkpoints is evaluated at two inference-time
-action-step settings — `n_action_steps=50` (trained default) and `25`
-(re-predict twice per chunk) — on identical per-episode seeds/init states,
-giving 18 evaluation points (9 training jobs). The override is applied at
-load time only; training always uses 50. Before fan-out, task 0 / k=1 is
-evaluated in forward and reverse episode order at both variants; per-episode
-outcomes and rewards must match exactly.
+Каждый из 9 адаптированных чекпоинтов оценивается при двух настройках шагов действий (action steps) во время инференса —
+`n_action_steps=50` (обученный дефолт) и `25` (повторный прогноз дважды за чанк) — на идентичных
+сидах и начальных состояниях для каждого эпизода, что дает 18 точек оценки (9 задач обучения). Переопределение (override)
+применяется только во время загрузки; обучение всегда использует 50 шагов. Перед веерным запуском (fan-out) задача 0 / k=1
+оценивается в прямом и обратном порядке эпизодов для обоих вариантов; результаты эпизодов и награды должны точно совпадать.
 
-Predictions are frozen in `reports/PRIOR_EXPECTATION.md` before preparation
-and rollouts. Large checkpoints go to
-`/var/tmp/vla_outputs/full_ft_low_k_20260822_181040`; reviewable manifests,
-results, reports, logs, and artifact links stay here.
+Прогнозы заморожены in `reports/PRIOR_EXPECTATION.md` перед подготовкой и
+роллаутами. Крупные чекпоинты отправляются в
+`/var/tmp/vla_outputs/full_ft_low_k_20260822_181040`; проверяемые манифесты,
+результаты, отчеты, логи и ссылки на артефакты остаются здесь.
 
-This is a single-training-seed experiment (seed 1000) and does not by itself
-satisfy the assignment's two-seed requirement.
+Это эксперимент с одним сидом обучения (seed 1000) и сам по себе он не удовлетворяет
+требованию задания о наличии двух сидов.
 
-## Status
+## Статус
 
-2026-08-22 18:21: preflight completed (prepare, full-FT parameter audit,
-dataset and environment smokes all passed). The production/determinism gate
-was started (task 0 / k=1 training) and **stopped on request at ~step 30 of
-2000**; no checkpoint was written and the output root is empty, so a relaunch
-restarts the gate from scratch. No orchestrator fan-out ran and no rollout
-was evaluated.
+2026-08-22 18:21: предварительная проверка (preflight) завершена (подготовка, аудит параметров полного файнтюнинга (full-FT),
+смок-тесты датасета и окружения успешно пройдены). Был запущен гейт детерминизма/готовности (обучение для задачи 0 / k=1)
+и **остановлен по запросу примерно на шаге 30 из 2000**; чекпоинт записан не был, выходная папка пуста,
+поэтому повторный запуск начнет прохождение гейта с нуля. Веерный запуск оркестратора не производился, роллауты не оценивались.
 
-2026-08-22 (later): before any rollout was evaluated, the evaluation protocol
-was extended to cover inference `n_action_steps` ∈ {50, 25} per checkpoint
-(18 evaluation points); the extension is recorded in the predictions addendum
-and `configs/protocol.yaml`.
+2026-08-22 (позже): до начала оценки роллаутов протокол оценки был расширен, чтобы охватить значения
+`n_action_steps` ∈ {50, 25} во время инференса для каждого чекпоинта (18 точек оценки); расширение записано в дополнении к прогнозам
+и в `configs/protocol.yaml`.
 
-2026-08-22 ~22:00 (relaunch): **completed** — 9/9 trainings, 18/18
-evaluations, 0 failures. Determinism gate passed exactly at both variants
-(n=50 2/20==2/20, n=25 0/20==0/20, zero per-episode mismatches).
-Mean cost curve over tasks 0-2: n=50 0.583/0.950/0.767 and n=25
-0.533/0.750/0.800 at k=1/2/3 (expert-only repro reference:
-0.600/0.683/0.667). See `reports/REPORT.md`, `results/summary/`, and
-`reports/EXECUTION_NOTES.md` (mid-run TRAIN_WORKERS 8→32 for later jobs).
+2026-08-22 ~22:00 (повторный запуск): **завершено** — 9/9 процессов обучения, 18/18 процессов оценки,
+0 сбоев. Гейт детерминизма успешно пройден для обоих вариантов (при n=50: 2/20==2/20, при n=25: 0/20==0/20, нулевое расхождение по эпизодам).
+Средняя кривая стоимости по задачам 0-2: n=50 — 0.583/0.950/0.767 и n=25 — 0.533/0.750/0.800 при k=1/2/3 (ориентир для версии expert-only repro:
+0.600/0.683/0.667). Подробности см. в `reports/REPORT.md`, `results/summary/` и `reports/EXECUTION_NOTES.md` (в процессе работы TRAIN_WORKERS был увеличен с 8 до 32 для последующих задач).
 
-## Launch sequence
+## Последовательность запуска
 
 ```bash
 cd experiments/2026-08-22_18-10-40_pretrain_smolvla_full_ft_low_k
 
-# 0. Focused tests (no GPU).
+# 0. Сфокусированные тесты (без GPU).
 source scripts/common_env.sh && pytest -q
 
-# 1. Preflight artifacts: base/backbone manifests, episode manifest,
-#    evaluation plan, LIBERO config, artifact symlinks.
+# 1. Подготовка артефактов preflight: манифесты базы/бэкбона, манифест эпизодов,
+#    план оценки, конфигурация LIBERO, символические ссылки на артефакты.
 scripts/prepare.sh
 
-# 2. Trainable-parameter audit (full-FT flags; writes
-#    artifacts/trainable_parameters.json, must leave only guard tensors frozen).
+# 2. Аудит обучаемых параметров (флаги полного файнтюнинга full-FT; записывает
+#    artifacts/trainable_parameters.json, должен оставить замороженными только тензоры-предохранители).
 scripts/audit.sh
 
-# 3. Dataset selection smoke: instantiate all 9 task/k datasets, verify
-#    loaded episode indices.
+# 3. Смок-тест выбора датасета: инициализация всех 9 датасетов задач/k, проверка
+#    загруженных индексов эпизодов.
 scripts/smoke_dataset.sh
 
-# 4. Real-environment smoke: create each target env, assert instruction, reset.
+# 4. Смок-тест реального окружения: создание каждого целевого окружения, проверка инструкции, сброс (reset).
 scripts/smoke_env.sh
 
-# 5. Production + determinism gate: train task 0/k=1, evaluate forward and
-#    reverse episode order (writes artifacts/production_smoke.json).
+# 5. Гейт готовности и детерминизма: обучение задачи 0/k=1, оценка в прямом и
+#    обратном порядке эпизодов (записывает artifacts/production_smoke.json).
 scripts/production_smoke.sh <gpu>
 
-# 6. Full fan-out over the remaining points, then aggregation and Trackio.
+# 6. Полный веерный запуск по оставшимся точкам, затем агрегация результатов и логирование в Trackio.
 scripts/run_all.sh
 
-# Progress at any time:
+# Текущий прогресс в любое время:
 scripts/status.sh
 ```

@@ -1,59 +1,56 @@
-# Prior expectation — recorded before preparation and any rollout
+# Априорные ожидания — записано перед подготовкой и роллаутами
 
-Recorded 2026-08-23, before preparation, training, or any rollout of this
-experiment.
+Записано 2026-08-23, перед подготовкой, обучением или любым роллаутом в рамках
+данного эксперимента.
 
-Reference (full-FT, no augmentation, same seeds/demos/evaluation, mean over
-tasks 0–2):
+Ориентир (full-FT, без аугментации, те же сиды/демонстрации/оценка, среднее по задачам 0–2):
 
 | | k=1 | k=2 | k=3 |
 |---|---:|---:|---:|
 | n=50 | 0.583 | 0.950 | 0.767 |
 | n=25 | 0.533 | 0.750 | 0.800 |
 
-Per-task n=50 successes/20: task 0 — 2/20/11, task 1 — 19/20/20,
-task 2 — 14/17/15 (k=1/2/3).
+Успешность n=50 по каждой задаче (из 20): задача 0 — 2/20/11, задача 1 — 19/20/20,
+задача 2 — 14/17/15 (при k=1/2/3).
 
-Predictions for enabling lerobot's default image transforms during training:
+Прогнозы относительно включения стандартных преобразований изображений lerobot во время обучения:
 
-1. Small overall effect: every budget mean (n=50) within ±0.12 of the
-   full-FT reference. LIBERO evaluates in the same renderer and scenes as
-   the demos, so the photometric part fights a distribution shift that does
-   not exist at eval time; the informative part is the RandomAffine, which
-   adds spatial diversity relevant to the 20 varied init states.
-2. Direction by budget: at k=1 augmentation helps or is neutral (visual
-   overfitting to a single episode is strongest there): mean(k=1, n=50) ≥
-   the reference 0.583 − 0.05. At k=3 it is neutral-to-slightly-negative
-   (augmentation makes fitting harder within the fixed 2000 steps).
-3. The unstable drawer points move the most again: task 0 / k=2 (n=50) drops
-   from the reference 20/20 (that peak is fragile), while task 0 / k=1 and
-   k=3 change by at most ±4 successes. Tasks 1–2 stay within ±2 successes
-   per point.
-4. Training loss at step 2000 is higher than the full-FT counterpart for
-   every point (augmented inputs are harder to fit); sanity expectation.
-5. The n=25 vs n=50 pattern stays task-0-driven as in the sibling
-   experiments.
-6. The determinism gate (task 0 / k=1, forward vs reverse, both variants)
-   passes exactly — evaluation is untouched by training-time augmentation.
+1. Небольшой общий эффект: среднее значение для каждого бюджета (при n=50) окажется в пределах ±0.12 от
+   ориентира full-FT. Оценка в LIBERO происходит в том же рендерере и сценах, что и в демонстрациях,
+   поэтому фотометрическая часть борется со сдвигом распределения (distribution shift), которого не существует при оценке;
+   информативной частью является RandomAffine, который добавляет пространственное разнообразие, важное для 20 различных начальных состояний.
+2. Направление по бюджетам: при k=1 аугментация помогает или нейтральна (визуальное
+   переобучение на один эпизод выражено там сильнее всего): среднее(k=1, n=50) ≥
+   ориентир 0.583 − 0.05. При k=3 эффект нейтральный или слегка отрицательный
+   (аугментация затрудняет аппроксимацию данных в рамках фиксированных 2000 шагов).
+3. Нестабильные точки ящика (drawer, задача 0) снова изменятся сильнее всего: задача 0 / k=2 (n=50) опустится
+   от ориентира 20/20 (этот пик хрупок), тогда как задача 0 / k=1 и
+   k=3 изменятся максимум на ±4 успешные попытки. Задачи 1–2 останутся в пределах ±2 успешных попыток на точку.
+4. Потери при обучении (training loss) на шаге 2000 выше, чем у аналога full-FT для
+   каждой точки (аугментированные входные данные труднее аппроксимировать); техническое ожидание (sanity expectation).
+5. Характер изменения n=25 по сравнению с n=50 останется зависимым от задачи 0, как и в родственных
+   экспериментах.
+6. Гейт детерминизма (задача 0 / k=1, прямой против обратного порядка, оба варианта)
+   проходится точно — оценка никак не затрагивается аугментацией во время обучения.
 
-## Amendment (2026-08-23, still before any run): budget-dependent steps
+## Поправка (2026-08-23, все еще до любого запуска): зависимость шагов от бюджета
 
-Before preparation or any rollout, the protocol was changed to train
-1000/1500/2000 steps at k=1/2/3 (the reference trained 2000 everywhere), so
-for k=1 and k=2 this experiment now differs from the full-FT reference in
-both augmentation and optimization length; only k=3 isolates augmentation.
-Amended predictions:
+До начала подготовки и любого роллаута протокол был изменен в пользу обучения
+в течение 1000/1500/2000 шагов при k=1/2/3 (в ориентире использовалось 2000 шагов везде), так что
+для k=1 и k=2 этот эксперимент теперь отличается от ориентира full-FT как
+аугментацией, так и длиной оптимизации; только k=3 изолирует аугментацию.
+Скорректированные прогнозы:
 
-- A7. The k=3 points (the clean augmentation comparison) stay within ±0.12
-  of the reference means (n=50: 0.767, n=25: 0.800), per prediction 1.
-- A8. Halving steps at k=1 does not collapse performance: mean(k=1, n=50)
-  stays within ±0.15 of the reference 0.583. Rationale: k=1 loss plateaued
-  well before step 1000 in the full-FT gate run.
-- A9. Prediction 3's expectation that the fragile task 0 / k=2 20/20 peak is
-  not reproduced is now even stronger (fewer steps + augmentation).
+- А7. Точки k=3 (чистое сравнение влияния аугментации) остаются в пределах ±0.12
+  от средних значений ориентира (n=50: 0.767, n=25: 0.800), согласно прогнозу 1.
+- А8. Сокращение шагов вдвое при k=1 не приводит к обвалу показателей: среднее(k=1, n=50)
+  остается в пределах ±0.15 от ориентира 0.583. Обоснование: потери (loss) для k=1 вышли на плато
+  задолго до шага 1000 при запуске гейта full-FT.
+- А9. Ожидание из прогноза 3 о том, что хрупкий пик 20/20 для задачи 0 / k=2 не воспроизведется,
+  теперь становится еще сильнее (меньше шагов + аугментация).
 
-Falsification handling: if a budget mean differs from the reference by more
-than 0.15, inspect training logs and a sample of rollout videos before
-interpreting; augmentation bugs (e.g. transforms leaking into evaluation or
-applied to non-image keys) must be ruled out first. Single-training-seed
-caveat applies.
+Критерии фальсификации: если среднее значение бюджета отличается от ориентира более
+чем на 0.15, проверьте логи обучения и выборку видео роллаутов перед
+интерпретацией; ошибки аугментации (например, утечка трансформаций в процесс оценки или их
+применение к ключам, не связанным с изображениями) должны быть исключены в первую очередь. Применимо
+предостережение об одном сиде обучения.

@@ -1,22 +1,18 @@
-# Prior-informed expectation
+# Априорное ожидание
 
-Recorded on 2026-08-18 before running any rollout of this experiment.
-Strongly prior-informed: the sibling experiment
-`2026-08-18_pretrain_smolvla_prompt_only` already executed the identical
-protocol on the identical checkpoint and scored true 1/200 (single success:
-task 4 episode 4), wrong 0/200, nonsense 0/200.
+Записано 2026-08-18 перед запуском любых тестов (rollouts) в данном эксперименте.
+Сильное априорное предположение (prior-informed): родственный эксперимент
+`2026-08-18_pretrain_smolvla_prompt_only` уже выполнил идентичный
+протокол на идентичном чекпойнте и получил результаты: true 1/200 (единственный успех:
+задача 4, эпизод 4), wrong 0/200, nonsense 0/200.
 
-This run exists to capture full rollout video for every episode of every
-condition (the sibling recorded only episode 0 per task and missed its single
-success on video). It is an independent execution: environment seeds and
-initial states repeat exactly, but the torch RNG stream (flow-matching action
-noise) does not, so outcomes are resampled.
+Этот запуск предназначен для записи полного видео тестирования для каждого эпизода каждого
+условия (родственный эксперимент записывал только эпизод 0 для каждой задачи и упустил свой единственный
+успех на видео). Это независимое выполнение: сиды среды (environment seeds) и
+начальные состояния повторяются в точности, но поток RNG в torch (шум действий при согласовании потоков / flow-matching action noise) отличается, поэтому исходы пересэмплированы.
 
-Expected result: 0-3 successes out of 200 under `true` (the sibling's rate
-resampled), 0 under both controls. Task 4 is the most likely locus but a
-repeat there is not guaranteed. Mean over tasks <= 0.015.
+Ожидаемый результат: 0-3 успехов из 200 в условии `true` (пересэмплированная частота родственного эксперимента), 0 в обоих контрольных условиях. Задача 4 является наиболее вероятным местом успеха, но повторение там не гарантировано. Среднее значение по задачам <= 0.015.
 
-What would be surprising: >= 5/200 under `true` (would suggest the sibling
-underestimated the rate), or any control success.
+Что было бы неожиданным: >= 5/200 в условии `true` (что указывало бы на то, что родственный эксперимент недооценил частоту успеха) или любой успех в контрольных условиях.
 
-Both experiments' numbers stand independently; neither overwrites the other.
+Показатели обоих экспериментов оцениваются независимо; ни один не перезаписывает другой.

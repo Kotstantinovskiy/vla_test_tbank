@@ -1,40 +1,20 @@
-# Prior-informed expectations and decision rules (base cost curve)
+# Априорные ожидания и правила принятия решений (базовая кост-кривая)
 
-Recorded 2026-08-19 before running any training or rollout of this
-experiment.
+Записано 2026-08-19 перед запуском любого обучения или роллаута в данном эксперименте.
 
-Priors: the pretrained curve (frozen reference, single seed): mean-10 =
-0.55/0.705/0.78/0.83/0.875/0.85 at k=1/2/3/5/10/25; tasks 0-2 =
-0.567/0.717/0.717/0.95/0.95/0.90. Plain smolvla_base was trained on real
-SO-100 community data — LIBERO's simulated Franka is out of domain for the
-frozen VLM/vision tower, and only the ~100M expert + projections adapt.
+Априорные оценки: предобученная кривая (замороженный референс, один сид): среднее по 10 задачам (mean-10) = 0.55/0.705/0.78/0.83/0.875/0.85 при бюджетах k=1/2/3/5/10/25; задачи 0-2 = 0.567/0.717/0.717/0.95/0.95/0.90. Модель smolvla_base в чистом виде обучалась на реальных данных сообщества SO-100 — симулируемый Franka в среде LIBERO находится вне домена (out of domain) для замороженной башни VLM/зрения, и адаптируются только ~100M эксперт + проекции.
 
-## Predictions
+## Предсказания
 
-1. **The base curve is far below the pretrained curve at every k.**
-   mean-10 guesses: k=1: 0.00-0.05; k=2: 0.00-0.08; k=3: 0.02-0.12;
-   k=5: 0.05-0.25; k=10: 0.15-0.40; k=25: 0.30-0.55.
-2. **The gap narrows with k but does not close by k=25** (frozen
-   out-of-domain vision should cap expert-only adaptation): predicted
-   mean-10 deficit at k=25 >= 0.25.
-3. **Demo-equivalence headline**: pretrained k=1 (0.55) is predicted to be
-   unreachable by base at ANY k <= 25, i.e. the libero_90 pretrain is worth
-   more than 25 demos per task in the low-budget regime.
-4. Per-task shape: "push the plate" (task 5, quasi-static shove) is the most
-   likely early riser for base; long-horizon drawer+bowl tasks (0, 3, 6)
-   stay near zero through k <= 5.
+1. **Базовая кривая находится значительно ниже предобученной при любом значении k.**
+   Прогноз средних значений (mean-10): k=1: 0.00-0.05; k=2: 0.00-0.08; k=3: 0.02-0.12; k=5: 0.05-0.25; k=10: 0.15-0.40; k=25: 0.30-0.55.
+2. **Разрыв сокращается с ростом k, но не закрывается к k=25** (замороженное внедоменное зрение должно ограничивать адаптацию только за счет эксперта): прогнозируемый дефицит mean-10 при k=25 составляет >= 0.25.
+3. **Главный вывод об эквивалентности демонстраций**: прогнозируется, что предобученный уровень при k=1 (0.55) будет недостижим для базовой модели при ЛЮБОМ k <= 25, то есть предобучение libero_90 стоит больше, чем 25 демонстраций на задачу в режиме малого бюджета.
+4. Характер изменения показателей по задачам: задача "push the plate" (задача 5, квазистатический толчок), скорее всего, покажет наиболее ранний рост для базовой модели; задачи с длинным горизонтом планирования для ящиков и мисок (0, 3, 6) остаются около нуля при бюджетах k <= 5.
 
-## Decision rules (fixed before results)
+## Правила принятия решений (зафиксированы до получения результатов)
 
-- R1bc: base mean-10 at k=25 < pretrained mean-10 at k=1 -> headline claim
-  "the in-domain pretrain is worth > 25 demos/task" is licensed.
-- R2bc: base curve within 0.1 of the pretrained curve at k >= 10 -> the
-  pretrain's value is mostly a low-k effect; report it as demo-equivalence
-  at low k only, and flag expert-only capacity (not data) as the binding
-  factor for the pretrained curve too.
-- R3bc: base curve ~0 everywhere (mean-10 < 0.05 even at k=25) -> expert-only
-  from an out-of-domain base cannot adapt at all; any base-vs-pretrained
-  comparison must say "under THIS recipe"; a small unfreezing probe becomes
-  the natural follow-up before claiming demo-equivalence numbers.
-- R4bc: any training/eval harness failure (missing checkpoints, failed
-  audits) is reported as such, never as a low score.
+- R1bc: среднее значение базовой модели (base mean-10) при k=25 < предобученного среднего (pretrained mean-10) при k=1 -> разрешено заявить главный тезис: "доменное предобучение стоит > 25 демонстраций на задачу".
+- R2bc: базовая кривая находится в пределах 0.1 от предобученной кривой при k >= 10 -> ценность предобучения проявляется в основном при малых бюджетах k; сообщать об этом как об эквивалентности демонстраций только при малых k, и отметить ограниченную емкость схемы expert-only (а не данных) в качестве связывающего фактора также и для предобученной кривой.
+- R3bc: базовая кривая ~0 повсеместно (mean-10 < 0.05 даже при k=25) -> адаптация по схеме expert-only на основе внедоменной базовой модели невозможна; любое сравнение базовой и предобученной моделей должно сопровождаться оговоркой "при ДАННОМ рецепте обучения"; естественным следующим шагом перед заявлением показателей эквивалентности демонстраций становится небольшое исследование с разморозкой параметров (unfreezing probe).
+- R4bc: любой сбой в работе тренировочного или оценочного харнесса (отсутствие чекпойнтов, проваленные аудиты параметров) регистрируется как технический сбой, а не как низкий результат.

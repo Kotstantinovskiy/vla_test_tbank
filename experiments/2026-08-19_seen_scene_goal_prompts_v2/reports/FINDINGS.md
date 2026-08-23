@@ -1,83 +1,47 @@
-# Findings and verdict against pre-registered rules (v2)
+# Результаты и вердикт относительно предварительно зарегистрированных правил (v2)
 
-Written 2026-08-19 after the 16-point run completed (320/320 episodes, no
-failures, 0 predicate-consistency violations, and per-episode env-metric
-replication of v1 on all 14 shared points). Tables: [REPORT.md](REPORT.md);
-rules: [PRIOR_EXPECTATION.md](PRIOR_EXPECTATION.md).
+Написано 19.08.2026 после завершения запуска по 16 точкам (320/320 эпизодов, без сбоев, 0 нарушений согласованности предикатов и репликация метрик среды v1 по каждому эпизоду на всех 14 общих точках). Таблицы: [REPORT.md](REPORT.md); правила: [PRIOR_EXPECTATION.md](PRIOR_EXPECTATION.md).
 
-## Headline: instruction following is near-ceiling for trained strings
+## Главный вывод: следование инструкциям находится на уровне, близком к предельному, для обученных строк
 
-The v1 video read is now a number. Success below = the PROMPTED task's
-predicate:
+Анализ видео в v1 теперь представлен в виде числовых значений. Успех ниже = предикат задачи, для которой была подана ИНСТРУКЦИЯ (PROMPTED):
 
-| env | prompt | prompted succ | env-task succ |
+| среда | инструкция | успех по инструкции | успех по задаче среды |
 |---|---|---:|---:|
-| stove env ("turn on the stove") | "put the frying pan on the stove" | **17/20** | 0/20 |
-| pan env ("put the frying pan on the stove") | "turn on the stove" | **20/20** | 0/20 |
+| среда с плитой ("turn on the stove") | "put the frying pan on the stove" | **17/20** | 0/20 |
+| среда со сковородой ("put the frying pan on the stove") | "turn on the stove" | **20/20** | 0/20 |
 
-The prompted skill executes at (or above) its native trained rate: pan
-placement 17/20 under cross vs 16/20 in its own env; stove-on 20/20 in both.
-Median first-success step: 79 (stove-on), 173 (pan placement). **R1v2 fires
-at maximum strength** — language causally and cleanly selects among trained
-skills; the v1 "0/20 cross collapse" was purely the metric, not the policy.
+Навык, вызванный инструкцией, выполняется на уровне (или выше) его исходного показателя при обучении: размещение сковороды 17/20 при перекрестной подаче инструкций против 16/20 в собственной среде; включение плиты 20/20 в обоих случаях. Медианный шаг первого успеха: 79 (включение плиты), 173 (размещение сковороды). **R1v2 срабатывает с максимальной силой** — язык причинно-следственным образом и четко выбирает среди обученных навыков; «коллапс перекрестного тестирования 0/20» в v1 был вызван исключительно метрикой, а не самой стратегией (policy).
 
-## The novel-string point (goal 0) — R3v2 does not fire, with a twist
+## Точка с новой строкой (цель 0) — R3v2 не срабатывает, но с нюансом
 
-"open the middle drawer of the cabinet" (never trained anywhere) in the
-SCENE10 env (trained: "close the top drawer of the cabinet"):
+«open the middle drawer of the cabinet» (никогда не обучалась ни в одной задаче) в среде SCENE10 (обученная задача: «close the top drawer of the cabinet»):
 
-- prompted predicate (middle drawer open): **0/20** — the exact-string
-  selector model stands; a novel string retrieves no new skill.
-- env-task predicate (top drawer closed): **15/20** — under the novel-but-
-  related prompt the model largely fell back to the scene's trained skill
-  (its trained rate there: 20/20).
+- предикат по инструкции (открытие среднего ящика): **0/20** — модель селектора точных строк подтверждает свою работу; новая строка не извлекает новый навык.
+- предикат задачи среды (закрытие верхнего ящика): **15/20** — при подаче новой, но связанной по смыслу инструкции модель в основном возвращалась к обученному навыку сцены (показатель обучения для него там: 20/20).
 
-Contrast with nonsense ("dax florp"): env-task 0/20 in both probe scenes.
-So the fallback hierarchy is graded: trained string -> trained skill;
-related-but-novel string -> scene's trained skill, degraded; nonsense ->
-nothing. Note the tension with the paraphrase block, where near-synonyms of
-the trained string did NOT trigger the trained skill (0-2/20): dropping a
-word from the trained instruction breaks execution, while a structurally
-similar sentence about the same fixture ("...the X drawer of the cabinet")
-keeps the scene skill running. Hypotheses (not adjudicated here): token-level
-prefix/structure overlap matters more than synonymy; or the drawer-close
-skill is partly affordance-driven (drawer starts open). The failure-funnel
-probe can separate these.
+Сравните с бессмысленным текстом («dax florp»): успех по задаче среды 0/20 в обеих тестовых сценах. Таким образом, иерархия резервных вариантов (fallback) является градуированной: обученная строка -> обученный навык; связанная, но новая строка -> обученный навык сцены со снижением качества; бессмысленный текст -> ничего. Обратите внимание на противоречие с блоком парафраз, где близкие синонимы обученной строки НЕ вызывали обученный навык (0-2/20): удаление слова из обученной инструкции нарушает выполнение, в то время как структурно похожая фраза о том же объекте («...the X drawer of the cabinet») сохраняет работоспособность навыка сцены. Гипотезы (здесь не проверяются): перекрытие префиксов/структуры на уровне токенов имеет большее значение, чем синонимия; либо навык закрытия ящика частично определяется возможностями среды (affordance-driven), так как ящик изначально открыт. Тестирование через воронку отказов (failure-funnel probe) поможет разграничить эти факторы.
 
-## Paraphrase and nonsense under the redefined metric
+## Парафразы и бессмысленный текст при переопределенной метрике
 
-Unchanged from v1 (predicates coincide): 0/20, 2/20, 2/20 and 1/20 (the
-drawer paraphrase scored 1 episode on the goal-3 predicate while the env's
-stricter open+in conjunction stayed 0). Nonsense 0/20. The surface-form
-brittleness verdict (v1 R2) stands.
+Без изменений по сравнению с v1 (предикаты совпадают): 0/20, 2/20, 2/20 и 1/20 (парафраз для ящика показал результат в 1 эпизоде по предикату цели-3, в то время как более строгая конъюнкция open+in в среде осталась на уровне 0). Бессмысленный текст — 0/20. Вердикт о хрупкости поверхностной формы (v1 R2) остается в силе.
 
-## Rules
+## Правила
 
-- **R1v2 — FIRES** (cross prompted 0.85 and 1.00, both >= 0.3, one >= 0.5).
-- **R2v2 — does not fire** (no measurement problem; predictions met).
-- **R3v2 — does not fire** (goal-0 prompted 0/20 < 0.3).
-- **R4v2 — clean** (0 consistency violations; exact v1 replication).
+- **R1v2 — СРАБАТЫВАЕТ** (перекрестный успех по инструкции 0.85 и 1.00, оба >= 0.3, один >= 0.5).
+- **R2v2 — не срабатывает** (проблем с измерениями нет; прогнозы оправдались).
+- **R3v2 — не срабатывает** (успех по инструкции для цели-0 0/20 < 0.3).
+- **R4v2 — чисто** (0 нарушений согласованности; точная репликация v1).
 
-## Implications for Task 2
+## Выводы для Задачи 2
 
-1. The action expert and the language selector are both healthy; the ONLY
-   broken link is string-to-skill generalization. This is the strongest
-   possible justification for **hindsight instruction relabeling /
-   augmentation**: teach the selector that many strings map to one skill.
-2. Co-training must preserve the working selector: mixed-task batches with
-   the original strings kept alongside augmented ones.
-3. The goal-0 fallback (15/20 scene skill under a related novel string) warns
-   that in the goal scene, novel instructions may trigger the *nearest seen
-   skill* rather than nothing — relevant when reading k=0/low-k failures.
-4. Retrieval caveat from the slice: goal tasks 1/2/5/6 have no seen scene
-   even containing their predicate objects together (e.g. bowl+stove never
-   co-occur in libero_90) — retrieval for those tasks can only supply partial
-   skills (approach/grasp/place primitives), not end-to-end demonstrations.
+1. Модуль выполнения действий (action expert) и языковой селектор функционируют нормально; ЕДИНСТВЕННЫМ слабым звеном является обобщение от строки к навыку (string-to-skill). Это сильнейшее теоретическое обоснование для **переразметки / аугментации инструкций ретроспективным анализом (hindsight instruction relabeling / augmentation)**: необходимо научить селектор тому, что множество различных строк могут соответствовать одному и тому же навыку.
+2. Совместное обучение (co-training) должно сохранять работоспособный селектор: пакеты смешанных задач должны содержать оригинальные строки наряду с аугментированными.
+3. Резервный переход для цели-0 (выполнение навыка сцены 15/20 при подаче связанной новой строки) предупреждает о том, что в целевой сцене новые инструкции могут вызывать *ближайший наблюдаемый навык* вместо отсутствия реакции — это важно учитывать при анализе неудач при k=0/низком k.
+4. Нюанс извлечения (retrieval) из среза: целевые задачи 1/2/5/6 не имеют ни одной наблюдаемой сцены, содержащей их предикатные объекты вместе (например, bowl и stove никогда не встречаются одновременно в libero_90) — извлечение для этих задач может предоставить только частичные навыки (примитивы приближения/захвата/размещения), но не сквозные демонстрации.
 
-## Limitations
+## Ограничения
 
-- Env-task success after a prompted-success termination is unobservable;
-  immaterial here (v1 env metric was 0/20 on cross, replicated).
-- One novel-string point only (goal 0); the graded-fallback claim rests on
-  n=1 env plus two nonsense controls.
-- Single eval seed bank; frozen checkpoint (no training seeds involved).
+- Успех задачи среды после завершения по успешному выполнению инструкции не поддается наблюдению; в данном случае это несущественно (метрика среды v1 составляла 0/20 при перекрестном тестировании, что было реплицировано).
+- Только одна точка с новой строкой (цель 0); утверждение о градуированном резервном переходе основывается на n=1 среде и двух контрольных тестах с бессмысленным текстом.
+- Единый банк начальных значений (seeds) для оценки; замороженная контрольная точка (обучающие начальные значения не использовались).

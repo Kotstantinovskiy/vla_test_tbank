@@ -1,10 +1,8 @@
-# seen_article_drop: prompted-predicate success
+# seen_article_drop: успешность по предикату промпта
 
-Only binary success is aggregated. Every rollout video remains on disk
-for manual behavior inspection. Environment and policy-noise seeds are
-recorded per episode.
+Агрегируется только бинарный показатель успешности. Все видеозаписи симуляций (rollouts) сохраняются на диске для ручного анализа поведения. Сиды среды и шума политики регистрируются для каждого эпизода.
 
-| label | env instruction | block | policy prompt | success | 95% CI | env success |
+| label | инструкция среды | block | промпт политики | успешность | 95% ДИ | успешность среды |
 |---|---|---|---|---:|---|---:|
 | `exact__task_0` | `turn on the stove` | exact | `turn on the stove` | 20/20 | [0.84, 1.00] | 20/20 |
 | `article_drop__task_0` | `turn on the stove` | article_drop | `turn on stove` | 20/20 | [0.84, 1.00] | 20/20 |
@@ -27,9 +25,9 @@ recorded per episode.
 | `exact__task_9` | `pick up the book and place it in the left compartment of the caddy` | exact | `pick up the book and place it in the left compartment of the caddy` | 12/20 | [0.39, 0.78] | 12/20 |
 | `article_drop__task_9` | `pick up the book and place it in the left compartment of the caddy` | article_drop | `pick up book and place it in the left compartment of the caddy` | 7/20 | [0.18, 0.57] | 7/20 |
 
-## Paired comparisons
+## Парные сравнения
 
-| pair | reference -> condition | delta | discordant ref/condition | McNemar p |
+| пара | референс -> условие | delta | несогласованные реф/условие | McNemar p |
 |---|---|---:|---|---:|
 | `task_0` | 20/20 -> 20/20 | +0.00 | 0/0 | 1.0000 |
 | `task_1` | 17/20 -> 15/20 | -0.10 | 3/1 | 0.6250 |

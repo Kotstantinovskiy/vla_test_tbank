@@ -1,15 +1,7 @@
-# Prediction recorded before blind scoring
+# Прогноз, зафиксированный перед слепым оцениванием
 
-Recorded on 2026-08-23 before either critic was run on the target 420 videos.
+Записано 23.08.2026 перед запуском любого из критиков на целевых 420 видеороликах.
 
-Robometer-4B-LIBERO is expected to rank policies more closely to environment
-success because it was trained with both progress and trajectory-preference
-supervision, including LIBERO rollouts. The smaller critic saw only expert
-LIBERO-90 videos with synthetic temporal progress labels, so it may confuse
-motion or late trajectory time with task completion. The useful counter-case
-is that the smaller critic uses the repository's exact 128x128 camera convention
-and an identical 32-bin target, whereas Robometer may have a domain or camera
-calibration mismatch.
+Ожидается, что Robometer-4B-LIBERO будет ранжировать политики ближе к показателям успеха в среде, поскольку он обучался как на сигналах прогресса, так и на предпочтениях траекторий (trajectory-preference supervision), включая развертывания LIBERO. Собственный меньший критик видел только экспертные видеоролики LIBERO-90 с синтетическими метками временного прогресса, поэтому он может путать движение или позднее время траектории с выполнением задачи. Полезным контрпримером является то, что меньший собственный критик использует точно такую же конвенцию камеры 128x128 этого репозитория и идентичную 32-биновую цель, в то время как у Robometer может возникнуть несоответствие домена или калибровки камеры.
 
-This prediction fixes the expected winner but does not define any threshold or
-permit checkpoint selection after observing ranking labels.
+Этот прогноз фиксирует ожидаемого победителя, но не устанавливает никаких пороговых значений и не разрешает выбор чекпоинтов после ознакомления с метками ранжирования.

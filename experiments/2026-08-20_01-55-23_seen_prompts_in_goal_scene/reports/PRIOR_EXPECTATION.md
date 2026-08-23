@@ -1,35 +1,17 @@
-# Prior expectation — locked before rollouts
+# Априорные ожидания — зафиксированы до запуска rollouts
 
-Five related seen strings already failed to unlock the novel goal scene in a
-predecessor probe. The nine-point deterministic extension is therefore
-expected to remain near floor. A non-zero result under a verbatim trained
-string is still meaningful because success is evaluated with that string's
-own BDDL predicate rather than the host task's predicate.
+Ранее пять родственных виденных (seen) строк не смогли разблокировать новую целевую сцену (goal scene) в предшествующем пилотном исследовании. Таким образом, ожидается, что детерминированное расширение на девять точек останется на минимальном уровне (near floor). Ненулевой результат при использовании буквально обученной строки все же имеет значение, поскольку успех оценивается по собственному BDDL-предикату этой строки, а не по предикату хост-задачи (host task).
 
-## Quantitative predictions and decision rules (added 2026-08-20, still before any rollout)
+## Количественные прогнозы и решающие правила (добавлено 2026-08-20, до запуска rollouts)
 
-Priors: probe 3 (goal_scene_seen_prompts): 4 seen twins + 2 seen_cross in the
-goal scene all 0/20 by prompted predicate; true anchor "turn on the stove"
-20/20 seen -> 0/20 goal. This experiment widens to 9 verbatim seen strings in
-ONE goal env (goal task 0) with their own predicates, shared inits and
-noise-paired episodes.
+Априорные данные: пилотный тест 3 (goal_scene_seen_prompts): 4 виденных близнеца (seen twins) + 2 виденных перекрестных (seen_cross) в целевой сцене показали результат 0/20 по предикату промпта; настоящая базовая задача "turn on the stove" показала 20/20 на seen-сцене -> 0/20 на goal-сцене. Настоящий эксперимент расширяет исследование до 9 буквальных виденных (seen) строк в ОДНОЙ целевой среде (goal env, целевая задача 0) с их собственными предикатами, общим начальным состоянием и попарно согласованными по шуму эпизодами.
 
-Predictions:
-1. true_goal control (host's own instruction "open the middle drawer"):
-   0-2/20 (k=0 floor; prompt_only_3 gave 0/20 for this task).
-2. seen_prompt points: 0-2/20 each; pooled <= 5/180. Most likely nonzero
-   candidate: "turn on the stove" (the stove IS present in the goal scene
-   and the skill is the simplest), still predicted <= 2/20 given probe 3's
-   anchor result of 0/20.
-3. nonsense control: 0/20 prompted-undefined; env metric 0-2/20.
+Прогнозы:
+1. Контроль true_goal (собственная инструкция хоста "open the middle drawer"): 0-2/20 (минимальный уровень k=0; prompt_only_3 дал результат 0/20 для этой задачи).
+2. Точки seen_prompt: 0-2/20 каждая; суммарно <= 5/180. Наиболее вероятный ненулевой кандидат: "turn on the stove" (плита ПРИСУТСТВУЕТ в целевой сцене, и этот навык является самым простым), но на основе результата базовой задачи в пилотном тесте 3 (0/20) прогнозируется результат <= 2/20.
+3. Нонсенс-контроль (nonsense control): 0/20 по неопределенному промпту; метрика среды 0-2/20.
 
-Decision rules:
-- R1sg (scene-gating confirmed at scale): pooled seen_prompt success
-  <= 5/180 -> the novel scene blocks skill execution regardless of string;
-  closes the question with n=9 instead of probe 3's n=6.
-- R2sg (some skills DO transfer): any single seen_prompt >= 5/20 -> scene
-  transfer is skill-dependent; identify what distinguishes the transferring
-  skill (object overlap, motion type) before Task-2 design freezes.
-- R3sg (control failure): true_goal >= 5/20 would contradict prompt_only_3's
-  floor under the new noise bank at this scale — investigate the harness
-  before interpreting anything else.
+Решающие правила:
+- R1sg (блокировка сценой подтверждена в широком масштабе): суммарный успех seen_prompt <= 5/180 -> новая сцена блокирует выполнение навыка независимо от строки; вопрос закрывается при n=9 вместо n=6 в пилотном тесте 3.
+- R2sg (некоторые навыки все же переносятся): любой одиночный seen_prompt >= 5/20 -> перенос сцены зависит от навыка; определить, что отличает переносимый навык (перекрытие объектов, тип движения), до завершения проектирования Задачи 2 (Task-2).
+- R3sg (сбой контроля): результат true_goal >= 5/20 противоречил бы минимальному уровню prompt_only_3 при новом банке шумов в таком масштабе — исследовать тестовый стенд (harness) перед интерпретацией любых других результатов.

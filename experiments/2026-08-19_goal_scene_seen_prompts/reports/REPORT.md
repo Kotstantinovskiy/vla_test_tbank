@@ -1,11 +1,8 @@
-# Goal-scene x seen-prompts (probe 3): trained strings in a novel scene
+# Целевая сцена x знакомые промпты (зонд 3): обученные строки в новой сцене
 
-Frozen official-data pretrain in the GOAL scene (libero_goal); prompts
-are verbatim libero_90-trained strings vs the goal instructions.
-Primary success = the PROMPTED task's predicate; behavioral metrics
-discriminate conditions at the floor.
+Замороженное предобучение на официальных данных в целевой сцене (GOAL, `libero_goal`); промпты представляют собой дословные строки, обученные на `libero_90`, в сравнении с целевыми инструкциями. Основная успешность (primary success) = предикат промптированной (PROMPTED) задачи; поведенческие метрики различают условия на базовом уровне (at the floor).
 
-| env instruction | block | prompt | prompted succ | 95% CI | med min dist (m) | moved>5cm |
+| инструкция окружения (env instruction) | блок (block) | промпт (prompt) | успешность по промпту (prompted succ) | 95% ДИ (95% CI) | медианное мин. расст. (м) (med min dist) | смещение > 5 см (moved>5cm) |
 |---|---|---|---:|---|---:|---:|
 | `turn on the stove` | true | `turn on the stove` | 0/20 | [0.00, 0.16] | 0.213 | 0/20 |
 | `open the top drawer and put the bowl inside` | true | `open the top drawer and put the bowl inside` | 0/20 | [0.00, 0.16] | 0.109 | 0/20 |
@@ -21,9 +18,9 @@ discriminate conditions at the floor.
 | `turn on the stove` | nonsense | `perform the dax florp twice` | 0/20 (env) | [0.00, 0.16] | 0.317 | 0/20 |
 | `open the top drawer and put the bowl inside` | nonsense | `perform the dax florp twice` | 0/20 (env) | [0.00, 0.16] | 0.057 | 14/20 |
 
-## Paired vs the true goal prompt (same env, same init states)
+## Сравнение парных промптов с истинным целевым промптом (одно окружение, одинаковые начальные состояния)
 
-| env | block | prompt | true → condition | Δ succ | Δ med min dist | McNemar p |
+| окр. (env) | блок (block) | промпт (prompt) | истинный → условие (true → condition) | Δ успешн. (Δ succ) | Δ медиан. мин. расст. (Δ med min dist) | p-значение критерия Мак-Немара (McNemar p) |
 |---|---|---|---|---:|---:|---:|
 | `open the top drawer and put the bowl ins` | seen_twin | `open the top drawer of the cabinet and p` | 0/20 → 0/20 | +0.00 | -0.015 | 1 |
 | `put the bowl on top of the cabinet` | seen_twin | `put the black bowl on top of the cabinet` | 5/20 → 0/20 | -0.25 | +0.030 | 0.0625 |

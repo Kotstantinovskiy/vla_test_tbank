@@ -1,14 +1,7 @@
-# Prior expectation
+# Априорные ожидания
 
-Recorded before any Qwen3.5 progress-critic optimization steps.
+Записано перед какими-либо шагами оптимизации критика прогресса Qwen3.5.
 
-The deliberately simple temporal target should be learnable: training and task-held-out
-validation cross-entropy should fall during 2,000 steps. However, because supervision is
-absolute normalized time on successful expert demonstrations only, the critic may learn a
-mixture of visual task progress and expert-trajectory timing. No claim about checkpoint
-ranking is made in this experiment.
+Намеренно простая временная целевая переменная должна быть обучаемой: кросс-энтропия обучения и валидации на отложенных задачах должна снижаться в течение 2000 шагов. Однако, поскольку обучение с учителем основано исключительно на абсолютном нормализованном времени успешных экспертных демонстраций, критик может выучить смесь визуального прогресса задачи и времени прохождения экспертной траектории. В данном эксперименте никаких утверждений касательно ранжирования чекпоинтов не выдвигается.
 
-The 50-step benchmark is an engineering gate, not a scientific result. It measures whether
-Qwen3.5-4B LoRA plus a 32-bin head fits on GPU 0 without gradient checkpointing, records peak
-VRAM and throughput, and projects the wall time for the declared 2,000-step run. Full training
-will not be launched as part of this preparation turn.
+Бенчмарк на 50 шагов является инженерным фильтром, а не научным результатом. Он проверяет, помещается ли Qwen3.5-4B LoRA вместе с 32-биновой головой на GPU 0 без использования градиентного чекпоинтинга, фиксирует пиковый объем VRAM и пропускную способность, а также прогнозирует астрономическое время выполнения для заявленного запуска на 2000 шагов. Полное обучение в рамках данного этапа подготовки запускаться не будет.

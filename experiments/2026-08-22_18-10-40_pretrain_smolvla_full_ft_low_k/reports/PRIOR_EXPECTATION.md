@@ -1,10 +1,10 @@
-# Prior expectation — recorded before preparation and any rollout
+# Априорные ожидания — записано перед подготовкой и роллаутами
 
-Recorded 2026-08-22, before preparation, training, or any target rollout of
-this experiment. Training seed is fixed at 1000, matching the deterministic
-low-k reproduction.
+Записано 2026-08-22, до подготовки, обучения или любого целевого роллаута
+в рамках данного эксперимента. Сид обучения зафиксирован как 1000, что соответствует детерминированному
+воспроизведению при малых k (low-k).
 
-Reference (expert-only, same seed/demos/evaluation protocol,
+Ориентир (версия expert-only, те же сиды/демонстрации/протокол оценки,
 `2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro`):
 
 | task | k=1 | k=2 | k=3 |
@@ -14,48 +14,45 @@ Reference (expert-only, same seed/demos/evaluation protocol,
 | 2 (wine→cabinet) | 16/20 (0.80) | 18/20 (0.90) | 16/20 (0.80) |
 | mean 0–2 | 0.600 | 0.683 | 0.667 |
 
-Predictions for the full fine-tune (whole policy trainable, same recipe
-otherwise):
+Прогнозы для полного файнтюнинга (вся политика обучаема, рецепт в остальном прежний):
 
-1. The curve stays within ±0.15 of the expert-only means at each budget; I do
-   not expect a dramatic shift in either direction from 2000 steps on 1–3
-   demos.
-2. Direction: at k=1 full FT is at or slightly below expert-only (more
-   capacity fitting one demonstration raises overfitting/forgetting risk, and
-   the frozen VLM is what the expert-only baseline relied on); at k=2–3 full
-   FT is at or slightly above expert-only. Concretely: mean(k=1) within
-   [0.45, 0.65], mean(k=3) within [0.62, 0.82].
-3. Task 0 (drawer) remains the weakest task at every budget and shows the
-   largest relative movement, because its expert-only scores leave the most
-   headroom in both directions.
-4. Training loss at step 2000 is lower than the expert-only counterpart for
-   every task/budget (strictly more capacity on the same tiny dataset); this
-   is a sanity expectation, not a success claim.
-5. The forward/reverse determinism gate on task 0 / k=1 passes exactly, as it
-   did for the expert-only repro; the gate is protocol-level and does not
-   depend on the trainable set.
+1. Кривая остается в пределах ±0.15 od средних значений версии expert-only для каждого бюджета; я не
+   ожидаю резких сдвигов в какую-либо сторону при 2000 шагах обучения на 1–3 демонстрациях.
+2. Направление: при k=1 полный файнтюнинг (full FT) находится на уровне или немного ниже expert-only (большая
+   емкость модели при аппроксимации одной демонстрации увеличивает риск переобучения/забывания, в то время как
+   замороженная VLM была тем, на что опирался базовый вариант expert-only); при k=2–3 полный
+   файнтюнинг находится на уровне или немного выше expert-only. Конкретно: среднее(k=1) в диапазоне
+   [0.45, 0.65], среднее(k=3) в диапазоне [0.62, 0.82].
+3. Задача 0 (drawer) остается самой слабой задачей для каждого бюджета и демонстрирует
+   наибольшее относительное отклонение, поскольку показатели версии expert-only оставляют наибольший
+   запас для движения в обоих направлениях.
+4. Потери при обучении (training loss) на шаге 2000 ниже, чем в аналоге expert-only для
+   каждой задачи/бюджета (строго большая емкость на том же крошечном датасете); это
+   базовое техническое ожидание (sanity expectation), а не заявление об успешности.
+5. Гейт детерминизма в прямом/обратном порядке на задаче 0 / k=1 проходится точно так же, как и
+   для репро-версии expert-only; данный гейт находится на уровне протокола и не
+   зависит от набора обучаемых параметров.
 
-## Addendum: inference n_action_steps ∈ {50, 25} (recorded 2026-08-22, before any full-FT rollout)
+## Дополнение: инференс n_action_steps ∈ {50, 25} (записано 2026-08-22, перед любым роллаутом full-FT)
 
-Added before any rollout of this experiment was evaluated (the first launch
-was aborted at training step 30 of the production gate; no evaluation ran).
-Every adapted checkpoint will be evaluated at inference n_action_steps=50 and
-25 on identical per-episode seeds/init states. Reference on the expert-only
-checkpoints (`2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps`,
-n=25 vs the n=50 repro): 0.567/0.767/0.733 vs 0.600/0.683/0.667 at k=1/2/3 —
-re-planning twice per chunk helped at k=2–3 and slightly hurt at k=1.
+Добавлено до оценки какого-либо роллаута в этом эксперименте (первый запуск
+был прерван на шаге обучения 30 гейта готовности; оценка не запускалась).
+Каждый адаптированный чекпоинт будет оцениваться при значениях n_action_steps=50 и
+25 во время инференса на идентичных сидах и начальных состояниях для каждого эпизода. Ориентир для
+чекпоинтов expert-only (`2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps`,
+n=25 против repro n=50): 0.567/0.767/0.733 против 0.600/0.683/0.667 при k=1/2/3 —
+перепланирование дважды за чанк помогло при k=2–3 и немного навредило при k=1.
 
-Predictions 6–7:
+Прогнозы 6–7:
 
-6. The same qualitative pattern holds for full-FT checkpoints: n=25 within
-   ±0.10 of n=50 at every budget, with n=25 ≥ n=50 more often at k=2–3 than
-   at k=1.
-7. Points 1–3 above are stated for the n=50 (trained-default) curve; the
-   determinism gate must pass exactly at both variants.
+6. Тот же качественный характер сохраняется для чекпоинтов full-FT: n=25 находится в пределах
+   ±0.10 от n=50 для каждого бюджета, причем n=25 ≥ n=50 чаще при k=2–3, чем
+   при k=1.
+7. Пункты 1–3 выше сформулированы для кривой n=50 (обученный дефолт);
+   гейт детерминизма должен проходиться точно в обоих вариантах.
 
-Falsification handling: if a budget mean differs from the expert-only mean by
-more than 0.15, first inspect training logs (divergence/NaN, loss scale),
-the parameter audit, and a sample of rollout videos before assigning a
-scientific interpretation. This experiment is single-training-seed (1000) and
-must be labeled as such; it does not by itself satisfy the assignment's
-two-seed requirement.
+Критерии фальсификации: если среднее значение бюджета отличается от среднего значения версии expert-only
+более чем на 0.15, сначала проверьте логи обучения (расхождение/NaN, масштаб функции потерь),
+аудит параметров и выборку видео роллаутов перед тем, как давать
+научную интерпретацию. К данному эксперименту применимо предостережение об одном сиде обучения (1000);
+точечные различия в ±2 успешных попытки укладываются в диапазон шума для 20 эпизодов.

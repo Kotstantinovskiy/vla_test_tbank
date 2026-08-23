@@ -1,36 +1,36 @@
-# Prior expectation — recorded before preparation and any rollout
+# Априорные ожидания — записано перед подготовкой и роллаутами
 
-Recorded 2026-08-22, before preparation, training, or any rollout of this
-experiment.
+Записано 2026-08-22, до подготовки, обучения или любого роллаута в рамках
+данного эксперимента.
 
-Reference (full-FT, k=1, n=50, same seeds/demos/evaluation):
-task 0 (drawer) 2/20, task 1 (bowl→stove) 19/20, task 2 (wine→cabinet)
-14/20, mean 0.583.
+Ориентир (full-FT, k=1, n=50, те же сиды/демонстрации/оценка):
+задача 0 (drawer) — 2/20, задача 1 (bowl→stove) — 19/20, задача 2 (wine→cabinet) —
+14/20, среднее значение 0.583.
 
-Predictions:
+Прогнозы:
 
-1. The alpha=0.00 control lands within ±2 successes per task of the full-FT
-   k=1 reference (same recipe re-run; deviations measure GPU training
-   nondeterminism only).
-2. Small noise helps or is neutral at k=1: the best alpha in {0.01, 0.03}
-   beats alpha=0.00 on the 3-task mean by at least +0.05. Mechanism: with a
-   single demo the policy overfits exact proprioception; noise widens the
-   state neighborhood mapped to the demonstrated behavior.
-3. The effect is largest on task 0 (drawer, 2/20 baseline, most headroom and
-   the most contact-precision-sensitive): its best-alpha success is at least
-   double the alpha=0.00 arm. Tasks 1–2 move by at most ±3 successes.
-4. alpha=0.05 is past the sweet spot: at or below alpha=0.03's mean (too
-   much state corruption at batch-effective scale; the model may learn to
-   ignore proprioception and lean on vision, which is not necessarily bad
-   but should not beat the moderate setting).
-5. Training loss at step 2000 increases monotonically with alpha (noisy
-   inputs are harder to fit); this is a sanity expectation, not a success
-   metric.
-6. The determinism gate (task 0 / alpha 0.00, forward vs reverse, n=50)
-   passes exactly.
+1. Контрольный вариант alpha=0.00 окажется в пределах ±2 успешных попыток на задачу от ориентира full-FT
+   k=1 (повторный запуск того же рецепта; отклонения отражают только недетерминированность
+   обучения на GPU).
+2. Небольшой шум помогает или нейтрален при k=1: лучший показатель alpha среди {0.01, 0.03}
+   превосходит alpha=0.00 по среднему показателю для 3 задач как минимум на +0.05. Механизм: при
+   одной демонстрации политика переобучается на точные данные проприоцепции; шум расширяет
+   окрестность состояний, сопоставляемых с продемонстрированным поведением.
+3. Эффект наиболее выражен на задаче 0 (drawer, базовый уровень 2/20, наибольший запас для роста и
+   наибольшая чувствительность к точности контакта): показатель успешности при лучшем значении alpha как минимум
+   вдвое превышает результат для ветки alpha=0.00. Задачи 1–2 изменятся максимум на ±3 успешных попытки.
+4. Значение alpha=0.05 находится за пределами оптимальной зоны (sweet spot): на уровне или ниже среднего показателя для alpha=0.03 (слишком
+   сильное искажение состояний в эффективном масштабе батча; модель может научиться
+   игнорировать проприоцепцию и полагаться на зрение, что не обязательно плохо,
+   но не должно превосходить умеренную настройку).
+5. Потери при обучении (training loss) на шаге 2000 монотонно возрастают по мере увеличения alpha (шумные
+   входные данные труднее аппроксимировать); это базовое техническое ожидание (sanity expectation), а не
+   метрика успеха.
+6. Гейт детерминизма (задача 0 / alpha 0.00, прямой против обратного порядка, n=50)
+   проходится точно.
 
-Falsification handling: if alpha=0.00 deviates from the full-FT reference by
-more than 4 successes on any task, suspect the wrapper is not a no-op (RNG
-stream contamination) and audit the implementation before interpreting the
-sweep. Single-training-seed caveat applies; per-point differences of ±2
-successes are within noise for 20 episodes.
+Критерии фальсификации: если вариант alpha=0.00 отклоняется от ориентира full-FT более
+чем на 4 успешных попытки по любой задаче, заподозрите, что обертка не является нейтральной (загрязнение
+потока RNG) и проведите аудит реализации перед интерпретацией результатов свипа.
+Применимо предостережение об одном сиде обучения; различия по точкам в пределах ±2
+успешных попыток находятся в пределах шума для 20 эпизодов.

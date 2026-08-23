@@ -1,32 +1,17 @@
-# Prior expectation — locked before rollouts
+# Априорные ожидания — зафиксированы до запуска rollouts
 
-Earlier less-controlled goal-style rewrites reduced four seen tasks from
-11–17/20 to 0–2/20. The new paraphrases preserve every task-defining object
-descriptor and relation, so a smaller but still negative average delta is
-expected. Results will be reported for all ten preregistered tasks, including
-anchors whose exact baseline is weak; no post-result task filtering.
+Более ранние, менее контролируемые переформулировки в стиле целевого состояния (goal-style) привели к снижению результатов по четырем виденным (seen) задачам с 11–17/20 до 0–2/20. Новые парафразы сохраняют все определяющие задачу дескрипторы объектов и отношения, поэтому ожидается меньшая, но все же отрицательная средняя разница (delta). Результаты будут представлены для всех десяти предварительно зарегистрированных задач, включая базовые задачи (anchors), для которых исходный уровень (baseline) является слабым; фильтрация задач после получения результатов производиться не будет.
 
-## Quantitative predictions and decision rules (added 2026-08-20, still before any rollout)
+## Количественные прогнозы и решающие правила (добавлено 2026-08-20, до запуска rollouts)
 
-Priors: v2's goal-style rewrites dropped descriptors and collapsed
-(-0.45..-0.85 on 4/4 pairs). These 10 paraphrases preserve every
-task-defining descriptor and relation.
+Априорные данные: переформулировки в стиле целевого состояния версии v2 привели к потере дескрипторов и резкому падению качества (-0.45..-0.85 на 4/4 пар). Эти 10 парафразов сохраняют каждый определяющий задачу дескриптор и отношение.
 
-Predictions:
-1. exact anchors: >= 0.5 on >= 8/10 tasks.
-2. paraphrase mean delta in [-0.5, -0.15]; largest drops where the verb or
-   token order changes most ("switch the stove on", "shut the cabinet's top
-   drawer"), smallest for single-verb swaps ("put" -> "place").
+Прогнозы:
+1. Точные базовые задачи (exact anchors): >= 0.5 на >= 8/10 задачах.
+2. Средняя разница для парафразов (paraphrase mean delta) в диапазоне [-0.5, -0.15]; наибольшее падение ожидается в случаях, когда сильнее всего меняется глагол или порядок токенов ("switch the stove on", "shut the cabinet's top drawer"), наименьшее — при замене одиночных глаголов ("put" -> "place").
 
-Decision rules:
-- R1sp (descriptor hypothesis wins): mean delta >= -0.15 and McNemar n.s.
-  on >= 8/10 -> v1/v2 collapse was about LOSING task-defining tokens;
-  descriptor-preserving rewording is safe; relabeling should prioritize
-  descriptor variants over verb variants.
-- R2sp (any-rewording brittleness): mean delta <= -0.4 or McNemar p<0.05 on
-  >= 5/10 -> the selector keys on the whole token sequence; relabeling needs
-  broad paraphrase coverage including verb/structure variants.
-- R3sp (intermediate): correlate per-pair drop with edit type (verb swap /
-  reorder / possessive restructure) and report; no single-lever claim.
-- R4sp (weak anchor): any exact anchor < 7/20 -> its pair stays in tables
-  but is excluded from rule counting (pre-registered interpretation rule).
+Решающие правила:
+- R1sp (победа гипотезы дескрипторов): средняя разница >= -0.15 и критерий Макнемара (McNemar) статистически незначим (n.s.) на >= 8/10 задач -> падение в v1/v2 было связано с ПОТЕРЕЙ определяющих задачу токенов; изменение формулировок с сохранением дескрипторов безопасно; при повторной разметке (relabeling) следует отдавать приоритет вариантам дескрипторов, а не вариантам глаголов.
+- R2sp (чувствительность к любому изменению формулировок): средняя разница <= -0.4 или критерий Макнемара p<0.05 на >= 5/10 задач -> селектор ориентируется на всю последовательность токенов; для повторной разметки требуется широкое покрытие парафразами, включая варианты глаголов и структурные варианты.
+- R3sp (промежуточный вариант): сопоставить падение в каждой паре с типом редактирования (замена глагола / изменение порядка слов / притяжательная перестройка) и представить отчет; утверждения о наличии единственного ключевого фактора не делаются.
+- R4sp (слабая базовая задача): если точность базовой задачи < 7/20 -> соответствующая пара остается в таблицах, но исключается из подсчета правил (предварительно зарегистрированное правило интерпретации).

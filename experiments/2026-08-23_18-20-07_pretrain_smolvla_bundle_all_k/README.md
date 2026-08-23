@@ -1,46 +1,25 @@
-# Bundle cost curve, k=1..25
+# Объединенная кривая стоимости, k=1..25
 
-Compiles the ingredients that helped in the single-ingredient experiments
-into one recipe and measures the full cost curve on the three assignment
-tasks:
+Объединяет компоненты, показавшие эффективность в изолированных экспериментах, в единую конфигурацию и измеряет полную кривую стоимости на трех задачах:
 
-- **full fine-tune** (largest single win: k=2 0.683 → 0.950 over expert-only);
-- **state noise α=0.10** on the normalized proprioception, training only
-  (best k=1 known: 0.600 → 0.700 at 1000 steps); applied uniformly at every
-  budget — an extrapolation beyond k=1 that the bundle deliberately tests;
-- **lerobot default image transforms** (photometric + RandomAffine;
-  robustness to re-planning, neutral-to-positive means);
-- **budget-dependent steps**: 1000 / 1500 / 2000 at k=1 / 2 / ≥3.
+- **полное тонкое обучение (full fine-tune)** (наибольший одиночный прирост: с 0.683 до 0.950 при k=2 по сравнению с обучением только экспертных слоев);
+- **шум состояния α=0.10** на нормализованной проприоцепции, только при обучении (лучший известный результат при k=1: с 0.600 до 0.700 на 1000 шагов); применяется единообразно ко всем бюджетам данных — экстраполяция за пределы k=1, которую данный объединенный эксперимент целенаправленно проверяет;
+- **дефолтные трансформации изображений LeRobot** (фотометрические + RandomAffine; обеспечивают устойчивость к повторному планированию, оказывают нейтрально-положительное влияние);
+- **бюджет шагов, зависящий от объема данных**: 1000 / 1500 / 2000 шагов при k=1 / 2 / ≥3 соответственно.
 
-18 training jobs (tasks 0–2 × k ∈ {1,2,3,5,10,25}) from the pinned pretrain,
-seed 1000; evaluation is clean (no augmentation, no noise) at
-`n_action_steps` ∈ {50, 35, 25} — 54 points, 20 episodes each, env/noise
-seeds `1000 + episode_index`, init state = episode index, horizon 300, all
-videos retained.
+18 задач обучения (задачи 0–2 × k ∈ {1,2,3,5,10,25}) на основе зафиксированного предобучения, seed 1000; чистая оценка (без аугментаций и шума) при `n_action_steps` ∈ {50, 35, 25} — 54 точки, по 20 эпизодов на каждую, сиды среды/шума `1000 + episode_index`, начальное состояние = индекс эпизода, горизонт планирования 300, все видео сохранены.
 
-## Scheduling (idle-minimizing)
+## Планирование задач (минимизация простоя)
 
-Slot-based orchestrator instead of one-worker-per-GPU: each of GPUs 1–3
-runs **2 concurrent trainings + 2 concurrent evaluations** (~30 GB per
-training, ~12 GB per evaluation on 144 GB cards). Evaluations are dispatched
-the moment their checkpoint finishes and overlap the remaining trainings;
-drained training workers convert to evaluation workers; shorter jobs are
-scheduled first. The determinism gate runs its three action-steps variants
-concurrently on separate GPUs. Override with `VLA_GPU_IDS`,
-`VLA_TRAIN_SLOTS`, `VLA_EVAL_SLOTS`.
+Слотовый оркестратор вместо схемы «один воркер на один GPU»: каждый из графических процессоров (GPUs) 1–3 запускает **2 параллельных обучения + 2 параллельных оценки** (потребление составляет около ~30 ГБ на обучение и ~12 ГБ на оценку на картах объемом 144 ГБ). Оценка запускается сразу после создания чекпоинта и перекрывается с оставшимися процессами обучения; освободившиеся воркеры обучения перенаправляются на задачи оценки; более короткие задачи запускаются в первую очередь. Проверка детерминизма запускает три варианта шагов действия параллельно на разных GPU. Параметры можно переопределить с помощью переменных окружения `VLA_GPU_IDS`, `VLA_TRAIN_SLOTS`, `VLA_EVAL_SLOTS`.
 
-Predictions frozen in `reports/PRIOR_EXPECTATION.md` before any run. Large
-checkpoints go to `/var/tmp/vla_outputs/bundle_all_k_20260823_182007`
-(~35 GB expected). Single-training-seed experiment (seed 1000).
+Прогнозы зафиксированы в `reports/PRIOR_EXPECTATION.md` перед запуском. Крупные чекпоинты сохраняются в `/var/tmp/vla_outputs/bundle_all_k_20260823_182007` (ожидаемый объем около ~35 ГБ). Эксперимент с одним сидом обучения (seed 1000).
 
-## Status
+## Статус
 
-Launched 2026-08-23 18:37, **completed 2026-08-23 21:48 local (18:48 UTC)** —
-wall clock ≈ 3h11m for 18 trainings + 57 evaluation runs (prediction 8's
-<6h bound met). 0 failures; determinism gate passed exactly at all three
-variants (n=50 7/20, n=35 4/20, n=25 2/20, both orders, zero mismatches).
+Запущен 23.08.2026 в 18:37, **завершен 23.08.2026 в 21:48 по местному времени (18:48 UTC)** — общее астрономическое время ≈ 3 ч 11 мин для 18 сессий обучения + 57 запусков оценки (ограничение прогноза №8 в <6 ч соблюдено). 0 сбоев; проверка детерминизма успешно пройдена во всех трех вариантах (n=50 7/20, n=35 4/20, n=25 2/20, для обоих направлений обхода, нулевое количество несовпадений).
 
-Mean cost curve over tasks 0–2:
+Средняя кривая стоимости по задачам 0–2:
 
 | n | k=1 | k=2 | k=3 | k=5 | k=10 | k=25 |
 |---|---|---|---|---|---|---|
@@ -48,21 +27,19 @@ Mean cost curve over tasks 0–2:
 | 35 | 0.667 | 0.750 | 0.833 | 0.833 | 0.867 | 0.933 |
 | 25 | 0.633 | 0.800 | 0.900 | 0.900 | 0.933 | **0.967** |
 
-See `reports/REPORT.md` and `results/summary/`.
+См. `reports/REPORT.md` и `results/summary/`.
 
-## Launch sequence
+## Последовательность запуска
 
 ```bash
 cd experiments/2026-08-23_18-20-07_pretrain_smolvla_bundle_all_k
 
-source scripts/common_env.sh && pytest -q   # 0. tests
-scripts/prepare.sh                          # 1. preflight artifacts
-scripts/audit.sh                            # 2. full-FT parameter audit
-scripts/smoke_dataset.sh                    # 3. 18 dataset selections
-scripts/smoke_env.sh                        # 4. real-env smoke
-scripts/production_smoke.sh 1 1 2 3         # 5. gate: train task0/k1 on GPU1,
-                                            #    then fwd/rev at n=50/35/25 in
-                                            #    parallel on GPUs 1/2/3
-scripts/run_all.sh                          # 6. slot-based fan-out + aggregation
-scripts/status.sh                           # progress
+source scripts/common_env.sh && pytest -q   # 0. тесты
+scripts/prepare.sh                          # 1. предварительная проверка артефактов
+scripts/audit.sh                            # 2. аудит параметров полного тонкого обучения (full-FT)
+scripts/smoke_dataset.sh                    # 3. выборка 18 наборов данных
+scripts/smoke_env.sh                        # 4. дымовой тест среды
+scripts/production_smoke.sh 1 1 2 3         # 5. проверка детерминизма: обучение на задаче 0 / k=1 на GPU1, затем fwd/rev при n=50/35/25 параллельно на GPU 1/2/3
+scripts/run_all.sh                          # 6. распределение по слотам + агрегация
+scripts/status.sh                           # прогресс
 ```

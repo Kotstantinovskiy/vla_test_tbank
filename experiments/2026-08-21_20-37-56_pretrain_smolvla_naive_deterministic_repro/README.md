@@ -1,22 +1,9 @@
-# Deterministic naive few-shot reproduction
+# Детерминированное воспроизведение наивного few-shot обучения
 
-Reproduction of `2026-08-18_pretrain_smolvla_naive_baseline_few_shot_tune`
-for k=5/10/25 with training seed 1000 on assignment task IDs 0–2. Each of the
-9 adaptations starts
-independently from the pinned official-data pretrain.
-An experiment-local runtime view symlinks its unchanged weights and rewrites
-only the VLM/tokenizer paths to the pinned offline backbone.
+Воспроизведение эксперимента `2026-08-18_pretrain_smolvla_naive_baseline_few_shot_tune` для k=5/10/25 с обучающим сидом (training seed) 1000 на задачах с ID 0–2. Каждая из 9 адаптаций запускается независимо на основе закрепленного предобучения на официальных данных (official-data pretrain). Локальное для эксперимента окружение времени выполнения (runtime view) создает символические ссылки на неизменяемые веса и перезаписывает только пути VLM/токенизатора на закрепленную автономную базовую модель (offline backbone).
 
-The material protocol change is evaluation determinism: batch size is one,
-both the environment seed and SmolVLA flow-sampling seed are
-`1000 + episode_index`, and LIBERO `init_state_id` is pinned to
-`episode_index`. Before fan-out, task 0 / k=5 is evaluated in forward and
-reverse episode order; per-episode outcomes and rewards must match exactly.
+Существенным изменением протокола является детерминированность оценки: размер батча (batch size) равен единице, как сид среды (environment seed), так и сид SmolVLA flow-sampling устанавливаются равными `1000 + episode_index`, а `init_state_id` в LIBERO жестко закреплен как `episode_index`. Перед запуском массовых вычислений (fan-out) задача 0 / k=5 оценивается в прямом и обратном порядке эпизодов; результаты и награды для каждого эпизода должны совпадать абсолютно точно.
 
-Predictions were frozen in `reports/PRIOR_EXPECTATION.md` before preparation or
-rollouts. Large checkpoints live in
-`/var/tmp/vla_outputs/naive_deterministic_repro_20260821_203756`; reviewable
-manifests, results, reports, logs, and artifact links remain here.
+Прогнозы были зафиксированы в файле `reports/PRIOR_EXPECTATION.md` до подготовки или запуска rollouts. Крупные чекпоинты находятся в `/var/tmp/vla_outputs/naive_deterministic_repro_20260821_203756`; доступные для проверки манифесты, результаты, отчеты, логи и ссылки на артефакты хранятся здесь.
 
-The experiment remains a single-training-seed curve and therefore does not by
-itself satisfy the assignment's two-seed requirement.
+Эксперимент по-прежнему представляет собой кривую для одного обучающего сида и, следовательно, сам по себе не удовлетворяет требованию задания о наличии двух сидов.

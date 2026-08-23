@@ -1,36 +1,19 @@
-# Prior-informed expectations and decision rules (prompt-only v3)
+# Априорные ожидания и правила принятия решений (prompt-only v3)
 
-Recorded 2026-08-19 before running any rollout of this experiment.
+Записано 2026-08-19 перед запуском любых роллаутов в этом эксперименте.
 
-Priors: _2 (stream noise, one layout) gave true 1/200 (only task 4 episode 4),
-wrong 0/200, nonsense 0/200. A fresh-process probe-3 smoke of task 4 true
-gave 5/20 under a different noise stream. Same env seeds and init states in
-all cases.
+Априорные оценки: версия _2 (потоковый шум, одна раскладка процесса) показала результат true 1/200 (только задача 4, эпизод 4), wrong 0/200, nonsense 0/200. Свежий смоук-тест probe-3 в отдельном процессе для задачи 4 true показал 5/20 при другом потоке шума. Во всех случаях использовались одинаковые env-сиды и начальные состояния (init-states).
 
-## Predictions
+## Предсказания
 
-1. **Determinism smoke passes**: true__task_4 evaluated in two different
-   process layouts produces IDENTICAL per-episode outcomes (this is the whole
-   point of the protocol change). Failure = the reseed hook does not actually
-   pin the sampling noise -> fix before running anything else.
-2. **true**: pooled 2-8/200. Task 4 is the only task expected clearly above
-   zero (1-6/20, consistent with rate ~0.1-0.25 seen across streams); tasks
-   0-3 and 5-9 each 0-1/20. Note _3's noise bank differs from both previous
-   streams, so per-episode outcomes need not match either.
-3. **wrong**: 0-2/200 (floor; wrong instructions gave 0/200 in _2).
-4. **nonsense**: 0-2/200 (floor in _2; the goal-scene "reach into cluster"
-   default seen in probe 3 does not produce predicate successes).
-5. Batch-size change (4 -> 1) does not change success rates beyond noise
-   (env dynamics are per-episode; only numeric batching of the policy
-   forward differs).
+1. **Смоук-тест на детерминизм успешно пройден**: оценка true__task_4 в двух разных раскладках процессов дает ИДЕНТИЧНЫЕ результаты по каждому эпизоду (в этом и заключается основной смысл изменения протокола). Неудача означает, что хук повторного сидирования (reseed hook) фактически не фиксирует шум сэмплирования -> исправить перед запуском чего-либо еще.
+2. **true**: в сумме (pooled) 2-8/200. Задача 4 — единственная задача, результат которой ожидается явно выше нуля (1-6/20, что согласуется с частотой ~0.1-0.25, наблюдаемой в разных потоках шума); задачи 0-3 и 5-9 покажут 0-1/20 каждая. Обратите внимание, что банк шума версии _3 отличается от обоих предыдущих потоков, поэтому результаты конкретных эпизодов не обязаны совпадать ни с одним из них.
+3. **wrong**: 0-2/200 (базовый уровень/floor; неверные инструкции дали 0/200 в версии _2).
+4. **nonsense**: 0-2/200 (floor в версии _2; поведение по умолчанию "reach into cluster" в целевой сцене, замеченное в пробе 3, не приводит к успешному выполнению предикатов).
+5. Изменение размера батча (4 -> 1) не влияет на показатели успеха за пределами случайного шума (динамика среды рассчитывается по-эпизодно; меняется только численное пакетирование прямого прохода политики).
 
-## Decision rules
+## Правила принятия решений
 
-- R1po3: determinism smoke fails -> stop, fix seeding, rerun smoke; nothing
-  else is interpretable.
-- R2po3: true pooled > 15/200 or any single task >= 8/20 -> _2's k=0 was a
-  substantially unlucky stream; flag the cost curve's k=0 reference for
-  revision (with both numbers reported side by side).
-- R3po3: results within prediction 2-4 ranges -> _3 becomes the canonical
-  k=0 = its pooled true rate; curve reports cite _2 and _3 with the noise
-  note; no re-labeling of prior conclusions needed (all were CI-compatible).
+- R1po3: смоук-тест на детерминизм провален -> остановиться, исправить сидирование, запустить смоук-тест заново; любые другие результаты не подлежат интерпретации.
+- R2po3: суммарный true > 15/200 или любая отдельная задача >= 8/20 -> поток шума для k=0 в версии _2 был крайне неудачным; пометить референсную точку k=0 на кост-кривой для пересмотра (с отображением обоих чисел рядом друг с другом).
+- R3po3: результаты укладываются в диапазоны предсказаний 2-4 -> версия _3 становится каноничным значением k=0 (ее суммарный показатель true); в отчетах по кривой приводятся ссылки на _2 и _3 с примечанием о шуме; пересмотр предыдущих выводов не требуется (все они совместимы с доверительными интервалами CI).

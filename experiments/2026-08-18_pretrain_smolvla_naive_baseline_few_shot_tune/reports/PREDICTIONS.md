@@ -1,30 +1,13 @@
-# Predictions (recorded 2026-08-18, before any training or evaluation run)
+# Предсказания (записано 2026-08-18, перед любым запуском обучения или тестирования)
 
-Prior-informed: the crislmfroes-lineage naive baseline
-(`2026-08-16_self_smolvla_naive_learn_baseline`, same recipe: expert-only,
-2000 steps, batch 32, 20 eval episodes) reached per-task means of ~0.86 over
-all 10 goal tasks and 0.900/0.917/0.967 on tasks 0-2 at k=5/10/25, despite
-its train/eval mirror mismatch and normalizer swap across differing
-conversion pipelines.
+Априорные сведения (prior-informed): наивный базовый метод на основе происхождения crislmfroes (`2026-08-16_self_smolvla_naive_learn_baseline`, тот же рецепт: expert-only, 2000 шагов, размер батча 32, 20 эпизодов тестирования) достиг средних значений по задачам ~0.86 для всех 10 целевых задач и 0.900/0.917/0.967 для задач 0-2 при бюджетах k=5/10/25, несмотря на несоответствие зеркальности при обучении/тестировании (train/eval mirror mismatch) и подмену нормализатора в разных пайплайнах конверсии.
 
-For this run on the official-data pretrain (all conventions matched,
-seen-control 20/20, demos = official demo_0..demo_{k-1}):
+Для этого запуска на предобучении с использованием официальных данных (все соглашения согласованы, положительный контроль на наблюдаемых задачах/seen-control 20/20, демонстрации = официальные demo_0..demo_{k-1}):
 
-1. **Mean over 10 tasks**: k=5 >= 0.80, k=10 >= 0.85, k=25 >= 0.88, i.e. at
-   or slightly above the old baseline; monotone in k on average, with
-   plausible per-task non-monotonicity at 20-episode resolution (+-0.1).
-2. **Tasks 0-2 (assignment)**: comparable to or above 0.90/0.92/0.97.
-3. **Hardest tasks**: expected laggards are 3 (two-stage drawer+bowl) and 5
-   ("push", verb unseen in pretraining); prediction: they still exceed 0.5
-   at k=25.
-4. **Where the matched conventions could show**: if the mirror/domain gap was
-   consuming adaptation capacity, k=5 should benefit most (fewer
-   demonstrations needed to overwrite the mismatch); a k=5 mean clearly above
-   0.90 over 10 tasks would support that.
-5. The k=0 -> k=5 jump (0.005 -> ~0.8) remains partially attributable to the
-   normalizer swap; this run cannot separate that effect (disclosed in
-   protocol.yaml), only a stats-pinned ablation could.
+1. **Среднее по 10 задачам**: k=5 >= 0.80, k=10 >= 0.85, k=25 >= 0.88, то есть на уровне старого базового решения или чуть выше него; в среднем монотонно возрастает по k, с вероятной немонотонностью для отдельных задач при разрешении в 20 эпизодов (+-0.1).
+2. **Задачи 0-2 (задание)**: сопоставимо с 0.90/0.92/0.97 или выше.
+3. **Самые сложные задачи**: ожидаемые аутсайдеры — задачи 3 (двухэтапная: ящик+миска/drawer+bowl) и 5 («толкать»/push, глагол, не встречавшийся при предобучении); прогноз: они все же превысят 0.5 при k=25.
+4. **В чем может проявиться согласование конвенций**: если разрыв из-за зеркальности/домена (mirror/domain gap) поглощал адаптационную емкость, то k=5 должен выиграть больше всего (требуется меньше демонстраций для перезаписи несоответствия); средний показатель для k=5 явно выше 0.90 по всем 10 задачам подтвердил бы это.
+5. Скачок k=0 -> k=5 (0.005 -> ~0.8) остается частично обусловленным подменой нормализатора; данный запуск не может разделить этот эффект (раскрыт в protocol.yaml), это могла бы сделать только абляция с закрепленными статистиками (stats-pinned ablation).
 
-Falsifiers/surprises: any task at 0/20 for all budgets (would suggest a
-per-task pipeline defect rather than difficulty); mean at k=25 below the old
-baseline's 0.86 (would suggest the official conversion hurt adaptation).
+Критерии опровержения / неожиданности (falsifiers/surprises): любая задача со счетом 0/20 для всех бюджетов (что указывало бы на дефект пайплайна для конкретной задачи, а не на ее сложность); среднее значение при k=25 ниже 0.86 прежнего базового уровня (что указывало бы на то, что официальная конверсия ухудшила адаптацию).

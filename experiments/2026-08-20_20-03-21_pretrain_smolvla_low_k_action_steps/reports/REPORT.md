@@ -1,16 +1,11 @@
-# Low-k action-step sweep on the official-data pretrain
+# Свип параметров low-k action-step на предобучении на официальных данных
 
-All action-step conditions for a task/budget use the same adapted
-checkpoint and the same per-episode environment/noise/init-state bank.
-Only binary success is aggregated; all rollout videos remain on disk.
+Все условия по количеству шагов действий (action-step) для пары задача/бюджет используют один и тот же адаптированный чекпоинт и один и тот же банк окружений/шума/начальных состояний для каждого эпизода. Агрегируется только бинарный показатель успешности; все видеозаписи симуляций (rollouts) сохраняются на диске.
 
-| task set | k | n=1 | n=10 | n=25 | prior n=50* |
+| набор задач | k | n=1 | n=10 | n=25 | предыдущий n=50* |
 |---|---:|---:|---:|---:|---:|
-| tasks 0–2 | 1 | 0.333 | 0.567 | 0.567 | 0.567 |
-| tasks 0–2 | 2 | 0.467 | 0.800 | 0.767 | 0.717 |
-| tasks 0–2 | 3 | 0.650 | 0.717 | 0.733 | 0.717 |
+| задачи 0–2 | 1 | 0.333 | 0.567 | 0.567 | 0.567 |
+| задачи 0–2 | 2 | 0.467 | 0.800 | 0.767 | 0.717 |
+| задачи 0–2 | 3 | 0.650 | 0.717 | 0.733 | 0.717 |
 
-*The previous n=50 result is descriptive only: it used batch=4
-and one process RNG stream, whereas this experiment uses batch=1
-and explicit per-episode policy-noise seeds. A claimed improvement
-must be confirmed with a paired n=50 rerun and a second training seed.
+\* Предыдущий результат при n=50 носит исключительно описательный характер: в нем использовался размер батча batch=4 и один поток генератора случайных чисел (RNG) процесса, тогда как в данном эксперименте используется batch=1 и явные сиды шума политики для каждого эпизода. Любое заявляемое улучшение должно быть подтверждено парным перезапуском с n=50 и вторым сидом обучения.

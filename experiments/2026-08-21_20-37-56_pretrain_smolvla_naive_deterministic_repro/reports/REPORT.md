@@ -1,25 +1,19 @@
-# Few-shot cost curve on the official-data pretrain
+# Кривая стоимости few-shot адаптации на основе предобучения на официальных данных
 
-Every task/budget adaptation starts from the frozen pretrain checkpoint
-independently (expert-only: vision encoder and VLM frozen; action expert,
-state/action projections trainable). Demos are the official
-demo_0..demo_{k-1} of each task from the in-repo libero_goal conversion.
+Каждая адаптация задачи/бюджета начинается независимо из замороженной контрольной точки предобучения (только эксперт: зрительный кодировщик (vision encoder) и VLM заморожены; эксперт действий (action expert) и проекции состояния/действия обучаемы). Демонстрации — это официальные demo_0..demo_{k-1} для каждой задачи из встроенной в репозиторий конвертации libero_goal.
 
-Normalization disclosure: k>0 points run under target-dataset statistics
-(LeRobot swaps normalizer stats at fine-tune time), while the k=0
-reference ran under pretraining statistics; both come from the same
-conversion pipeline.
+Раскрытие информации о нормализации: точки k>0 оцениваются с использованием статистик целевого набора данных (LeRobot подменяет статистики нормализатора во время тонкой настройки), в то время как опорная точка k=0 (reference) оценивалась со статистиками этапа предобучения; оба варианта получены из одного и того же конвейера конвертации.
 
-| task | instruction | k=5 | k=10 | k=25 |
+| задача | инструкция | k=5 | k=10 | k=25 |
 |---:|---|---:|---:|---:|
 | 0 | `open the middle drawer of the cabinet` | 18/20 (0.90) | 18/20 (0.90) | 19/20 (0.95) |
 | 1 | `put the bowl on the stove` | 19/20 (0.95) | 20/20 (1.00) | 20/20 (1.00) |
 | 2 | `put the wine bottle on top of the cabinet` | 16/20 (0.80) | 19/20 (0.95) | 16/20 (0.80) |
 
-## Cost curve
+## Кривая стоимости
 
-k=0 (prompt-only reference): 0.000 over tasks 0-2.
+k=0 (опорная точка только с текстовыми подсказками / prompt-only reference): 0.000 для задач 0-2.
 
-| mean | k=5 | k=10 | k=25 |
+| среднее | k=5 | k=10 | k=25 |
 |---|---:|---:|---:|
-| tasks 0-2 (assignment) | 0.883 | 0.950 | 0.917 |
+| задачи 0-2 (задание) | 0.883 | 0.950 | 0.917 |

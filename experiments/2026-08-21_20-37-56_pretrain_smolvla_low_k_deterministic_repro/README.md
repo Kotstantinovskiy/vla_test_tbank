@@ -1,22 +1,22 @@
-# Deterministic low-k few-shot reproduction
+# Детерминированное воспроизведение low-k few-shot
 
-Reproduction of `2026-08-18_pretrain_smolvla_few_shot_tune_low_k` for k=1/2/3
-with training seed 1000 on assignment task IDs 0–2. Each of the 9 adaptations
-starts independently from
-the pinned official-data pretrain.
-An experiment-local runtime view symlinks its unchanged weights and rewrites
-only the VLM/tokenizer paths to the pinned offline backbone.
+Воспроизведение `2026-08-18_pretrain_smolvla_few_shot_tune_low_k` для k=1/2/3
+с сидом обучения 1000 на ID задач задания 0–2. Каждая из 9 адаптаций
+начинается независимо от
+зафиксированного предобучения на официальных данных.
+Локальное для эксперимента представление среды выполнения создает символические ссылки на неизмененные веса и перезаписывает
+только пути VLM/токенизатора на зафиксированную офлайн-магистраль (offline backbone).
 
-The material protocol change is evaluation determinism: batch size is one,
-both the environment seed and SmolVLA flow-sampling seed are
-`1000 + episode_index`, and LIBERO `init_state_id` is pinned to
-`episode_index`. Before fan-out, task 0 / k=1 is evaluated in forward and
-reverse episode order; per-episode outcomes and rewards must match exactly.
+Существенным изменением протокола является детерминизм оценки (evaluation determinism): размер батча равен единице,
+как сид окружения, так и сид семплирования потока (flow-sampling seed) SmolVLA установлены в
+`1000 + episode_index`, а `init_state_id` в LIBERO зафиксирован как
+`episode_index`. Перед веерным запуском (fan-out) задача 0 / k=1 оценивается в прямом и
+обратном порядке эпизодов; результаты для каждого эпизода и награды должны точно совпадать.
 
-Predictions were frozen in `reports/PRIOR_EXPECTATION.md` before preparation or
-rollouts. Large checkpoints live in
-`/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756`; reviewable
-manifests, results, reports, logs, and artifact links remain here.
+Прогнозы были заморожены в `reports/PRIOR_EXPECTATION.md` перед подготовкой или
+роллаутами. Крупные чекпоинты находятся в
+`/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756`; проверяемые
+манифесты, результаты, отчеты, логи и ссылки на артефакты остаются здесь.
 
-The experiment remains a single-training-seed curve and therefore does not by
-itself satisfy the assignment's two-seed requirement.
+Эксперимент по-прежнему представляет собой кривую для одного сида обучения и, следовательно, сам по себе
+не удовлетворяет требованию задания о наличии двух сидов.

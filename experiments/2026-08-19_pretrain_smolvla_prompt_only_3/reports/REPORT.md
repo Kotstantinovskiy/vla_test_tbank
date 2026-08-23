@@ -1,11 +1,8 @@
-# Prompt-only v3: reproducible per-episode sampling noise
+# Только промпты (Prompt-only) v3: воспроизводимый шум сэмплирования для каждого эпизода
 
-Same protocol as _2 (frozen pretrain, 10 goal tasks, true/wrong/
-nonsense, seed 1000, all videos) with ONE change: the policy's flow
-noise is reseeded from the episode seed (batch=1), so results are
-reproducible regardless of process layout.
+Тот же протокол, что и в `_2` (замороженное предобучение, 10 целевых задач, истинный/неверный/бессмысленный промпты, сид 1000, запись всех видео), с ОДНИМ изменением: генератор шума потока (flow noise) политики инициализируется заново (reseeded) на основе сида эпизода (batch=1), благодаря чему результаты воспроизводимы независимо от схемы распределения процессов.
 
-| condition | task | prompted with | _3 succ | 95% CI | _2 succ | success episodes (_3) |
+| условие (condition) | задача (task) | промпт (prompted with) | успешность в _3 (_3 succ) | 95% ДИ (95% CI) | успешность в _2 (_2 succ) | успешные эпизоды (_3) (success episodes) |
 |---|---:|---|---:|---|---:|---|
 | true | 0 | `open the middle drawer of the cabinet` | 0/20 | [0.00, 0.16] | 0/20 | — |
 | true | 1 | `put the bowl on the stove` | 0/20 | [0.00, 0.16] | 0/20 | — |
@@ -38,7 +35,7 @@ reproducible regardless of process layout.
 | nonsense | 8 | `perform the dax florp twice` | 0/20 | [0.00, 0.16] | 0/20 | — |
 | nonsense | 9 | `perform the dax florp twice` | 0/20 | [0.00, 0.16] | 0/20 | — |
 
-## Pooled per condition
+## Объединенные результаты по условиям
 
 - **true**: 1/200 [0.001, 0.028] (_2: 1/200)
 - **wrong**: 0/200 [0.000, 0.019] (_2: 0/200)

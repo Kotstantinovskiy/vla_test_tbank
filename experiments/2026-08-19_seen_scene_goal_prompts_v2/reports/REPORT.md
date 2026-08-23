@@ -1,13 +1,13 @@
-# Seen-scene x goal-prompts v2: prompted-predicate success
+# Знакомая сцена x целевые промпты v2: успешность по промптированному предикату (prompted-predicate)
 
-Frozen official-data pretrain in SEEN libero_90 scenes; only the
-prompt varies. v2 primary success = the PROMPTED task's goal
-predicate, evaluated per step on the running scene (episodes also
-terminate on prompted success). `env succ` is the env task's own
-predicate — the v1-comparable secondary metric. Same seeds and init
-states within an env -> paired exact McNemar.
+Замороженное предобучение на официальных данных в знакомых (SEEN) сценах `libero_90`; варьируется только
+промпт. Основная успешность (primary success) в версии v2 = предикат цели ПРОМПТИРОВАННОЙ (PROMPTED) задачи,
+вычисляемый на каждом шаге в запущенной сцене (эпизоды также
+завершаются при успешном выполнении промптированной задачи). `env succ` — собственный
+предикат задачи окружения, второстепенная метрика, сопоставимая с версией v1. Одинаковые сиды (seeds) и начальные
+состояния внутри окружения -> парный точный критерий Мак-Немара (McNemar).
 
-| env instruction | block | prompt | prompted succ | 95% CI | env succ |
+| инструкция окружения (env instruction) | блок (block) | промпт (prompt) | успешность по промпту (prompted succ) | 95% ДИ (95% CI) | успешность окр. (env succ) |
 |---|---|---|---:|---|---:|
 | `put the black bowl on top of the cabinet` | trained | `put the black bowl on top of the cabinet` | 17/20 | [0.64, 0.95] | 17/20 |
 | `put the black bowl on top of the cabinet` | paraphrase | `put the bowl on top of the cabinet` | 0/20 | [0.00, 0.16] | 0/20 |
@@ -26,9 +26,9 @@ states within an env -> paired exact McNemar.
 | `turn on the stove` | nonsense | `perform the dax florp twice` | 0/20 (env) | [0.00, 0.16] | 0/20 |
 | `put the black bowl on top of the cabinet` | nonsense | `perform the dax florp twice` | 0/20 (env) | [0.00, 0.16] | 0/20 |
 
-## Goal-prompt slice (all 10 libero_goal instructions)
+## Срез целевых промптов (все 10 инструкций libero_goal)
 
-| goal id | prompt | status | host env | relationship | prompted succ |
+| ID цели (goal id) | промпт (prompt) | статус (status) | исходное окр. (host env) | связь (relationship) | успешность по промпту (prompted succ) |
 |---:|---|---|---|---|---:|
 | 0 | `open the middle drawer of the cabinet` | point (`goal__open_the_middle_drawer_of_the_cabinet`) | `close the top drawer of the cabinet` | novel_string | 0/20 |
 | 1 | `put the bowl on the stove` | skipped | — | — | — |
@@ -41,9 +41,9 @@ states within an env -> paired exact McNemar.
 | 8 | `put the bowl on the plate` | alias (`paraphrase__put_the_black_bowl_on_the_plate`) | `put the black bowl on the plate` | paraphrase_of_trained | 2/20 |
 | 9 | `put the wine bottle on the rack` | alias (`paraphrase__put_the_wine_bottle_on_the_wine_rack`) | `put the wine bottle on the wine rack` | paraphrase_of_trained | 2/20 |
 
-## Paired vs trained prompt (same env, same init states; primary metric)
+## Сравнение парных промптов с обученными (одно окружение, одинаковые начальные состояния; основная метрика)
 
-| env | block | delta | discordant (trained-only / condition-only) | McNemar p |
+| окр. (env) | блок (block) | дельта (delta) | рассогласованные (только обуч. / только в условии) | p-значение критерия Мак-Немара (McNemar p) |
 |---|---|---:|---|---:|
 | `put the black bowl on top of the cabinet` | paraphrase | -0.85 | 17 / 0 | 0.000 |
 | `put the black bowl on the plate` | paraphrase | -0.50 | 11 / 1 | 0.006 |

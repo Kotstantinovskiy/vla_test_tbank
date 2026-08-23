@@ -1,48 +1,34 @@
-# High-alpha state noise at k=1, 1000 training steps
+# Высокоинтенсивный шум состояния при k=1, 1000 шагов обучения
 
-Continuation of
+Продолжение эксперимента
 [`2026-08-22_22-43-55_pretrain_smolvla_state_noise_k1`](../2026-08-22_22-43-55_pretrain_smolvla_state_noise_k1/)
-(means 0.617/0.583/0.667/0.683 at α 0.00–0.05, 2000 steps — still rising at
-the grid edge) with two deliberate changes:
+(средние значения 0.617/0.583/0.667/0.683 при α 0.00–0.05, 2000 шагов — рост все еще продолжается на краю сетки) с двумя преднамеренными изменениями:
 
-1. **Higher noise**: α ∈ {0.08, 0.10, 0.20} (declared adaptive extension),
-   plus the mandatory **α=0.00 control re-trained at this step budget**.
-2. **Half the training budget**: 1000 optimizer steps instead of 2000
-   (lerobot auto-scales the LR schedule, so the schedule compresses too —
-   which is exactly why the 1k α=0 control exists; 2000-step numbers are
-   context, not a baseline).
+1. **Более высокий уровень шума**: α ∈ {0.08, 0.10, 0.20} (заявленное адаптивное расширение), плюс обязательный **контрольный запуск при α=0.00, переобученный на данном бюджете шагов**.
+2. **Сокращенный вдвое бюджет обучения**: 1000 шагов оптимизатора вместо 2000 (lerobot автоматически масштабирует график скорости обучения (LR schedule), поэтому график также сжимается — именно поэтому существует контрольный запуск на 1 тыс. шагов при α=0; показатели для 2000 шагов служат контекстом, а не базовой линией).
 
-Everything else is byte-identical to the first sweep (code copied verbatim):
-full fine-tune, seed 1000, k=1 (official demo_0), Gaussian noise `α·ε` on
-the normalized state in training only from a dedicated RNG stream (seed
-91000), evaluation at n_action_steps=50, 20 episodes, seed banks 1000..1019,
-all videos kept, forward/reverse determinism gate on task 0 / α=0.
+Все остальные параметры побайтово идентичны первому сканированию (код скопирован дословно):
+полное тонкое обучение (full fine-tune), seed 1000, k=1 (официальная demo_0), гауссовский шум `α·ε` на нормализованном состоянии только во время обучения из выделенного потока RNG (seed 91000), оценка при n_action_steps=50, 20 эпизодов, банки сидов (seed banks) 1000..1019, все видео сохранены, проверка детерминизма (forward/reverse determinism gate) на задаче 0 / α=0.
 
-12 jobs = 3 tasks × 4 alphas. Predictions frozen in
-`reports/PRIOR_EXPECTATION.md` before any run; the adaptive grid choice is
-disclosed there and in the protocol. Large checkpoints:
-`/var/tmp/vla_outputs/state_noise_k1_1k_20260823_143107`.
+12 запусков = 3 задачи × 4 значения альфа. Прогнозы зафиксированы в `reports/PRIOR_EXPECTATION.md` перед началом любых запусков; выбор адаптивной сетки раскрыт там же и в протоколе. Крупные чекпоинты сохранены в `/var/tmp/vla_outputs/state_noise_k1_1k_20260823_143107`.
 
-Single-training-seed experiment (seed 1000); k=1 only.
+Эксперимент с одним сидом обучения (seed 1000); только k=1.
 
-## Status
+## Статус
 
-Launched 2026-08-23 14:38, **completed 2026-08-23 17:49 local** — 12/12
-trainings and evaluations, 0 failures; determinism gate 3/20 == 3/20, zero
-per-episode mismatches. Means over tasks 0-2 at alpha 0.00/0.08/0.10/0.20:
-0.600 / 0.667 / 0.700 / 0.667. See `reports/REPORT.md`.
+Запущен 23.08.2026 в 14:38, **завершен 23.08.2026 в 17:49 по местному времени** — 12/12 сессий обучения и оценки, 0 сбоев; проверка детерминизма 3/20 == 3/20, нулевое расхождение по эпизодам. Средние показатели по задачам 0-2 при альфа 0.00/0.08/0.10/0.20: 0.600 / 0.667 / 0.700 / 0.667. См. `reports/REPORT.md`.
 
-## Launch sequence
+## Последовательность запуска
 
 ```bash
 cd experiments/2026-08-23_14-31-07_pretrain_smolvla_state_noise_k1_1k_steps
 
-source scripts/common_env.sh && pytest -q   # 0. tests
-scripts/prepare.sh                          # 1. preflight artifacts
-scripts/audit.sh                            # 2. full-FT parameter audit
-scripts/smoke_dataset.sh                    # 3. k=1 selection smoke
-scripts/smoke_env.sh                        # 4. real-env smoke
-scripts/production_smoke.sh <gpu>           # 5. train task0/alpha0 (1000 steps) + gate
-scripts/run_all.sh                          # 6. fan-out + aggregation + Trackio
-scripts/status.sh                           # progress
+source scripts/common_env.sh && pytest -q   # 0. тесты
+scripts/prepare.sh                          # 1. предварительная проверка артефактов
+scripts/audit.sh                            # 2. аудит параметров полного тонкого обучения (full-FT)
+scripts/smoke_dataset.sh                    # 3. дымовой тест выбора k=1
+scripts/smoke_env.sh                        # 4. дымовой тест в реальной среде
+scripts/production_smoke.sh <gpu>           # 5. обучение на задаче 0 / альфа 0 (1000 шагов) + проверка детерминизма
+scripts/run_all.sh                          # 6. запуск всех процессов + агрегация + Trackio
+scripts/status.sh                           # прогресс
 ```

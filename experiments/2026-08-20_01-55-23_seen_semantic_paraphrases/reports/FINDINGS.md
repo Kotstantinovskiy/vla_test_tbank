@@ -1,21 +1,15 @@
-# Findings (written 2026-08-20 after 20/20 points, determinism smoke PASSED)
+# Результаты (написано 20.08.2026 после выполнения 20/20 точек, предварительный тест на детерминизм ПРОЙДЕН)
 
-Mean delta -0.36; McNemar p<0.05 on 4/10 pairs. Neither R1sp (robust) nor
-R2sp (uniform collapse) fires -> **R3sp: brittleness depends on the edit
-type**, despite every paraphrase preserving all task-defining descriptors:
+Среднее отклонение (mean delta) -0.36; критерий Мак-Немара p<0.05 для 4/10 пар. Ни R1sp (робастность), ни R2sp (равномерный коллапс) не срабатывают -> **R3sp: хрупкость зависит от типа изменения (edit type)**, несмотря на то, что каждый парафраз сохраняет все определяющие задачу дескрипторы:
 
-| edit type | pairs | deltas |
+| тип изменения | пары | отклонения |
 |---|---|---|
-| verb swap (put->place) | bowl-on-plate, wine-rack, frying-pan | -0.35, -0.25, 0.00 |
-| verb+particle reorder ("switch the stove on") | stove | -0.05 |
-| possessive restructure ("cabinet's top drawer") | 2 pairs | **-0.55, -0.65** (both p<0.001) |
-| rare token ("atop") | bowl-on-cabinet | **-0.95** (p=4e-6) |
-| compartment reorder ("caddy's left compartment") | book | **-0.60** (p=5e-4) |
-| additive ("microwave door"), comma insert | 2 pairs | -0.10, -0.10 |
+| замена глагола (put->place) | bowl-on-plate, wine-rack, frying-pan | -0.35, -0.25, 0.00 |
+| перестановка глагола и частицы ("switch the stove on") | stove | -0.05 |
+| изменение притяжательной структуры ("cabinet's top drawer") | 2 пары | **-0.55, -0.65** (оба p<0.001) |
+| редкий токен ("atop") | bowl-on-cabinet | **-0.95** (p=4e-6) |
+| перестановка отсеков ("caddy's left compartment") | book | **-0.60** (p=5e-4) |
+| добавление слова ("microwave door"), вставка запятой | 2 пары | -0.10, -0.10 |
 
-- Descriptor preservation does NOT guarantee robustness: structural
-  rewrites (possessives, reordering) and out-of-distribution tokens break
-  retrieval even with all content words intact.
-- Refines v1/v2: the collapse there was not ONLY descriptor loss; the
-  selector is sensitive to phrase structure. Relabeling coverage must
-  include structural variants, not just synonym swaps.
+- Сохранение дескрипторов НЕ гарантирует робастность: структурные изменения (притяжательные формы, изменение порядка слов) и токены вне распределения (out-of-distribution) нарушают извлечение навыка, даже если все значимые слова сохранены.
+- Уточнение v1/v2: коллапс там происходил не ТОЛЬКО из-за потери дескрипторов; селектор чувствителен к структуре фраз. Покрытие при переразметке должно включать структурные варианты, а не только замены синонимов.
