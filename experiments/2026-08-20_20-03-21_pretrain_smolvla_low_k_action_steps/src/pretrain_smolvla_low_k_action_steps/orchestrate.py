@@ -14,29 +14,14 @@ from typing import Any
 from .constants import (
     ACTION_STEPS,
     DEMO_BUDGETS,
-    EVAL_EPISODES,
     EXPERIMENT_NAME,
     GPU_IDS,
-    MASTER_SEED,
     PRODUCTION_SMOKE_POINT,
     TARGET_INSTRUCTIONS,
     experiment_root,
     result_path,
 )
-
-
-def result_complete(path: Path) -> bool:
-    if not path.is_file():
-        return False
-    payload = json.loads(path.read_text())
-    episodes = payload.get("per_episode", [])
-    expected_seeds = list(range(MASTER_SEED, MASTER_SEED + EVAL_EPISODES))
-    return (
-        len(episodes) == EVAL_EPISODES
-        and [item.get("env_seed") for item in episodes] == expected_seeds
-        and [item.get("noise_seed") for item in episodes] == expected_seeds
-        and all(Path(item.get("video_path", "")).is_file() for item in episodes)
-    )
+from .evaluate import result_complete
 
 
 def now_iso() -> str:
@@ -53,6 +38,8 @@ def atomic_json(path: Path, payload: dict[str, Any]) -> None:
 def require_preflight(root: Path) -> None:
     required = (
         "artifacts/base_checkpoint_manifest.json",
+        "artifacts/runtime_base_checkpoint_manifest.json",
+        "artifacts/checkpoint_reuse_manifest.json",
         "artifacts/episode_manifest.json",
         "artifacts/evaluation_plan.json",
         "artifacts/dataset_selection_smoke.json",
@@ -69,11 +56,28 @@ def require_preflight(root: Path) -> None:
     dataset_smoke = json.loads(
         (root / "artifacts/dataset_selection_smoke.json").read_text()
     )
-    if dataset_smoke.get("passed") is not True or len(dataset_smoke["checks"]) != 30:
-        raise RuntimeError("Dataset selection smoke did not validate all 30 task/k sets")
+    expected_jobs = len(TARGET_INSTRUCTIONS) * len(DEMO_BUDGETS)
+    reuse = json.loads((root / "artifacts/checkpoint_reuse_manifest.json").read_text())
+    if (
+        reuse.get("reused") is not True
+        or reuse.get("checkpoint_count") != expected_jobs
+        or reuse.get("training_performed_in_this_experiment") is not False
+    ):
+        raise RuntimeError("The nine reused checkpoint conditions are not validated")
+    if (
+        dataset_smoke.get("passed") is not True
+        or len(dataset_smoke["checks"]) != expected_jobs
+    ):
+        raise RuntimeError("Dataset selection smoke did not validate every task/k set")
     env_smoke = json.loads((root / "artifacts/env_smoke.json").read_text())
-    if env_smoke.get("passed") is not True or len(env_smoke["validated_tasks"]) != 10:
-        raise RuntimeError("Real-environment smoke did not validate all ten tasks")
+    validated_ids = {
+        int(task_id) for task_id in env_smoke.get("validated_tasks", {})
+    }
+    if (
+        env_smoke.get("passed") is not True
+        or validated_ids != set(TARGET_INSTRUCTIONS)
+    ):
+        raise RuntimeError("Real-environment smoke did not validate tasks 0-2")
     production = json.loads((root / "artifacts/production_smoke.json").read_text())
     if production.get("passed") is not True:
         raise RuntimeError("Production/determinism smoke has not passed")
@@ -81,7 +85,11 @@ def require_preflight(root: Path) -> None:
         raise RuntimeError(f"Unexpected production smoke point: {production}")
     plan = json.loads((root / "artifacts/evaluation_plan.json").read_text())
     expected_points = len(TARGET_INSTRUCTIONS) * len(DEMO_BUDGETS) * len(ACTION_STEPS)
-    if plan.get("evaluation_points") != expected_points:
+    if (
+        plan.get("training_jobs") != 0
+        or plan.get("reused_checkpoint_count") != expected_jobs
+        or plan.get("evaluation_points") != expected_points
+    ):
         raise RuntimeError("Frozen evaluation plan has the wrong number of points")
 
 
@@ -98,10 +106,9 @@ def main() -> None:
     lock_stream.write(f"pid={os.getpid()}\n")
     lock_stream.flush()
 
+    package = __package__
     status_path = root / "results/status.json"
-    train_logs = root / "results/logs/train"
     eval_logs = root / "results/logs/eval"
-    train_logs.mkdir(parents=True, exist_ok=True)
     eval_logs.mkdir(parents=True, exist_ok=True)
     jobs = [
         (task_id, budget)
@@ -126,7 +133,9 @@ def main() -> None:
         "state": "running",
         "started_at": now_iso(),
         "updated_at": now_iso(),
-        "total_training_jobs": len(jobs),
+        "total_training_jobs": 0,
+        "total_checkpoint_conditions": len(jobs),
+        "reused_checkpoint_count": len(jobs),
         "total_evaluation_points": len(jobs) * len(ACTION_STEPS),
         "completed_training_jobs": 0,
         "completed_evaluation_points": 0,
@@ -135,6 +144,7 @@ def main() -> None:
             f"task_{task_id}_k_{budget}": {
                 "task_id": task_id,
                 "budget": budget,
+                "checkpoint_state": "reused",
                 "state": "pending",
                 "evaluations": {
                     str(action_steps): {"state": "pending"}
@@ -147,10 +157,6 @@ def main() -> None:
     atomic_json(status_path, state)
 
     def refresh_counts() -> None:
-        state["completed_training_jobs"] = sum(
-            job.get("training_state") == "completed"
-            for job in state["jobs"].values()
-        )
         state["completed_evaluation_points"] = sum(
             point["state"] == "completed"
             for job in state["jobs"].values()
@@ -176,7 +182,7 @@ def main() -> None:
     def run_stage(
         command: list[str], log_path: Path, environment: dict[str, str]
     ) -> int:
-        with log_path.open("w") as stream:
+        with log_path.open("a") as stream:
             return subprocess.Popen(
                 command,
                 cwd=root,
@@ -195,32 +201,11 @@ def main() -> None:
             key = f"task_{task_id}_k_{budget}"
             environment = os.environ.copy()
             environment["CUDA_VISIBLE_DEVICES"] = str(gpu)
-            update_job(key, state="training", gpu=gpu, started_at=now_iso())
-            train_log = train_logs / f"{key}.log"
-            train_command = [
-                sys.executable,
-                "-m",
-                "pretrain_smolvla_low_k_action_steps.training",
-                str(task_id),
-                str(budget),
-            ]
-            code = run_stage(train_command, train_log, environment)
-            if code:
-                update_job(
-                    key,
-                    state="failed",
-                    stage="training",
-                    exit_code=code,
-                    finished_at=now_iso(),
-                    log=str(train_log.relative_to(root)),
-                )
-                work.task_done()
-                continue
             update_job(
                 key,
                 state="evaluating",
-                training_state="completed",
-                train_log=str(train_log.relative_to(root)),
+                gpu=gpu,
+                started_at=now_iso(),
             )
 
             failed = False
@@ -228,7 +213,7 @@ def main() -> None:
                 output = result_path(
                     root / "results/raw", task_id, budget, action_steps
                 )
-                if result_complete(output):
+                if result_complete(output, action_steps):
                     result = json.loads(output.read_text())
                     update_eval(
                         key,
@@ -245,7 +230,7 @@ def main() -> None:
                 eval_command = [
                     sys.executable,
                     "-m",
-                    "pretrain_smolvla_low_k_action_steps.evaluate",
+                    f"{package}.evaluate",
                     str(task_id),
                     str(budget),
                     str(action_steps),
@@ -302,7 +287,7 @@ def main() -> None:
     atomic_json(status_path, state)
     aggregate_log = root / "results/logs/aggregate.log"
     if run_stage(
-        [sys.executable, "-m", "pretrain_smolvla_low_k_action_steps.aggregate"],
+        [sys.executable, "-m", f"{package}.aggregate"],
         aggregate_log,
         os.environ.copy(),
     ):
@@ -318,7 +303,7 @@ def main() -> None:
         raise SystemExit("Aggregation failed")
     trackio_log = root / "results/logs/trackio.log"
     if run_stage(
-        [sys.executable, "-m", "pretrain_smolvla_low_k_action_steps.trackio_report"],
+        [sys.executable, "-m", f"{package}.trackio_report"],
         trackio_log,
         os.environ.copy(),
     ):

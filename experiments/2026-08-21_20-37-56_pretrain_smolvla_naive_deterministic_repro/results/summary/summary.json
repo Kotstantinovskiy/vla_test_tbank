@@ -1,0 +1,135 @@
+{
+  "experiment": "pretrain_smolvla_naive_deterministic_repro",
+  "base_checkpoint": {
+    "path": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model",
+    "provenance": {
+      "pretraining_experiment": "2026-08-17_smolvla_pretrain_libero",
+      "base_model_repo": "lerobot/smolvla_base",
+      "base_model_revision": "c83c3163b8ca9b7e67c509fffd9121e66cb96205",
+      "seen_positive_control": "libero_90 task 0: 20/20",
+      "zero_shot_reference": "2026-08-19_pretrain_smolvla_prompt_only_3: true 1/200; per-episode deterministic noise"
+    }
+  },
+  "protocol": {
+    "suite": "libero_goal",
+    "seed": 1000,
+    "eval_batch_size": 1,
+    "noise_seeding": "per-episode torch/CUDA seed = 1000 + episode_index",
+    "eval_episodes": 20,
+    "budgets": [
+      5,
+      10,
+      25
+    ]
+  },
+  "zero_shot_reference": {
+    "experiment": "2026-08-19_pretrain_smolvla_prompt_only_3",
+    "mean_success": 0.0,
+    "per_task_successes": {}
+  },
+  "tasks": {
+    "0": {
+      "instruction": "open the middle drawer of the cabinet",
+      "budgets": {
+        "5": {
+          "successes": 18,
+          "trials": 20,
+          "success_rate": 0.9,
+          "ci95_low": 0.6989663547715128,
+          "ci95_high": 0.9721335187862319,
+          "model": "/var/tmp/vla_outputs/naive_deterministic_repro_20260821_203756/task_0/k_5/checkpoints/002000/pretrained_model",
+          "model_safetensors_sha256": "e8c14b04f03197ef778ed879932aa1a0733f6b767785c9330567bac13cef2b72"
+        },
+        "10": {
+          "successes": 18,
+          "trials": 20,
+          "success_rate": 0.9,
+          "ci95_low": 0.6989663547715128,
+          "ci95_high": 0.9721335187862319,
+          "model": "/var/tmp/vla_outputs/naive_deterministic_repro_20260821_203756/task_0/k_10/checkpoints/002000/pretrained_model",
+          "model_safetensors_sha256": "f7beb5c49083deba15245aaaac2344ee802f2a65480cc61958f0623d5a4e66f2"
+        },
+        "25": {
+          "successes": 19,
+          "trials": 20,
+          "success_rate": 0.95,
+          "ci95_low": 0.763868806553258,
+          "ci95_high": 0.9911185511992047,
+          "model": "/var/tmp/vla_outputs/naive_deterministic_repro_20260821_203756/task_0/k_25/checkpoints/002000/pretrained_model",
+          "model_safetensors_sha256": "52aca288fb350ada339e3f46560b5a9f43f221a22d119f2a2b6722b8daad732d"
+        }
+      }
+    },
+    "1": {
+      "instruction": "put the bowl on the stove",
+      "budgets": {
+        "5": {
+          "successes": 19,
+          "trials": 20,
+          "success_rate": 0.95,
+          "ci95_low": 0.763868806553258,
+          "ci95_high": 0.9911185511992047,
+          "model": "/var/tmp/vla_outputs/naive_deterministic_repro_20260821_203756/task_1/k_5/checkpoints/002000/pretrained_model",
+          "model_safetensors_sha256": "f5c31f34715441027bcc33218fd1cf3f737c0569f472b36bac9f4c6fc525fa61"
+        },
+        "10": {
+          "successes": 20,
+          "trials": 20,
+          "success_rate": 1.0,
+          "ci95_low": 0.8388748419471806,
+          "ci95_high": 1.0,
+          "model": "/var/tmp/vla_outputs/naive_deterministic_repro_20260821_203756/task_1/k_10/checkpoints/002000/pretrained_model",
+          "model_safetensors_sha256": "f127ebc2df153bbb886e565da408ccf4b0a37fa8ff83d491a8009a1d2d4a4a53"
+        },
+        "25": {
+          "successes": 20,
+          "trials": 20,
+          "success_rate": 1.0,
+          "ci95_low": 0.8388748419471806,
+          "ci95_high": 1.0,
+          "model": "/var/tmp/vla_outputs/naive_deterministic_repro_20260821_203756/task_1/k_25/checkpoints/002000/pretrained_model",
+          "model_safetensors_sha256": "3b6f5c1dc787054d668305fd24361a6dc645f28444510524e2e0ba0b2fc8dca2"
+        }
+      }
+    },
+    "2": {
+      "instruction": "put the wine bottle on top of the cabinet",
+      "budgets": {
+        "5": {
+          "successes": 16,
+          "trials": 20,
+          "success_rate": 0.8,
+          "ci95_low": 0.5839825677481064,
+          "ci95_high": 0.919342337420202,
+          "model": "/var/tmp/vla_outputs/naive_deterministic_repro_20260821_203756/task_2/k_5/checkpoints/002000/pretrained_model",
+          "model_safetensors_sha256": "e0902db952ad736eb10d9898029d8bb8d3b98e65861635ee98a1b534320b7bac"
+        },
+        "10": {
+          "successes": 19,
+          "trials": 20,
+          "success_rate": 0.95,
+          "ci95_low": 0.763868806553258,
+          "ci95_high": 0.9911185511992047,
+          "model": "/var/tmp/vla_outputs/naive_deterministic_repro_20260821_203756/task_2/k_10/checkpoints/002000/pretrained_model",
+          "model_safetensors_sha256": "5b25c61b0fb8a805dcf1183b3140b0f11832c9806302d05b6bc820438a72ac67"
+        },
+        "25": {
+          "successes": 16,
+          "trials": 20,
+          "success_rate": 0.8,
+          "ci95_low": 0.5839825677481064,
+          "ci95_high": 0.919342337420202,
+          "model": "/var/tmp/vla_outputs/naive_deterministic_repro_20260821_203756/task_2/k_25/checkpoints/002000/pretrained_model",
+          "model_safetensors_sha256": "f50c1c8bc1415a35ece21c8b64fbb54cac3b744a67ea157cc3557a5ec7bb7c17"
+        }
+      }
+    }
+  },
+  "cost_curve": {
+    "mean_tasks_0_2": {
+      "5": 0.8833333333333333,
+      "10": 0.9500000000000001,
+      "25": 0.9166666666666666
+    }
+  }
+}

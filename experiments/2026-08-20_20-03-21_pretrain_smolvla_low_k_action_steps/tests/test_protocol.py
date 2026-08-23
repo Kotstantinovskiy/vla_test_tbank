@@ -54,7 +54,7 @@ def _conversion_manifest() -> dict:
 
 def test_selection_is_official_first_k():
     manifest = build_manifest(_conversion_manifest())
-    assert len(manifest["tasks"]) == 10
+    assert len(manifest["tasks"]) == 3
     assert manifest["tasks"]["0"]["episodes"]["1"] == [0]
     assert manifest["tasks"]["0"]["episodes"]["3"] == [0, 1, 2]
     assert manifest["tasks"]["0"]["official_demos"]["2"] == [
@@ -90,12 +90,17 @@ def test_training_recipe_matches_low_k_and_is_not_triplicated(tmp_path: Path):
     (tmp_path / "artifacts/episode_manifest.json").write_text(
         json.dumps(manifest)
     )
+    runtime = tmp_path / "artifacts/runtime_base_checkpoint"
+    runtime.mkdir()
+    (runtime / "model.safetensors").write_bytes(b"placeholder")
     command = build_command(tmp_path, 1, 2)
     assert "--policy.train_expert_only=true" in command
     assert "--policy.freeze_vision_encoder=true" in command
     assert "--policy.use_amp=false" in command
     assert f"--steps={TRAIN_STEPS}" in command
     assert "--dataset.episodes=[50,51]" in command
+    assert "--dataset.video_backend=pyav" in command
+    assert any(item.startswith("--policy.vlm_model_name=/var/tmp/") for item in command)
     assert not any(item.startswith("--policy.n_action_steps") for item in command)
     with pytest.raises(ValueError, match="zero-shot"):
         build_command(tmp_path, 0, 0)
@@ -126,11 +131,11 @@ def test_action_step_and_seed_protocol():
     assert [noise_seed(index) for index in range(EVAL_EPISODES)] == list(
         range(MASTER_SEED, MASTER_SEED + EVAL_EPISODES)
     )
-    assert TARGET_ENV_TASK_IDS == {index: index for index in range(10)}
+    assert TARGET_ENV_TASK_IDS == {index: index for index in range(3)}
     assert str(result_path(Path("raw"), 2, 3, 10)) == "raw/task_2/k_3/n_10.json"
 
 
-def test_frozen_evaluation_plan_has_90_points_and_1800_videos():
+def test_frozen_evaluation_plan_has_27_points_and_540_videos():
     mapping = [
         {
             "logical_task_id": task_id,
@@ -141,11 +146,12 @@ def test_frozen_evaluation_plan_has_90_points_and_1800_videos():
         for task_id, instruction in TARGET_INSTRUCTIONS.items()
     ]
     plan = evaluation_plan(mapping)
-    assert plan["training_jobs"] == 30
-    assert plan["evaluation_points"] == 90
-    assert plan["main_rollout_videos"] == 1800
-    assert plan["maximum_policy_invocations"] == 205200
-    assert len({point["label"] for point in plan["points"]}) == 90
+    assert plan["training_jobs"] == 0
+    assert plan["reused_checkpoint_count"] == 9
+    assert plan["evaluation_points"] == 27
+    assert plan["main_rollout_videos"] == 540
+    assert plan["maximum_policy_invocations"] == 61560
+    assert len({point["label"] for point in plan["points"]}) == 27
 
 
 def _determinism_payload(success: bool = True) -> dict:
@@ -160,6 +166,7 @@ def _determinism_payload(success: bool = True) -> dict:
                 "episode_ix": 0,
                 "env_seed": 1000,
                 "noise_seed": 1000,
+                "init_state_id": 0,
                 "seed": 1000,
                 "success": success,
                 "sum_reward": float(success),
@@ -201,6 +208,7 @@ def _write_synthetic_results(root: Path) -> None:
                         "episode_ix": index,
                         "env_seed": MASTER_SEED + index,
                         "noise_seed": MASTER_SEED + index,
+                        "init_state_id": index,
                         "success": index < successes,
                     }
                     for index in range(EVAL_EPISODES)
@@ -226,12 +234,10 @@ def _write_synthetic_results(root: Path) -> None:
 def test_aggregate_pairs_same_weights_and_episode_seed_banks(tmp_path: Path):
     _write_synthetic_results(tmp_path)
     summary = aggregate(tmp_path, _prior())
-    assert summary["means"]["mean_all_10"]["1"] == {
-        "1": 0.0,
-        "10": 0.05,
-        "25": 0.1,
-    }
-    assert len(summary["paired_action_step_comparisons"]) == 90
+    assert summary["means"]["mean_tasks_0_2"]["1"] == pytest.approx(
+        {"1": 0.0, "10": 0.05, "25": 0.1}
+    )
+    assert len(summary["paired_action_step_comparisons"]) == 27
     assert all(
         item["mcnemar_p"] >= 0
         for item in summary["paired_action_step_comparisons"]
@@ -265,6 +271,7 @@ def test_first_outcome_media_records_k_n_episode_and_seeds(tmp_path: Path):
                                     "episode_ix": 0,
                                     "env_seed": 1000,
                                     "noise_seed": 1000,
+                                    "init_state_id": 0,
                                     "video_path": str(video),
                                 }
                             ]
@@ -276,7 +283,11 @@ def test_first_outcome_media_records_k_n_episode_and_seeds(tmp_path: Path):
     assert {(item["demo_budget"], item["n_action_steps"]) for item in items} == {
         (k, n) for k in DEMO_BUDGETS for n in ACTION_STEPS
     }
-    assert all(item["env_seed"] == item["noise_seed"] == 1000 for item in items)
+    assert all(
+        item["env_seed"] == item["noise_seed"] == 1000
+        and item["init_state_id"] == 0
+        for item in items
+    )
 
 
 def test_wilson_interval_bounds():

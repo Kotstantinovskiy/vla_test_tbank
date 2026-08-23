@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "smoke_point": {
+    "task_id": 0,
+    "alpha": 0.0
+  },
+  "action_steps": [
+    50
+  ],
+  "variants": {
+    "50": {
+      "passed": true,
+      "n_action_steps": 50,
+      "layout_a_episode_order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "layout_b_episode_order": [
+        19,
+        18,
+        17,
+        16,
+        15,
+        14,
+        13,
+        12,
+        11,
+        10,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "model_safetensors_sha256": "b9134d4c0c78fc8b29c0ce5aa0fa82a67e133d2e630061eff0a0b54fcc4671f9",
+      "episode_manifest_sha256": "73fd1373ee1daec9b99e365e3e4dc9c06571b0051a31c2413e03571b456e14a0",
+      "n_episodes": 20,
+      "left_successes": 3,
+      "right_successes": 3,
+      "mismatched_episode_indices": [],
+      "layout_a_result": "/home/nbagent174/bpe_test/experiments/2026-08-23_14-31-07_pretrain_smolvla_state_noise_k1_1k_steps/results/raw/task_0/alpha_0.00/n_50.json",
+      "layout_b_result": "/home/nbagent174/bpe_test/experiments/2026-08-23_14-31-07_pretrain_smolvla_state_noise_k1_1k_steps/results/determinism_check/layout_b/task_0/alpha_0.00/n_50.json"
+    }
+  }
+}

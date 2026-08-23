@@ -1,6 +1,6 @@
 experiment: pretrain_smolvla_low_k_action_steps
 created_at: 2026-08-20T20:03:21+03:00
-status: code prepared; training and rollouts not started
+status: production gate passed; inference sweep running on reused seed-1000 checkpoints
 extends_recipe: 2026-08-18_pretrain_smolvla_few_shot_tune_low_k
 
 base_checkpoint:
@@ -18,10 +18,12 @@ target_demos:
   selection: first k episodes == official demo_0..demo_{k-1} (asserted)
 
 adaptation:
-  tasks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  tasks: [0, 1, 2]
   demo_budgets: [1, 2, 3]
-  independent_training_jobs: 30
-  independence: every task/budget starts from the canonical base checkpoint
+  independent_training_jobs: 0
+  reused_checkpoint_count: 9
+  checkpoint_source_experiment: 2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro
+  independence: every reused task/budget checkpoint had started independently from the canonical base checkpoint
   trainable: action expert, state projection, action in/out projections,
     action-time MLP
   frozen: vision encoder and VLM
@@ -32,6 +34,7 @@ adaptation:
   precision: fp32
   n_action_steps_during_training_config: 50
   note: n_action_steps does not change the 50-step training target/loss
+  training_performed_in_this_experiment: false
   normalizer_disclosure: >-
     LeRobot replaces checkpoint statistics with statistics of each target
     task/k dataset. All points here have k>0; no k=0 comparison is claimed.
@@ -41,27 +44,29 @@ evaluation:
   chunk_size: 50
   n_action_steps: [1, 10, 25]
   same_adapted_weights_across_action_steps: true
-  evaluation_points: 90
+  evaluation_points: 27
   episodes_per_point: 20
   episode_horizon: 300
-  main_rollouts: 1800
-  maximum_policy_invocations_if_every_episode_hits_horizon: 205200
+  main_rollouts: 540
+  maximum_policy_invocations_if_every_episode_hits_horizon: 61560
   batch_size: 1
   master_seed: 1000
   environment_seed: 1000 + episode_index
   policy_noise_seed: 1000 + episode_index
   policy_noise_reseeded_before_each_episode: true
+  libero_init_state_id: episode_index
+  libero_init_state_pinned_before_each_episode: true
   metric: binary environment task success
   movement_proxy_metrics: none; inspect saved videos manually
   videos: every episode saved on disk
 
 preflight_gates:
-  - prepare validates checkpoint completeness/SHA, source revision, official demo order, task text, and freezes 90 eval points
-  - dataset smoke instantiates all 30 filtered datasets and verifies the actually loaded episode_index values
+  - prepare validates checkpoint/VLM completeness and SHA, pinned LIBERO assets, source revision, official demo order, task text, and freezes 27 eval points
+  - dataset smoke instantiates all 9 filtered datasets and verifies the actually loaded episode_index values
   - audit proves vision/VLM frozen and all intended expert/projection groups trainable
-  - env smoke creates, checks, resets, and closes all ten real target environments
-  - production smoke completes task 0 / k=1 / n=10 with all 20 videos
-  - determinism smoke repeats that point after an n=1 prefix layout and requires identical per-episode outcomes
+  - env smoke creates, checks, resets, and closes the three assignment target environments
+  - production smoke uses the ready task 0 / k=1 checkpoint and completes n=10 with all 20 videos
+  - determinism smoke repeats that point after an n=1 prefix layout in reverse episode order and requires identical per-episode outcomes
 
 prior_n50:
   evidence: artifacts/prior_action_steps_evidence.json

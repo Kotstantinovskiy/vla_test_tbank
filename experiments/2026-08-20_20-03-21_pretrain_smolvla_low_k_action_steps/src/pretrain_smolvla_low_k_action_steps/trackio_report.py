@@ -48,6 +48,7 @@ def first_outcome_media(results_root: Path) -> list[dict[str, Any]]:
                         "episode_index": episode["episode_ix"],
                         "env_seed": episode["env_seed"],
                         "noise_seed": episode["noise_seed"],
+                        "init_state_id": episode["init_state_id"],
                         "video": str(video),
                     }
                 if {"success", "failure"} <= set(chosen):
@@ -79,6 +80,7 @@ def log_to_trackio(
             "action_steps": list(ACTION_STEPS),
             "eval_batch_size": 1,
             "policy_noise_seeded_per_episode": True,
+            "libero_init_state_pinned_per_episode": True,
         },
         "auto_log_gpu": False,
         "auto_log_cpu": False,
@@ -92,9 +94,6 @@ def log_to_trackio(
             for action_steps in ACTION_STEPS:
                 trackio.log(
                     {
-                        f"success/mean_all_10/n_{action_steps}": summary["means"][
-                            "mean_all_10"
-                        ][str(budget)][str(action_steps)],
                         f"success/mean_tasks_0_2/n_{action_steps}": summary[
                             "means"
                         ]["mean_tasks_0_2"][str(budget)][str(action_steps)],

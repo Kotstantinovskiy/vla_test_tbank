@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pretrain-smolvla-lora-low-k"
+version = "0.1.0"
+description = "LoRA-on-VLM + full expert SmolVLA k=1/2/3 cost curve"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "lerobot[libero,smolvla,peft]==0.6.1",
+  "imageio[ffmpeg]>=2.37,<3",
+  "matplotlib>=3.10",
+  "PyYAML>=6",
+  "torch==2.7.1+cu126",
+  "torchcodec==0.5+cu126",
+  "torchvision==0.22.1+cu126",
+  "trackio==0.33.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+lora-lowk-prepare = "pretrain_smolvla_lora_low_k.prepare:main"
+lora-lowk-selection = "pretrain_smolvla_lora_low_k.selection:main"
+lora-lowk-dataset-smoke = "pretrain_smolvla_lora_low_k.dataset_smoke:main"
+lora-lowk-audit = "pretrain_smolvla_lora_low_k.audit:main"
+lora-lowk-train = "pretrain_smolvla_lora_low_k.training:main"
+lora-lowk-merge = "pretrain_smolvla_lora_low_k.merge:main"
+lora-lowk-evaluate = "pretrain_smolvla_lora_low_k.evaluate:main"
+lora-lowk-determinism = "pretrain_smolvla_lora_low_k.determinism:main"
+lora-lowk-orchestrate = "pretrain_smolvla_lora_low_k.orchestrate:main"
+lora-lowk-aggregate = "pretrain_smolvla_lora_low_k.aggregate:main"
+lora-lowk-trackio = "pretrain_smolvla_lora_low_k.trackio_report:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+torchcodec = { index = "pytorch-cu126" }
+torchvision = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true

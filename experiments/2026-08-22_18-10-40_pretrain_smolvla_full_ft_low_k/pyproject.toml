@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pretrain-smolvla-full-ft-low-k"
+version = "0.1.0"
+description = "Full fine-tune (VLM + vision encoder + expert) SmolVLA k=1/2/3 cost curve"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "lerobot[libero,smolvla]==0.6.1",
+  "imageio[ffmpeg]>=2.37,<3",
+  "matplotlib>=3.10",
+  "PyYAML>=6",
+  "torch==2.7.1+cu126",
+  "torchcodec==0.5+cu126",
+  "torchvision==0.22.1+cu126",
+  "trackio==0.33.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+full-ft-lowk-prepare = "pretrain_smolvla_full_ft_low_k.prepare:main"
+full-ft-lowk-selection = "pretrain_smolvla_full_ft_low_k.selection:main"
+full-ft-lowk-dataset-smoke = "pretrain_smolvla_full_ft_low_k.dataset_smoke:main"
+full-ft-lowk-audit = "pretrain_smolvla_full_ft_low_k.audit:main"
+full-ft-lowk-train = "pretrain_smolvla_full_ft_low_k.training:main"
+full-ft-lowk-evaluate = "pretrain_smolvla_full_ft_low_k.evaluate:main"
+full-ft-lowk-determinism = "pretrain_smolvla_full_ft_low_k.determinism:main"
+full-ft-lowk-orchestrate = "pretrain_smolvla_full_ft_low_k.orchestrate:main"
+full-ft-lowk-aggregate = "pretrain_smolvla_full_ft_low_k.aggregate:main"
+full-ft-lowk-trackio = "pretrain_smolvla_full_ft_low_k.trackio_report:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+torchcodec = { index = "pytorch-cu126" }
+torchvision = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true

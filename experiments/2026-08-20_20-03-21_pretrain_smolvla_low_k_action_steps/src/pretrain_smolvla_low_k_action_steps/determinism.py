@@ -3,10 +3,10 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from pathlib import Path
 
 from .constants import (
     ACTION_STEPS,
+    EVAL_EPISODES,
     PRODUCTION_SMOKE_POINT,
     experiment_root,
     result_path,
@@ -17,6 +17,7 @@ EPISODE_FIELDS = (
     "episode_ix",
     "env_seed",
     "noise_seed",
+    "init_state_id",
     "seed",
     "success",
     "sum_reward",
@@ -27,13 +28,14 @@ EPISODE_FIELDS = (
 def canonical_episodes(payload: dict) -> list[dict]:
     return [
         {field: episode.get(field) for field in EPISODE_FIELDS}
-        for episode in payload["per_episode"]
+        for episode in sorted(
+            payload["per_episode"], key=lambda item: int(item["episode_ix"])
+        )
     ]
 
 
 def compare(left: dict, right: dict) -> dict:
-    identity = ("logical_task_id", "demo_budget", "n_action_steps")
-    for field in identity:
+    for field in ("logical_task_id", "demo_budget", "n_action_steps"):
         if left[field] != right[field]:
             raise ValueError(f"Determinism inputs differ on {field}")
     if left["model_safetensors_sha256"] != right["model_safetensors_sha256"]:
@@ -43,16 +45,16 @@ def compare(left: dict, right: dict) -> dict:
     if len(a) != len(b):
         raise ValueError(f"Episode-count mismatch: {len(a)} != {len(b)}")
     mismatches = [
-        index for index, (x, y) in enumerate(zip(a, b, strict=True)) if x != y
+        int(x["episode_ix"])
+        for x, y in zip(a, b, strict=True)
+        if x != y
     ]
     encoded = json.dumps(a, sort_keys=True).encode()
     return {
         "passed": not mismatches,
-        "smoke_point": {
-            "task_id": left["logical_task_id"],
-            "budget": left["demo_budget"],
-            "action_steps": left["n_action_steps"],
-        },
+        "smoke_point": dict(PRODUCTION_SMOKE_POINT),
+        "layout_a_episode_order": list(range(EVAL_EPISODES)),
+        "layout_b_episode_order": list(reversed(range(EVAL_EPISODES))),
         "model_safetensors_sha256": left["model_safetensors_sha256"],
         "episode_manifest_sha256": hashlib.sha256(encoded).hexdigest(),
         "n_episodes": len(a),
@@ -67,7 +69,7 @@ def main() -> None:
 
     root = experiment_root()
     parser = argparse.ArgumentParser(
-        description="Run one production point twice in different process layouts"
+        description="Run one production point after prefix work in forward/reverse order"
     )
     parser.add_argument("--device", default="cuda")
     args = parser.parse_args()
@@ -77,12 +79,26 @@ def main() -> None:
     prefix_steps = next(value for value in ACTION_STEPS if value != action_steps)
     model = final_model(task_id, budget)
 
-    left = run(task_id, budget, action_steps, model, root / "results/raw", args.device)
+    left = run(
+        task_id,
+        budget,
+        action_steps,
+        model,
+        root / "results/raw",
+        args.device,
+        episode_indices=list(range(EVAL_EPISODES)),
+    )
     right_root = root / "results/determinism_check/layout_b"
-    # Prefix work intentionally changes process history. Correct per-episode
-    # reseeding must make the subsequent target point identical to `left`.
     run(task_id, budget, prefix_steps, model, right_root, args.device)
-    right = run(task_id, budget, action_steps, model, right_root, args.device)
+    right = run(
+        task_id,
+        budget,
+        action_steps,
+        model,
+        right_root,
+        args.device,
+        episode_indices=list(reversed(range(EVAL_EPISODES))),
+    )
     result = compare(left, right)
     result.update(
         {
@@ -90,6 +106,9 @@ def main() -> None:
                 result_path(root / "results/raw", task_id, budget, action_steps)
             ),
             "layout_b_prefix_action_steps": prefix_steps,
+            "layout_b_prefix_result": str(
+                result_path(right_root, task_id, budget, prefix_steps)
+            ),
             "layout_b_result": str(
                 result_path(right_root, task_id, budget, action_steps)
             ),

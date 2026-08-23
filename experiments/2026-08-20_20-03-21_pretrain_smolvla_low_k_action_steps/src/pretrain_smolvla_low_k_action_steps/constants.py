@@ -13,6 +13,16 @@ BASE_CHECKPOINT = Path(
     "/var/tmp/vla_outputs/seen_libero90_official_20260817/"
     "checkpoints/030000/pretrained_model"
 )
+BASE_MODEL_SHA256 = "0a410cc6887e71c0dd2d21dd8a5deb7aba66e291dba9acba8656320dc076a3cc"
+VLM_BACKBONE_REVISION = "7b375e1b73b11138ff12fe22c8f2822d8fe03467"
+VLM_MODEL_SHA256 = "b9bfd456c9472c0acd5719d6e514c4b859891af205ee1a736552fd3497b8b0c3"
+VLM_MODEL_BYTES = 2_029_990_624
+VLM_BACKBONE = Path(
+    "/var/tmp/vla_backbones/"
+    f"SmolVLM2-500M-Video-Instruct_{VLM_BACKBONE_REVISION}"
+)
+LIBERO_ASSETS_REVISION = "0b3ea86be5fe169d0fd036ae63d1070ec09e90f6"
+LIBERO_ASSETS_ROOT = Path(f"/var/tmp/vla_libero_assets_{LIBERO_ASSETS_REVISION}")
 BASE_PROVENANCE = {
     "pretraining_experiment": "2026-08-17_smolvla_pretrain_libero",
     "base_model_repo": "lerobot/smolvla_base",
@@ -32,13 +42,6 @@ TARGET_INSTRUCTIONS: dict[int, str] = {
     0: "open the middle drawer of the cabinet",
     1: "put the bowl on the stove",
     2: "put the wine bottle on top of the cabinet",
-    3: "open the top drawer and put the bowl inside",
-    4: "put the bowl on top of the cabinet",
-    5: "push the plate to the front of the stove",
-    6: "put the cream cheese in the bowl",
-    7: "turn on the stove",
-    8: "put the bowl on the plate",
-    9: "put the wine bottle on the rack",
 }
 TARGET_ENV_TASK_IDS = {task_id: task_id for task_id in TARGET_INSTRUCTIONS}
 
@@ -59,8 +62,11 @@ EVAL_HORIZON = 300
 EVAL_BATCH_SIZE = 1
 GPU_IDS = (0, 1, 2, 3)
 
+REUSED_CHECKPOINT_EXPERIMENT = (
+    "2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro"
+)
 OUTPUT_ROOT = Path(
-    "/var/tmp/vla_outputs/pretrain_low_k_action_steps_20260820_200321"
+    "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756"
 )
 
 PRODUCTION_SMOKE_POINT = {"task_id": 0, "budget": 1, "action_steps": 10}

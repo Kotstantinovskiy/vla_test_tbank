@@ -1,0 +1,766 @@
+{
+  "experiment": "pretrain_smolvla_low_k_action_steps",
+  "base_checkpoint": {
+    "path": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model",
+    "provenance": {
+      "pretraining_experiment": "2026-08-17_smolvla_pretrain_libero",
+      "base_model_repo": "lerobot/smolvla_base",
+      "base_model_revision": "c83c3163b8ca9b7e67c509fffd9121e66cb96205",
+      "pretraining_dataset": "official/libero_90_rot180_128 (in-repo conversion)",
+      "official_source_repo": "yifengzhu-hf/LIBERO-datasets",
+      "official_source_revision": "f13aa24a3da8c43c7225569f28c562979fa0e35a",
+      "pretraining_steps": 30000,
+      "seen_positive_control": "libero_90 task 0: 20/20"
+    }
+  },
+  "protocol": {
+    "suite": "libero_goal",
+    "training_seed": 1000,
+    "eval_episodes": 20,
+    "demo_budgets": [
+      1,
+      2,
+      3
+    ],
+    "action_steps": [
+      1,
+      10,
+      25
+    ],
+    "chunk_size": 50,
+    "eval_batch_size": 1,
+    "policy_noise_seeded_per_episode": true,
+    "libero_init_state_pinned_per_episode": true
+  },
+  "tasks": {
+    "0": {
+      "instruction": "open the middle drawer of the cabinet",
+      "budgets": {
+        "1": {
+          "action_steps": {
+            "1": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_0/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "d2ae97d132f174746fefa10db56ae38cf3d1943177c813d03ad562ea28805aec"
+            },
+            "10": {
+              "successes": 1,
+              "trials": 20,
+              "success_rate": 0.05,
+              "ci95_low": 0.008881448800795402,
+              "ci95_high": 0.23613119344674205,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_0/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "d2ae97d132f174746fefa10db56ae38cf3d1943177c813d03ad562ea28805aec"
+            },
+            "25": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_0/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "d2ae97d132f174746fefa10db56ae38cf3d1943177c813d03ad562ea28805aec"
+            }
+          }
+        },
+        "2": {
+          "action_steps": {
+            "1": {
+              "successes": 3,
+              "trials": 20,
+              "success_rate": 0.15,
+              "ci95_low": 0.052368745896216595,
+              "ci95_high": 0.36041886474075696,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_0/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "2da87659b3abae7688fc94d2a83ac327357c1fd81cb2a7cc014181d1751810d6"
+            },
+            "10": {
+              "successes": 13,
+              "trials": 20,
+              "success_rate": 0.65,
+              "ci95_low": 0.43285427668523624,
+              "ci95_high": 0.818808175898918,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_0/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "2da87659b3abae7688fc94d2a83ac327357c1fd81cb2a7cc014181d1751810d6"
+            },
+            "25": {
+              "successes": 12,
+              "trials": 20,
+              "success_rate": 0.6,
+              "ci95_low": 0.3865815007622531,
+              "ci95_high": 0.781193467627183,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_0/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "2da87659b3abae7688fc94d2a83ac327357c1fd81cb2a7cc014181d1751810d6"
+            }
+          }
+        },
+        "3": {
+          "action_steps": {
+            "1": {
+              "successes": 11,
+              "trials": 20,
+              "success_rate": 0.55,
+              "ci95_low": 0.34208534245034233,
+              "ci95_high": 0.7418021417443759,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_0/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "49b85fb2e91860699f558ec34666e62536446a3a8b0290139e9650ce956b2a2e"
+            },
+            "10": {
+              "successes": 11,
+              "trials": 20,
+              "success_rate": 0.55,
+              "ci95_low": 0.34208534245034233,
+              "ci95_high": 0.7418021417443759,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_0/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "49b85fb2e91860699f558ec34666e62536446a3a8b0290139e9650ce956b2a2e"
+            },
+            "25": {
+              "successes": 10,
+              "trials": 20,
+              "success_rate": 0.5,
+              "ci95_low": 0.2992980081982123,
+              "ci95_high": 0.7007019918017877,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_0/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "49b85fb2e91860699f558ec34666e62536446a3a8b0290139e9650ce956b2a2e"
+            }
+          }
+        }
+      }
+    },
+    "1": {
+      "instruction": "put the bowl on the stove",
+      "budgets": {
+        "1": {
+          "action_steps": {
+            "1": {
+              "successes": 10,
+              "trials": 20,
+              "success_rate": 0.5,
+              "ci95_low": 0.2992980081982123,
+              "ci95_high": 0.7007019918017877,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_1/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "28957bcb4a38152bdca1a9802c894a277e97cc9d3b5746402fc71bf9203a6160"
+            },
+            "10": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_1/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "28957bcb4a38152bdca1a9802c894a277e97cc9d3b5746402fc71bf9203a6160"
+            },
+            "25": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_1/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "28957bcb4a38152bdca1a9802c894a277e97cc9d3b5746402fc71bf9203a6160"
+            }
+          }
+        },
+        "2": {
+          "action_steps": {
+            "1": {
+              "successes": 14,
+              "trials": 20,
+              "success_rate": 0.7,
+              "ci95_low": 0.4810271816464765,
+              "ci95_high": 0.8545227551323956,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_1/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "6e4f75b1670ecdaf723e0f3c78bdc4fec98c1e5f46879e6595620e26801f9c58"
+            },
+            "10": {
+              "successes": 18,
+              "trials": 20,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_1/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "6e4f75b1670ecdaf723e0f3c78bdc4fec98c1e5f46879e6595620e26801f9c58"
+            },
+            "25": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_1/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "6e4f75b1670ecdaf723e0f3c78bdc4fec98c1e5f46879e6595620e26801f9c58"
+            }
+          }
+        },
+        "3": {
+          "action_steps": {
+            "1": {
+              "successes": 14,
+              "trials": 20,
+              "success_rate": 0.7,
+              "ci95_low": 0.4810271816464765,
+              "ci95_high": 0.8545227551323956,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_1/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "4e9c2f5da955d1f942220a4157088250927ab51b2298180c2f96964aa7a89d0b"
+            },
+            "10": {
+              "successes": 18,
+              "trials": 20,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_1/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "4e9c2f5da955d1f942220a4157088250927ab51b2298180c2f96964aa7a89d0b"
+            },
+            "25": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_1/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "4e9c2f5da955d1f942220a4157088250927ab51b2298180c2f96964aa7a89d0b"
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "instruction": "put the wine bottle on top of the cabinet",
+      "budgets": {
+        "1": {
+          "action_steps": {
+            "1": {
+              "successes": 10,
+              "trials": 20,
+              "success_rate": 0.5,
+              "ci95_low": 0.2992980081982123,
+              "ci95_high": 0.7007019918017877,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_2/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "8d2acbb5bfd240be0917cf06798fb511ad16f49b0346390eca190e6c1eb64e8e"
+            },
+            "10": {
+              "successes": 16,
+              "trials": 20,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_2/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "8d2acbb5bfd240be0917cf06798fb511ad16f49b0346390eca190e6c1eb64e8e"
+            },
+            "25": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_2/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "8d2acbb5bfd240be0917cf06798fb511ad16f49b0346390eca190e6c1eb64e8e"
+            }
+          }
+        },
+        "2": {
+          "action_steps": {
+            "1": {
+              "successes": 11,
+              "trials": 20,
+              "success_rate": 0.55,
+              "ci95_low": 0.34208534245034233,
+              "ci95_high": 0.7418021417443759,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_2/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "e86d902e5a49ef333cdfeb3786ded3c93a55b3a9235a6bd8429719ca7716d49e"
+            },
+            "10": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_2/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "e86d902e5a49ef333cdfeb3786ded3c93a55b3a9235a6bd8429719ca7716d49e"
+            },
+            "25": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_2/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "e86d902e5a49ef333cdfeb3786ded3c93a55b3a9235a6bd8429719ca7716d49e"
+            }
+          }
+        },
+        "3": {
+          "action_steps": {
+            "1": {
+              "successes": 14,
+              "trials": 20,
+              "success_rate": 0.7,
+              "ci95_low": 0.4810271816464765,
+              "ci95_high": 0.8545227551323956,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_2/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "871adaf82a0c1955a3cbed17c9d3693bfbb5fac05b89a5a0f196230eeb4a3d3d"
+            },
+            "10": {
+              "successes": 14,
+              "trials": 20,
+              "success_rate": 0.7,
+              "ci95_low": 0.4810271816464765,
+              "ci95_high": 0.8545227551323956,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_2/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "871adaf82a0c1955a3cbed17c9d3693bfbb5fac05b89a5a0f196230eeb4a3d3d"
+            },
+            "25": {
+              "successes": 15,
+              "trials": 20,
+              "success_rate": 0.75,
+              "ci95_low": 0.531299122381256,
+              "ci95_high": 0.8881382985923343,
+              "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_2/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "871adaf82a0c1955a3cbed17c9d3693bfbb5fac05b89a5a0f196230eeb4a3d3d"
+            }
+          }
+        }
+      }
+    }
+  },
+  "means": {
+    "mean_tasks_0_2": {
+      "1": {
+        "1": 0.3333333333333333,
+        "10": 0.5666666666666667,
+        "25": 0.5666666666666667
+      },
+      "2": {
+        "1": 0.4666666666666666,
+        "10": 0.7999999999999999,
+        "25": 0.7666666666666666
+      },
+      "3": {
+        "1": 0.65,
+        "10": 0.7166666666666667,
+        "25": 0.7333333333333334
+      }
+    }
+  },
+  "paired_action_step_comparisons": [
+    {
+      "task_id": 0,
+      "demo_budget": 1,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 10,
+      "left_successes": 0,
+      "right_successes": 1,
+      "delta_right_minus_left": 0.05,
+      "discordant_only_left": 0,
+      "discordant_only_right": 1,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 0,
+      "demo_budget": 1,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 25,
+      "left_successes": 0,
+      "right_successes": 0,
+      "delta_right_minus_left": 0.0,
+      "discordant_only_left": 0,
+      "discordant_only_right": 0,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 0,
+      "demo_budget": 1,
+      "left_n_action_steps": 10,
+      "right_n_action_steps": 25,
+      "left_successes": 1,
+      "right_successes": 0,
+      "delta_right_minus_left": -0.05,
+      "discordant_only_left": 1,
+      "discordant_only_right": 0,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 0,
+      "demo_budget": 2,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 10,
+      "left_successes": 3,
+      "right_successes": 13,
+      "delta_right_minus_left": 0.5,
+      "discordant_only_left": 1,
+      "discordant_only_right": 11,
+      "mcnemar_p": 0.00634765625
+    },
+    {
+      "task_id": 0,
+      "demo_budget": 2,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 25,
+      "left_successes": 3,
+      "right_successes": 12,
+      "delta_right_minus_left": 0.44999999999999996,
+      "discordant_only_left": 2,
+      "discordant_only_right": 11,
+      "mcnemar_p": 0.0224609375
+    },
+    {
+      "task_id": 0,
+      "demo_budget": 2,
+      "left_n_action_steps": 10,
+      "right_n_action_steps": 25,
+      "left_successes": 13,
+      "right_successes": 12,
+      "delta_right_minus_left": -0.050000000000000044,
+      "discordant_only_left": 4,
+      "discordant_only_right": 3,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 0,
+      "demo_budget": 3,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 10,
+      "left_successes": 11,
+      "right_successes": 11,
+      "delta_right_minus_left": 0.0,
+      "discordant_only_left": 5,
+      "discordant_only_right": 5,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 0,
+      "demo_budget": 3,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 25,
+      "left_successes": 11,
+      "right_successes": 10,
+      "delta_right_minus_left": -0.050000000000000044,
+      "discordant_only_left": 6,
+      "discordant_only_right": 5,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 0,
+      "demo_budget": 3,
+      "left_n_action_steps": 10,
+      "right_n_action_steps": 25,
+      "left_successes": 11,
+      "right_successes": 10,
+      "delta_right_minus_left": -0.050000000000000044,
+      "discordant_only_left": 6,
+      "discordant_only_right": 5,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 1,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 10,
+      "left_successes": 10,
+      "right_successes": 17,
+      "delta_right_minus_left": 0.35,
+      "discordant_only_left": 0,
+      "discordant_only_right": 7,
+      "mcnemar_p": 0.015625
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 1,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 25,
+      "left_successes": 10,
+      "right_successes": 17,
+      "delta_right_minus_left": 0.35,
+      "discordant_only_left": 3,
+      "discordant_only_right": 10,
+      "mcnemar_p": 0.09228515625
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 1,
+      "left_n_action_steps": 10,
+      "right_n_action_steps": 25,
+      "left_successes": 17,
+      "right_successes": 17,
+      "delta_right_minus_left": 0.0,
+      "discordant_only_left": 3,
+      "discordant_only_right": 3,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 2,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 10,
+      "left_successes": 14,
+      "right_successes": 18,
+      "delta_right_minus_left": 0.20000000000000007,
+      "discordant_only_left": 0,
+      "discordant_only_right": 4,
+      "mcnemar_p": 0.125
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 2,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 25,
+      "left_successes": 14,
+      "right_successes": 17,
+      "delta_right_minus_left": 0.15000000000000002,
+      "discordant_only_left": 3,
+      "discordant_only_right": 6,
+      "mcnemar_p": 0.5078125
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 2,
+      "left_n_action_steps": 10,
+      "right_n_action_steps": 25,
+      "left_successes": 18,
+      "right_successes": 17,
+      "delta_right_minus_left": -0.050000000000000044,
+      "discordant_only_left": 3,
+      "discordant_only_right": 2,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 3,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 10,
+      "left_successes": 14,
+      "right_successes": 18,
+      "delta_right_minus_left": 0.20000000000000007,
+      "discordant_only_left": 0,
+      "discordant_only_right": 4,
+      "mcnemar_p": 0.125
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 3,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 25,
+      "left_successes": 14,
+      "right_successes": 19,
+      "delta_right_minus_left": 0.25,
+      "discordant_only_left": 0,
+      "discordant_only_right": 5,
+      "mcnemar_p": 0.0625
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 3,
+      "left_n_action_steps": 10,
+      "right_n_action_steps": 25,
+      "left_successes": 18,
+      "right_successes": 19,
+      "delta_right_minus_left": 0.04999999999999993,
+      "discordant_only_left": 1,
+      "discordant_only_right": 2,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 1,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 10,
+      "left_successes": 10,
+      "right_successes": 16,
+      "delta_right_minus_left": 0.30000000000000004,
+      "discordant_only_left": 1,
+      "discordant_only_right": 7,
+      "mcnemar_p": 0.0703125
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 1,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 25,
+      "left_successes": 10,
+      "right_successes": 17,
+      "delta_right_minus_left": 0.35,
+      "discordant_only_left": 2,
+      "discordant_only_right": 9,
+      "mcnemar_p": 0.0654296875
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 1,
+      "left_n_action_steps": 10,
+      "right_n_action_steps": 25,
+      "left_successes": 16,
+      "right_successes": 17,
+      "delta_right_minus_left": 0.04999999999999993,
+      "discordant_only_left": 2,
+      "discordant_only_right": 3,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 2,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 10,
+      "left_successes": 11,
+      "right_successes": 17,
+      "delta_right_minus_left": 0.29999999999999993,
+      "discordant_only_left": 2,
+      "discordant_only_right": 8,
+      "mcnemar_p": 0.109375
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 2,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 25,
+      "left_successes": 11,
+      "right_successes": 17,
+      "delta_right_minus_left": 0.29999999999999993,
+      "discordant_only_left": 0,
+      "discordant_only_right": 6,
+      "mcnemar_p": 0.03125
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 2,
+      "left_n_action_steps": 10,
+      "right_n_action_steps": 25,
+      "left_successes": 17,
+      "right_successes": 17,
+      "delta_right_minus_left": 0.0,
+      "discordant_only_left": 2,
+      "discordant_only_right": 2,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 3,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 10,
+      "left_successes": 14,
+      "right_successes": 14,
+      "delta_right_minus_left": 0.0,
+      "discordant_only_left": 4,
+      "discordant_only_right": 4,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 3,
+      "left_n_action_steps": 1,
+      "right_n_action_steps": 25,
+      "left_successes": 14,
+      "right_successes": 15,
+      "delta_right_minus_left": 0.050000000000000044,
+      "discordant_only_left": 4,
+      "discordant_only_right": 5,
+      "mcnemar_p": 1.0
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 3,
+      "left_n_action_steps": 10,
+      "right_n_action_steps": 25,
+      "left_successes": 14,
+      "right_successes": 15,
+      "delta_right_minus_left": 0.050000000000000044,
+      "discordant_only_left": 2,
+      "discordant_only_right": 3,
+      "mcnemar_p": 1.0
+    }
+  ],
+  "prior_n50_reference": {
+    "harness": "batch=4, one process RNG stream seeded once at 1000",
+    "comparison_warning": "Descriptive reference only: the new experiment uses batch=1 and per-episode policy-noise seeding, so deltas are not a paired causal estimate of n_action_steps.",
+    "mean_all_10": {
+      "1": 0.55,
+      "2": 0.705,
+      "3": 0.78
+    },
+    "mean_tasks_0_2": {
+      "1": 0.5666666666666667,
+      "2": 0.7166666666666667,
+      "3": 0.7166666666666667
+    },
+    "per_task_successes_out_of_20": {
+      "0": {
+        "1": 3,
+        "2": 7,
+        "3": 9
+      },
+      "1": {
+        "1": 16,
+        "2": 18,
+        "3": 19
+      },
+      "2": {
+        "1": 15,
+        "2": 18,
+        "3": 15
+      },
+      "3": {
+        "1": 3,
+        "2": 9,
+        "3": 8
+      },
+      "4": {
+        "1": 15,
+        "2": 16,
+        "3": 16
+      },
+      "5": {
+        "1": 14,
+        "2": 14,
+        "3": 14
+      },
+      "6": {
+        "1": 4,
+        "2": 7,
+        "3": 17
+      },
+      "7": {
+        "1": 17,
+        "2": 20,
+        "3": 20
+      },
+      "8": {
+        "1": 9,
+        "2": 15,
+        "3": 19
+      },
+      "9": {
+        "1": 14,
+        "2": 17,
+        "3": 19
+      }
+    }
+  },
+  "descriptive_delta_vs_prior_n50": {
+    "mean_tasks_0_2": {
+      "1": {
+        "1": -0.23333333333333334,
+        "10": 0.0,
+        "25": 0.0
+      },
+      "2": {
+        "1": -0.25000000000000006,
+        "10": 0.08333333333333326,
+        "25": 0.04999999999999993
+      },
+      "3": {
+        "1": -0.06666666666666665,
+        "10": 0.0,
+        "25": 0.01666666666666672
+      }
+    },
+    "warning": "Descriptive reference only: the new experiment uses batch=1 and per-episode policy-noise seeding, so deltas are not a paired causal estimate of n_action_steps."
+  },
+  "limitations": [
+    "single adaptation seed (1000); exploratory screen, not a final cost-curve claim",
+    "prior n=50 reference used batch=4 and stream RNG; its deltas are descriptive only"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "task_id": 1,
+  "demo_budget": 3,
+  "model": "/var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756/task_1/k_3/checkpoints/002000/pretrained_model",
+  "training_step": 2000,
+  "training_seed": 1000,
+  "chunk_size": 50,
+  "trained_n_action_steps": 50,
+  "model_safetensors_bytes": 906712520,
+  "model_safetensors_sha256": "4e9c2f5da955d1f942220a4157088250927ab51b2298180c2f96964aa7a89d0b",
+  "reused": true,
+  "source_experiment": "2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro",
+  "source_manifest": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro/artifacts/adapted_checkpoints/task_1/k_3.json"
+}

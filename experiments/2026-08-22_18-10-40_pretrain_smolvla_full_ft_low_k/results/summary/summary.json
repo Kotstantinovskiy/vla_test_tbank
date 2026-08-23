@@ -1,0 +1,264 @@
+{
+  "experiment": "pretrain_smolvla_full_ft_low_k",
+  "base_checkpoint": {
+    "path": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model",
+    "provenance": {
+      "pretraining_experiment": "2026-08-17_smolvla_pretrain_libero",
+      "base_model_repo": "lerobot/smolvla_base",
+      "base_model_revision": "c83c3163b8ca9b7e67c509fffd9121e66cb96205",
+      "seen_positive_control": "libero_90 task 0: 20/20",
+      "zero_shot_reference": "2026-08-19_pretrain_smolvla_prompt_only_3: true 1/200; per-episode deterministic noise"
+    }
+  },
+  "protocol": {
+    "suite": "libero_goal",
+    "seed": 1000,
+    "eval_batch_size": 1,
+    "noise_seeding": "per-episode torch/CUDA seed = 1000 + episode_index",
+    "eval_episodes": 20,
+    "budgets": [
+      1,
+      2,
+      3
+    ],
+    "eval_action_steps": [
+      50,
+      25
+    ],
+    "trained_n_action_steps": 50
+  },
+  "zero_shot_reference": {
+    "experiment": "2026-08-19_pretrain_smolvla_prompt_only_3",
+    "mean_success": 0.0,
+    "per_task_successes": {}
+  },
+  "tasks": {
+    "0": {
+      "instruction": "open the middle drawer of the cabinet",
+      "budgets": {
+        "1": {
+          "action_steps": {
+            "50": {
+              "successes": 2,
+              "trials": 20,
+              "success_rate": 0.1,
+              "ci95_low": 0.027866481213768224,
+              "ci95_high": 0.3010336452284873,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_0/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "0051a1815f8d9df25762f099fdbf434c9288ddad46efbec9086b158d6f0f5b81"
+            },
+            "25": {
+              "successes": 0,
+              "trials": 20,
+              "success_rate": 0.0,
+              "ci95_low": 0.0,
+              "ci95_high": 0.16112515805281938,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_0/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "0051a1815f8d9df25762f099fdbf434c9288ddad46efbec9086b158d6f0f5b81"
+            }
+          }
+        },
+        "2": {
+          "action_steps": {
+            "50": {
+              "successes": 20,
+              "trials": 20,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_0/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "4f0e7478d0ee9f25d46fd2373f315780e369d41fa6c68c7b9444dd72a0c1061c"
+            },
+            "25": {
+              "successes": 8,
+              "trials": 20,
+              "success_rate": 0.4,
+              "ci95_low": 0.21880653237281705,
+              "ci95_high": 0.6134184992377469,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_0/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "4f0e7478d0ee9f25d46fd2373f315780e369d41fa6c68c7b9444dd72a0c1061c"
+            }
+          }
+        },
+        "3": {
+          "action_steps": {
+            "50": {
+              "successes": 11,
+              "trials": 20,
+              "success_rate": 0.55,
+              "ci95_low": 0.34208534245034233,
+              "ci95_high": 0.7418021417443759,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_0/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "4da6f75ac359a50eb6d9903b7931007bf0d0e09411405ee67871586f2416905e"
+            },
+            "25": {
+              "successes": 15,
+              "trials": 20,
+              "success_rate": 0.75,
+              "ci95_low": 0.531299122381256,
+              "ci95_high": 0.8881382985923343,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_0/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "4da6f75ac359a50eb6d9903b7931007bf0d0e09411405ee67871586f2416905e"
+            }
+          }
+        }
+      }
+    },
+    "1": {
+      "instruction": "put the bowl on the stove",
+      "budgets": {
+        "1": {
+          "action_steps": {
+            "50": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_1/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "a07e72a6dd3fa6f6bd89d59f1c485ca7ddd2daf3543c38b7febd3c8a355cb5b4"
+            },
+            "25": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_1/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "a07e72a6dd3fa6f6bd89d59f1c485ca7ddd2daf3543c38b7febd3c8a355cb5b4"
+            }
+          }
+        },
+        "2": {
+          "action_steps": {
+            "50": {
+              "successes": 20,
+              "trials": 20,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_1/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "0d8963189f3137febc2dee260348dcb7474773b7a2add2b7d0bce80376121f3e"
+            },
+            "25": {
+              "successes": 20,
+              "trials": 20,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_1/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "0d8963189f3137febc2dee260348dcb7474773b7a2add2b7d0bce80376121f3e"
+            }
+          }
+        },
+        "3": {
+          "action_steps": {
+            "50": {
+              "successes": 20,
+              "trials": 20,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_1/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "780110681acc495474fa1acd2ffded0444ddd8d036df03e20cc1f9b2efd00f51"
+            },
+            "25": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_1/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "780110681acc495474fa1acd2ffded0444ddd8d036df03e20cc1f9b2efd00f51"
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "instruction": "put the wine bottle on top of the cabinet",
+      "budgets": {
+        "1": {
+          "action_steps": {
+            "50": {
+              "successes": 14,
+              "trials": 20,
+              "success_rate": 0.7,
+              "ci95_low": 0.4810271816464765,
+              "ci95_high": 0.8545227551323956,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_2/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "f426ccb86926187fd1782deb6e056039c133d100e5b22790570aa8148374fc9f"
+            },
+            "25": {
+              "successes": 13,
+              "trials": 20,
+              "success_rate": 0.65,
+              "ci95_low": 0.43285427668523624,
+              "ci95_high": 0.818808175898918,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_2/k_1/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "f426ccb86926187fd1782deb6e056039c133d100e5b22790570aa8148374fc9f"
+            }
+          }
+        },
+        "2": {
+          "action_steps": {
+            "50": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_2/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "357d7bc8d851c4a4e5f34896fd2fba6c6bdfa877f3ad77f5592da5ed14f22f53"
+            },
+            "25": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_2/k_2/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "357d7bc8d851c4a4e5f34896fd2fba6c6bdfa877f3ad77f5592da5ed14f22f53"
+            }
+          }
+        },
+        "3": {
+          "action_steps": {
+            "50": {
+              "successes": 15,
+              "trials": 20,
+              "success_rate": 0.75,
+              "ci95_low": 0.531299122381256,
+              "ci95_high": 0.8881382985923343,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_2/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "60fb8de5ec6d8eacf31833615b7642958be8896ebc268070933f67c97b76c814"
+            },
+            "25": {
+              "successes": 14,
+              "trials": 20,
+              "success_rate": 0.7,
+              "ci95_low": 0.4810271816464765,
+              "ci95_high": 0.8545227551323956,
+              "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_2/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "60fb8de5ec6d8eacf31833615b7642958be8896ebc268070933f67c97b76c814"
+            }
+          }
+        }
+      }
+    }
+  },
+  "cost_curve": {
+    "mean_tasks_0_2": {
+      "50": {
+        "1": 0.5833333333333334,
+        "2": 0.9500000000000001,
+        "3": 0.7666666666666666
+      },
+      "25": {
+        "1": 0.5333333333333333,
+        "2": 0.75,
+        "3": 0.7999999999999999
+      }
+    }
+  }
+}

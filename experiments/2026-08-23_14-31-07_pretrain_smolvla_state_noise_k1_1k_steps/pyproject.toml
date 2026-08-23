@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pretrain-smolvla-state-noise-k1-1k"
+version = "0.1.0"
+description = "High-alpha proprioception-noise sweep at 1000 steps (full FT, k=1)"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "lerobot[libero,smolvla]==0.6.1",
+  "imageio[ffmpeg]>=2.37,<3",
+  "matplotlib>=3.10",
+  "PyYAML>=6",
+  "torch==2.7.1+cu126",
+  "torchcodec==0.5+cu126",
+  "torchvision==0.22.1+cu126",
+  "trackio==0.33.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+state-noise-k1-1k-prepare = "pretrain_smolvla_state_noise_k1_1k.prepare:main"
+state-noise-k1-1k-selection = "pretrain_smolvla_state_noise_k1_1k.selection:main"
+state-noise-k1-1k-dataset-smoke = "pretrain_smolvla_state_noise_k1_1k.dataset_smoke:main"
+state-noise-k1-1k-audit = "pretrain_smolvla_state_noise_k1_1k.audit:main"
+state-noise-k1-1k-train = "pretrain_smolvla_state_noise_k1_1k.training:main"
+state-noise-k1-1k-evaluate = "pretrain_smolvla_state_noise_k1_1k.evaluate:main"
+state-noise-k1-1k-determinism = "pretrain_smolvla_state_noise_k1_1k.determinism:main"
+state-noise-k1-1k-orchestrate = "pretrain_smolvla_state_noise_k1_1k.orchestrate:main"
+state-noise-k1-1k-aggregate = "pretrain_smolvla_state_noise_k1_1k.aggregate:main"
+state-noise-k1-1k-trackio = "pretrain_smolvla_state_noise_k1_1k.trackio_report:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+torchcodec = { index = "pytorch-cu126" }
+torchvision = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true

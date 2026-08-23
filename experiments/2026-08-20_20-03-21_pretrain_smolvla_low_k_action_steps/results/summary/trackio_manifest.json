@@ -1,0 +1,206 @@
+{
+  "project": "pretrain-low-k-action-steps",
+  "run": "2026-08-20-20-03-21-low-k-action-steps",
+  "table": "tables/success_rates",
+  "plot": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/summary/action_steps_low_k.png",
+  "media": [
+    {
+      "demo_budget": 1,
+      "n_action_steps": 1,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "init_state_id": 0,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/determinism_check/layout_b/videos/task_0/k_1/n_1/eval_episode_0.mp4"
+    },
+    {
+      "demo_budget": 1,
+      "n_action_steps": 1,
+      "outcome": "success",
+      "task_id": 1,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "init_state_id": 0,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_1/k_1/n_1/eval_episode_0.mp4"
+    },
+    {
+      "demo_budget": 1,
+      "n_action_steps": 10,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "init_state_id": 0,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_1/n_10/eval_episode_0.mp4"
+    },
+    {
+      "demo_budget": 1,
+      "n_action_steps": 10,
+      "outcome": "success",
+      "task_id": 0,
+      "episode_index": 10,
+      "env_seed": 1010,
+      "noise_seed": 1010,
+      "init_state_id": 10,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_1/n_10/eval_episode_10.mp4"
+    },
+    {
+      "demo_budget": 1,
+      "n_action_steps": 25,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "init_state_id": 0,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_1/n_25/eval_episode_0.mp4"
+    },
+    {
+      "demo_budget": 1,
+      "n_action_steps": 25,
+      "outcome": "success",
+      "task_id": 1,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "init_state_id": 0,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_1/k_1/n_25/eval_episode_0.mp4"
+    },
+    {
+      "demo_budget": 2,
+      "n_action_steps": 1,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "init_state_id": 0,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_2/n_1/eval_episode_0.mp4"
+    },
+    {
+      "demo_budget": 2,
+      "n_action_steps": 1,
+      "outcome": "success",
+      "task_id": 0,
+      "episode_index": 1,
+      "env_seed": 1001,
+      "noise_seed": 1001,
+      "init_state_id": 1,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_2/n_1/eval_episode_1.mp4"
+    },
+    {
+      "demo_budget": 2,
+      "n_action_steps": 10,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 4,
+      "env_seed": 1004,
+      "noise_seed": 1004,
+      "init_state_id": 4,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_2/n_10/eval_episode_4.mp4"
+    },
+    {
+      "demo_budget": 2,
+      "n_action_steps": 10,
+      "outcome": "success",
+      "task_id": 0,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "init_state_id": 0,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_2/n_10/eval_episode_0.mp4"
+    },
+    {
+      "demo_budget": 2,
+      "n_action_steps": 25,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 1,
+      "env_seed": 1001,
+      "noise_seed": 1001,
+      "init_state_id": 1,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_2/n_25/eval_episode_1.mp4"
+    },
+    {
+      "demo_budget": 2,
+      "n_action_steps": 25,
+      "outcome": "success",
+      "task_id": 0,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "init_state_id": 0,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_2/n_25/eval_episode_0.mp4"
+    },
+    {
+      "demo_budget": 3,
+      "n_action_steps": 1,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 3,
+      "env_seed": 1003,
+      "noise_seed": 1003,
+      "init_state_id": 3,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_3/n_1/eval_episode_3.mp4"
+    },
+    {
+      "demo_budget": 3,
+      "n_action_steps": 1,
+      "outcome": "success",
+      "task_id": 0,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "init_state_id": 0,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_3/n_1/eval_episode_0.mp4"
+    },
+    {
+      "demo_budget": 3,
+      "n_action_steps": 10,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 2,
+      "env_seed": 1002,
+      "noise_seed": 1002,
+      "init_state_id": 2,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_3/n_10/eval_episode_2.mp4"
+    },
+    {
+      "demo_budget": 3,
+      "n_action_steps": 10,
+      "outcome": "success",
+      "task_id": 0,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "init_state_id": 0,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_3/n_10/eval_episode_0.mp4"
+    },
+    {
+      "demo_budget": 3,
+      "n_action_steps": 25,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 3,
+      "env_seed": 1003,
+      "noise_seed": 1003,
+      "init_state_id": 3,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_3/n_25/eval_episode_3.mp4"
+    },
+    {
+      "demo_budget": 3,
+      "n_action_steps": 25,
+      "outcome": "success",
+      "task_id": 0,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "init_state_id": 0,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps/results/raw/videos/task_0/k_3/n_25/eval_episode_0.mp4"
+    }
+  ]
+}

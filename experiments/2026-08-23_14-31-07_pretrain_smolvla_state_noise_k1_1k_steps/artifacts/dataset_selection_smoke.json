@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "lerobot_dataset_version_contract": "0.6.1",
+  "checks": [
+    {
+      "task_id": 0,
+      "demo_budget": 1,
+      "requested_episode_indices": [
+        0
+      ],
+      "loaded_episode_indices": [
+        0
+      ],
+      "loaded_frames": 138
+    },
+    {
+      "task_id": 1,
+      "demo_budget": 1,
+      "requested_episode_indices": [
+        200
+      ],
+      "loaded_episode_indices": [
+        200
+      ],
+      "loaded_frames": 94
+    },
+    {
+      "task_id": 2,
+      "demo_budget": 1,
+      "requested_episode_indices": [
+        400
+      ],
+      "loaded_episode_indices": [
+        400
+      ],
+      "loaded_frames": 93
+    }
+  ]
+}

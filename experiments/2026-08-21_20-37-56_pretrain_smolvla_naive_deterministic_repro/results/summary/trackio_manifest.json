@@ -1,0 +1,68 @@
+{
+  "project": "pretrain-smolvla-naive-deterministic-repro",
+  "run": "pretrain-smolvla-naive-deterministic-repro",
+  "gifs": [
+    {
+      "budget": 5,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 3,
+      "env_seed": 1003,
+      "noise_seed": 1003,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro/results/raw/videos/task_0/k_5/eval_episode_3.mp4",
+      "gif": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro/results/media/gifs/k_5_first_failure.gif"
+    },
+    {
+      "budget": 5,
+      "outcome": "success",
+      "task_id": 0,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro/results/raw/videos/task_0/k_5/eval_episode_0.mp4",
+      "gif": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro/results/media/gifs/k_5_first_success.gif"
+    },
+    {
+      "budget": 10,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 6,
+      "env_seed": 1006,
+      "noise_seed": 1006,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro/results/raw/videos/task_0/k_10/eval_episode_6.mp4",
+      "gif": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro/results/media/gifs/k_10_first_failure.gif"
+    },
+    {
+      "budget": 10,
+      "outcome": "success",
+      "task_id": 0,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro/results/raw/videos/task_0/k_10/eval_episode_0.mp4",
+      "gif": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro/results/media/gifs/k_10_first_success.gif"
+    },
+    {
+      "budget": 25,
+      "outcome": "failure",
+      "task_id": 0,
+      "episode_index": 19,
+      "env_seed": 1019,
+      "noise_seed": 1019,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro/results/raw/videos/task_0/k_25/eval_episode_19.mp4",
+      "gif": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro/results/media/gifs/k_25_first_failure.gif"
+    },
+    {
+      "budget": 25,
+      "outcome": "success",
+      "task_id": 0,
+      "episode_index": 0,
+      "env_seed": 1000,
+      "noise_seed": 1000,
+      "video": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro/results/raw/videos/task_0/k_25/eval_episode_0.mp4",
+      "gif": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro/results/media/gifs/k_25_first_success.gif"
+    }
+  ],
+  "plot": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro/results/summary/cost_curve.png",
+  "table": "tables/cost_curve"
+}

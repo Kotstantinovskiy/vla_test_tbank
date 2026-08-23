@@ -1,0 +1,10 @@
+{
+  "task_id": 2,
+  "demo_budget": 1,
+  "model": "/var/tmp/vla_outputs/full_ft_low_k_20260822_181040/task_2/k_1/checkpoints/002000/pretrained_model",
+  "training_step": 2000,
+  "chunk_size": 50,
+  "trained_n_action_steps": 50,
+  "model_safetensors_bytes": 906712520,
+  "model_safetensors_sha256": "f426ccb86926187fd1782deb6e056039c133d100e5b22790570aa8148374fc9f"
+}

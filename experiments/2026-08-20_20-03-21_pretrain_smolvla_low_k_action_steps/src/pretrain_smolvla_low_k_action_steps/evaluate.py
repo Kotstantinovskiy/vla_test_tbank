@@ -11,6 +11,7 @@ from typing import Any
 
 from .constants import (
     ACTION_STEPS,
+    DEMO_BUDGETS,
     EVAL_BATCH_SIZE,
     EVAL_EPISODES,
     EVAL_HORIZON,
@@ -21,13 +22,13 @@ from .constants import (
     TARGET_SUITE,
     TRAINED_ACTION_STEPS,
     TRAINED_CHUNK_SIZE,
+    VLM_BACKBONE,
     experiment_root,
     noise_seed,
     result_path,
 )
 from .libero_setup import ensure_libero_config
 
-# Detached entrypoints must never reach LIBERO's first-run stdin prompt.
 os.environ.setdefault(
     "LIBERO_CONFIG_PATH", str(experiment_root() / "artifacts/libero_config")
 )
@@ -69,6 +70,17 @@ def reseed_policy_noise(seed: int) -> None:
         torch.cuda.manual_seed_all(seed)
 
 
+def pin_libero_init_state(env: Any, episode_index: int) -> None:
+    """Bind the LIBERO state-bank index to the logical evaluation episode."""
+
+    env.set_attr("init_state_id", episode_index)
+    actual = tuple(int(value) for value in env.get_attr("init_state_id"))
+    if actual != (episode_index,):
+        raise RuntimeError(
+            f"Failed to pin LIBERO init_state_id={episode_index}: actual={actual}"
+        )
+
+
 def run(
     task_id: int,
     budget: int,
@@ -76,13 +88,23 @@ def run(
     model: Path,
     results_root: Path,
     device: str,
+    episode_indices: list[int] | None = None,
 ) -> dict[str, Any]:
     if task_id not in TARGET_INSTRUCTIONS:
         raise ValueError(f"Unknown task_id {task_id}")
+    if budget not in DEMO_BUDGETS:
+        raise ValueError(f"Unsupported budget {budget}")
     if action_steps not in ACTION_STEPS:
         raise ValueError(f"Unsupported n_action_steps={action_steps}")
     if EVAL_BATCH_SIZE != 1:
-        raise ValueError("Per-episode policy-noise seeding requires eval batch_size=1")
+        raise ValueError("Per-episode deterministic evaluation requires batch_size=1")
+    order = (
+        list(range(EVAL_EPISODES))
+        if episode_indices is None
+        else [int(index) for index in episode_indices]
+    )
+    if sorted(order) != list(range(EVAL_EPISODES)):
+        raise ValueError("episode_indices must be a permutation of all logical episodes")
 
     set_seed(MASTER_SEED)
     cfg = SmolVLAConfig.from_pretrained(model)
@@ -95,10 +117,13 @@ def run(
             "Adapted checkpoint no longer carries the frozen training/default "
             f"n_action_steps={TRAINED_ACTION_STEPS}: got {cfg.n_action_steps}"
         )
+    if Path(cfg.vlm_model_name).resolve() != VLM_BACKBONE.resolve():
+        raise ValueError(f"Adapted checkpoint uses unpinned VLM: {cfg.vlm_model_name}")
     trained_action_steps = cfg.n_action_steps
     cfg.n_action_steps = action_steps
     cfg.pretrained_path = str(model)
     cfg.pretrained_revision = None
+    cfg.vlm_model_name = str(VLM_BACKBONE)
     cfg.device = device
     policy = make_policy(
         cfg=cfg,
@@ -126,7 +151,7 @@ def run(
     env_preprocessor, env_postprocessor = make_env_pre_post_processors(
         env_cfg=env_cfg, policy_cfg=cfg
     )
-    env = env_cfg.create_envs(n_envs=1, use_async_envs=True)[TARGET_SUITE][
+    env = env_cfg.create_envs(n_envs=1, use_async_envs=False)[TARGET_SUITE][
         env_task_id
     ]
     expected = TARGET_INSTRUCTIONS[task_id]
@@ -153,9 +178,10 @@ def run(
             else nullcontext()
         )
         with torch.no_grad(), context:
-            for episode_index in range(EVAL_EPISODES):
+            for episode_index in order:
                 env_seed = MASTER_SEED + episode_index
                 policy_noise_seed = noise_seed(episode_index)
+                pin_libero_init_state(env, episode_index)
                 reseed_policy_noise(policy_noise_seed)
                 scratch = videos_dir / f"_episode_{episode_index}"
                 info = eval_policy(
@@ -183,8 +209,7 @@ def run(
                 episode = dict(episodes[0])
                 if int(episode["seed"]) != env_seed:
                     raise RuntimeError(
-                        f"Episode seed mismatch: expected {env_seed}, "
-                        f"got {episode['seed']}"
+                        f"Episode seed mismatch: expected {env_seed}, got {episode['seed']}"
                     )
                 destination = videos_dir / f"eval_episode_{episode_index}.mp4"
                 destination.unlink(missing_ok=True)
@@ -195,6 +220,7 @@ def run(
                         "episode_ix": episode_index,
                         "env_seed": env_seed,
                         "noise_seed": policy_noise_seed,
+                        "init_state_id": episode_index,
                         "outcome": "success" if episode["success"] else "failure",
                         "video_path": str(destination),
                     }
@@ -203,6 +229,7 @@ def run(
     finally:
         env.close()
 
+    per_episode.sort(key=lambda item: int(item["episode_ix"]))
     manifest_file = adapted_manifest_path(experiment_root(), task_id, budget)
     if not manifest_file.is_file():
         raise FileNotFoundError(
@@ -213,22 +240,25 @@ def run(
     result = {
         "experiment": EXPERIMENT_NAME,
         "model": str(model),
-        "model_safetensors_sha256": checkpoint_manifest[
-            "model_safetensors_sha256"
-        ],
+        "model_safetensors_sha256": checkpoint_manifest["model_safetensors_sha256"],
         "suite": TARGET_SUITE,
         "logical_task_id": task_id,
         "env_task_id": env_task_id,
         "instruction": expected,
         "demo_budget": budget,
+        "training_seed": MASTER_SEED,
         "chunk_size": cfg.chunk_size,
         "trained_n_action_steps": trained_action_steps,
         "n_action_steps": action_steps,
         "master_seed": MASTER_SEED,
         "noise_seeding": (
-            "batch=1; torch/CUDA seed = master_seed + episode_index before "
-            "each eval_policy call"
+            "batch=1; torch/CUDA seed = master_seed + logical episode index "
+            "before each eval_policy call"
         ),
+        "init_state_seeding": (
+            "LIBERO init_state_id = logical episode index before each eval_policy call"
+        ),
+        "execution_order": order,
         "n_episodes": EVAL_EPISODES,
         "batch_size": EVAL_BATCH_SIZE,
         "successes": sum(outcomes),
@@ -241,17 +271,25 @@ def run(
     return result
 
 
-def result_complete(path: Path) -> bool:
+def result_complete(path: Path, expected_action_steps: int | None = None) -> bool:
     if not path.is_file():
         return False
     result = json.loads(path.read_text())
     episodes = result.get("per_episode", [])
-    if len(episodes) != EVAL_EPISODES:
-        return False
     expected_seeds = list(range(MASTER_SEED, MASTER_SEED + EVAL_EPISODES))
     return (
-        [item.get("env_seed") for item in episodes] == expected_seeds
+        len(episodes) == EVAL_EPISODES
+        and result.get("batch_size") == EVAL_BATCH_SIZE
+        and bool(result.get("model_safetensors_sha256"))
+        and (
+            expected_action_steps is None
+            or result.get("n_action_steps") == expected_action_steps
+        )
+        and [item.get("episode_ix") for item in episodes] == list(range(EVAL_EPISODES))
+        and [item.get("env_seed") for item in episodes] == expected_seeds
         and [item.get("noise_seed") for item in episodes] == expected_seeds
+        and [item.get("init_state_id") for item in episodes]
+        == list(range(EVAL_EPISODES))
         and all(
             item.get("outcome") in {"success", "failure"}
             and Path(item.get("video_path", "")).is_file()
@@ -274,7 +312,7 @@ def main() -> None:
     output = result_path(
         args.results_root, args.task_id, args.budget, args.action_steps
     )
-    if not args.force and result_complete(output):
+    if not args.force and result_complete(output, args.action_steps):
         print(json.dumps({"state": "already_complete", "output": str(output)}))
         return
     result = run(
@@ -285,11 +323,7 @@ def main() -> None:
         args.results_root,
         args.device,
     )
-    print(
-        json.dumps(
-            {"output": str(output), "success_rate": result["success_rate"]}
-        )
-    )
+    print(json.dumps({"output": str(output), "success_rate": result["success_rate"]}))
 
 
 if __name__ == "__main__":

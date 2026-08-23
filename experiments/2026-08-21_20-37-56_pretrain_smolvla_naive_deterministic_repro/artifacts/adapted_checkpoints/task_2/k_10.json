@@ -1,0 +1,10 @@
+{
+  "task_id": 2,
+  "demo_budget": 10,
+  "model": "/var/tmp/vla_outputs/naive_deterministic_repro_20260821_203756/task_2/k_10/checkpoints/002000/pretrained_model",
+  "training_step": 2000,
+  "chunk_size": 50,
+  "trained_n_action_steps": 50,
+  "model_safetensors_bytes": 906712520,
+  "model_safetensors_sha256": "5b25c61b0fb8a805dcf1183b3140b0f11832c9806302d05b6bc820438a72ac67"
+}

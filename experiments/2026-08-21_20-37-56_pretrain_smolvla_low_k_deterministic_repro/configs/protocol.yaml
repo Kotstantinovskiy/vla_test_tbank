@@ -1,0 +1,72 @@
+experiment: pretrain_smolvla_low_k_deterministic_repro
+created_at: 2026-08-21T20:37:56+03:00
+reproduces: 2026-08-18_pretrain_smolvla_few_shot_tune_low_k
+
+base_checkpoint:
+  path: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+  model_safetensors_sha256: 0a410cc6887e71c0dd2d21dd8a5deb7aba66e291dba9acba8656320dc076a3cc
+  seen_positive_control: "libero_90 task 0: 20/20"
+  zero_shot_reference: "2026-08-19_pretrain_smolvla_prompt_only_3: true 1/200"
+  vlm_backbone_revision: 7b375e1b73b11138ff12fe22c8f2822d8fe03467
+  vlm_model_safetensors_sha256: b9bfd456c9472c0acd5719d6e514c4b859891af205ee1a736552fd3497b8b0c3
+  offline_runtime_view: >-
+    artifacts/runtime_base_checkpoint symlinks the canonical weights and
+    patches only config.vlm_model_name and the tokenizer processor to the
+    pinned local backbone; canonical checkpoint files remain unchanged.
+
+libero_assets:
+  repo: lerobot/libero-assets
+  revision: 0b3ea86be5fe169d0fd036ae63d1070ec09e90f6
+
+target_demos:
+  dataset: official/libero_goal_rot180_128
+  root: /var/tmp/vla_libero_official_rot180/libero_goal
+  source_repo: yifengzhu-hf/LIBERO-datasets
+  source_revision: f13aa24a3da8c43c7225569f28c562979fa0e35a
+  selection: first k episodes for the named task, asserted as official demo_0..demo_{k-1}
+
+adaptation:
+  budgets: [1, 2, 3]
+  independence: every task/budget starts from the declared base checkpoint
+  trainable: action expert, state projection, action input/output projections, action-time MLP
+  frozen: vision encoder and VLM
+  steps: 2000
+  batch_size: 32
+  seed: 1000
+  precision: fp32
+  chunk_size: 50
+  n_action_steps: 50
+  normalizer_disclosure: >-
+    LeRobot replaces checkpoint normalization statistics with target-dataset
+    statistics for k>0. The k=0 reference and k>0 points therefore use
+    different normalizers.
+
+evaluation:
+  suite: libero_goal
+  tasks: [0, 1, 2]
+  scope: the three held-out assignment tasks named in PROBLEM.md
+  episodes_per_point: 20
+  batch_size: 1
+  horizon: 300
+  environment_seed: 1000 + episode_index
+  policy_noise_seed: 1000 + episode_index
+  libero_init_state_id: episode_index
+  noise_protocol: reset torch and all CUDA RNGs immediately before each single-episode eval_policy call
+  init_state_protocol: set LIBERO init_state_id immediately before each single-episode eval_policy call
+  determinism_gate: replay task 0 / k=1 in reverse episode order and require identical per-episode init-state IDs, seeds, outcomes, and rewards
+  videos: all episodes are retained
+
+known_limitations:
+  single_adaptation_seed: >-
+    This run has one training seed (1000); the assignment's two-seed
+    requirement remains outstanding.
+  evaluation_change: >-
+    The archived run used batch_size=4 without an independently pinned policy
+    noise seed. This reproduction intentionally changes only evaluation
+    batching/seeding, so exact equality with its headline curve is not expected.
+  archived_scope_change: >-
+    The archived reproduction evaluated all ten libero_goal tasks. This run is
+    intentionally restricted to assignment task IDs 0-2 and reports only their mean.
+
+output_root: /var/tmp/vla_outputs/low_k_deterministic_repro_20260821_203756
+trackio_project: pretrain-smolvla-low-k-deterministic-repro

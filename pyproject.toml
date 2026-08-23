@@ -13,9 +13,17 @@ dependencies = [
   "seen-semantic-paraphrases",
   "analyst-curve-baseline",
   "pretrain-smolvla-few-shot-tune-low-k",
+  "pretrain-smolvla-bundle-all-k",
+  "pretrain-smolvla-full-ft-low-k",
+  "pretrain-smolvla-image-aug-low-k",
+  "pretrain-smolvla-lora-low-k",
+  "pretrain-smolvla-low-k-deterministic-repro",
   "pretrain-smolvla-low-k-action-steps",
   "pretrain-smolvla-naive-baseline-few-shot-tune",
+  "pretrain-smolvla-naive-deterministic-repro",
   "pretrain-smolvla-prompt-only-2",
+  "pretrain-smolvla-state-noise-k1",
+  "pretrain-smolvla-state-noise-k1-1k",
   "pretrain-smolvla-prompt-only-3",
   "smolvla-pretrain-libero",
 ]
@@ -41,9 +49,17 @@ seen-prompts-in-goal-scene = { workspace = true }
 seen-semantic-paraphrases = { workspace = true }
 analyst-curve-baseline = { workspace = true }
 pretrain-smolvla-few-shot-tune-low-k = { workspace = true }
+pretrain-smolvla-bundle-all-k = { workspace = true }
+pretrain-smolvla-full-ft-low-k = { workspace = true }
+pretrain-smolvla-image-aug-low-k = { workspace = true }
+pretrain-smolvla-lora-low-k = { workspace = true }
+pretrain-smolvla-low-k-deterministic-repro = { workspace = true }
 pretrain-smolvla-low-k-action-steps = { workspace = true }
 pretrain-smolvla-naive-baseline-few-shot-tune = { workspace = true }
+pretrain-smolvla-naive-deterministic-repro = { workspace = true }
 pretrain-smolvla-prompt-only-2 = { workspace = true }
+pretrain-smolvla-state-noise-k1 = { workspace = true }
+pretrain-smolvla-state-noise-k1-1k = { workspace = true }
 pretrain-smolvla-prompt-only-3 = { workspace = true }
 smolvla-pretrain-libero = { workspace = true }
 

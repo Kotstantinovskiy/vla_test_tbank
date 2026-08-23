@@ -9,6 +9,7 @@ s = json.load(open('results/status.json'))
 print(
     s['state'],
     f\"training {s['completed_training_jobs']}/{s['total_training_jobs']},\",
+    f\"reused checkpoints {s.get('reused_checkpoint_count', 0)},\",
     f\"evaluation {s['completed_evaluation_points']}/{s['total_evaluation_points']},\",
     f\"{s['failed_jobs']} failed\",
 )

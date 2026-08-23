@@ -1,0 +1,102 @@
+experiment: pretrain_smolvla_full_ft_low_k
+created_at: 2026-08-22T18:10:40+03:00
+compares_against: 2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro
+
+base_checkpoint:
+  path: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+  model_safetensors_sha256: 0a410cc6887e71c0dd2d21dd8a5deb7aba66e291dba9acba8656320dc076a3cc
+  seen_positive_control: "libero_90 task 0: 20/20"
+  zero_shot_reference: "2026-08-19_pretrain_smolvla_prompt_only_3: true 1/200"
+  vlm_backbone_revision: 7b375e1b73b11138ff12fe22c8f2822d8fe03467
+  vlm_model_safetensors_sha256: b9bfd456c9472c0acd5719d6e514c4b859891af205ee1a736552fd3497b8b0c3
+  offline_runtime_view: >-
+    artifacts/runtime_base_checkpoint symlinks the canonical weights and
+    patches only config.vlm_model_name and the tokenizer processor to the
+    pinned local backbone; canonical checkpoint files remain unchanged.
+
+libero_assets:
+  repo: lerobot/libero-assets
+  revision: 0b3ea86be5fe169d0fd036ae63d1070ec09e90f6
+
+target_demos:
+  dataset: official/libero_goal_rot180_128
+  root: /var/tmp/vla_libero_official_rot180/libero_goal
+  source_repo: yifengzhu-hf/LIBERO-datasets
+  source_revision: f13aa24a3da8c43c7225569f28c562979fa0e35a
+  selection: first k episodes for the named task, asserted as official demo_0..demo_{k-1}
+
+adaptation:
+  budgets: [1, 2, 3]
+  independence: every task/budget starts from the declared base checkpoint
+  method_change: >-
+    The single protocol change against the expert-only deterministic repro is
+    the trainable set: the whole policy is fine-tuned
+    (policy.train_expert_only=false, policy.freeze_vision_encoder=false,
+    policy.train_state_proj=true).
+  trainable: >-
+    VLM text tower (layers 0..14 and embeddings), vision encoder, connector,
+    action expert, state projection, action input/output projections,
+    action-time MLP
+  frozen: >-
+    only LeRobot's unused-by-design distributed-training guard tensors:
+    vlm.lm_head, the final text_model.norm, the last retained VLM text layer
+    (index 15 of 16), and the expert's lm_head; asserted by the audit
+  optimizer: >-
+    unchanged SmolVLA training preset (AdamW lr 1e-4, betas 0.9/0.95,
+    weight_decay 1e-10, grad clip 10; cosine warmup 1000 / decay 30000 steps),
+    applied to the enlarged trainable set with no per-group learning rates
+  steps: 2000
+  batch_size: 32
+  seed: 1000
+  precision: fp32
+  chunk_size: 50
+  n_action_steps: 50
+  normalizer_disclosure: >-
+    LeRobot replaces checkpoint normalization statistics with target-dataset
+    statistics for k>0. The k=0 reference and k>0 points therefore use
+    different normalizers.
+
+evaluation:
+  suite: libero_goal
+  tasks: [0, 1, 2]
+  scope: the three held-out assignment tasks named in PROBLEM.md
+  action_steps: [50, 25]
+  action_steps_note: >-
+    every adapted checkpoint is evaluated at inference n_action_steps=50 (the
+    trained default: execute the whole 50-action chunk) and n_action_steps=25
+    (re-predict twice per chunk); the override is applied at load time only
+    and the checkpoint config keeps 50. 18 evaluation points total.
+  episodes_per_point: 20
+  batch_size: 1
+  horizon: 300
+  environment_seed: 1000 + episode_index
+  policy_noise_seed: 1000 + episode_index
+  libero_init_state_id: episode_index
+  noise_protocol: reset torch and all CUDA RNGs immediately before each single-episode eval_policy call
+  init_state_protocol: set LIBERO init_state_id immediately before each single-episode eval_policy call
+  determinism_gate: >-
+    replay task 0 / k=1 in reverse episode order at every action-steps
+    variant (50 and 25) and require identical per-episode init-state IDs,
+    seeds, outcomes, and rewards
+  videos: all episodes are retained
+  seed_parity: >-
+    identical to 2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro
+    and _naive_deterministic_repro (training seed 1000; env/noise seed banks
+    1000..1019; init states 0..19), so per-point comparisons are paired.
+
+known_limitations:
+  single_adaptation_seed: >-
+    This run has one training seed (1000); the assignment's two-seed
+    requirement remains outstanding.
+  guard_tensors_frozen: >-
+    "Full fine-tune" is LeRobot's native full fine-tune: four unused-by-design
+    tensor groups (vlm lm_head, final text norm, last retained text layer,
+    expert lm_head) stay frozen; their outputs do not reach the action head.
+  uniform_learning_rate: >-
+    The preset learning rate (1e-4) is reused unchanged for the VLM and vision
+    encoder; a differing result therefore confounds "more trainable capacity"
+    with "this lr applied to pretrained VLM weights". Interpreting the
+    difference finer than that requires a follow-up lr sweep.
+
+output_root: /var/tmp/vla_outputs/full_ft_low_k_20260822_181040
+trackio_project: pretrain-smolvla-full-ft-low-k

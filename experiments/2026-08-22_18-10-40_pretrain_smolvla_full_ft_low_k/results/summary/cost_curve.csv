@@ -1,0 +1,19 @@
+task_id,instruction,k,n_action_steps,successes,trials,success_rate,ci95_low,ci95_high
+0,open the middle drawer of the cabinet,1,50,2,20,0.1,0.027866481213768224,0.3010336452284873
+0,open the middle drawer of the cabinet,1,25,0,20,0.0,0.0,0.16112515805281938
+0,open the middle drawer of the cabinet,2,50,20,20,1.0,0.8388748419471806,1.0
+0,open the middle drawer of the cabinet,2,25,8,20,0.4,0.21880653237281705,0.6134184992377469
+0,open the middle drawer of the cabinet,3,50,11,20,0.55,0.34208534245034233,0.7418021417443759
+0,open the middle drawer of the cabinet,3,25,15,20,0.75,0.531299122381256,0.8881382985923343
+1,put the bowl on the stove,1,50,19,20,0.95,0.763868806553258,0.9911185511992047
+1,put the bowl on the stove,1,25,19,20,0.95,0.763868806553258,0.9911185511992047
+1,put the bowl on the stove,2,50,20,20,1.0,0.8388748419471806,1.0
+1,put the bowl on the stove,2,25,20,20,1.0,0.8388748419471806,1.0
+1,put the bowl on the stove,3,50,20,20,1.0,0.8388748419471806,1.0
+1,put the bowl on the stove,3,25,19,20,0.95,0.763868806553258,0.9911185511992047
+2,put the wine bottle on top of the cabinet,1,50,14,20,0.7,0.4810271816464765,0.8545227551323956
+2,put the wine bottle on top of the cabinet,1,25,13,20,0.65,0.43285427668523624,0.818808175898918
+2,put the wine bottle on top of the cabinet,2,50,17,20,0.85,0.6395811352592431,0.9476312541037835
+2,put the wine bottle on top of the cabinet,2,25,17,20,0.85,0.6395811352592431,0.9476312541037835
+2,put the wine bottle on top of the cabinet,3,50,15,20,0.75,0.531299122381256,0.8881382985923343
+2,put the wine bottle on top of the cabinet,3,25,14,20,0.7,0.4810271816464765,0.8545227551323956

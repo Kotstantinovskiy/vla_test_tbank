@@ -1,0 +1,13 @@
+{
+  "task_id": 1,
+  "demo_budget": 1,
+  "state_noise_alpha": 0.0,
+  "noise_stream_seed": null,
+  "noise_location": "normalized observation.state inside policy.forward, training only",
+  "model": "/var/tmp/vla_outputs/state_noise_k1_20260822_224355/task_1/alpha_0.00/checkpoints/002000/pretrained_model",
+  "training_step": 2000,
+  "chunk_size": 50,
+  "trained_n_action_steps": 50,
+  "model_safetensors_bytes": 906712520,
+  "model_safetensors_sha256": "c3edede02b68bc4f0772457d83d8027bbf5c9f3fc2e42b83f7a59b4d5fdd0226"
+}

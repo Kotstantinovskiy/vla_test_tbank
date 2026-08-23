@@ -13,5 +13,11 @@
     "official_source_revision": "f13aa24a3da8c43c7225569f28c562979fa0e35a",
     "pretraining_steps": 30000,
     "seen_positive_control": "libero_90 task 0: 20/20"
-  }
+  },
+  "vlm_backbone_path": "/var/tmp/vla_backbones/SmolVLM2-500M-Video-Instruct_7b375e1b73b11138ff12fe22c8f2822d8fe03467",
+  "vlm_backbone_revision": "7b375e1b73b11138ff12fe22c8f2822d8fe03467",
+  "vlm_model_safetensors_sha256": "b9bfd456c9472c0acd5719d6e514c4b859891af205ee1a736552fd3497b8b0c3",
+  "vlm_model_safetensors_bytes": 2029990624,
+  "libero_assets_path": "/var/tmp/vla_libero_assets_0b3ea86be5fe169d0fd036ae63d1070ec09e90f6",
+  "libero_assets_revision": "0b3ea86be5fe169d0fd036ae63d1070ec09e90f6"
 }

@@ -1,0 +1,132 @@
+experiment: pretrain_smolvla_image_aug_low_k
+created_at: 2026-08-23T00:18:49+03:00
+compares_against:
+  full_ft_no_aug: 2026-08-22_18-10-40_pretrain_smolvla_full_ft_low_k
+motivation: >-
+  Standard VLA image augmentation probed at low demo budgets.  The two
+  augmentation families used across the field are photometric distortion
+  (color jitter / brightness / contrast -- RT-1, robomimic, lerobot
+  fine-tuning recipes) and small geometric shifts (random crop/shift/affine
+  -- DrQ(-v2), robomimic crops, Diffusion Policy).  lerobot 0.6.1's default
+  dataset image_transforms bundle contains exactly these two families and is
+  enabled verbatim.
+
+base_checkpoint:
+  path: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+  model_safetensors_sha256: 0a410cc6887e71c0dd2d21dd8a5deb7aba66e291dba9acba8656320dc076a3cc
+  vlm_backbone_revision: 7b375e1b73b11138ff12fe22c8f2822d8fe03467
+  vlm_model_safetensors_sha256: b9bfd456c9472c0acd5719d6e514c4b859891af205ee1a736552fd3497b8b0c3
+  offline_runtime_view: >-
+    artifacts/runtime_base_checkpoint symlinks the canonical weights and
+    patches only config.vlm_model_name and the tokenizer processor to the
+    pinned local backbone.
+
+libero_assets:
+  repo: lerobot/libero-assets
+  revision: 0b3ea86be5fe169d0fd036ae63d1070ec09e90f6
+
+target_demos:
+  dataset: official/libero_goal_rot180_128
+  root: /var/tmp/vla_libero_official_rot180/libero_goal
+  source_repo: yifengzhu-hf/LIBERO-datasets
+  source_revision: f13aa24a3da8c43c7225569f28c562979fa0e35a
+  selection: first k episodes for the named task, asserted as official demo_0..demo_{k-1}
+
+adaptation:
+  budgets: [1, 2, 3]
+  independence: every task/budget starts from the declared base checkpoint
+  method_change: >-
+    two protocol changes against the full-FT experiment: (1)
+    --dataset.image_transforms.enable=true -- lerobot's default
+    training-time image transforms, applied per frame in the dataloader to
+    both cameras (top and wrist_image); (2) budget-dependent training steps
+    (steps_by_budget below; the reference trained 2000 at every k).
+    Everything else -- full-fine-tune trainable set, optimizer preset,
+    batch, precision, seed, demos, evaluation -- is unchanged.
+  image_transforms:
+    source: lerobot 0.6.1 ImageTransformsConfig defaults, no overrides
+    sampler: RandomSubsetApply, up to 3 transforms per frame, equal weights,
+      torchvision order (random_order=false)
+    tfs:
+      brightness: {type: ColorJitter, kwargs: {brightness: [0.8, 1.2]}}
+      contrast: {type: ColorJitter, kwargs: {contrast: [0.8, 1.2]}}
+      saturation: {type: ColorJitter, kwargs: {saturation: [0.5, 1.5]}}
+      hue: {type: ColorJitter, kwargs: {hue: [-0.05, 0.05]}}
+      sharpness: {type: SharpnessJitter, kwargs: {sharpness: [0.5, 1.5]}}
+      affine: {type: RandomAffine, kwargs: {degrees: [-5.0, 5.0], translate: [0.05, 0.05]}}
+    invariant_test: >-
+      tests/test_protocol.py asserts the installed lerobot still carries
+      exactly these defaults, so a silent library change fails the tests
+      instead of silently changing the augmentation.
+    wrist_camera_note: >-
+      the affine transform also perturbs the wrist camera; this is part of
+      the framework's standard bundle and is applied as-is.
+  trainable: full fine-tune (train_expert_only=false, freeze_vision_encoder=false,
+    train_state_proj=true; only lerobot's guard tensors stay frozen)
+  optimizer: SmolVLA preset (AdamW lr 1e-4, cosine warmup 1000 / decay 30000)
+  steps_by_budget: {1: 1000, 2: 1500, 3: 2000}
+  steps_note: >-
+    budget-dependent optimization length: fewer demonstrations get fewer
+    steps to curb single-episode overfitting.  lerobot auto-scales the preset
+    LR schedule proportionally to --steps, so the k=1/k=2 arms also run
+    compressed warmup/decay schedules.
+  batch_size: 32
+  seed: 1000
+  precision: fp32
+  chunk_size: 50
+  n_action_steps: 50
+  num_workers: 32
+  normalizer_disclosure: >-
+    LeRobot replaces checkpoint normalization statistics with target-dataset
+    statistics for k>0; identical to the sibling experiments.
+
+evaluation:
+  suite: libero_goal
+  tasks: [0, 1, 2]
+  scope: the three held-out assignment tasks named in PROBLEM.md
+  action_steps: [50, 25]
+  action_steps_note: >-
+    every adapted checkpoint is evaluated at inference n_action_steps=50 and
+    25 (18 evaluation points); no augmentation at evaluation time.
+  episodes_per_point: 20
+  batch_size: 1
+  horizon: 300
+  environment_seed: 1000 + episode_index
+  policy_noise_seed: 1000 + episode_index
+  libero_init_state_id: episode_index
+  noise_protocol: reset torch and all CUDA RNGs immediately before each single-episode eval_policy call
+  init_state_protocol: set LIBERO init_state_id immediately before each single-episode eval_policy call
+  determinism_gate: >-
+    replay task 0 / k=1 in reverse episode order at both action-steps
+    variants and require identical per-episode init-state IDs, seeds,
+    outcomes, and rewards
+  videos: all episodes are retained
+  seed_parity: >-
+    identical to the expert-only repro, full-FT, LoRA, and state-noise
+    experiments (training seed 1000; env/noise banks 1000..1019; init states
+    0..19), so every point is paired with the full-FT no-augmentation
+    reference.
+
+known_limitations:
+  single_adaptation_seed: one training seed (1000); two-seed requirement outstanding.
+  steps_confound: >-
+    the full-FT reference trained 2000 steps at every k, while this
+    experiment trains 1000/1500/2000 at k=1/2/3.  For k=1 and k=2 any
+    difference against the reference therefore confounds "image
+    augmentation" with "fewer optimization steps + compressed LR schedule";
+    only the k=3 comparison isolates augmentation alone.
+  no_visual_domain_shift_at_eval: >-
+    LIBERO evaluates in the same renderer and scenes as the demos, so
+    photometric augmentation fights a shift that largely does not exist at
+    evaluation time; a null photometric effect is expected and informative.
+  bundled_families: >-
+    photometric and geometric transforms are sampled from one bundle
+    (framework default); a per-family attribution would require a follow-up
+    with separate arms.
+  augmentation_rng: >-
+    transform sampling consumes dataloader-worker RNG streams, which are
+    seeded by the training seed; runs are reproducible, but the batch content
+    (pixels) differs from the full-FT experiment by construction.
+
+output_root: /var/tmp/vla_outputs/image_aug_low_k_20260823_001849
+trackio_project: pretrain-smolvla-image-aug-low-k

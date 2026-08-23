@@ -1,0 +1,223 @@
+{
+  "experiment": "pretrain_smolvla_state_noise_k1_1k",
+  "training_seed": 1000,
+  "training_jobs": 12,
+  "evaluation_points": 12,
+  "eval_action_steps": [
+    50
+  ],
+  "state_noise_alphas": [
+    0.0,
+    0.08,
+    0.1,
+    0.2
+  ],
+  "state_noise_location": "normalized observation.state (MEAN_STD) inside policy.forward, training only; alpha=0.00 is a strict no-op",
+  "episodes_per_point": 20,
+  "episode_horizon": 300,
+  "main_rollout_videos": 240,
+  "maximum_policy_invocations": 1440,
+  "eval_batch_size": 1,
+  "env_seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019
+  ],
+  "noise_seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019
+  ],
+  "noise_protocol": "torch/CUDA reseed before each single-episode eval_policy call",
+  "vlm_backbone_revision": "7b375e1b73b11138ff12fe22c8f2822d8fe03467",
+  "libero_assets_revision": "0b3ea86be5fe169d0fd036ae63d1070ec09e90f6",
+  "task_mapping": [
+    {
+      "logical_task_id": 0,
+      "env_task_id": 0,
+      "name": "open_the_middle_drawer_of_the_cabinet",
+      "instruction": "open the middle drawer of the cabinet"
+    },
+    {
+      "logical_task_id": 1,
+      "env_task_id": 1,
+      "name": "put_the_bowl_on_the_stove",
+      "instruction": "put the bowl on the stove"
+    },
+    {
+      "logical_task_id": 2,
+      "env_task_id": 2,
+      "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+      "instruction": "put the wine bottle on top of the cabinet"
+    }
+  ],
+  "points": [
+    {
+      "label": "task_0__alpha_0.00__n_50",
+      "logical_task_id": 0,
+      "env_task_id": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "demo_budget": 1,
+      "state_noise_alpha": 0.0,
+      "chunk_size": 50,
+      "trained_n_action_steps": 50,
+      "n_action_steps": 50
+    },
+    {
+      "label": "task_1__alpha_0.00__n_50",
+      "logical_task_id": 1,
+      "env_task_id": 1,
+      "instruction": "put the bowl on the stove",
+      "demo_budget": 1,
+      "state_noise_alpha": 0.0,
+      "chunk_size": 50,
+      "trained_n_action_steps": 50,
+      "n_action_steps": 50
+    },
+    {
+      "label": "task_2__alpha_0.00__n_50",
+      "logical_task_id": 2,
+      "env_task_id": 2,
+      "instruction": "put the wine bottle on top of the cabinet",
+      "demo_budget": 1,
+      "state_noise_alpha": 0.0,
+      "chunk_size": 50,
+      "trained_n_action_steps": 50,
+      "n_action_steps": 50
+    },
+    {
+      "label": "task_0__alpha_0.08__n_50",
+      "logical_task_id": 0,
+      "env_task_id": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "demo_budget": 1,
+      "state_noise_alpha": 0.08,
+      "chunk_size": 50,
+      "trained_n_action_steps": 50,
+      "n_action_steps": 50
+    },
+    {
+      "label": "task_1__alpha_0.08__n_50",
+      "logical_task_id": 1,
+      "env_task_id": 1,
+      "instruction": "put the bowl on the stove",
+      "demo_budget": 1,
+      "state_noise_alpha": 0.08,
+      "chunk_size": 50,
+      "trained_n_action_steps": 50,
+      "n_action_steps": 50
+    },
+    {
+      "label": "task_2__alpha_0.08__n_50",
+      "logical_task_id": 2,
+      "env_task_id": 2,
+      "instruction": "put the wine bottle on top of the cabinet",
+      "demo_budget": 1,
+      "state_noise_alpha": 0.08,
+      "chunk_size": 50,
+      "trained_n_action_steps": 50,
+      "n_action_steps": 50
+    },
+    {
+      "label": "task_0__alpha_0.10__n_50",
+      "logical_task_id": 0,
+      "env_task_id": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "demo_budget": 1,
+      "state_noise_alpha": 0.1,
+      "chunk_size": 50,
+      "trained_n_action_steps": 50,
+      "n_action_steps": 50
+    },
+    {
+      "label": "task_1__alpha_0.10__n_50",
+      "logical_task_id": 1,
+      "env_task_id": 1,
+      "instruction": "put the bowl on the stove",
+      "demo_budget": 1,
+      "state_noise_alpha": 0.1,
+      "chunk_size": 50,
+      "trained_n_action_steps": 50,
+      "n_action_steps": 50
+    },
+    {
+      "label": "task_2__alpha_0.10__n_50",
+      "logical_task_id": 2,
+      "env_task_id": 2,
+      "instruction": "put the wine bottle on top of the cabinet",
+      "demo_budget": 1,
+      "state_noise_alpha": 0.1,
+      "chunk_size": 50,
+      "trained_n_action_steps": 50,
+      "n_action_steps": 50
+    },
+    {
+      "label": "task_0__alpha_0.20__n_50",
+      "logical_task_id": 0,
+      "env_task_id": 0,
+      "instruction": "open the middle drawer of the cabinet",
+      "demo_budget": 1,
+      "state_noise_alpha": 0.2,
+      "chunk_size": 50,
+      "trained_n_action_steps": 50,
+      "n_action_steps": 50
+    },
+    {
+      "label": "task_1__alpha_0.20__n_50",
+      "logical_task_id": 1,
+      "env_task_id": 1,
+      "instruction": "put the bowl on the stove",
+      "demo_budget": 1,
+      "state_noise_alpha": 0.2,
+      "chunk_size": 50,
+      "trained_n_action_steps": 50,
+      "n_action_steps": 50
+    },
+    {
+      "label": "task_2__alpha_0.20__n_50",
+      "logical_task_id": 2,
+      "env_task_id": 2,
+      "instruction": "put the wine bottle on top of the cabinet",
+      "demo_budget": 1,
+      "state_noise_alpha": 0.2,
+      "chunk_size": 50,
+      "trained_n_action_steps": 50,
+      "n_action_steps": 50
+    }
+  ],
+  "predictions_sha256": "6e4682ef4bbe9e1ddafef6250bdd8fcd3aac3b39fc2e7bd56a2485657cf7a4e8"
+}

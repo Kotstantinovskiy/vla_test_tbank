@@ -14,11 +14,19 @@ members = [
     "base-smolvla-cost-curve",
     "goal-prompts-in-seen-hosts",
     "goal-scene-seen-prompts",
+    "pretrain-smolvla-bundle-all-k",
     "pretrain-smolvla-few-shot-tune-low-k",
+    "pretrain-smolvla-full-ft-low-k",
+    "pretrain-smolvla-image-aug-low-k",
+    "pretrain-smolvla-lora-low-k",
     "pretrain-smolvla-low-k-action-steps",
+    "pretrain-smolvla-low-k-deterministic-repro",
     "pretrain-smolvla-naive-baseline-few-shot-tune",
+    "pretrain-smolvla-naive-deterministic-repro",
     "pretrain-smolvla-prompt-only-2",
     "pretrain-smolvla-prompt-only-3",
+    "pretrain-smolvla-state-noise-k1",
+    "pretrain-smolvla-state-noise-k1-1k",
     "seen-article-drop",
     "seen-prompts-in-goal-scene",
     "seen-scene-goal-prompts-v2",
@@ -950,6 +958,10 @@ libero = [
     { name = "torchcodec" },
     { name = "transformers" },
 ]
+peft = [
+    { name = "peft" },
+    { name = "transformers" },
+]
 smolvla = [
     { name = "accelerate" },
     { name = "num2words" },
@@ -1453,6 +1465,27 @@ wheels = [
 ]
 
 [[package]]
+name = "peft"
+version = "0.20.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "accelerate" },
+    { name = "huggingface-hub" },
+    { name = "numpy" },
+    { name = "packaging" },
+    { name = "psutil" },
+    { name = "pyyaml" },
+    { name = "safetensors" },
+    { name = "torch" },
+    { name = "tqdm" },
+    { name = "transformers" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b4/08/02541a2c29be7c78698f73d438bc0e733b214f3f35ec5db79fca8da8fc61/peft-0.20.0.tar.gz", hash = "sha256:4769c8093a4ca145fd6fb3fd4dd50449675f5fe46434ad1e98b285a132d4b1d0", size = 880503, upload-time = "2026-07-28T13:46:01.85Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/28/79/13bcabb8048126422d5c4b880575d40886c726f354db88cfeed4325525bb/peft-0.20.0-py3-none-any.whl", hash = "sha256:0fbba16ffebfad3de96e06f2da6860fd860292324b85b6141909fa1e26ea9233", size = 775777, upload-time = "2026-07-28T13:45:59.809Z" },
+]
+
+[[package]]
 name = "pillow"
 version = "12.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1494,6 +1527,40 @@ wheels = [
 ]
 
 [[package]]
+name = "pretrain-smolvla-bundle-all-k"
+version = "0.1.0"
+source = { editable = "experiments/2026-08-23_18-20-07_pretrain_smolvla_bundle_all_k" }
+dependencies = [
+    { name = "imageio", extra = ["ffmpeg"] },
+    { name = "lerobot", extra = ["libero", "smolvla"] },
+    { name = "matplotlib" },
+    { name = "pyyaml" },
+    { name = "torch" },
+    { name = "torchcodec" },
+    { name = "torchvision" },
+    { name = "trackio" },
+]
+
+[package.optional-dependencies]
+test = [
+    { name = "pytest" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "imageio", extras = ["ffmpeg"], specifier = ">=2.37,<3" },
+    { name = "lerobot", extras = ["libero", "smolvla"], specifier = "==0.6.1" },
+    { name = "matplotlib", specifier = ">=3.10" },
+    { name = "pytest", marker = "extra == 'test'", specifier = ">=8" },
+    { name = "pyyaml", specifier = ">=6" },
+    { name = "torch", specifier = "==2.7.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchcodec", specifier = "==0.5+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchvision", specifier = "==0.22.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "trackio", specifier = "==0.33.0" },
+]
+provides-extras = ["test"]
+
+[[package]]
 name = "pretrain-smolvla-few-shot-tune-low-k"
 version = "0.1.0"
 source = { editable = "experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k" }
@@ -1517,6 +1584,108 @@ test = [
 requires-dist = [
     { name = "imageio", extras = ["ffmpeg"], specifier = ">=2.37,<3" },
     { name = "lerobot", extras = ["libero", "smolvla"], specifier = "==0.6.1" },
+    { name = "matplotlib", specifier = ">=3.10" },
+    { name = "pytest", marker = "extra == 'test'", specifier = ">=8" },
+    { name = "pyyaml", specifier = ">=6" },
+    { name = "torch", specifier = "==2.7.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchcodec", specifier = "==0.5+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchvision", specifier = "==0.22.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "trackio", specifier = "==0.33.0" },
+]
+provides-extras = ["test"]
+
+[[package]]
+name = "pretrain-smolvla-full-ft-low-k"
+version = "0.1.0"
+source = { editable = "experiments/2026-08-22_18-10-40_pretrain_smolvla_full_ft_low_k" }
+dependencies = [
+    { name = "imageio", extra = ["ffmpeg"] },
+    { name = "lerobot", extra = ["libero", "smolvla"] },
+    { name = "matplotlib" },
+    { name = "pyyaml" },
+    { name = "torch" },
+    { name = "torchcodec" },
+    { name = "torchvision" },
+    { name = "trackio" },
+]
+
+[package.optional-dependencies]
+test = [
+    { name = "pytest" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "imageio", extras = ["ffmpeg"], specifier = ">=2.37,<3" },
+    { name = "lerobot", extras = ["libero", "smolvla"], specifier = "==0.6.1" },
+    { name = "matplotlib", specifier = ">=3.10" },
+    { name = "pytest", marker = "extra == 'test'", specifier = ">=8" },
+    { name = "pyyaml", specifier = ">=6" },
+    { name = "torch", specifier = "==2.7.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchcodec", specifier = "==0.5+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchvision", specifier = "==0.22.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "trackio", specifier = "==0.33.0" },
+]
+provides-extras = ["test"]
+
+[[package]]
+name = "pretrain-smolvla-image-aug-low-k"
+version = "0.1.0"
+source = { editable = "experiments/2026-08-23_00-18-49_pretrain_smolvla_image_aug_low_k" }
+dependencies = [
+    { name = "imageio", extra = ["ffmpeg"] },
+    { name = "lerobot", extra = ["libero", "smolvla"] },
+    { name = "matplotlib" },
+    { name = "pyyaml" },
+    { name = "torch" },
+    { name = "torchcodec" },
+    { name = "torchvision" },
+    { name = "trackio" },
+]
+
+[package.optional-dependencies]
+test = [
+    { name = "pytest" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "imageio", extras = ["ffmpeg"], specifier = ">=2.37,<3" },
+    { name = "lerobot", extras = ["libero", "smolvla"], specifier = "==0.6.1" },
+    { name = "matplotlib", specifier = ">=3.10" },
+    { name = "pytest", marker = "extra == 'test'", specifier = ">=8" },
+    { name = "pyyaml", specifier = ">=6" },
+    { name = "torch", specifier = "==2.7.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchcodec", specifier = "==0.5+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchvision", specifier = "==0.22.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "trackio", specifier = "==0.33.0" },
+]
+provides-extras = ["test"]
+
+[[package]]
+name = "pretrain-smolvla-lora-low-k"
+version = "0.1.0"
+source = { editable = "experiments/2026-08-22_22-19-39_pretrain_smolvla_lora_low_k" }
+dependencies = [
+    { name = "imageio", extra = ["ffmpeg"] },
+    { name = "lerobot", extra = ["libero", "peft", "smolvla"] },
+    { name = "matplotlib" },
+    { name = "pyyaml" },
+    { name = "torch" },
+    { name = "torchcodec" },
+    { name = "torchvision" },
+    { name = "trackio" },
+]
+
+[package.optional-dependencies]
+test = [
+    { name = "pytest" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "imageio", extras = ["ffmpeg"], specifier = ">=2.37,<3" },
+    { name = "lerobot", extras = ["libero", "smolvla", "peft"], specifier = "==0.6.1" },
     { name = "matplotlib", specifier = ">=3.10" },
     { name = "pytest", marker = "extra == 'test'", specifier = ">=8" },
     { name = "pyyaml", specifier = ">=6" },
@@ -1562,9 +1731,77 @@ requires-dist = [
 provides-extras = ["test"]
 
 [[package]]
+name = "pretrain-smolvla-low-k-deterministic-repro"
+version = "0.1.0"
+source = { editable = "experiments/2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro" }
+dependencies = [
+    { name = "imageio", extra = ["ffmpeg"] },
+    { name = "lerobot", extra = ["libero", "smolvla"] },
+    { name = "matplotlib" },
+    { name = "pyyaml" },
+    { name = "torch" },
+    { name = "torchcodec" },
+    { name = "torchvision" },
+    { name = "trackio" },
+]
+
+[package.optional-dependencies]
+test = [
+    { name = "pytest" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "imageio", extras = ["ffmpeg"], specifier = ">=2.37,<3" },
+    { name = "lerobot", extras = ["libero", "smolvla"], specifier = "==0.6.1" },
+    { name = "matplotlib", specifier = ">=3.10" },
+    { name = "pytest", marker = "extra == 'test'", specifier = ">=8" },
+    { name = "pyyaml", specifier = ">=6" },
+    { name = "torch", specifier = "==2.7.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchcodec", specifier = "==0.5+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchvision", specifier = "==0.22.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "trackio", specifier = "==0.33.0" },
+]
+provides-extras = ["test"]
+
+[[package]]
 name = "pretrain-smolvla-naive-baseline-few-shot-tune"
 version = "0.1.0"
 source = { editable = "experiments/2026-08-18_pretrain_smolvla_naive_baseline_few_shot_tune" }
+dependencies = [
+    { name = "imageio", extra = ["ffmpeg"] },
+    { name = "lerobot", extra = ["libero", "smolvla"] },
+    { name = "matplotlib" },
+    { name = "pyyaml" },
+    { name = "torch" },
+    { name = "torchcodec" },
+    { name = "torchvision" },
+    { name = "trackio" },
+]
+
+[package.optional-dependencies]
+test = [
+    { name = "pytest" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "imageio", extras = ["ffmpeg"], specifier = ">=2.37,<3" },
+    { name = "lerobot", extras = ["libero", "smolvla"], specifier = "==0.6.1" },
+    { name = "matplotlib", specifier = ">=3.10" },
+    { name = "pytest", marker = "extra == 'test'", specifier = ">=8" },
+    { name = "pyyaml", specifier = ">=6" },
+    { name = "torch", specifier = "==2.7.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchcodec", specifier = "==0.5+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchvision", specifier = "==0.22.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "trackio", specifier = "==0.33.0" },
+]
+provides-extras = ["test"]
+
+[[package]]
+name = "pretrain-smolvla-naive-deterministic-repro"
+version = "0.1.0"
+source = { editable = "experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro" }
 dependencies = [
     { name = "imageio", extra = ["ffmpeg"] },
     { name = "lerobot", extra = ["libero", "smolvla"] },
@@ -1633,6 +1870,74 @@ provides-extras = ["test"]
 name = "pretrain-smolvla-prompt-only-3"
 version = "0.1.0"
 source = { editable = "experiments/2026-08-19_pretrain_smolvla_prompt_only_3" }
+dependencies = [
+    { name = "imageio", extra = ["ffmpeg"] },
+    { name = "lerobot", extra = ["libero", "smolvla"] },
+    { name = "matplotlib" },
+    { name = "pyyaml" },
+    { name = "torch" },
+    { name = "torchcodec" },
+    { name = "torchvision" },
+    { name = "trackio" },
+]
+
+[package.optional-dependencies]
+test = [
+    { name = "pytest" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "imageio", extras = ["ffmpeg"], specifier = ">=2.37,<3" },
+    { name = "lerobot", extras = ["libero", "smolvla"], specifier = "==0.6.1" },
+    { name = "matplotlib", specifier = ">=3.10" },
+    { name = "pytest", marker = "extra == 'test'", specifier = ">=8" },
+    { name = "pyyaml", specifier = ">=6" },
+    { name = "torch", specifier = "==2.7.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchcodec", specifier = "==0.5+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchvision", specifier = "==0.22.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "trackio", specifier = "==0.33.0" },
+]
+provides-extras = ["test"]
+
+[[package]]
+name = "pretrain-smolvla-state-noise-k1"
+version = "0.1.0"
+source = { editable = "experiments/2026-08-22_22-43-55_pretrain_smolvla_state_noise_k1" }
+dependencies = [
+    { name = "imageio", extra = ["ffmpeg"] },
+    { name = "lerobot", extra = ["libero", "smolvla"] },
+    { name = "matplotlib" },
+    { name = "pyyaml" },
+    { name = "torch" },
+    { name = "torchcodec" },
+    { name = "torchvision" },
+    { name = "trackio" },
+]
+
+[package.optional-dependencies]
+test = [
+    { name = "pytest" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "imageio", extras = ["ffmpeg"], specifier = ">=2.37,<3" },
+    { name = "lerobot", extras = ["libero", "smolvla"], specifier = "==0.6.1" },
+    { name = "matplotlib", specifier = ">=3.10" },
+    { name = "pytest", marker = "extra == 'test'", specifier = ">=8" },
+    { name = "pyyaml", specifier = ">=6" },
+    { name = "torch", specifier = "==2.7.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchcodec", specifier = "==0.5+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "torchvision", specifier = "==0.22.1+cu126", index = "https://download.pytorch.org/whl/cu126" },
+    { name = "trackio", specifier = "==0.33.0" },
+]
+provides-extras = ["test"]
+
+[[package]]
+name = "pretrain-smolvla-state-noise-k1-1k"
+version = "0.1.0"
+source = { editable = "experiments/2026-08-23_14-31-07_pretrain_smolvla_state_noise_k1_1k_steps" }
 dependencies = [
     { name = "imageio", extra = ["ffmpeg"] },
     { name = "lerobot", extra = ["libero", "smolvla"] },
@@ -2549,11 +2854,19 @@ dependencies = [
     { name = "base-smolvla-cost-curve" },
     { name = "goal-prompts-in-seen-hosts" },
     { name = "goal-scene-seen-prompts" },
+    { name = "pretrain-smolvla-bundle-all-k" },
     { name = "pretrain-smolvla-few-shot-tune-low-k" },
+    { name = "pretrain-smolvla-full-ft-low-k" },
+    { name = "pretrain-smolvla-image-aug-low-k" },
+    { name = "pretrain-smolvla-lora-low-k" },
     { name = "pretrain-smolvla-low-k-action-steps" },
+    { name = "pretrain-smolvla-low-k-deterministic-repro" },
     { name = "pretrain-smolvla-naive-baseline-few-shot-tune" },
+    { name = "pretrain-smolvla-naive-deterministic-repro" },
     { name = "pretrain-smolvla-prompt-only-2" },
     { name = "pretrain-smolvla-prompt-only-3" },
+    { name = "pretrain-smolvla-state-noise-k1" },
+    { name = "pretrain-smolvla-state-noise-k1-1k" },
     { name = "seen-article-drop" },
     { name = "seen-prompts-in-goal-scene" },
     { name = "seen-scene-goal-prompts-v2" },
@@ -2572,11 +2885,19 @@ requires-dist = [
     { name = "base-smolvla-cost-curve", editable = "experiments/2026-08-19_base_smolvla_cost_curve" },
     { name = "goal-prompts-in-seen-hosts", editable = "experiments/2026-08-20_01-55-23_goal_prompts_in_seen_hosts" },
     { name = "goal-scene-seen-prompts", editable = "experiments/2026-08-19_goal_scene_seen_prompts" },
+    { name = "pretrain-smolvla-bundle-all-k", editable = "experiments/2026-08-23_18-20-07_pretrain_smolvla_bundle_all_k" },
     { name = "pretrain-smolvla-few-shot-tune-low-k", editable = "experiments/2026-08-18_pretrain_smolvla_few_shot_tune_low_k" },
+    { name = "pretrain-smolvla-full-ft-low-k", editable = "experiments/2026-08-22_18-10-40_pretrain_smolvla_full_ft_low_k" },
+    { name = "pretrain-smolvla-image-aug-low-k", editable = "experiments/2026-08-23_00-18-49_pretrain_smolvla_image_aug_low_k" },
+    { name = "pretrain-smolvla-lora-low-k", editable = "experiments/2026-08-22_22-19-39_pretrain_smolvla_lora_low_k" },
     { name = "pretrain-smolvla-low-k-action-steps", editable = "experiments/2026-08-20_20-03-21_pretrain_smolvla_low_k_action_steps" },
+    { name = "pretrain-smolvla-low-k-deterministic-repro", editable = "experiments/2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro" },
     { name = "pretrain-smolvla-naive-baseline-few-shot-tune", editable = "experiments/2026-08-18_pretrain_smolvla_naive_baseline_few_shot_tune" },
+    { name = "pretrain-smolvla-naive-deterministic-repro", editable = "experiments/2026-08-21_20-37-56_pretrain_smolvla_naive_deterministic_repro" },
     { name = "pretrain-smolvla-prompt-only-2", editable = "experiments/2026-08-18_pretrain_smolvla_prompt_only_2" },
     { name = "pretrain-smolvla-prompt-only-3", editable = "experiments/2026-08-19_pretrain_smolvla_prompt_only_3" },
+    { name = "pretrain-smolvla-state-noise-k1", editable = "experiments/2026-08-22_22-43-55_pretrain_smolvla_state_noise_k1" },
+    { name = "pretrain-smolvla-state-noise-k1-1k", editable = "experiments/2026-08-23_14-31-07_pretrain_smolvla_state_noise_k1_1k_steps" },
     { name = "seen-article-drop", editable = "experiments/2026-08-20_01-55-23_seen_article_drop" },
     { name = "seen-prompts-in-goal-scene", editable = "experiments/2026-08-20_01-55-23_seen_prompts_in_goal_scene" },
     { name = "seen-scene-goal-prompts-v2", editable = "experiments/2026-08-19_seen_scene_goal_prompts_v2" },

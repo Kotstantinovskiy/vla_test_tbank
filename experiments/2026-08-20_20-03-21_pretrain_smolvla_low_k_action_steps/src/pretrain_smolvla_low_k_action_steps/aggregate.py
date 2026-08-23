@@ -54,9 +54,14 @@ def mcnemar_exact_p(b: int, c: int) -> float:
     return min(1.0, 2 * tail)
 
 
-def _episode_keys(payload: dict) -> list[tuple[int, int, int]]:
+def _episode_keys(payload: dict) -> list[tuple[int, int, int, int]]:
     return [
-        (item["episode_ix"], item["env_seed"], item["noise_seed"])
+        (
+            item["episode_ix"],
+            item["env_seed"],
+            item["noise_seed"],
+            item["init_state_id"],
+        )
         for item in payload["per_episode"]
     ]
 
@@ -93,6 +98,14 @@ def aggregate(results_root: Path, prior: dict) -> dict[str, Any]:
                     raise ValueError(f"Environment seed bank mismatch in {path}")
                 if [x[2] for x in _episode_keys(payload)] != expected_seeds:
                     raise ValueError(f"Policy-noise seed bank mismatch in {path}")
+                if [x[0] for x in _episode_keys(payload)] != list(
+                    range(EVAL_EPISODES)
+                ):
+                    raise ValueError(f"Logical episode order mismatch in {path}")
+                if [x[3] for x in _episode_keys(payload)] != list(
+                    range(EVAL_EPISODES)
+                ):
+                    raise ValueError(f"LIBERO init-state bank mismatch in {path}")
                 checkpoint_hashes.add(payload["model_safetensors_sha256"])
                 low, high = wilson_interval(
                     payload["successes"], payload["n_episodes"]
@@ -162,25 +175,13 @@ def aggregate(results_root: Path, prior: dict) -> dict[str, Any]:
             for task_id in task_ids
         ) / len(task_ids)
 
-    all_ids = sorted(TARGET_INSTRUCTIONS)
-    means_all = {
-        str(k): {str(n): mean_over(all_ids, k, n) for n in ACTION_STEPS}
-        for k in DEMO_BUDGETS
-    }
+    target_ids = sorted(TARGET_INSTRUCTIONS)
     means_02 = {
-        str(k): {str(n): mean_over([0, 1, 2], k, n) for n in ACTION_STEPS}
+        str(k): {str(n): mean_over(target_ids, k, n) for n in ACTION_STEPS}
         for k in DEMO_BUDGETS
     }
     old_50 = prior["prior_n50_low_k_rates"]
     descriptive_delta = {
-        "mean_all_10": {
-            str(k): {
-                str(n): means_all[str(k)][str(n)]
-                - old_50["mean_all_10"][str(k)]
-                for n in ACTION_STEPS
-            }
-            for k in DEMO_BUDGETS
-        },
         "mean_tasks_0_2": {
             str(k): {
                 str(n): means_02[str(k)][str(n)]
@@ -206,9 +207,10 @@ def aggregate(results_root: Path, prior: dict) -> dict[str, Any]:
             "chunk_size": TRAINED_CHUNK_SIZE,
             "eval_batch_size": 1,
             "policy_noise_seeded_per_episode": True,
+            "libero_init_state_pinned_per_episode": True,
         },
         "tasks": tasks,
-        "means": {"mean_all_10": means_all, "mean_tasks_0_2": means_02},
+        "means": {"mean_tasks_0_2": means_02},
         "paired_action_step_comparisons": paired,
         "prior_n50_reference": old_50,
         "descriptive_delta_vs_prior_n50": descriptive_delta,
@@ -244,31 +246,27 @@ def write_outputs(summary: dict[str, Any], output_dir: Path) -> None:
         writer.writeheader()
         writer.writerows(rows)
 
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5), sharey=True)
-    for axis, mean_key, title in (
-        (axes[0], "mean_all_10", "Mean over all 10 goal tasks"),
-        (axes[1], "mean_tasks_0_2", "Mean over assignment tasks 0–2"),
-    ):
-        for action_steps in ACTION_STEPS:
-            axis.plot(
-                DEMO_BUDGETS,
-                [
-                    summary["means"][mean_key][str(k)][str(action_steps)]
-                    for k in DEMO_BUDGETS
-                ],
-                marker="o",
-                linewidth=2,
-                label=f"n_action_steps={action_steps}",
-            )
-        axis.set(
-            xlabel="target demonstrations k",
-            ylabel="success rate",
-            ylim=(-0.03, 1.03),
-            xticks=list(DEMO_BUDGETS),
-            title=title,
+    fig, axis = plt.subplots(figsize=(7, 5))
+    for action_steps in ACTION_STEPS:
+        axis.plot(
+            DEMO_BUDGETS,
+            [
+                summary["means"]["mean_tasks_0_2"][str(k)][str(action_steps)]
+                for k in DEMO_BUDGETS
+            ],
+            marker="o",
+            linewidth=2,
+            label=f"n_action_steps={action_steps}",
         )
-        axis.grid(alpha=0.25)
-        axis.legend()
+    axis.set(
+        xlabel="target demonstrations k",
+        ylabel="success rate",
+        ylim=(-0.03, 1.03),
+        xticks=list(DEMO_BUDGETS),
+        title="Mean over assignment tasks 0–2",
+    )
+    axis.grid(alpha=0.25)
+    axis.legend()
     fig.tight_layout()
     fig.savefig(output_dir / "action_steps_low_k.png", dpi=180)
     plt.close(fig)
@@ -279,24 +277,20 @@ def write_report(summary: dict[str, Any], path: Path) -> None:
         "# Low-k action-step sweep on the official-data pretrain",
         "",
         "All action-step conditions for a task/budget use the same adapted",
-        "checkpoint and the same per-episode environment/noise seed bank.",
+        "checkpoint and the same per-episode environment/noise/init-state bank.",
         "Only binary success is aggregated; all rollout videos remain on disk.",
         "",
         "| task set | k | n=1 | n=10 | n=25 | prior n=50* |",
         "|---|---:|---:|---:|---:|---:|",
     ]
     prior = summary["prior_n50_reference"]
-    for mean_key, label in (
-        ("mean_all_10", "all 10"),
-        ("mean_tasks_0_2", "tasks 0–2"),
-    ):
-        for budget in DEMO_BUDGETS:
-            means = summary["means"][mean_key][str(budget)]
-            lines.append(
-                f"| {label} | {budget} | "
-                + " | ".join(f"{means[str(n)]:.3f}" for n in ACTION_STEPS)
-                + f" | {prior[mean_key][str(budget)]:.3f} |"
-            )
+    for budget in DEMO_BUDGETS:
+        means = summary["means"]["mean_tasks_0_2"][str(budget)]
+        lines.append(
+            f"| tasks 0–2 | {budget} | "
+            + " | ".join(f"{means[str(n)]:.3f}" for n in ACTION_STEPS)
+            + f" | {prior['mean_tasks_0_2'][str(budget)]:.3f} |"
+        )
     lines.extend(
         [
             "",

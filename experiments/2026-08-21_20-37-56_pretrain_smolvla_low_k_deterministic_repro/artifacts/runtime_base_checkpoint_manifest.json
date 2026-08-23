@@ -1,0 +1,11 @@
+{
+  "runtime_checkpoint": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro/artifacts/runtime_base_checkpoint",
+  "canonical_checkpoint": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model",
+  "model_safetensors_sha256": "0a410cc6887e71c0dd2d21dd8a5deb7aba66e291dba9acba8656320dc076a3cc",
+  "model_safetensors_is_symlink": true,
+  "patched_fields": {
+    "config.pretrained_path": "/home/nbagent174/bpe_test/experiments/2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro/artifacts/runtime_base_checkpoint",
+    "config.vlm_model_name": "/var/tmp/vla_backbones/SmolVLM2-500M-Video-Instruct_7b375e1b73b11138ff12fe22c8f2822d8fe03467",
+    "policy_preprocessor.tokenizer_name": "/var/tmp/vla_backbones/SmolVLM2-500M-Video-Instruct_7b375e1b73b11138ff12fe22c8f2822d8fe03467"
+  }
+}

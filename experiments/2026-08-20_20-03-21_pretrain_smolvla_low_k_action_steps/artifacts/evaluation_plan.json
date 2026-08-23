@@ -1,12 +1,14 @@
 {
   "experiment": "pretrain_smolvla_low_k_action_steps",
-  "training_jobs": 30,
-  "evaluation_points": 90,
+  "training_seed": 1000,
+  "training_jobs": 0,
+  "reused_checkpoint_count": 9,
+  "evaluation_points": 27,
   "episodes_per_point": 20,
   "episode_horizon": 300,
-  "main_rollout_videos": 1800,
-  "maximum_policy_invocations": 205200,
-  "master_seed": 1000,
+  "main_rollout_videos": 540,
+  "maximum_policy_invocations": 61560,
+  "eval_batch_size": 1,
   "env_seeds": [
     1000,
     1001,
@@ -51,6 +53,35 @@
     1018,
     1019
   ],
+  "init_state_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "noise_protocol": "torch/CUDA reseed before each single-episode eval_policy call",
+  "init_state_protocol": "LIBERO init_state_id = logical episode_index before each call",
+  "same_adapted_weights_across_action_steps": true,
+  "training_performed_in_this_experiment": false,
+  "checkpoint_source_experiment": "2026-08-21_20-37-56_pretrain_smolvla_low_k_deterministic_repro",
+  "vlm_backbone_revision": "7b375e1b73b11138ff12fe22c8f2822d8fe03467",
+  "libero_assets_revision": "0b3ea86be5fe169d0fd036ae63d1070ec09e90f6",
   "task_mapping": [
     {
       "logical_task_id": 0,
@@ -69,48 +100,6 @@
       "env_task_id": 2,
       "name": "put_the_wine_bottle_on_top_of_the_cabinet",
       "instruction": "put the wine bottle on top of the cabinet"
-    },
-    {
-      "logical_task_id": 3,
-      "env_task_id": 3,
-      "name": "open_the_top_drawer_and_put_the_bowl_inside",
-      "instruction": "open the top drawer and put the bowl inside"
-    },
-    {
-      "logical_task_id": 4,
-      "env_task_id": 4,
-      "name": "put_the_bowl_on_top_of_the_cabinet",
-      "instruction": "put the bowl on top of the cabinet"
-    },
-    {
-      "logical_task_id": 5,
-      "env_task_id": 5,
-      "name": "push_the_plate_to_the_front_of_the_stove",
-      "instruction": "push the plate to the front of the stove"
-    },
-    {
-      "logical_task_id": 6,
-      "env_task_id": 6,
-      "name": "put_the_cream_cheese_in_the_bowl",
-      "instruction": "put the cream cheese in the bowl"
-    },
-    {
-      "logical_task_id": 7,
-      "env_task_id": 7,
-      "name": "turn_on_the_stove",
-      "instruction": "turn on the stove"
-    },
-    {
-      "logical_task_id": 8,
-      "env_task_id": 8,
-      "name": "put_the_bowl_on_the_plate",
-      "instruction": "put the bowl on the plate"
-    },
-    {
-      "logical_task_id": 9,
-      "env_task_id": 9,
-      "name": "put_the_wine_bottle_on_the_rack",
-      "instruction": "put the wine bottle on the rack"
     }
   ],
   "points": [
@@ -191,195 +180,6 @@
       "logical_task_id": 2,
       "env_task_id": 2,
       "instruction": "put the wine bottle on top of the cabinet",
-      "demo_budget": 1,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_3__k_1__n_1",
-      "logical_task_id": 3,
-      "env_task_id": 3,
-      "instruction": "open the top drawer and put the bowl inside",
-      "demo_budget": 1,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_3__k_1__n_10",
-      "logical_task_id": 3,
-      "env_task_id": 3,
-      "instruction": "open the top drawer and put the bowl inside",
-      "demo_budget": 1,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_3__k_1__n_25",
-      "logical_task_id": 3,
-      "env_task_id": 3,
-      "instruction": "open the top drawer and put the bowl inside",
-      "demo_budget": 1,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_4__k_1__n_1",
-      "logical_task_id": 4,
-      "env_task_id": 4,
-      "instruction": "put the bowl on top of the cabinet",
-      "demo_budget": 1,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_4__k_1__n_10",
-      "logical_task_id": 4,
-      "env_task_id": 4,
-      "instruction": "put the bowl on top of the cabinet",
-      "demo_budget": 1,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_4__k_1__n_25",
-      "logical_task_id": 4,
-      "env_task_id": 4,
-      "instruction": "put the bowl on top of the cabinet",
-      "demo_budget": 1,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_5__k_1__n_1",
-      "logical_task_id": 5,
-      "env_task_id": 5,
-      "instruction": "push the plate to the front of the stove",
-      "demo_budget": 1,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_5__k_1__n_10",
-      "logical_task_id": 5,
-      "env_task_id": 5,
-      "instruction": "push the plate to the front of the stove",
-      "demo_budget": 1,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_5__k_1__n_25",
-      "logical_task_id": 5,
-      "env_task_id": 5,
-      "instruction": "push the plate to the front of the stove",
-      "demo_budget": 1,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_6__k_1__n_1",
-      "logical_task_id": 6,
-      "env_task_id": 6,
-      "instruction": "put the cream cheese in the bowl",
-      "demo_budget": 1,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_6__k_1__n_10",
-      "logical_task_id": 6,
-      "env_task_id": 6,
-      "instruction": "put the cream cheese in the bowl",
-      "demo_budget": 1,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_6__k_1__n_25",
-      "logical_task_id": 6,
-      "env_task_id": 6,
-      "instruction": "put the cream cheese in the bowl",
-      "demo_budget": 1,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_7__k_1__n_1",
-      "logical_task_id": 7,
-      "env_task_id": 7,
-      "instruction": "turn on the stove",
-      "demo_budget": 1,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_7__k_1__n_10",
-      "logical_task_id": 7,
-      "env_task_id": 7,
-      "instruction": "turn on the stove",
-      "demo_budget": 1,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_7__k_1__n_25",
-      "logical_task_id": 7,
-      "env_task_id": 7,
-      "instruction": "turn on the stove",
-      "demo_budget": 1,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_8__k_1__n_1",
-      "logical_task_id": 8,
-      "env_task_id": 8,
-      "instruction": "put the bowl on the plate",
-      "demo_budget": 1,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_8__k_1__n_10",
-      "logical_task_id": 8,
-      "env_task_id": 8,
-      "instruction": "put the bowl on the plate",
-      "demo_budget": 1,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_8__k_1__n_25",
-      "logical_task_id": 8,
-      "env_task_id": 8,
-      "instruction": "put the bowl on the plate",
-      "demo_budget": 1,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_9__k_1__n_1",
-      "logical_task_id": 9,
-      "env_task_id": 9,
-      "instruction": "put the wine bottle on the rack",
-      "demo_budget": 1,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_9__k_1__n_10",
-      "logical_task_id": 9,
-      "env_task_id": 9,
-      "instruction": "put the wine bottle on the rack",
-      "demo_budget": 1,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_9__k_1__n_25",
-      "logical_task_id": 9,
-      "env_task_id": 9,
-      "instruction": "put the wine bottle on the rack",
       "demo_budget": 1,
       "n_action_steps": 25,
       "chunk_size": 50
@@ -466,195 +266,6 @@
       "chunk_size": 50
     },
     {
-      "label": "task_3__k_2__n_1",
-      "logical_task_id": 3,
-      "env_task_id": 3,
-      "instruction": "open the top drawer and put the bowl inside",
-      "demo_budget": 2,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_3__k_2__n_10",
-      "logical_task_id": 3,
-      "env_task_id": 3,
-      "instruction": "open the top drawer and put the bowl inside",
-      "demo_budget": 2,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_3__k_2__n_25",
-      "logical_task_id": 3,
-      "env_task_id": 3,
-      "instruction": "open the top drawer and put the bowl inside",
-      "demo_budget": 2,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_4__k_2__n_1",
-      "logical_task_id": 4,
-      "env_task_id": 4,
-      "instruction": "put the bowl on top of the cabinet",
-      "demo_budget": 2,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_4__k_2__n_10",
-      "logical_task_id": 4,
-      "env_task_id": 4,
-      "instruction": "put the bowl on top of the cabinet",
-      "demo_budget": 2,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_4__k_2__n_25",
-      "logical_task_id": 4,
-      "env_task_id": 4,
-      "instruction": "put the bowl on top of the cabinet",
-      "demo_budget": 2,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_5__k_2__n_1",
-      "logical_task_id": 5,
-      "env_task_id": 5,
-      "instruction": "push the plate to the front of the stove",
-      "demo_budget": 2,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_5__k_2__n_10",
-      "logical_task_id": 5,
-      "env_task_id": 5,
-      "instruction": "push the plate to the front of the stove",
-      "demo_budget": 2,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_5__k_2__n_25",
-      "logical_task_id": 5,
-      "env_task_id": 5,
-      "instruction": "push the plate to the front of the stove",
-      "demo_budget": 2,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_6__k_2__n_1",
-      "logical_task_id": 6,
-      "env_task_id": 6,
-      "instruction": "put the cream cheese in the bowl",
-      "demo_budget": 2,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_6__k_2__n_10",
-      "logical_task_id": 6,
-      "env_task_id": 6,
-      "instruction": "put the cream cheese in the bowl",
-      "demo_budget": 2,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_6__k_2__n_25",
-      "logical_task_id": 6,
-      "env_task_id": 6,
-      "instruction": "put the cream cheese in the bowl",
-      "demo_budget": 2,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_7__k_2__n_1",
-      "logical_task_id": 7,
-      "env_task_id": 7,
-      "instruction": "turn on the stove",
-      "demo_budget": 2,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_7__k_2__n_10",
-      "logical_task_id": 7,
-      "env_task_id": 7,
-      "instruction": "turn on the stove",
-      "demo_budget": 2,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_7__k_2__n_25",
-      "logical_task_id": 7,
-      "env_task_id": 7,
-      "instruction": "turn on the stove",
-      "demo_budget": 2,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_8__k_2__n_1",
-      "logical_task_id": 8,
-      "env_task_id": 8,
-      "instruction": "put the bowl on the plate",
-      "demo_budget": 2,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_8__k_2__n_10",
-      "logical_task_id": 8,
-      "env_task_id": 8,
-      "instruction": "put the bowl on the plate",
-      "demo_budget": 2,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_8__k_2__n_25",
-      "logical_task_id": 8,
-      "env_task_id": 8,
-      "instruction": "put the bowl on the plate",
-      "demo_budget": 2,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_9__k_2__n_1",
-      "logical_task_id": 9,
-      "env_task_id": 9,
-      "instruction": "put the wine bottle on the rack",
-      "demo_budget": 2,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_9__k_2__n_10",
-      "logical_task_id": 9,
-      "env_task_id": 9,
-      "instruction": "put the wine bottle on the rack",
-      "demo_budget": 2,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_9__k_2__n_25",
-      "logical_task_id": 9,
-      "env_task_id": 9,
-      "instruction": "put the wine bottle on the rack",
-      "demo_budget": 2,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
       "label": "task_0__k_3__n_1",
       "logical_task_id": 0,
       "env_task_id": 0,
@@ -734,195 +345,7 @@
       "demo_budget": 3,
       "n_action_steps": 25,
       "chunk_size": 50
-    },
-    {
-      "label": "task_3__k_3__n_1",
-      "logical_task_id": 3,
-      "env_task_id": 3,
-      "instruction": "open the top drawer and put the bowl inside",
-      "demo_budget": 3,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_3__k_3__n_10",
-      "logical_task_id": 3,
-      "env_task_id": 3,
-      "instruction": "open the top drawer and put the bowl inside",
-      "demo_budget": 3,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_3__k_3__n_25",
-      "logical_task_id": 3,
-      "env_task_id": 3,
-      "instruction": "open the top drawer and put the bowl inside",
-      "demo_budget": 3,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_4__k_3__n_1",
-      "logical_task_id": 4,
-      "env_task_id": 4,
-      "instruction": "put the bowl on top of the cabinet",
-      "demo_budget": 3,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_4__k_3__n_10",
-      "logical_task_id": 4,
-      "env_task_id": 4,
-      "instruction": "put the bowl on top of the cabinet",
-      "demo_budget": 3,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_4__k_3__n_25",
-      "logical_task_id": 4,
-      "env_task_id": 4,
-      "instruction": "put the bowl on top of the cabinet",
-      "demo_budget": 3,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_5__k_3__n_1",
-      "logical_task_id": 5,
-      "env_task_id": 5,
-      "instruction": "push the plate to the front of the stove",
-      "demo_budget": 3,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_5__k_3__n_10",
-      "logical_task_id": 5,
-      "env_task_id": 5,
-      "instruction": "push the plate to the front of the stove",
-      "demo_budget": 3,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_5__k_3__n_25",
-      "logical_task_id": 5,
-      "env_task_id": 5,
-      "instruction": "push the plate to the front of the stove",
-      "demo_budget": 3,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_6__k_3__n_1",
-      "logical_task_id": 6,
-      "env_task_id": 6,
-      "instruction": "put the cream cheese in the bowl",
-      "demo_budget": 3,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_6__k_3__n_10",
-      "logical_task_id": 6,
-      "env_task_id": 6,
-      "instruction": "put the cream cheese in the bowl",
-      "demo_budget": 3,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_6__k_3__n_25",
-      "logical_task_id": 6,
-      "env_task_id": 6,
-      "instruction": "put the cream cheese in the bowl",
-      "demo_budget": 3,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_7__k_3__n_1",
-      "logical_task_id": 7,
-      "env_task_id": 7,
-      "instruction": "turn on the stove",
-      "demo_budget": 3,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_7__k_3__n_10",
-      "logical_task_id": 7,
-      "env_task_id": 7,
-      "instruction": "turn on the stove",
-      "demo_budget": 3,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_7__k_3__n_25",
-      "logical_task_id": 7,
-      "env_task_id": 7,
-      "instruction": "turn on the stove",
-      "demo_budget": 3,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_8__k_3__n_1",
-      "logical_task_id": 8,
-      "env_task_id": 8,
-      "instruction": "put the bowl on the plate",
-      "demo_budget": 3,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_8__k_3__n_10",
-      "logical_task_id": 8,
-      "env_task_id": 8,
-      "instruction": "put the bowl on the plate",
-      "demo_budget": 3,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_8__k_3__n_25",
-      "logical_task_id": 8,
-      "env_task_id": 8,
-      "instruction": "put the bowl on the plate",
-      "demo_budget": 3,
-      "n_action_steps": 25,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_9__k_3__n_1",
-      "logical_task_id": 9,
-      "env_task_id": 9,
-      "instruction": "put the wine bottle on the rack",
-      "demo_budget": 3,
-      "n_action_steps": 1,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_9__k_3__n_10",
-      "logical_task_id": 9,
-      "env_task_id": 9,
-      "instruction": "put the wine bottle on the rack",
-      "demo_budget": 3,
-      "n_action_steps": 10,
-      "chunk_size": 50
-    },
-    {
-      "label": "task_9__k_3__n_25",
-      "logical_task_id": 9,
-      "env_task_id": 9,
-      "instruction": "put the wine bottle on the rack",
-      "demo_budget": 3,
-      "n_action_steps": 25,
-      "chunk_size": 50
     }
-  ]
+  ],
+  "predictions_sha256": "3de89f3f74ac8048a10982dc2155d8a07ce570aba8a7868e4c64488ec9ae09db"
 }

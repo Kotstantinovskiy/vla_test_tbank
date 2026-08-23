@@ -1,0 +1,355 @@
+{
+  "experiment": "pretrain_smolvla_low_k_action_steps",
+  "state": "completed",
+  "started_at": "2026-08-22T13:58:22.351062+00:00",
+  "updated_at": "2026-08-22T14:49:56.725755+00:00",
+  "total_training_jobs": 0,
+  "total_checkpoint_conditions": 9,
+  "reused_checkpoint_count": 9,
+  "total_evaluation_points": 27,
+  "completed_training_jobs": 0,
+  "completed_evaluation_points": 27,
+  "failed_jobs": 0,
+  "jobs": {
+    "task_0_k_1": {
+      "task_id": 0,
+      "budget": 1,
+      "checkpoint_state": "reused",
+      "state": "completed",
+      "evaluations": {
+        "1": {
+          "state": "completed",
+          "success_rate": 0.0,
+          "successes": 0,
+          "trials": 20,
+          "reused": true
+        },
+        "10": {
+          "state": "completed",
+          "success_rate": 0.05,
+          "successes": 1,
+          "trials": 20,
+          "reused": true
+        },
+        "25": {
+          "state": "completed",
+          "started_at": "2026-08-22T13:58:22.356091+00:00",
+          "success_rate": 0.0,
+          "successes": 0,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:02:13.519188+00:00",
+          "log": "results/logs/eval/task_0_k_1_n_25.log"
+        }
+      },
+      "gpu": 1,
+      "started_at": "2026-08-22T13:58:22.351739+00:00",
+      "finished_at": "2026-08-22T14:02:13.519766+00:00"
+    },
+    "task_1_k_1": {
+      "task_id": 1,
+      "budget": 1,
+      "checkpoint_state": "reused",
+      "state": "completed",
+      "evaluations": {
+        "1": {
+          "state": "completed",
+          "started_at": "2026-08-22T13:58:22.353481+00:00",
+          "success_rate": 0.5,
+          "successes": 10,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:11:34.011950+00:00",
+          "log": "results/logs/eval/task_1_k_1_n_1.log"
+        },
+        "10": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:11:34.012706+00:00",
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:13:49.058701+00:00",
+          "log": "results/logs/eval/task_1_k_1_n_10.log"
+        },
+        "25": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:13:49.059369+00:00",
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:15:41.182966+00:00",
+          "log": "results/logs/eval/task_1_k_1_n_25.log"
+        }
+      },
+      "gpu": 2,
+      "started_at": "2026-08-22T13:58:22.352166+00:00",
+      "finished_at": "2026-08-22T14:15:41.183579+00:00"
+    },
+    "task_2_k_1": {
+      "task_id": 2,
+      "budget": 1,
+      "checkpoint_state": "reused",
+      "state": "completed",
+      "evaluations": {
+        "1": {
+          "state": "completed",
+          "started_at": "2026-08-22T13:58:22.353964+00:00",
+          "success_rate": 0.5,
+          "successes": 10,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:12:24.030588+00:00",
+          "log": "results/logs/eval/task_2_k_1_n_1.log"
+        },
+        "10": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:12:24.031212+00:00",
+          "success_rate": 0.8,
+          "successes": 16,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:14:53.741774+00:00",
+          "log": "results/logs/eval/task_2_k_1_n_10.log"
+        },
+        "25": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:14:53.742391+00:00",
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:16:42.794216+00:00",
+          "log": "results/logs/eval/task_2_k_1_n_25.log"
+        }
+      },
+      "gpu": 3,
+      "started_at": "2026-08-22T13:58:22.352366+00:00",
+      "finished_at": "2026-08-22T14:16:42.794812+00:00"
+    },
+    "task_0_k_2": {
+      "task_id": 0,
+      "budget": 2,
+      "checkpoint_state": "reused",
+      "state": "completed",
+      "evaluations": {
+        "1": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:02:13.520434+00:00",
+          "success_rate": 0.15,
+          "successes": 3,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:19:50.899466+00:00",
+          "log": "results/logs/eval/task_0_k_2_n_1.log"
+        },
+        "10": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:19:50.900115+00:00",
+          "success_rate": 0.65,
+          "successes": 13,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:22:55.480256+00:00",
+          "log": "results/logs/eval/task_0_k_2_n_10.log"
+        },
+        "25": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:22:55.480918+00:00",
+          "success_rate": 0.6,
+          "successes": 12,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:25:31.903002+00:00",
+          "log": "results/logs/eval/task_0_k_2_n_25.log"
+        }
+      },
+      "gpu": 1,
+      "started_at": "2026-08-22T14:02:13.520121+00:00",
+      "finished_at": "2026-08-22T14:25:31.903589+00:00"
+    },
+    "task_1_k_2": {
+      "task_id": 1,
+      "budget": 2,
+      "checkpoint_state": "reused",
+      "state": "completed",
+      "evaluations": {
+        "1": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:15:41.184325+00:00",
+          "success_rate": 0.7,
+          "successes": 14,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:27:00.869544+00:00",
+          "log": "results/logs/eval/task_1_k_2_n_1.log"
+        },
+        "10": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:27:00.870342+00:00",
+          "success_rate": 0.9,
+          "successes": 18,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:29:05.129200+00:00",
+          "log": "results/logs/eval/task_1_k_2_n_10.log"
+        },
+        "25": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:29:05.129882+00:00",
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:30:57.331558+00:00",
+          "log": "results/logs/eval/task_1_k_2_n_25.log"
+        }
+      },
+      "gpu": 2,
+      "started_at": "2026-08-22T14:15:41.183980+00:00",
+      "finished_at": "2026-08-22T14:30:57.332227+00:00"
+    },
+    "task_2_k_2": {
+      "task_id": 2,
+      "budget": 2,
+      "checkpoint_state": "reused",
+      "state": "completed",
+      "evaluations": {
+        "1": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:16:42.795552+00:00",
+          "success_rate": 0.55,
+          "successes": 11,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:30:10.741434+00:00",
+          "log": "results/logs/eval/task_2_k_2_n_1.log"
+        },
+        "10": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:30:10.742167+00:00",
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:32:26.398517+00:00",
+          "log": "results/logs/eval/task_2_k_2_n_10.log"
+        },
+        "25": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:32:26.399576+00:00",
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:34:13.851581+00:00",
+          "log": "results/logs/eval/task_2_k_2_n_25.log"
+        }
+      },
+      "gpu": 3,
+      "started_at": "2026-08-22T14:16:42.795196+00:00",
+      "finished_at": "2026-08-22T14:34:13.852264+00:00"
+    },
+    "task_0_k_3": {
+      "task_id": 0,
+      "budget": 3,
+      "checkpoint_state": "reused",
+      "state": "completed",
+      "evaluations": {
+        "1": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:25:31.904604+00:00",
+          "success_rate": 0.55,
+          "successes": 11,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:40:57.999577+00:00",
+          "log": "results/logs/eval/task_0_k_3_n_1.log"
+        },
+        "10": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:40:58.000593+00:00",
+          "success_rate": 0.55,
+          "successes": 11,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:44:30.434180+00:00",
+          "log": "results/logs/eval/task_0_k_3_n_10.log"
+        },
+        "25": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:44:30.434880+00:00",
+          "success_rate": 0.5,
+          "successes": 10,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:47:49.272245+00:00",
+          "log": "results/logs/eval/task_0_k_3_n_25.log"
+        }
+      },
+      "gpu": 1,
+      "started_at": "2026-08-22T14:25:31.904215+00:00",
+      "finished_at": "2026-08-22T14:47:49.272975+00:00"
+    },
+    "task_1_k_3": {
+      "task_id": 1,
+      "budget": 3,
+      "checkpoint_state": "reused",
+      "state": "completed",
+      "evaluations": {
+        "1": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:30:57.333096+00:00",
+          "success_rate": 0.7,
+          "successes": 14,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:43:14.029085+00:00",
+          "log": "results/logs/eval/task_1_k_3_n_1.log"
+        },
+        "10": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:43:14.029895+00:00",
+          "success_rate": 0.9,
+          "successes": 18,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:45:34.890641+00:00",
+          "log": "results/logs/eval/task_1_k_3_n_10.log"
+        },
+        "25": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:45:34.891764+00:00",
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:47:39.189066+00:00",
+          "log": "results/logs/eval/task_1_k_3_n_25.log"
+        }
+      },
+      "gpu": 2,
+      "started_at": "2026-08-22T14:30:57.332688+00:00",
+      "finished_at": "2026-08-22T14:47:39.189734+00:00"
+    },
+    "task_2_k_3": {
+      "task_id": 2,
+      "budget": 3,
+      "checkpoint_state": "reused",
+      "state": "completed",
+      "evaluations": {
+        "1": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:34:13.853085+00:00",
+          "success_rate": 0.7,
+          "successes": 14,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:44:54.379025+00:00",
+          "log": "results/logs/eval/task_2_k_3_n_1.log"
+        },
+        "10": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:44:54.379846+00:00",
+          "success_rate": 0.7,
+          "successes": 14,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:48:00.863852+00:00",
+          "log": "results/logs/eval/task_2_k_3_n_10.log"
+        },
+        "25": {
+          "state": "completed",
+          "started_at": "2026-08-22T14:48:00.864584+00:00",
+          "success_rate": 0.75,
+          "successes": 15,
+          "trials": 20,
+          "finished_at": "2026-08-22T14:49:55.657686+00:00",
+          "log": "results/logs/eval/task_2_k_3_n_25.log"
+        }
+      },
+      "gpu": 3,
+      "started_at": "2026-08-22T14:34:13.852694+00:00",
+      "finished_at": "2026-08-22T14:49:55.658406+00:00"
+    }
+  },
+  "finished_at": "2026-08-22T14:49:56.725746+00:00",
+  "summary": "results/summary/summary.json"
+}

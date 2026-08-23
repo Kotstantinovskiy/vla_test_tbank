@@ -1,0 +1,258 @@
+{
+  "experiment": "pretrain_smolvla_image_aug_low_k",
+  "state": "completed",
+  "started_at": "2026-08-23T12:24:12.069915+00:00",
+  "updated_at": "2026-08-23T14:18:19.310823+00:00",
+  "total_training_jobs": 9,
+  "total_evaluation_points": 18,
+  "completed_training_jobs": 9,
+  "completed_evaluation_points": 18,
+  "failed_jobs": 0,
+  "jobs": {
+    "task_0_k_1": {
+      "task_id": 0,
+      "budget": 1,
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
+      "evaluations": {
+        "50": {
+          "state": "completed",
+          "success_rate": 0.15,
+          "successes": 3,
+          "trials": 20,
+          "reused": true
+        },
+        "25": {
+          "state": "completed",
+          "success_rate": 0.0,
+          "successes": 0,
+          "trials": 20,
+          "reused": true
+        }
+      },
+      "gpu": 1,
+      "started_at": "2026-08-23T12:24:12.070482+00:00",
+      "train_log": "results/logs/train/task_0_k_1.log",
+      "finished_at": "2026-08-23T12:24:12.921329+00:00"
+    },
+    "task_1_k_1": {
+      "task_id": 1,
+      "budget": 1,
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
+      "evaluations": {
+        "50": {
+          "state": "completed",
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_1_n_50.log"
+        },
+        "25": {
+          "state": "completed",
+          "success_rate": 1.0,
+          "successes": 20,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_1_n_25.log"
+        }
+      },
+      "gpu": 2,
+      "started_at": "2026-08-23T12:24:12.070914+00:00",
+      "train_log": "results/logs/train/task_1_k_1.log",
+      "finished_at": "2026-08-23T13:09:14.939467+00:00"
+    },
+    "task_2_k_1": {
+      "task_id": 2,
+      "budget": 1,
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
+      "evaluations": {
+        "50": {
+          "state": "completed",
+          "success_rate": 0.65,
+          "successes": 13,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_1_n_50.log"
+        },
+        "25": {
+          "state": "completed",
+          "success_rate": 0.7,
+          "successes": 14,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_1_n_25.log"
+        }
+      },
+      "gpu": 3,
+      "started_at": "2026-08-23T12:24:12.071117+00:00",
+      "train_log": "results/logs/train/task_2_k_1.log",
+      "finished_at": "2026-08-23T13:10:30.166145+00:00"
+    },
+    "task_0_k_2": {
+      "task_id": 0,
+      "budget": 2,
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
+      "evaluations": {
+        "50": {
+          "state": "completed",
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_0_k_2_n_50.log"
+        },
+        "25": {
+          "state": "completed",
+          "success_rate": 0.7,
+          "successes": 14,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_0_k_2_n_25.log"
+        }
+      },
+      "gpu": 1,
+      "started_at": "2026-08-23T12:24:12.921913+00:00",
+      "train_log": "results/logs/train/task_0_k_2.log",
+      "finished_at": "2026-08-23T12:55:39.660353+00:00"
+    },
+    "task_1_k_2": {
+      "task_id": 1,
+      "budget": 2,
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
+      "evaluations": {
+        "50": {
+          "state": "completed",
+          "success_rate": 1.0,
+          "successes": 20,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_2_n_50.log"
+        },
+        "25": {
+          "state": "completed",
+          "success_rate": 0.9,
+          "successes": 18,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_2_n_25.log"
+        }
+      },
+      "gpu": 1,
+      "started_at": "2026-08-23T12:55:39.660709+00:00",
+      "train_log": "results/logs/train/task_1_k_2.log",
+      "finished_at": "2026-08-23T13:30:27.779358+00:00"
+    },
+    "task_2_k_2": {
+      "task_id": 2,
+      "budget": 2,
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
+      "evaluations": {
+        "50": {
+          "state": "completed",
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_2_n_50.log"
+        },
+        "25": {
+          "state": "completed",
+          "success_rate": 0.75,
+          "successes": 15,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_2_n_25.log"
+        }
+      },
+      "gpu": 2,
+      "started_at": "2026-08-23T13:09:14.939858+00:00",
+      "train_log": "results/logs/train/task_2_k_2.log",
+      "finished_at": "2026-08-23T13:45:52.954121+00:00"
+    },
+    "task_0_k_3": {
+      "task_id": 0,
+      "budget": 3,
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
+      "evaluations": {
+        "50": {
+          "state": "completed",
+          "success_rate": 0.6,
+          "successes": 12,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_0_k_3_n_50.log"
+        },
+        "25": {
+          "state": "completed",
+          "success_rate": 0.7,
+          "successes": 14,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_0_k_3_n_25.log"
+        }
+      },
+      "gpu": 3,
+      "started_at": "2026-08-23T13:10:30.166500+00:00",
+      "train_log": "results/logs/train/task_0_k_3.log",
+      "finished_at": "2026-08-23T13:42:36.834807+00:00"
+    },
+    "task_1_k_3": {
+      "task_id": 1,
+      "budget": 3,
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
+      "evaluations": {
+        "50": {
+          "state": "completed",
+          "success_rate": 1.0,
+          "successes": 20,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_3_n_50.log"
+        },
+        "25": {
+          "state": "completed",
+          "success_rate": 1.0,
+          "successes": 20,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_3_n_25.log"
+        }
+      },
+      "gpu": 1,
+      "started_at": "2026-08-23T13:30:27.779776+00:00",
+      "train_log": "results/logs/train/task_1_k_3.log",
+      "finished_at": "2026-08-23T14:06:39.744513+00:00"
+    },
+    "task_2_k_3": {
+      "task_id": 2,
+      "budget": 3,
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
+      "evaluations": {
+        "50": {
+          "state": "completed",
+          "success_rate": 0.75,
+          "successes": 15,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_3_n_50.log"
+        },
+        "25": {
+          "state": "completed",
+          "success_rate": 0.75,
+          "successes": 15,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_3_n_25.log"
+        }
+      },
+      "gpu": 3,
+      "started_at": "2026-08-23T13:42:36.835185+00:00",
+      "train_log": "results/logs/train/task_2_k_3.log",
+      "finished_at": "2026-08-23T14:18:14.470349+00:00"
+    }
+  },
+  "finished_at": "2026-08-23T14:18:19.310808+00:00",
+  "summary": "results/summary/summary.json"
+}

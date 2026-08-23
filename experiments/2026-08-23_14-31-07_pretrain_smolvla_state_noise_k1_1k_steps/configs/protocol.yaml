@@ -1,0 +1,98 @@
+experiment: pretrain_smolvla_state_noise_k1_1k
+created_at: 2026-08-23T14:31:07+03:00
+compares_against:
+  steps2000_sweep: >-
+    2026-08-22_22-43-55_pretrain_smolvla_state_noise_k1 (alphas 0.00-0.05 at
+    2000 steps; means 0.617/0.583/0.667/0.683, still rising at the edge)
+motivation: >-
+  Two questions in one grid: (a) does the state-noise benefit keep growing at
+  alpha in {0.08, 0.10, 0.20} (declared adaptive continuation of the first
+  sweep), and (b) does half the training budget (1000 steps) suffice at k=1,
+  where the loss plateaued well before step 2000.
+
+base_checkpoint:
+  path: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+  model_safetensors_sha256: 0a410cc6887e71c0dd2d21dd8a5deb7aba66e291dba9acba8656320dc076a3cc
+  vlm_backbone_revision: 7b375e1b73b11138ff12fe22c8f2822d8fe03467
+  vlm_model_safetensors_sha256: b9bfd456c9472c0acd5719d6e514c4b859891af205ee1a736552fd3497b8b0c3
+  offline_runtime_view: >-
+    artifacts/runtime_base_checkpoint symlinks the canonical weights and
+    patches only config.vlm_model_name and the tokenizer processor to the
+    pinned local backbone.
+
+libero_assets:
+  repo: lerobot/libero-assets
+  revision: 0b3ea86be5fe169d0fd036ae63d1070ec09e90f6
+
+target_demos:
+  dataset: official/libero_goal_rot180_128
+  root: /var/tmp/vla_libero_official_rot180/libero_goal
+  source_repo: yifengzhu-hf/LIBERO-datasets
+  source_revision: f13aa24a3da8c43c7225569f28c562979fa0e35a
+  selection: official demo_0 of each task (k=1 only)
+
+adaptation:
+  demo_budget: 1
+  grid: alphas [0.00, 0.08, 0.10, 0.20] x tasks [0, 1, 2] = 12 training jobs
+  independence: every (task, alpha) starts from the declared base checkpoint
+  recipe: >-
+    full fine-tune as in the sibling sweeps (train_expert_only=false,
+    freeze_vision_encoder=false, train_state_proj=true; AdamW preset lr 1e-4;
+    batch 32; fp32; seed 1000; num_workers 32) with ONE change: 1000
+    optimizer steps instead of 2000.
+  steps_note: >-
+    lerobot auto-scales the preset LR schedule to the step budget
+    (warmup 1000 -> ~33, decay 30000 -> 1000), exactly as it scaled the
+    2000-step runs (warmup ~67, decay 2000).  Halving the steps therefore
+    changes both compute and schedule shape, which is why the alpha=0.00 arm
+    at 1000 steps is the only valid in-experiment baseline; 2000-step numbers
+    are context, not a baseline.
+  augmentation:
+    what: additive zero-mean Gaussian noise on proprioception, training only
+    where: >-
+      batch["observation.state"] inside policy.forward, AFTER the MEAN_STD
+      normalizer; s_tilde = s + alpha * eps, eps ~ N(0, I); equals
+      sigma_i = alpha * Std(s_i) per dimension in raw units.
+    untouched: ground-truth actions, images, language, evaluation rollouts
+    rng: dedicated torch.Generator seeded 91000 per job; main RNG stream untouched
+    implementation: >-
+      in-process wrapper around lerobot train() with make_policy patched
+      (code copied verbatim from the 2000-step sweep).
+  adaptive_disclosure: >-
+    The alpha values were chosen after observing the 2000-step sweep rise to
+    its grid edge; "the optimum lies at a tested boundary" claims from the
+    combined curve must carry this caveat.
+  normalizer_disclosure: >-
+    LeRobot replaces checkpoint normalization statistics with target-dataset
+    statistics for k>0; all arms share the same k=1 statistics per task.
+
+evaluation:
+  suite: libero_goal
+  tasks: [0, 1, 2]
+  action_steps: [50]
+  episodes_per_point: 20
+  batch_size: 1
+  horizon: 300
+  environment_seed: 1000 + episode_index
+  policy_noise_seed: 1000 + episode_index
+  libero_init_state_id: episode_index
+  noise_protocol: reset torch and all CUDA RNGs immediately before each single-episode eval_policy call
+  init_state_protocol: set LIBERO init_state_id immediately before each single-episode eval_policy call
+  determinism_gate: >-
+    replay task 0 / alpha 0.00 in reverse episode order at n=50 and require
+    identical per-episode init-state IDs, seeds, outcomes, and rewards
+  videos: all episodes are retained
+  seed_parity: >-
+    identical seed banks to every sibling experiment (train 1000; env/noise
+    1000..1019; init states 0..19) -- comparisons with the 2000-step sweep
+    are paired per episode, with the steps/schedule change disclosed above.
+
+known_limitations:
+  single_adaptation_seed: one training seed (1000); two-seed requirement outstanding.
+  k1_only: the sweep probes only k=1.
+  steps_confound_across_experiments: >-
+    cross-experiment comparisons at matching alphas mix the noise effect with
+    the 1000-vs-2000-step budget; only within-experiment contrasts are clean.
+
+output_root: /var/tmp/vla_outputs/state_noise_k1_1k_20260823_143107
+trackio_project: pretrain-smolvla-state-noise-k1-1k

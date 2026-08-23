@@ -1,0 +1,13 @@
+task_id,instruction,k,alpha,n_action_steps,successes,trials,success_rate,ci95_low,ci95_high
+0,open the middle drawer of the cabinet,1,0.0,50,3,20,0.15,0.052368745896216595,0.36041886474075696
+0,open the middle drawer of the cabinet,1,0.08,50,6,20,0.3,0.1454772448676043,0.5189728183535235
+0,open the middle drawer of the cabinet,1,0.1,50,6,20,0.3,0.1454772448676043,0.5189728183535235
+0,open the middle drawer of the cabinet,1,0.2,50,6,20,0.3,0.1454772448676043,0.5189728183535235
+1,put the bowl on the stove,1,0.0,50,19,20,0.95,0.763868806553258,0.9911185511992047
+1,put the bowl on the stove,1,0.08,50,18,20,0.9,0.6989663547715128,0.9721335187862319
+1,put the bowl on the stove,1,0.1,50,18,20,0.9,0.6989663547715128,0.9721335187862319
+1,put the bowl on the stove,1,0.2,50,18,20,0.9,0.6989663547715128,0.9721335187862319
+2,put the wine bottle on top of the cabinet,1,0.0,50,14,20,0.7,0.4810271816464765,0.8545227551323956
+2,put the wine bottle on top of the cabinet,1,0.08,50,16,20,0.8,0.5839825677481064,0.919342337420202
+2,put the wine bottle on top of the cabinet,1,0.1,50,18,20,0.9,0.6989663547715128,0.9721335187862319
+2,put the wine bottle on top of the cabinet,1,0.2,50,16,20,0.8,0.5839825677481064,0.919342337420202

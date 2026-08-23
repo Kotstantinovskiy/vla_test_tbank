@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pretrain-smolvla-low-k-deterministic-repro"
+version = "0.1.0"
+description = "Deterministic reproduction of the SmolVLA k=1/2/3 cost curve"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "lerobot[libero,smolvla]==0.6.1",
+  "imageio[ffmpeg]>=2.37,<3",
+  "matplotlib>=3.10",
+  "PyYAML>=6",
+  "torch==2.7.1+cu126",
+  "torchcodec==0.5+cu126",
+  "torchvision==0.22.1+cu126",
+  "trackio==0.33.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+few-shot-lowk-prepare = "pretrain_smolvla_low_k_deterministic_repro.prepare:main"
+few-shot-lowk-selection = "pretrain_smolvla_low_k_deterministic_repro.selection:main"
+few-shot-lowk-dataset-smoke = "pretrain_smolvla_low_k_deterministic_repro.dataset_smoke:main"
+few-shot-lowk-audit = "pretrain_smolvla_low_k_deterministic_repro.audit:main"
+few-shot-lowk-train = "pretrain_smolvla_low_k_deterministic_repro.training:main"
+few-shot-lowk-evaluate = "pretrain_smolvla_low_k_deterministic_repro.evaluate:main"
+few-shot-lowk-determinism = "pretrain_smolvla_low_k_deterministic_repro.determinism:main"
+few-shot-lowk-orchestrate = "pretrain_smolvla_low_k_deterministic_repro.orchestrate:main"
+few-shot-lowk-aggregate = "pretrain_smolvla_low_k_deterministic_repro.aggregate:main"
+few-shot-lowk-trackio = "pretrain_smolvla_low_k_deterministic_repro.trackio_report:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+torchcodec = { index = "pytorch-cu126" }
+torchvision = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true

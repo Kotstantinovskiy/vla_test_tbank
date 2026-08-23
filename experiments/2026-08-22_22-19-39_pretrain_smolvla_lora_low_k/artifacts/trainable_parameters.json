@@ -1,0 +1,98 @@
+{
+  "base": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model",
+  "peft": {
+    "method": "LORA",
+    "r": 16,
+    "lora_alpha": 32,
+    "target_modules": "model\\.vlm_with_expert\\.vlm\\.model\\.(?:text_model\\.layers\\.(?:[0-9]|1[0-4])\\.(?:self_attn\\.(?:q|k|v|o)_proj|mlp\\.(?:gate|up|down)_proj)|vision_model\\.encoder\\.layers\\.\\d+\\.(?:self_attn\\.(?:q|k|v|out)_proj|mlp\\.fc[12])|connector\\.modality_projection\\.proj)",
+    "modules_to_save": [
+      "model.vlm_with_expert.lm_expert",
+      "model.state_proj",
+      "model.action_in_proj",
+      "model.action_out_proj",
+      "model.action_time_mlp_in",
+      "model.action_time_mlp_out"
+    ]
+  },
+  "flags": {
+    "freeze_vision_encoder": true,
+    "train_expert_only": true,
+    "train_state_proj": true
+  },
+  "total_parameters": 556863744,
+  "trainable_parameters": 106817568,
+  "frozen_parameters": 450046176,
+  "trainable_tensor_count": 511,
+  "frozen_tensor_count": 500,
+  "lora_parameter_count": 6936576,
+  "full_training_parameter_count": 99880992,
+  "lora_target_counts": {
+    "text": 105,
+    "vision": 72,
+    "connector": 1
+  },
+  "trainable_groups": {
+    "lora_parameters": {
+      "tensor_count": 356,
+      "examples": [
+        "base_model.model.model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.k_proj.lora_A.default.weight",
+        "base_model.model.model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.k_proj.lora_B.default.weight",
+        "base_model.model.model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.v_proj.lora_A.default.weight",
+        "base_model.model.model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.v_proj.lora_B.default.weight",
+        "base_model.model.model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.q_proj.lora_A.default.weight",
+        "base_model.model.model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.q_proj.lora_B.default.weight"
+      ]
+    },
+    "full_training_parameters": {
+      "tensor_count": 155,
+      "examples": [
+        "base_model.model.model.vlm_with_expert.lm_expert.modules_to_save.default.layers.0.self_attn.q_proj.weight",
+        "base_model.model.model.vlm_with_expert.lm_expert.modules_to_save.default.layers.0.self_attn.k_proj.weight",
+        "base_model.model.model.vlm_with_expert.lm_expert.modules_to_save.default.layers.0.self_attn.v_proj.weight",
+        "base_model.model.model.vlm_with_expert.lm_expert.modules_to_save.default.layers.0.self_attn.o_proj.weight",
+        "base_model.model.model.vlm_with_expert.lm_expert.modules_to_save.default.layers.0.mlp.gate_proj.weight",
+        "base_model.model.model.vlm_with_expert.lm_expert.modules_to_save.default.layers.0.mlp.up_proj.weight"
+      ]
+    },
+    "lora_target_modules": {
+      "tensor_count": 178,
+      "examples": [
+        "model.vlm_with_expert.vlm.model.connector.modality_projection.proj",
+        "model.vlm_with_expert.vlm.model.text_model.layers.0.mlp.down_proj",
+        "model.vlm_with_expert.vlm.model.text_model.layers.0.mlp.gate_proj",
+        "model.vlm_with_expert.vlm.model.text_model.layers.0.mlp.up_proj",
+        "model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.k_proj",
+        "model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.o_proj"
+      ]
+    },
+    "lora_text_targets": {
+      "tensor_count": 105,
+      "examples": [
+        "model.vlm_with_expert.vlm.model.text_model.layers.0.mlp.down_proj",
+        "model.vlm_with_expert.vlm.model.text_model.layers.0.mlp.gate_proj",
+        "model.vlm_with_expert.vlm.model.text_model.layers.0.mlp.up_proj",
+        "model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.k_proj",
+        "model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.o_proj",
+        "model.vlm_with_expert.vlm.model.text_model.layers.0.self_attn.q_proj"
+      ]
+    },
+    "lora_vision_targets": {
+      "tensor_count": 72,
+      "examples": [
+        "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.mlp.fc1",
+        "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.mlp.fc2",
+        "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.k_proj",
+        "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.out_proj",
+        "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.q_proj",
+        "model.vlm_with_expert.vlm.model.vision_model.encoder.layers.0.self_attn.v_proj"
+      ]
+    },
+    "lora_connector_targets": {
+      "tensor_count": 1,
+      "examples": [
+        "model.vlm_with_expert.vlm.model.connector.modality_projection.proj"
+      ]
+    }
+  },
+  "forbidden_trainable": []
+}
