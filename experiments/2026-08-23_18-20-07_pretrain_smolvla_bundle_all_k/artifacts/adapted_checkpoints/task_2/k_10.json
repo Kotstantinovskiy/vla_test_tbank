@@ -1,0 +1,17 @@
+{
+  "task_id": 2,
+  "demo_budget": 10,
+  "bundle": {
+    "full_fine_tune": true,
+    "image_transforms": "lerobot defaults, enabled",
+    "state_noise_alpha": 0.1,
+    "noise_stream_seed": 91000,
+    "train_steps": 2000
+  },
+  "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_10/checkpoints/002000/pretrained_model",
+  "training_step": 2000,
+  "chunk_size": 50,
+  "trained_n_action_steps": 50,
+  "model_safetensors_bytes": 906712520,
+  "model_safetensors_sha256": "0e1c2940877f37ed187318aca237e33c54c751099af614df1ce6f07ff9fcae4e"
+}

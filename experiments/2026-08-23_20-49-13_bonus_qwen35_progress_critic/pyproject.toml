@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bonus-qwen35-progress-critic"
+version = "0.1.0"
+description = "Bonus B: Qwen3.5-4B video progress critic trained on LIBERO-90"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "accelerate==1.14.0",
+  "av==15.1.0",
+  "huggingface-hub>=0.35",
+  "matplotlib>=3.10",
+  "numpy>=2",
+  "peft==0.20.0",
+  "pillow>=11",
+  "pyarrow>=21",
+  "PyYAML>=6",
+  "safetensors>=0.6",
+  "torch==2.7.1+cu126",
+  "trackio==0.33.0",
+  "transformers==5.5.4",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+bonus-progress-prepare = "bonus_qwen35_progress_critic.prepare:main"
+bonus-progress-smoke-data = "bonus_qwen35_progress_critic.smoke_data:main"
+bonus-progress-train = "bonus_qwen35_progress_critic.train:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true

@@ -1,0 +1,51 @@
+experiment:
+  name: bonus-critic-vs-robometer-ranking
+  created_at: "2026-08-23T23:03:30+03:00"
+  seed: 1000
+  gpu: 0
+
+scope:
+  suite: libero_goal
+  task_ids: [0, 1, 2]
+  budgets: [1, 2, 3, 5, 10, 25]
+  candidates: [pretrain, bundle_k_1, bundle_k_2, bundle_k_3, bundle_k_5, bundle_k_10, bundle_k_25]
+  episodes_per_candidate: 20
+  n_action_steps: 50
+  expected_videos: 420
+  frame_count: 4
+  frame_sampling: "round(linspace(0, decoded_frame_count - 1, 4))"
+
+tasks:
+  0: open the middle drawer of the cabinet
+  1: put the bowl on the stove
+  2: put the wine bottle on top of the cabinet
+
+sources:
+  bundle_experiment: /home/nbagent174/bpe_test/experiments/2026-08-23_18-20-07_pretrain_smolvla_bundle_all_k
+  pretrain_experiment: /home/nbagent174/bpe_test/experiments/2026-08-18_pretrain_smolvla_prompt_only_2
+  pretrain_checkpoint: /var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model
+
+own_critic:
+  base_repo: Qwen/Qwen3.5-4B
+  base_revision: 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a
+  checkpoint: /home/nbagent174/bpe_test/experiments/2026-08-23_20-49-13_bonus_qwen35_progress_critic/results/training/checkpoints/002000
+  checkpoint_selection: "minimum validation CE among saved checkpoints {200,400,...,2000}, fixed before target scoring"
+  num_progress_bins: 32
+  batch_size: 8
+  prompt_prefix: "Task instruction: {task}\nThe following four images are chronological frames from one robot trajectory."
+  prompt_suffix: "Estimate normalized task progress after the final frame."
+
+robometer:
+  repo: aliangdw/Robometer-4B-LIBERO
+  revision: 637fa8ecb7fb872cb5783c19d0825a08dc20fc8c
+  local_snapshot: /var/tmp/vla_hf/hub/models--aliangdw--Robometer-4B-LIBERO/snapshots/637fa8ecb7fb872cb5783c19d0825a08dc20fc8c
+  base_repo: Qwen/Qwen3-VL-4B-Instruct
+  base_revision: ebb281ec70b05090aa6165b016eac8ec08e71b17
+  base_processor_snapshot: /var/tmp/vla_hf/hub/models--Qwen--Qwen3-VL-4B-Instruct/snapshots/ebb281ec70b05090aa6165b016eac8ec08e71b17
+  progress_discrete_bins: 32
+  batch_size: 8
+  output: endpoint_progress
+
+analysis:
+  bootstrap_replicates: 2000
+  bootstrap_seed: 1000

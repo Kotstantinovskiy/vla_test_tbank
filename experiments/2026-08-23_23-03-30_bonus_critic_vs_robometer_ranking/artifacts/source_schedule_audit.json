@@ -1,0 +1,9 @@
+{
+  "bundle_video_path_component": "n_50",
+  "manifest_n_action_steps": [
+    50
+  ],
+  "pretrain_chunk_size": 50,
+  "pretrain_n_action_steps": 50,
+  "pretrain_policy_config": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model/config.json"
+}

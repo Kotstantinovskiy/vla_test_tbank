@@ -26,7 +26,7 @@
 ## Пайплайн
 
 ```bash
-cd /home/nbagent174/vla_test/experiments/2026-08-17_smolvla_pretrain_libero
+cd ~/experiments/2026-08-17_smolvla_pretrain_libero
 
 # 1. Конверсия (идемпотентна, атомарна per-suite; libero_90 требует полной
 #    загрузки официальных файлов).

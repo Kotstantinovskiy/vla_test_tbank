@@ -35,7 +35,20 @@ checkpoints go to `/var/tmp/vla_outputs/bundle_all_k_20260823_182007`
 
 ## Status
 
-Created 2026-08-23 18:20; **not launched yet**.
+Launched 2026-08-23 18:37, **completed 2026-08-23 21:48 local (18:48 UTC)** —
+wall clock ≈ 3h11m for 18 trainings + 57 evaluation runs (prediction 8's
+<6h bound met). 0 failures; determinism gate passed exactly at all three
+variants (n=50 7/20, n=35 4/20, n=25 2/20, both orders, zero mismatches).
+
+Mean cost curve over tasks 0–2:
+
+| n | k=1 | k=2 | k=3 | k=5 | k=10 | k=25 |
+|---|---|---|---|---|---|---|
+| 50 | 0.700 | 0.883 | 0.833 | 0.883 | 0.917 | 0.867 |
+| 35 | 0.667 | 0.750 | 0.833 | 0.833 | 0.867 | 0.933 |
+| 25 | 0.633 | 0.800 | 0.900 | 0.900 | 0.933 | **0.967** |
+
+See `reports/REPORT.md` and `results/summary/`.
 
 ## Launch sequence
 

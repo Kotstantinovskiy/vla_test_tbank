@@ -23,7 +23,7 @@ Notebook добавляет к исходному отчёту pooled Wilson 95%
 ## Запуск
 
 ```bash
-cd /home/nbagent174/vla_test
+cd vla_test
 
 # Интерактивное редактирование.
 /var/tmp/vla_tools/uv run --frozen marimo edit \

@@ -1,0 +1,8 @@
+{
+  "created_at": "2026-08-23T20:30:24.664940+00:00",
+  "plot": "plots/ranking_scatter",
+  "project": "bonus-critic-vs-robometer-ranking",
+  "representative_videos": 3,
+  "run": "n50-checkpoint-ranking-seed-1000",
+  "table": "tables/candidate_ranking"
+}

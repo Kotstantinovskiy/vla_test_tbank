@@ -1,8 +1,8 @@
 {
   "experiment": "pretrain_smolvla_bundle_all_k",
-  "state": "running",
+  "state": "completed",
   "started_at": "2026-08-23T16:11:08.577832+00:00",
-  "updated_at": "2026-08-23T17:31:30.402038+00:00",
+  "updated_at": "2026-08-23T18:48:30.737457+00:00",
   "scheduler": {
     "gpus": [
       1,
@@ -14,8 +14,8 @@
   },
   "total_training_jobs": 18,
   "total_evaluation_points": 54,
-  "completed_training_jobs": 12,
-  "completed_evaluation_points": 18,
+  "completed_training_jobs": 18,
+  "completed_evaluation_points": 54,
   "failed_jobs": 0,
   "jobs": {
     "task_0_k_1": {
@@ -92,26 +92,39 @@
     "task_2_k_1": {
       "task_id": 2,
       "budget": 1,
-      "state": "evaluating",
+      "state": "completed",
       "training_state": "completed",
-      "evaluation_state": "pending",
+      "evaluation_state": "completed",
       "evaluations": {
         "50": {
-          "state": "evaluating",
-          "gpu": 2
+          "state": "completed",
+          "gpu": 2,
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_1_n_50.log"
         },
         "35": {
-          "state": "evaluating",
-          "gpu": 2
+          "state": "completed",
+          "gpu": 2,
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_1_n_35.log"
         },
         "25": {
-          "state": "evaluating",
-          "gpu": 3
+          "state": "completed",
+          "gpu": 3,
+          "success_rate": 0.8,
+          "successes": 16,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_1_n_25.log"
         }
       },
       "gpu": 2,
       "started_at": "2026-08-23T16:11:08.579581+00:00",
-      "train_log": "results/logs/train/task_2_k_1.log"
+      "train_log": "results/logs/train/task_2_k_1.log",
+      "finished_at": "2026-08-23T17:54:24.493480+00:00"
     },
     "task_0_k_2": {
       "task_id": 0,
@@ -264,230 +277,411 @@
     "task_1_k_3": {
       "task_id": 1,
       "budget": 3,
-      "state": "evaluating",
+      "state": "completed",
       "training_state": "completed",
-      "evaluation_state": "pending",
+      "evaluation_state": "completed",
       "evaluations": {
         "50": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 2,
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_3_n_50.log"
         },
         "35": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 2,
+          "success_rate": 1.0,
+          "successes": 20,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_3_n_35.log"
         },
         "25": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 1,
+          "success_rate": 1.0,
+          "successes": 20,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_3_n_25.log"
         }
       },
       "gpu": 2,
       "started_at": "2026-08-23T16:37:48.119992+00:00",
-      "train_log": "results/logs/train/task_1_k_3.log"
+      "train_log": "results/logs/train/task_1_k_3.log",
+      "finished_at": "2026-08-23T18:09:10.150942+00:00"
     },
     "task_2_k_3": {
       "task_id": 2,
       "budget": 3,
-      "state": "evaluating",
+      "state": "completed",
       "training_state": "completed",
-      "evaluation_state": "pending",
+      "evaluation_state": "completed",
       "evaluations": {
         "50": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 3,
+          "success_rate": 0.9,
+          "successes": 18,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_3_n_50.log"
         },
         "35": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 3,
+          "success_rate": 0.7,
+          "successes": 14,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_3_n_35.log"
         },
         "25": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 1,
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_3_n_25.log"
         }
       },
       "gpu": 1,
       "started_at": "2026-08-23T16:37:57.820058+00:00",
-      "train_log": "results/logs/train/task_2_k_3.log"
+      "train_log": "results/logs/train/task_2_k_3.log",
+      "finished_at": "2026-08-23T18:20:56.048379+00:00"
     },
     "task_0_k_5": {
       "task_id": 0,
       "budget": 5,
-      "state": "evaluating",
+      "state": "completed",
       "training_state": "completed",
-      "evaluation_state": "pending",
+      "evaluation_state": "completed",
       "evaluations": {
         "50": {
-          "state": "evaluating",
-          "gpu": 3
+          "state": "completed",
+          "gpu": 3,
+          "success_rate": 0.9,
+          "successes": 18,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_0_k_5_n_50.log"
         },
         "35": {
-          "state": "evaluating",
-          "gpu": 1
+          "state": "completed",
+          "gpu": 1,
+          "success_rate": 0.9,
+          "successes": 18,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_0_k_5_n_35.log"
         },
         "25": {
-          "state": "evaluating",
-          "gpu": 1
+          "state": "completed",
+          "gpu": 1,
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_0_k_5_n_25.log"
         }
       },
       "gpu": 3,
       "started_at": "2026-08-23T16:45:21.559925+00:00",
-      "train_log": "results/logs/train/task_0_k_5.log"
+      "train_log": "results/logs/train/task_0_k_5.log",
+      "finished_at": "2026-08-23T18:00:28.567561+00:00"
     },
     "task_1_k_5": {
       "task_id": 1,
       "budget": 5,
-      "state": "evaluating",
+      "state": "completed",
       "training_state": "completed",
-      "evaluation_state": "pending",
+      "evaluation_state": "completed",
       "evaluations": {
         "50": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 1,
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_5_n_50.log"
         },
         "35": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 2,
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_5_n_35.log"
         },
         "25": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 2,
+          "success_rate": 1.0,
+          "successes": 20,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_5_n_25.log"
         }
       },
       "gpu": 3,
       "started_at": "2026-08-23T16:46:03.750262+00:00",
-      "train_log": "results/logs/train/task_1_k_5.log"
+      "train_log": "results/logs/train/task_1_k_5.log",
+      "finished_at": "2026-08-23T18:02:57.506398+00:00"
     },
     "task_2_k_5": {
       "task_id": 2,
       "budget": 5,
-      "state": "training",
-      "training_state": "training",
-      "evaluation_state": "pending",
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
       "evaluations": {
         "50": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 1,
+          "success_rate": 0.8,
+          "successes": 16,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_5_n_50.log"
         },
         "35": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 1,
+          "success_rate": 0.65,
+          "successes": 13,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_5_n_35.log"
         },
         "25": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 2,
+          "success_rate": 0.75,
+          "successes": 15,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_5_n_25.log"
         }
       },
       "gpu": 1,
-      "started_at": "2026-08-23T16:55:58.893838+00:00"
+      "started_at": "2026-08-23T16:55:58.893838+00:00",
+      "train_log": "results/logs/train/task_2_k_5.log",
+      "finished_at": "2026-08-23T18:32:00.133026+00:00"
     },
     "task_0_k_10": {
       "task_id": 0,
       "budget": 10,
-      "state": "evaluating",
+      "state": "completed",
       "training_state": "completed",
-      "evaluation_state": "pending",
+      "evaluation_state": "completed",
       "evaluations": {
         "50": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 2,
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_0_k_10_n_50.log"
         },
         "35": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 3,
+          "success_rate": 0.8,
+          "successes": 16,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_0_k_10_n_35.log"
         },
         "25": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 3,
+          "success_rate": 0.9,
+          "successes": 18,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_0_k_10_n_25.log"
         }
       },
       "gpu": 2,
       "started_at": "2026-08-23T17:00:03.618851+00:00",
-      "train_log": "results/logs/train/task_0_k_10.log"
+      "train_log": "results/logs/train/task_0_k_10.log",
+      "finished_at": "2026-08-23T18:27:52.577299+00:00"
     },
     "task_1_k_10": {
       "task_id": 1,
       "budget": 10,
-      "state": "training",
-      "training_state": "training",
-      "evaluation_state": "pending",
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
       "evaluations": {
         "50": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 1,
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_10_n_50.log"
         },
         "35": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 2,
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_10_n_35.log"
         },
         "25": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 3,
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_10_n_25.log"
         }
       },
       "gpu": 3,
-      "started_at": "2026-08-23T17:20:36.097787+00:00"
+      "started_at": "2026-08-23T17:20:36.097787+00:00",
+      "train_log": "results/logs/train/task_1_k_10.log",
+      "finished_at": "2026-08-23T18:44:38.344557+00:00"
     },
     "task_2_k_10": {
       "task_id": 2,
       "budget": 10,
-      "state": "training",
-      "training_state": "training",
-      "evaluation_state": "pending",
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
       "evaluations": {
         "50": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 3,
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_10_n_50.log"
         },
         "35": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 2,
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_10_n_35.log"
         },
         "25": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 1,
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_10_n_25.log"
         }
       },
       "gpu": 3,
-      "started_at": "2026-08-23T17:23:51.332434+00:00"
+      "started_at": "2026-08-23T17:23:51.332434+00:00",
+      "train_log": "results/logs/train/task_2_k_10.log",
+      "finished_at": "2026-08-23T18:48:14.319587+00:00"
     },
     "task_0_k_25": {
       "task_id": 0,
       "budget": 25,
-      "state": "training",
-      "training_state": "training",
-      "evaluation_state": "pending",
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
       "evaluations": {
         "50": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 2,
+          "success_rate": 0.75,
+          "successes": 15,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_0_k_25_n_50.log"
         },
         "35": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 2,
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_0_k_25_n_35.log"
         },
         "25": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 1,
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_0_k_25_n_25.log"
         }
       },
       "gpu": 2,
-      "started_at": "2026-08-23T17:24:37.728687+00:00"
+      "started_at": "2026-08-23T17:24:37.728687+00:00",
+      "train_log": "results/logs/train/task_0_k_25.log",
+      "finished_at": "2026-08-23T18:37:34.744275+00:00"
     },
     "task_1_k_25": {
       "task_id": 1,
       "budget": 25,
-      "state": "training",
-      "training_state": "training",
-      "evaluation_state": "pending",
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
       "evaluations": {
         "50": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 3,
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_25_n_50.log"
         },
         "35": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 1,
+          "success_rate": 1.0,
+          "successes": 20,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_25_n_35.log"
         },
         "25": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 3,
+          "success_rate": 1.0,
+          "successes": 20,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_1_k_25_n_25.log"
         }
       },
       "gpu": 1,
-      "started_at": "2026-08-23T17:25:29.378670+00:00"
+      "started_at": "2026-08-23T17:25:29.378670+00:00",
+      "train_log": "results/logs/train/task_1_k_25.log",
+      "finished_at": "2026-08-23T18:39:50.804535+00:00"
     },
     "task_2_k_25": {
       "task_id": 2,
       "budget": 25,
-      "state": "training",
-      "training_state": "training",
-      "evaluation_state": "pending",
+      "state": "completed",
+      "training_state": "completed",
+      "evaluation_state": "completed",
       "evaluations": {
         "50": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 3,
+          "success_rate": 0.9,
+          "successes": 18,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_25_n_50.log"
         },
         "35": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 2,
+          "success_rate": 0.85,
+          "successes": 17,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_25_n_35.log"
         },
         "25": {
-          "state": "pending"
+          "state": "completed",
+          "gpu": 1,
+          "success_rate": 0.95,
+          "successes": 19,
+          "trials": 20,
+          "eval_log": "results/logs/eval/task_2_k_25_n_25.log"
         }
       },
       "gpu": 2,
-      "started_at": "2026-08-23T17:29:49.301302+00:00"
+      "started_at": "2026-08-23T17:29:49.301302+00:00",
+      "train_log": "results/logs/train/task_2_k_25.log",
+      "finished_at": "2026-08-23T18:47:58.488246+00:00"
     }
-  }
+  },
+  "finished_at": "2026-08-23T18:48:30.737444+00:00",
+  "summary": "results/summary/summary.json"
 }

@@ -21,4 +21,5 @@ experiments/*/artifacts/seen_image_schema/
 experiments/*/artifacts/libero_config/
 experiments/*/artifacts/trackio/
 experiments/*/results/logs/
+experiments/*/results/training/checkpoints/
 experiments/*/results/**/videos/

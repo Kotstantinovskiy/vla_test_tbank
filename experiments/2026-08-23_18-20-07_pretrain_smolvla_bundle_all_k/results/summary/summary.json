@@ -1,0 +1,642 @@
+{
+  "experiment": "pretrain_smolvla_bundle_all_k",
+  "base_checkpoint": {
+    "path": "/var/tmp/vla_outputs/seen_libero90_official_20260817/checkpoints/030000/pretrained_model",
+    "provenance": {
+      "pretraining_experiment": "2026-08-17_smolvla_pretrain_libero",
+      "base_model_repo": "lerobot/smolvla_base",
+      "base_model_revision": "c83c3163b8ca9b7e67c509fffd9121e66cb96205",
+      "seen_positive_control": "libero_90 task 0: 20/20",
+      "zero_shot_reference": "2026-08-19_pretrain_smolvla_prompt_only_3: true 1/200; per-episode deterministic noise"
+    }
+  },
+  "protocol": {
+    "suite": "libero_goal",
+    "seed": 1000,
+    "eval_batch_size": 1,
+    "noise_seeding": "per-episode torch/CUDA seed = 1000 + episode_index",
+    "eval_episodes": 20,
+    "budgets": [
+      1,
+      2,
+      3,
+      5,
+      10,
+      25
+    ],
+    "eval_action_steps": [
+      50,
+      35,
+      25
+    ],
+    "trained_n_action_steps": 50
+  },
+  "zero_shot_reference": {
+    "experiment": "2026-08-19_pretrain_smolvla_prompt_only_3",
+    "mean_success": 0.0,
+    "per_task_successes": {}
+  },
+  "tasks": {
+    "0": {
+      "instruction": "open the middle drawer of the cabinet",
+      "budgets": {
+        "1": {
+          "action_steps": {
+            "50": {
+              "successes": 7,
+              "trials": 20,
+              "success_rate": 0.35,
+              "ci95_low": 0.18119182410108206,
+              "ci95_high": 0.5671457233147638,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_1/checkpoints/001000/pretrained_model",
+              "model_safetensors_sha256": "05b4f4afa6daf2b03d4d36f057b50e6c6e3b33914ec4ca62dd4d16edc85999c4"
+            },
+            "35": {
+              "successes": 4,
+              "trials": 20,
+              "success_rate": 0.2,
+              "ci95_low": 0.08065766257979806,
+              "ci95_high": 0.41601743225189364,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_1/checkpoints/001000/pretrained_model",
+              "model_safetensors_sha256": "05b4f4afa6daf2b03d4d36f057b50e6c6e3b33914ec4ca62dd4d16edc85999c4"
+            },
+            "25": {
+              "successes": 2,
+              "trials": 20,
+              "success_rate": 0.1,
+              "ci95_low": 0.027866481213768224,
+              "ci95_high": 0.3010336452284873,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_1/checkpoints/001000/pretrained_model",
+              "model_safetensors_sha256": "05b4f4afa6daf2b03d4d36f057b50e6c6e3b33914ec4ca62dd4d16edc85999c4"
+            }
+          }
+        },
+        "2": {
+          "action_steps": {
+            "50": {
+              "successes": 16,
+              "trials": 20,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_2/checkpoints/001500/pretrained_model",
+              "model_safetensors_sha256": "0f804003ebf05b01d8cf5a6afd628703a80a8f2e1a27b8de46b8bf7ae9aded51"
+            },
+            "35": {
+              "successes": 13,
+              "trials": 20,
+              "success_rate": 0.65,
+              "ci95_low": 0.43285427668523624,
+              "ci95_high": 0.818808175898918,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_2/checkpoints/001500/pretrained_model",
+              "model_safetensors_sha256": "0f804003ebf05b01d8cf5a6afd628703a80a8f2e1a27b8de46b8bf7ae9aded51"
+            },
+            "25": {
+              "successes": 13,
+              "trials": 20,
+              "success_rate": 0.65,
+              "ci95_low": 0.43285427668523624,
+              "ci95_high": 0.818808175898918,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_2/checkpoints/001500/pretrained_model",
+              "model_safetensors_sha256": "0f804003ebf05b01d8cf5a6afd628703a80a8f2e1a27b8de46b8bf7ae9aded51"
+            }
+          }
+        },
+        "3": {
+          "action_steps": {
+            "50": {
+              "successes": 13,
+              "trials": 20,
+              "success_rate": 0.65,
+              "ci95_low": 0.43285427668523624,
+              "ci95_high": 0.818808175898918,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "ff84e6a03dfdf75e38591fb9ae8b90ec17d5640cfda96761f3ea4e8157936a27"
+            },
+            "35": {
+              "successes": 16,
+              "trials": 20,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "ff84e6a03dfdf75e38591fb9ae8b90ec17d5640cfda96761f3ea4e8157936a27"
+            },
+            "25": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "ff84e6a03dfdf75e38591fb9ae8b90ec17d5640cfda96761f3ea4e8157936a27"
+            }
+          }
+        },
+        "5": {
+          "action_steps": {
+            "50": {
+              "successes": 18,
+              "trials": 20,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_5/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "484a64dbdacb4457d2cbae2a954af978a054fe9c8a55de84fc7955e6929fd78c"
+            },
+            "35": {
+              "successes": 18,
+              "trials": 20,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_5/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "484a64dbdacb4457d2cbae2a954af978a054fe9c8a55de84fc7955e6929fd78c"
+            },
+            "25": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_5/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "484a64dbdacb4457d2cbae2a954af978a054fe9c8a55de84fc7955e6929fd78c"
+            }
+          }
+        },
+        "10": {
+          "action_steps": {
+            "50": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_10/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "c05267030575ed2b5814d489ce6a35d750275f5c045926cdef27b4d715dabb91"
+            },
+            "35": {
+              "successes": 16,
+              "trials": 20,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_10/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "c05267030575ed2b5814d489ce6a35d750275f5c045926cdef27b4d715dabb91"
+            },
+            "25": {
+              "successes": 18,
+              "trials": 20,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_10/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "c05267030575ed2b5814d489ce6a35d750275f5c045926cdef27b4d715dabb91"
+            }
+          }
+        },
+        "25": {
+          "action_steps": {
+            "50": {
+              "successes": 15,
+              "trials": 20,
+              "success_rate": 0.75,
+              "ci95_low": 0.531299122381256,
+              "ci95_high": 0.8881382985923343,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_25/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "8bd1c6ac108452da7d95449ead3e7bf8061929ec3df26e41f8bab79ce0f3fdcf"
+            },
+            "35": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_25/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "8bd1c6ac108452da7d95449ead3e7bf8061929ec3df26e41f8bab79ce0f3fdcf"
+            },
+            "25": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_0/k_25/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "8bd1c6ac108452da7d95449ead3e7bf8061929ec3df26e41f8bab79ce0f3fdcf"
+            }
+          }
+        }
+      }
+    },
+    "1": {
+      "instruction": "put the bowl on the stove",
+      "budgets": {
+        "1": {
+          "action_steps": {
+            "50": {
+              "successes": 18,
+              "trials": 20,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_1/checkpoints/001000/pretrained_model",
+              "model_safetensors_sha256": "3aa7c124597b65148fee5e8ebedec31d406a78f9e27a7c1e2791959d8dc35c78"
+            },
+            "35": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_1/checkpoints/001000/pretrained_model",
+              "model_safetensors_sha256": "3aa7c124597b65148fee5e8ebedec31d406a78f9e27a7c1e2791959d8dc35c78"
+            },
+            "25": {
+              "successes": 20,
+              "trials": 20,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_1/checkpoints/001000/pretrained_model",
+              "model_safetensors_sha256": "3aa7c124597b65148fee5e8ebedec31d406a78f9e27a7c1e2791959d8dc35c78"
+            }
+          }
+        },
+        "2": {
+          "action_steps": {
+            "50": {
+              "successes": 20,
+              "trials": 20,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_2/checkpoints/001500/pretrained_model",
+              "model_safetensors_sha256": "7cd714f929090803f65c1961929f93c1fe5afc14728e3a67b945d2c167c77bcb"
+            },
+            "35": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_2/checkpoints/001500/pretrained_model",
+              "model_safetensors_sha256": "7cd714f929090803f65c1961929f93c1fe5afc14728e3a67b945d2c167c77bcb"
+            },
+            "25": {
+              "successes": 20,
+              "trials": 20,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_2/checkpoints/001500/pretrained_model",
+              "model_safetensors_sha256": "7cd714f929090803f65c1961929f93c1fe5afc14728e3a67b945d2c167c77bcb"
+            }
+          }
+        },
+        "3": {
+          "action_steps": {
+            "50": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "dc1b9805fa52d2478119b2d48bc3a2a9032aecb765bcc16c09b727150ea0c5b8"
+            },
+            "35": {
+              "successes": 20,
+              "trials": 20,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "dc1b9805fa52d2478119b2d48bc3a2a9032aecb765bcc16c09b727150ea0c5b8"
+            },
+            "25": {
+              "successes": 20,
+              "trials": 20,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "dc1b9805fa52d2478119b2d48bc3a2a9032aecb765bcc16c09b727150ea0c5b8"
+            }
+          }
+        },
+        "5": {
+          "action_steps": {
+            "50": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_5/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "72d78d51482edca661456a14fa872d38ea0a9c065a0aaf32fe22ec1002a3ce45"
+            },
+            "35": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_5/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "72d78d51482edca661456a14fa872d38ea0a9c065a0aaf32fe22ec1002a3ce45"
+            },
+            "25": {
+              "successes": 20,
+              "trials": 20,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_5/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "72d78d51482edca661456a14fa872d38ea0a9c065a0aaf32fe22ec1002a3ce45"
+            }
+          }
+        },
+        "10": {
+          "action_steps": {
+            "50": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_10/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "50a2b06e430b911b0f1874d3d826383463afdc81ba1c0d2f0574bb50d40f8fd1"
+            },
+            "35": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_10/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "50a2b06e430b911b0f1874d3d826383463afdc81ba1c0d2f0574bb50d40f8fd1"
+            },
+            "25": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_10/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "50a2b06e430b911b0f1874d3d826383463afdc81ba1c0d2f0574bb50d40f8fd1"
+            }
+          }
+        },
+        "25": {
+          "action_steps": {
+            "50": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_25/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "eb716c00667c8582f1e46fb49d387d14319a6ce8f63fa8796166be890d5e58c1"
+            },
+            "35": {
+              "successes": 20,
+              "trials": 20,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_25/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "eb716c00667c8582f1e46fb49d387d14319a6ce8f63fa8796166be890d5e58c1"
+            },
+            "25": {
+              "successes": 20,
+              "trials": 20,
+              "success_rate": 1.0,
+              "ci95_low": 0.8388748419471806,
+              "ci95_high": 1.0,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_1/k_25/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "eb716c00667c8582f1e46fb49d387d14319a6ce8f63fa8796166be890d5e58c1"
+            }
+          }
+        }
+      }
+    },
+    "2": {
+      "instruction": "put the wine bottle on top of the cabinet",
+      "budgets": {
+        "1": {
+          "action_steps": {
+            "50": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_1/checkpoints/001000/pretrained_model",
+              "model_safetensors_sha256": "537381bfed9fff90d2e87a04bca5157266a50a822a0bf091995477412df8c22e"
+            },
+            "35": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_1/checkpoints/001000/pretrained_model",
+              "model_safetensors_sha256": "537381bfed9fff90d2e87a04bca5157266a50a822a0bf091995477412df8c22e"
+            },
+            "25": {
+              "successes": 16,
+              "trials": 20,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_1/checkpoints/001000/pretrained_model",
+              "model_safetensors_sha256": "537381bfed9fff90d2e87a04bca5157266a50a822a0bf091995477412df8c22e"
+            }
+          }
+        },
+        "2": {
+          "action_steps": {
+            "50": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_2/checkpoints/001500/pretrained_model",
+              "model_safetensors_sha256": "473acb9efff229e6584520c93fbe8eaf8ac0399b2fdcb60d04560c362037031a"
+            },
+            "35": {
+              "successes": 13,
+              "trials": 20,
+              "success_rate": 0.65,
+              "ci95_low": 0.43285427668523624,
+              "ci95_high": 0.818808175898918,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_2/checkpoints/001500/pretrained_model",
+              "model_safetensors_sha256": "473acb9efff229e6584520c93fbe8eaf8ac0399b2fdcb60d04560c362037031a"
+            },
+            "25": {
+              "successes": 15,
+              "trials": 20,
+              "success_rate": 0.75,
+              "ci95_low": 0.531299122381256,
+              "ci95_high": 0.8881382985923343,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_2/checkpoints/001500/pretrained_model",
+              "model_safetensors_sha256": "473acb9efff229e6584520c93fbe8eaf8ac0399b2fdcb60d04560c362037031a"
+            }
+          }
+        },
+        "3": {
+          "action_steps": {
+            "50": {
+              "successes": 18,
+              "trials": 20,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "095a8b1432ec2ff5c6c3bd7112072f87f973a2ec89a7e76e70830262416afb1c"
+            },
+            "35": {
+              "successes": 14,
+              "trials": 20,
+              "success_rate": 0.7,
+              "ci95_low": 0.4810271816464765,
+              "ci95_high": 0.8545227551323956,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "095a8b1432ec2ff5c6c3bd7112072f87f973a2ec89a7e76e70830262416afb1c"
+            },
+            "25": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_3/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "095a8b1432ec2ff5c6c3bd7112072f87f973a2ec89a7e76e70830262416afb1c"
+            }
+          }
+        },
+        "5": {
+          "action_steps": {
+            "50": {
+              "successes": 16,
+              "trials": 20,
+              "success_rate": 0.8,
+              "ci95_low": 0.5839825677481064,
+              "ci95_high": 0.919342337420202,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_5/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "5a297216f2f5aa05ad51acbeb678c53477c1f3cd7f58afc2e094150eedd78d58"
+            },
+            "35": {
+              "successes": 13,
+              "trials": 20,
+              "success_rate": 0.65,
+              "ci95_low": 0.43285427668523624,
+              "ci95_high": 0.818808175898918,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_5/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "5a297216f2f5aa05ad51acbeb678c53477c1f3cd7f58afc2e094150eedd78d58"
+            },
+            "25": {
+              "successes": 15,
+              "trials": 20,
+              "success_rate": 0.75,
+              "ci95_low": 0.531299122381256,
+              "ci95_high": 0.8881382985923343,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_5/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "5a297216f2f5aa05ad51acbeb678c53477c1f3cd7f58afc2e094150eedd78d58"
+            }
+          }
+        },
+        "10": {
+          "action_steps": {
+            "50": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_10/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "0e1c2940877f37ed187318aca237e33c54c751099af614df1ce6f07ff9fcae4e"
+            },
+            "35": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_10/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "0e1c2940877f37ed187318aca237e33c54c751099af614df1ce6f07ff9fcae4e"
+            },
+            "25": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_10/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "0e1c2940877f37ed187318aca237e33c54c751099af614df1ce6f07ff9fcae4e"
+            }
+          }
+        },
+        "25": {
+          "action_steps": {
+            "50": {
+              "successes": 18,
+              "trials": 20,
+              "success_rate": 0.9,
+              "ci95_low": 0.6989663547715128,
+              "ci95_high": 0.9721335187862319,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_25/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "9f307ebe662bf009944187a8cf58a6d185de8c01138a5bc0a0f08992dc3f17ac"
+            },
+            "35": {
+              "successes": 17,
+              "trials": 20,
+              "success_rate": 0.85,
+              "ci95_low": 0.6395811352592431,
+              "ci95_high": 0.9476312541037835,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_25/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "9f307ebe662bf009944187a8cf58a6d185de8c01138a5bc0a0f08992dc3f17ac"
+            },
+            "25": {
+              "successes": 19,
+              "trials": 20,
+              "success_rate": 0.95,
+              "ci95_low": 0.763868806553258,
+              "ci95_high": 0.9911185511992047,
+              "model": "/var/tmp/vla_outputs/bundle_all_k_20260823_182007/task_2/k_25/checkpoints/002000/pretrained_model",
+              "model_safetensors_sha256": "9f307ebe662bf009944187a8cf58a6d185de8c01138a5bc0a0f08992dc3f17ac"
+            }
+          }
+        }
+      }
+    }
+  },
+  "cost_curve": {
+    "mean_tasks_0_2": {
+      "50": {
+        "1": 0.7000000000000001,
+        "2": 0.8833333333333333,
+        "3": 0.8333333333333334,
+        "5": 0.8833333333333333,
+        "10": 0.9166666666666666,
+        "25": 0.8666666666666667
+      },
+      "35": {
+        "1": 0.6666666666666666,
+        "2": 0.75,
+        "3": 0.8333333333333334,
+        "5": 0.8333333333333334,
+        "10": 0.8666666666666667,
+        "25": 0.9333333333333332
+      },
+      "25": {
+        "1": 0.6333333333333334,
+        "2": 0.7999999999999999,
+        "3": 0.9,
+        "5": 0.9,
+        "10": 0.9333333333333332,
+        "25": 0.9666666666666667
+      }
+    }
+  }
+}

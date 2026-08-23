@@ -1,0 +1,13 @@
+{
+  "contains_target_labels": false,
+  "created_at": "2026-08-23T20:30:24.180758+00:00",
+  "entries": 420,
+  "manifest_path": "/home/nbagent174/bpe_test/experiments/2026-08-23_23-03-30_bonus_critic_vs_robometer_ranking/artifacts/video_manifest_blind.jsonl",
+  "manifest_sha256": "ff886924ef703ce5dcd04ae8bb9e057b2f3de48275ca9257edd1b7c1d0078dba",
+  "n_action_steps": 50,
+  "task_counts": {
+    "0": 140,
+    "1": 140,
+    "2": 140
+  }
+}

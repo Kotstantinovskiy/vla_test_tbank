@@ -1,0 +1,25 @@
+{
+  "allowed_missing_keys": [
+    "model.lm_head.weight"
+  ],
+  "checkpoint_keys": 1242,
+  "lora_alpha": 64,
+  "lora_rank": 32,
+  "model_keys": 1243,
+  "progress_bins": 32,
+  "repo": "aliangdw/Robometer-4B-LIBERO",
+  "revision": "637fa8ecb7fb872cb5783c19d0825a08dc20fc8c",
+  "unexpected_keys": [],
+  "weight_shards": [
+    {
+      "bytes": 4980925662,
+      "name": "model-00001-of-00002.safetensors",
+      "sha256": "670b398b789f3370b92438a18a491b268eb83758829057d051e6f4c92e02f5cb"
+    },
+    {
+      "bytes": 4184116144,
+      "name": "model-00002-of-00002.safetensors",
+      "sha256": "a52783a73ea25bb1acfe15221050bbbecff02c4db50ade0d16671c5b346c5212"
+    }
+  ]
+}

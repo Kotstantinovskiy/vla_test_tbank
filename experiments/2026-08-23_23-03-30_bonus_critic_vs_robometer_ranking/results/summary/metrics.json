@@ -1,0 +1,108 @@
+{
+  "bootstrap": {
+    "own": {
+      "macro_spearman_ci95": [
+        0.07205076239625363,
+        0.6018731873668034
+      ]
+    },
+    "own_minus_robometer": {
+      "macro_spearman_ci95": [
+        -0.3791960906697403,
+        0.32845275018157855
+      ],
+      "probability_gt_zero": 0.481
+    },
+    "replicates": 2000,
+    "robometer": {
+      "macro_spearman_ci95": [
+        0.12927313105647603,
+        0.5900480069313746
+      ]
+    },
+    "seed": 1000
+  },
+  "macro": {
+    "own": {
+      "kendall_tau": 0.24497019685928087,
+      "mean_top_regret": 0.20000000000000004,
+      "spearman_rho": 0.29395439615238944,
+      "top_set_accuracy": 0.3333333333333333
+    },
+    "robometer": {
+      "kendall_tau": 0.2843733494802115,
+      "mean_top_regret": 0.3333333333333333,
+      "spearman_rho": 0.3001185334523839,
+      "top_set_accuracy": 0.6666666666666666
+    }
+  },
+  "n_action_steps": 50,
+  "per_task": {
+    "0": {
+      "own": {
+        "kendall_tau": -0.04761904761904762,
+        "selected_candidate": "bundle_k_1",
+        "selected_success_rate": 0.35,
+        "spearman_rho": -0.07142857142857144,
+        "top_regret": 0.55,
+        "top_set_hit": false
+      },
+      "robometer": {
+        "kendall_tau": 0.8095238095238096,
+        "selected_candidate": "bundle_k_5",
+        "selected_success_rate": 0.9,
+        "spearman_rho": 0.8928571428571429,
+        "top_regret": 0.0,
+        "top_set_hit": true
+      }
+    },
+    "1": {
+      "own": {
+        "kendall_tau": 0.7324670207647144,
+        "selected_candidate": "bundle_k_25",
+        "selected_success_rate": 0.95,
+        "spearman_rho": 0.8078131663950782,
+        "top_regret": 0.050000000000000044,
+        "top_set_hit": false
+      },
+      "robometer": {
+        "kendall_tau": -0.50709255283711,
+        "selected_candidate": "pretrain",
+        "selected_success_rate": 0.0,
+        "spearman_rho": -0.610785564835303,
+        "top_regret": 1.0,
+        "top_set_hit": false
+      }
+    },
+    "2": {
+      "own": {
+        "kendall_tau": 0.05006261743217588,
+        "selected_candidate": "bundle_k_10",
+        "selected_success_rate": 0.95,
+        "spearman_rho": 0.1454785934906616,
+        "top_regret": 0.0,
+        "top_set_hit": true
+      },
+      "robometer": {
+        "kendall_tau": 0.5506887917539347,
+        "selected_candidate": "bundle_k_10",
+        "selected_success_rate": 0.95,
+        "spearman_rho": 0.6182840223353118,
+        "top_regret": 0.0,
+        "top_set_hit": true
+      }
+    }
+  },
+  "pooled": {
+    "own": {
+      "kendall_tau": 0.35828439921471866,
+      "spearman_rho": 0.49132616803240675
+    },
+    "robometer": {
+      "kendall_tau": -0.0656013688703006,
+      "spearman_rho": -0.1867960264005402
+    }
+  },
+  "videos": 420,
+  "winner_by_macro_spearman": "robometer"
+}

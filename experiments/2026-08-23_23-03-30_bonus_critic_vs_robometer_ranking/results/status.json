@@ -1,0 +1,16 @@
+{
+  "active_backend": null,
+  "backend_seconds": 25.28108708502259,
+  "comparison_conclusion": "no_statistically_supported_winner",
+  "completed_predictions": 840,
+  "elapsed_seconds": 25.276382862997707,
+  "expected_predictions": 840,
+  "point_estimate_winner": "robometer",
+  "predictions_per_second": 16.6163015600955,
+  "robometer_download_allocated_bytes": 5695651840,
+  "robometer_weight_bytes": 9164871238,
+  "started_at": "2026-08-23T20:26:15.993043+00:00",
+  "state": "complete",
+  "updated_at": "2026-08-23T20:37:17.488135+00:00",
+  "winner": null
+}

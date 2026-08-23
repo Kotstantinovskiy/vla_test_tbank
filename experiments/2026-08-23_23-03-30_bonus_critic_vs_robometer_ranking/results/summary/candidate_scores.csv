@@ -1,0 +1,22 @@
+task_id,instruction,candidate,success_rate,own_score,robometer_score
+0,open the middle drawer of the cabinet,pretrain,0.0,0.7758320808410645,0.3924496427178383
+0,open the middle drawer of the cabinet,bundle_k_1,0.35,0.872075206041336,0.481315603852272
+0,open the middle drawer of the cabinet,bundle_k_2,0.8,0.7932752579450607,0.6063522517681121
+0,open the middle drawer of the cabinet,bundle_k_3,0.65,0.8214465051889419,0.5229296393692493
+0,open the middle drawer of the cabinet,bundle_k_5,0.9,0.8105143576860427,0.6289923474192619
+0,open the middle drawer of the cabinet,bundle_k_10,0.85,0.8060536354780197,0.5871176987886428
+0,open the middle drawer of the cabinet,bundle_k_25,0.75,0.8275323003530503,0.5993553772568703
+1,put the bowl on the stove,pretrain,0.0,0.7843129992485046,0.4745746128261089
+1,put the bowl on the stove,bundle_k_1,0.9,0.8271686285734177,0.4034271910786629
+1,put the bowl on the stove,bundle_k_2,1.0,0.8781977355480194,0.35864751860499383
+1,put the bowl on the stove,bundle_k_3,0.95,0.8449895605444908,0.4061910256743431
+1,put the bowl on the stove,bundle_k_5,0.95,0.8741336554288864,0.4203390464186668
+1,put the bowl on the stove,bundle_k_10,0.95,0.8675024569034576,0.4241069182753563
+1,put the bowl on the stove,bundle_k_25,0.95,0.8803546816110611,0.3728076793253422
+2,put the wine bottle on top of the cabinet,pretrain,0.0,0.8080326646566391,0.7126147657632828
+2,put the wine bottle on top of the cabinet,bundle_k_1,0.85,0.7890710204839706,0.7962084501981735
+2,put the wine bottle on top of the cabinet,bundle_k_2,0.85,0.7851267278194427,0.8048342376947403
+2,put the wine bottle on top of the cabinet,bundle_k_3,0.9,0.7646446794271469,0.8092669308185577
+2,put the wine bottle on top of the cabinet,bundle_k_5,0.8,0.7642878219485283,0.8255217224359512
+2,put the wine bottle on top of the cabinet,bundle_k_10,0.95,0.8080820336937904,0.8338671118021012
+2,put the wine bottle on top of the cabinet,bundle_k_25,0.9,0.7782947003841401,0.817963832616806

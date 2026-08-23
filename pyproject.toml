@@ -4,6 +4,8 @@ version = "0.1.0"
 description = "Shared uv environment for the repository's self-contained VLA experiments"
 requires-python = ">=3.12,<3.13"
 dependencies = [
+  "bonus-critic-vs-robometer-ranking",
+  "bonus-qwen35-progress-critic",
   "base-smolvla-cost-curve",
   "goal-prompts-in-seen-hosts",
   "goal-scene-seen-prompts",
@@ -16,7 +18,6 @@ dependencies = [
   "pretrain-smolvla-bundle-all-k",
   "pretrain-smolvla-full-ft-low-k",
   "pretrain-smolvla-image-aug-low-k",
-  "pretrain-smolvla-lora-low-k",
   "pretrain-smolvla-low-k-deterministic-repro",
   "pretrain-smolvla-low-k-action-steps",
   "pretrain-smolvla-naive-baseline-few-shot-tune",
@@ -40,6 +41,8 @@ environments = [
 ]
 
 [tool.uv.sources]
+bonus-critic-vs-robometer-ranking = { workspace = true }
+bonus-qwen35-progress-critic = { workspace = true }
 base-smolvla-cost-curve = { workspace = true }
 goal-prompts-in-seen-hosts = { workspace = true }
 goal-scene-seen-prompts = { workspace = true }
@@ -52,7 +55,6 @@ pretrain-smolvla-few-shot-tune-low-k = { workspace = true }
 pretrain-smolvla-bundle-all-k = { workspace = true }
 pretrain-smolvla-full-ft-low-k = { workspace = true }
 pretrain-smolvla-image-aug-low-k = { workspace = true }
-pretrain-smolvla-lora-low-k = { workspace = true }
 pretrain-smolvla-low-k-deterministic-repro = { workspace = true }
 pretrain-smolvla-low-k-action-steps = { workspace = true }
 pretrain-smolvla-naive-baseline-few-shot-tune = { workspace = true }

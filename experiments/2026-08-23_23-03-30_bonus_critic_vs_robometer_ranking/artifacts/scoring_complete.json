@@ -1,0 +1,16 @@
+{
+  "expected_predictions_per_critic": 420,
+  "scores": {
+    "own": {
+      "path": "/home/nbagent174/bpe_test/experiments/2026-08-23_23-03-30_bonus_critic_vs_robometer_ranking/results/raw/own_critic_scores.jsonl",
+      "rows": 420,
+      "sha256": "ca27299743a4b86b9b17ab27c8d0397a3c00a471a903ce16e914c0cc0fe25f79"
+    },
+    "robometer": {
+      "path": "/home/nbagent174/bpe_test/experiments/2026-08-23_23-03-30_bonus_critic_vs_robometer_ranking/results/raw/robometer_scores.jsonl",
+      "rows": 420,
+      "sha256": "96909848dc03c0ca1e22ce238e8bf9203d79cf96d5a08b7d32a902c090301a39"
+    }
+  },
+  "sealed_at": "2026-08-23T20:26:41.611791+00:00"
+}

@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bonus-critic-vs-robometer-ranking"
+version = "0.1.0"
+description = "Bonus B blind policy ranking with a small progress critic and Robometer-4B-LIBERO"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "accelerate==1.14.0",
+  "av==15.1.0",
+  "huggingface-hub>=0.35",
+  "lerobot==0.6.1",
+  "matplotlib>=3.10",
+  "numpy>=2",
+  "peft==0.20.0",
+  "pillow>=11",
+  "PyYAML>=6",
+  "qwen-vl-utils>=0.0.14",
+  "safetensors>=0.6",
+  "scipy>=1.16",
+  "torch==2.7.1+cu126",
+  "trackio==0.33.0",
+  "transformers==5.5.4",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+bonus-ranking-prepare = "bonus_critic_vs_robometer_ranking.manifest:main"
+bonus-ranking-score = "bonus_critic_vs_robometer_ranking.score:main"
+bonus-ranking-aggregate = "bonus_critic_vs_robometer_ranking.aggregate:main"
+bonus-ranking-run = "bonus_critic_vs_robometer_ranking.orchestrate:main"
+bonus-ranking-trackio = "bonus_critic_vs_robometer_ranking.trackio_report:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true

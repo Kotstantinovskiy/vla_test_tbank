@@ -1,0 +1,8 @@
+{
+  "adapter_sha256": "1da2c8dc8a489529a66498f7d403f2f01df3004071077a5007ad9c123eb2615d",
+  "base_repo": "Qwen/Qwen3.5-4B",
+  "base_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "checkpoint": "/home/nbagent174/bpe_test/experiments/2026-08-23_20-49-13_bonus_qwen35_progress_critic/results/training/checkpoints/002000",
+  "num_progress_bins": 32,
+  "progress_head_sha256": "3caf6e809b1cf2d47bd3a314204a93b75b054f423b5b6dc1513177b780c0353c"
+}

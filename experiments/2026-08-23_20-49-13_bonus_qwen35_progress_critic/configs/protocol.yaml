@@ -1,0 +1,65 @@
+experiment:
+  name: bonus-qwen35-progress-critic
+  seed: 1000
+  scope: "Bonus B, stages 1-6 only; no checkpoint ranking and no Robometer comparison"
+
+model:
+  repo_id: Qwen/Qwen3.5-4B
+  revision: 851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a
+  dtype: bfloat16
+  num_progress_bins: 32
+  max_frames: 4
+  gradient_checkpointing: false
+  freeze_vision_encoder: true
+  lora:
+    rank: 32
+    alpha: 64
+    dropout: 0.05
+    target_modules:
+      - in_proj_qkv
+      - in_proj_z
+      - in_proj_b
+      - in_proj_a
+      - out_proj
+      - q_proj
+      - k_proj
+      - v_proj
+      - o_proj
+      - gate_proj
+      - up_proj
+      - down_proj
+
+data:
+  root: /var/tmp/vla_libero_official_rot180/libero_90
+  suite: libero_90
+  camera: observation.images.top
+  fps: 20
+  image_size: 128
+  expected_orientation: "rot180(official) == eval convention"
+  expected_source_revision: f13aa24a3da8c43c7225569f28c562979fa0e35a
+  validation_task_fraction: 0.10
+  train_samples_per_epoch: 65536
+  validation_samples: 256
+  validation_bins: [0, 4, 9, 13, 18, 22, 27, 31]
+  dataloader_workers: 8
+  video_backend: pyav
+
+training:
+  full_steps: 2000
+  benchmark_steps: 50
+  per_device_batch_size: 4
+  gradient_accumulation_steps: 1
+  learning_rate: 2.5e-5
+  weight_decay: 0.05
+  warmup_ratio: 0.10
+  max_grad_norm: 10.0
+  validation_interval_full: 100
+  validation_interval_benchmark: 25
+  validation_samples_benchmark: 64
+  save_interval: 200
+  gpu: 0
+  trackio_project: bonus-qwen35-progress-critic
+
+prompt:
+  prefix: "Task instruction: {task}\nThe following four images are chronological frames from one robot trajectory."
+  suffix: "Estimate normalized task progress after the final frame."

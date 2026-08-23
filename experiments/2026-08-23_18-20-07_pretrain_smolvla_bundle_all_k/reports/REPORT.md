@@ -1,0 +1,49 @@
+# Bundle cost curve on the official-data pretrain (k=1..25)
+
+Bundle recipe per adaptation: full fine-tune + lerobot default image
+transforms + Gaussian state noise alpha=0.10 on the normalized
+proprioception (training only) + budget-dependent steps
+(1000/1500/2000 at k=1/2/>=3). Demos are the official
+demo_0..demo_{k-1}; evaluation applies no augmentation or noise and
+runs at inference n_action_steps=50/35/25.
+Each adapted checkpoint is evaluated at inference n_action_steps=50
+(trained default) and 25 on identical per-episode seeds/init states.
+
+Normalization disclosure: k>0 points run under target-dataset statistics
+(LeRobot swaps normalizer stats at fine-tune time), while the k=0
+reference ran under pretraining statistics; both come from the same
+conversion pipeline.
+
+## Inference n_action_steps = 50
+
+| task | instruction | k=1 | k=2 | k=3 | k=5 | k=10 | k=25 |
+|---:|---|---:|---:|---:|---:|---:|---:|
+| 0 | `open the middle drawer of the cabinet` | 7/20 (0.35) | 16/20 (0.80) | 13/20 (0.65) | 18/20 (0.90) | 17/20 (0.85) | 15/20 (0.75) |
+| 1 | `put the bowl on the stove` | 18/20 (0.90) | 20/20 (1.00) | 19/20 (0.95) | 19/20 (0.95) | 19/20 (0.95) | 19/20 (0.95) |
+| 2 | `put the wine bottle on top of the cabinet` | 17/20 (0.85) | 17/20 (0.85) | 18/20 (0.90) | 16/20 (0.80) | 19/20 (0.95) | 18/20 (0.90) |
+
+## Inference n_action_steps = 35
+
+| task | instruction | k=1 | k=2 | k=3 | k=5 | k=10 | k=25 |
+|---:|---|---:|---:|---:|---:|---:|---:|
+| 0 | `open the middle drawer of the cabinet` | 4/20 (0.20) | 13/20 (0.65) | 16/20 (0.80) | 18/20 (0.90) | 16/20 (0.80) | 19/20 (0.95) |
+| 1 | `put the bowl on the stove` | 19/20 (0.95) | 19/20 (0.95) | 20/20 (1.00) | 19/20 (0.95) | 19/20 (0.95) | 20/20 (1.00) |
+| 2 | `put the wine bottle on top of the cabinet` | 17/20 (0.85) | 13/20 (0.65) | 14/20 (0.70) | 13/20 (0.65) | 17/20 (0.85) | 17/20 (0.85) |
+
+## Inference n_action_steps = 25
+
+| task | instruction | k=1 | k=2 | k=3 | k=5 | k=10 | k=25 |
+|---:|---|---:|---:|---:|---:|---:|---:|
+| 0 | `open the middle drawer of the cabinet` | 2/20 (0.10) | 13/20 (0.65) | 17/20 (0.85) | 19/20 (0.95) | 18/20 (0.90) | 19/20 (0.95) |
+| 1 | `put the bowl on the stove` | 20/20 (1.00) | 20/20 (1.00) | 20/20 (1.00) | 20/20 (1.00) | 19/20 (0.95) | 20/20 (1.00) |
+| 2 | `put the wine bottle on top of the cabinet` | 16/20 (0.80) | 15/20 (0.75) | 17/20 (0.85) | 15/20 (0.75) | 19/20 (0.95) | 19/20 (0.95) |
+
+## Cost curve
+
+k=0 (prompt-only reference): 0.000 over tasks 0-2.
+
+| mean tasks 0-2 | k=1 | k=2 | k=3 | k=5 | k=10 | k=25 |
+|---|---:|---:|---:|---:|---:|---:|
+| n=50 | 0.700 | 0.883 | 0.833 | 0.883 | 0.917 | 0.867 |
+| n=35 | 0.667 | 0.750 | 0.833 | 0.833 | 0.867 | 0.933 |
+| n=25 | 0.633 | 0.800 | 0.900 | 0.900 | 0.933 | 0.967 |
